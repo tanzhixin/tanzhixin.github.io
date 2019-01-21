@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>科研前沿</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一只冷眼">
+<meta name="keywords" content="technology universe physics chemistry biology">
+<meta property="og:type" content="website">
+<meta property="og:title" content="科研前沿">
+<meta property="og:url" content="http://tanzhixin.github.io/blog/index.html">
+<meta property="og:site_name" content="科研前沿">
+<meta property="og:description" content="一只冷眼">
+<meta property="og:locale" content="zh-cn">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="科研前沿">
+<meta name="twitter:description" content="一只冷眼">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="科研前沿" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">科研前沿</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/blog/" id="subtitle">冷眼看科研</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://tanzhixin.github.io/blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-论文2-从波长解调到相位解调" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2019/01/21/论文2-从波长解调到相位解调/" class="article-date">
+  <time datetime="2019-01-21T13:02:52.000Z" itemprop="datePublished">2019-01-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2019/01/21/论文2-从波长解调到相位解调/">论文2.从波长解调到相位解调</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Phase modulation and structural effects in a D-shaped all-solid photonic crystal fiber surface plasmon resonance sensor</p>
+<p>DOI: 10.1364/OE.22.015049</p>
+<p>SPR领域有几种解调方法：角度、波长和相位。采用相位解调时，利用锁相设计，其相位分割可以达到360/0.1，一般认为采用相位解调传感器灵敏度会得到很大的提高。原理类似下面的图片：</p>
+<p>同理，这个论断在光纤SPR下也应该成立。长期以来，尽管有很多实验报道，这其中都是默认它存在，但这个事情并不清楚。</p>
+<p>在物理上，共振要求参与集体振荡的自由电子要跑在同一相速度。同样，光纤中相速度的定义式为v=c/n，一般来说，随着波长增加，进入包层的电磁场增加，等效折射率neff呈缓慢下降趋势。在共振情况下，表面等离子体波反作用于入射光波，它使得原来跑得快的部分慢下来，原来跑得慢的变得快一些，这使得等效折射率的曲线发生细微变化；随着共振强度增加，其相位变化也变得更加显著，等效折射率的曲线会被扭曲成一个S形。</p>
+<p>利用相位的定义式 phi = k_0 Re(n_{eff}) z，就可以得到这个放大的相位变化曲线：</p>
+<p>采用不同波长的光，会得到不同的相位变化，但是如果远离了共振区，这个相位变化实际上就不那么有效了。这是我对实验论文的疑惑之处，他用了1.40的折射率匹配液和HeNe激光，按道理说共振区应该跑到700nm以外。这篇文章我看完了后，想了很长时间，他的理论部分我完全无法追踪，只好放下，当我想通了这个S形的物理时，我才发现豁然开朗。当然我非常感谢这篇论文的作者，他提供了一个不错的实验设计：通过调制解调隔绝了光源的噪声；同时这个设计还具有对称结构，能够抵抗外部环境（温度等）的噪声干扰。</p>
+<p>此外，还有一篇文章也看到了这个S扭曲，但是它用于双折射零点的分析。因此本文的贡献应该是正确地解释了一个物理现象，并且利用这个现象构造了相位传感器，从而完成从波长解调到相位解调的跨步。其他还有一些常例性的仿真。</p>
+<p>这篇文章从我进站第一年开始就看到了这个现象，当时还不知道别人也看到了，当时百思不得其解，甚至于我不报希望地先扔出去试过好几个期刊，被骂的狗血淋头，被审稿人批评是浪费他的时间。直到做完第一篇后才有机会重新捡起来再做，终于在回家的路上想起把它和相位联系起来，这才走上了正确的轨道。</p>
+<p>附：</p>
+<p>当年刚进领域，不敢造次，为了这篇文章的发表，也是构思良苦，反而令文章冗长难懂，现在回望也许觉得当初可以更简洁点，当时彼时彼境下的努力依然是值得回忆的。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://tanzhixin.github.io/blog/2019/01/21/论文2-从波长解调到相位解调/" data-id="cjr6cdfvw0003gmkh49odzksw" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-论文1-液芯模型" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2019/01/21/论文1-液芯模型/" class="article-date">
+  <time datetime="2019-01-21T13:00:08.000Z" itemprop="datePublished">2019-01-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2019/01/21/论文1-液芯模型/">论文1:液芯模型</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Improving the Sensitivity of Fiber Surface Plasmon Resonance Sensor by Filling Liquid in a Hollow Core Photonic Crystal Fiber</p>
+<p>DOI：10.1007/s11468-013-9609-8</p>
+<p>从原理思考直接构筑新传感器</p>
+<p>这是我的第一篇2区SCI，从思考、撰写到出版总共半年，算是非常快的，其间还历经了OE拒收和重新投稿。因为这篇文章讲述的模型非常简洁直观，一审后小修就收录了。</p>
+<p>我博士后的课题为光纤表面等离子体共振传感器，它利用的是表面等离子体共振现象。入射光电场的投影分量激发金属薄膜内的自由电子振荡，产生表面等离子体波。表面等离子体波是一种表面电磁场，它存在于在金属薄膜与介质环境的界面上。在相位匹配的条件下，入射光能量被电子吸收，发生能量的转移，入射光的能量被转化成该表面等离子体波的能量，从而在传输效率谱上出现共振吸收峰。这个共振峰的位置与界面上的环境折射率有关，利用共振峰的移动就可以用来测量表面的折射率，进而对应于表面质量负载的变化，用于生化反应的亲和性分析。</p>
+<p>Kretchmann configuration</p>
+<p>既然是共振现象，那么就有两种电磁场模式，在两种模式的交点位置他们的相位匹配(k_x=k_sp)，用图表示出来就是这样的:</p>
+<p>作为传感器研究，我们希望单位表面折射率的变化下，共振峰的移动越大越好，那么我们就可以画出两种情况下的交点位置的情况，光纤主模与两个表面等离子体模出现两个交点AB。我们发现如果能够把主模的位置降低的话，显然这样两个交点之间的差值越大，也就是传感器的波长变化越大，传感器越灵敏。</p>
+<p>最妙的是，如果我们能够画一条穿过AC两点的斜线，那么他的波长移动就再增加一倍。这个可以通过填充高色散、低折射率的溶液解决。所以，就有了我们的传感器设计和它的工作原理图。</p>
+<p>[填充液体的D形光纤SPR传感器]</p>
+<p>这项工作的贡献在于提供了一个非常直观的物理模型，并且在SPR领域引入了色散的概念，从而可以从更基础的层面去理解光纤SPR传感器的工作。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://tanzhixin.github.io/blog/2019/01/21/论文1-液芯模型/" data-id="cjr6cdfvm0002gmkh7fe7kdhh" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-test-中文" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2019/01/21/test-中文/" class="article-date">
+  <time datetime="2019-01-21T12:17:38.000Z" itemprop="datePublished">2019-01-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2019/01/21/test-中文/">test 中文</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>init</p>
+<p>$ hexo init [folder]</p>
+<p>新建一个网站。如果没有设置 folder ，Hexo 默认在目前的文件夹建立网站。<br>new</p>
+<p>$ hexo new [layout] <title></title></p>
+<p>新建一篇文章。如果没有设置 layout 的话，默认使用 _config.yml 中的 default_layout 参数代替。如果标题包含空格的话，请使用引号括起来。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://tanzhixin.github.io/blog/2019/01/21/test-中文/" data-id="cjr6cdfvj0001gmkhnf4yoijx" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-hello-world" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2019/01/21/hello-world/" class="article-date">
+  <time datetime="2019-01-21T12:05:28.925Z" itemprop="datePublished">2019-01-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2019/01/21/hello-world/">Hello World</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://tanzhixin.github.io/blog/2019/01/21/hello-world/" data-id="cjr6cdfvd0000gmkhkyqxt3ot" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/01/">一月 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2019/01/21/论文2-从波长解调到相位解调/">论文2.从波长解调到相位解调</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2019/01/21/论文1-液芯模型/">论文1:液芯模型</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2019/01/21/test-中文/">test 中文</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2019/01/21/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Thomas<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
