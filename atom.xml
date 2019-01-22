@@ -20,7 +20,7 @@
     <title>Hello World</title>
     <link href="http://tanzhixin.github.io/2019/01/22/hello-world/"/>
     <id>http://tanzhixin.github.io/2019/01/22/hello-world/</id>
-    <published>2019-01-22T08:14:07.491Z</published>
+    <published>2019-01-22T08:32:52.606Z</published>
     <updated>2019-01-21T12:05:28.925Z</updated>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
@@ -64,15 +64,15 @@
     <link href="http://tanzhixin.github.io/2019/01/22/%E5%B0%86%E5%B7%B2%E6%9C%89%E7%94%A8%E6%88%B7%E5%8A%A0%E5%85%A5%E5%B7%B2%E6%9C%89%E7%94%A8%E6%88%B7%E7%BB%84/"/>
     <id>http://tanzhixin.github.io/2019/01/22/将已有用户加入已有用户组/</id>
     <published>2019-01-22T01:04:19.000Z</published>
-    <updated>2019-01-22T01:05:20.004Z</updated>
+    <updated>2019-01-22T08:44:08.380Z</updated>
     
-    <content type="html"><![CDATA[<p>usermod -a -g <group> <user></user></group></p>]]></content>
+    <content type="html"><![CDATA[<p>usermod -a -g <group> <user><br><img src="/2019/01/22/将已有用户加入已有用户组/group.jpg" title="用户组"></user></group></p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;usermod -a -g &lt;group&gt; &lt;user&gt;&lt;/user&gt;&lt;/group&gt;&lt;/p&gt;
+        &lt;p&gt;usermod -a -g &lt;group&gt; &lt;user&gt;&lt;br&gt;&lt;img src=&quot;/2019/01/22/将已有用户加入已有用户组/group.jpg&quot; title=&quot;用户组&quot;&gt;&lt;/user&gt;&lt;/group&gt;&lt;/p&gt;
 
       
     
@@ -130,7 +130,7 @@
     <link href="http://tanzhixin.github.io/2019/01/21/test-%E4%B8%AD%E6%96%87/"/>
     <id>http://tanzhixin.github.io/2019/01/21/test-中文/</id>
     <published>2019-01-21T12:17:38.000Z</published>
-    <updated>2019-01-22T02:02:44.132Z</updated>
+    <updated>2019-01-22T08:41:48.528Z</updated>
     
     <content type="html"><![CDATA[<p>init</p><p>$ hexo init [folder]</p><p>新建一个网站。如果没有设置 folder ，Hexo 默认在目前的文件夹建立网站。<br>new</p><p>$ hexo new [layout] <title></title></p><p>新建一篇文章。如果没有设置 layout 的话，默认使用 _config.yml 中的 default_layout 参数代替。如果标题包含空格的话，请使用引号括起来。</p>]]></content>
     
