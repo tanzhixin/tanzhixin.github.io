@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>大道至简</title>
+  
+  <subtitle>吾生也有涯,而知也无涯。以有涯随无涯,殆已。</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://tanzhixin.github.io/"/>
+  <updated>2019-01-21T12:05:28.925Z</updated>
+  <id>http://tanzhixin.github.io/</id>
+  
+  <author>
+    <name>Thomas</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://tanzhixin.github.io/2019/01/22/hello-world/"/>
+    <id>http://tanzhixin.github.io/2019/01/22/hello-world/</id>
+    <published>2019-01-22T08:14:07.491Z</published>
+    <updated>2019-01-21T12:05:28.925Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>imagemagick用法</title>
+    <link href="http://tanzhixin.github.io/2019/01/22/imagemagick%E7%94%A8%E6%B3%95/"/>
+    <id>http://tanzhixin.github.io/2019/01/22/imagemagick用法/</id>
+    <published>2019-01-22T06:45:27.000Z</published>
+    <updated>2019-01-22T06:52:14.053Z</updated>
+    
+    <content type="html"><![CDATA[<p>imagemagick是一个很高效的命令行图片处理工具，可以结合shell编程实现批量处理，加快处理效率。一般我用来批量处理的工作有：批量改变大小、批量改变添加水印等。</p><img src="/2019/01/22/imagemagick用法/imagemagick.png" title="白胡子老头"><p>imagemagick用法：</p><p>命令格式如下：</p><p>convert &lt;输入图片名&gt; [+/-命令和命令的参数]* &lt;输出图片名&gt;</p><p>常用的命令有：</p><p>-crop 宽x高+起点横坐标+起点纵坐标：裁剪图[]</p><p>-resize 宽x高[!]：改变尺寸，如果使用惊叹号，表示不保留视觉比例，强行改变尺寸匹配给定的宽和高</p><p>-colors 颜色数：设定图片采用的颜色数，如果是生成png或gif图片应指定这个参数</p><p>-quality 质量：设定jpeg图片输出质量，推荐采用80，此命令仅用于输出格式是jpg的情况，不应省略，省略的话默认质量是95，生成图片过大+profile “*”：图片中不存储附加信息，必须使用，否则生成图片过大</p><p>1、看图片： display命令；如果想看这个文件夹下的所有图片，display *即可。space是翻页；</p><p>2、调整图片大小： convert -resize xxx*xxx a.jpg b.jpg 这是用解析度为参数；其实更方便的是用相对大小， convert -resize 25% a.jpg b.jpg。这个命令支持批处理，很赞；</p><p>3、改变图片格式： convert a.jpg b.bmp等等，随便写，靠后缀来识别。当图片需要跨平台时，这个功能显得尤为实用；</p><p>4、批量生成缩略图： mogrify -sample 80<em>60 </em>.jpg 不过这个命令会覆盖原有的文件，操作前需要进行原始文件的备份；</p><p>5、图片加框（非常实用）：convert -border 60*60 “#000000″ a.jpg b.jpg，这里，60＊60是表示边框的宽度，第一个是纵边框的宽度，第二个是横边框的宽度，＃000000是RGB格式的边框色彩，通常不是黑色就是 白色，无所谓了；</p><p>6、在图片上加上文字：对于图片分来来说，很是赞，convert -fill green -pointsize 40 -draw ‘text 10,50 “charry.org”‘ a.jpg b.jpg。表示在距离图片左上角10＊50的位置处，用绿色的文字写下charry.org，如果要指定别的字体，可以用 -font参数；</p><p>7、高斯模糊：convert -blur 80 a.jpg b.jpg 参数还可以写成 -blur 80*5 后面的5表示sigma值；</p><p>8、上下翻转： convert -flip a.jpg b.jpg</p><p>9、左右翻转： convert -flop a.jpg b.jpg</p><p>10、反色，形成底片的样子 convert -negate a.jpg b.jpg</p><p>11、变成黑白色：convert -monochrome a.jpg b.jpg 是黑白色，不是灰度图</p><p>12、油画的效果，有的时候很有感觉 convert -paint 4 a.jpg b.jpg</p><p>13、旋转一定角度： convert -rotate 30 a.jpg b.jpg</p><p>14、炭笔的效果，和油画的使用方法一样，把paint 换成 charcoal</p><p>15、毛玻璃效果，同上，参数为 -spread</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;imagemagick是一个很高效的命令行图片处理工具，可以结合shell编程实现批量处理，加快处理效率。一般我用来批量处理的工作有：批量改变大小、批量改变添加水印等。&lt;/p&gt;
+&lt;img src=&quot;/2019/01/22/imagemagick用法/imagemagick.
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>将已有用户加入已有用户组</title>
+    <link href="http://tanzhixin.github.io/2019/01/22/%E5%B0%86%E5%B7%B2%E6%9C%89%E7%94%A8%E6%88%B7%E5%8A%A0%E5%85%A5%E5%B7%B2%E6%9C%89%E7%94%A8%E6%88%B7%E7%BB%84/"/>
+    <id>http://tanzhixin.github.io/2019/01/22/将已有用户加入已有用户组/</id>
+    <published>2019-01-22T01:04:19.000Z</published>
+    <updated>2019-01-22T01:05:20.004Z</updated>
+    
+    <content type="html"><![CDATA[<p>usermod -a -g <group> <user></user></group></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;usermod -a -g &lt;group&gt; &lt;user&gt;&lt;/user&gt;&lt;/group&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>德国科学家在 Wiley 期刊上发表的论文将免费公开</title>
+    <link href="http://tanzhixin.github.io/2019/01/22/%E5%BE%B7%E5%9B%BD%E7%A7%91%E5%AD%A6%E5%AE%B6%E5%9C%A8Wiley%E6%9C%9F%E5%88%8A%E4%B8%8A%E5%8F%91%E8%A1%A8%E7%9A%84%E8%AE%BA%E6%96%87%E5%B0%86%E5%85%8D%E8%B4%B9%E5%85%AC%E5%BC%80/"/>
+    <id>http://tanzhixin.github.io/2019/01/22/德国科学家在Wiley期刊上发表的论文将免费公开/</id>
+    <published>2019-01-21T22:02:36.000Z</published>
+    <updated>2019-01-22T07:14:14.165Z</updated>
+    
+    <content type="html"><![CDATA[<p>由德国图书馆、高校和研究机构组建的联盟 Project DEAL 与学术出版商 Wiley 签署了<a href="https://www.the-scientist.com/news-opinion/german-institutions-and-wiley-reach-open-access-publishing-deal-65327" title="协议" target="_blank" rel="noopener">开放获取协议</a>，根据为期 3 年的合约，700 多家德国研究机构的科学家将能获得 Wiley 旗下所有学术期刊 1997 年之后的全部访问权，而德国科学家在 Wiley 期刊上发表的论文将对所有人免费公开。</p><p><img src="robert-jan-smits-hero-x.jpg" alt="协议" title="协议"></p><p>协议细节将在一个月后公开。Wiley 总编辑 Guido Herrmann 表示，这是首个出版商和科研领先的国家就向开放获取转变达成的合约。“我们相信，在致力于更加开放的获取和开放科学的运动中，这是一个重要且特殊的时刻。”Herrmann 说。最新合约可能增加对爱思唯尔和施普林格的压力。这两家出版商也是 Project DEAL 一直谈判的对象。</p><p>Project DEAL 已同施普林格达成一项过渡协议，但同爱思唯尔的对话似乎已经停止</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;由德国图书馆、高校和研究机构组建的联盟 Project DEAL 与学术出版商 Wiley 签署了&lt;a href=&quot;https://www.the-scientist.com/news-opinion/german-institutions-and-wiley-reach-
+      
+    
+    </summary>
+    
+    
+      <category term="openaccess" scheme="http://tanzhixin.github.io/tags/openaccess/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>土星上的一天是10小时33分38秒</title>
+    <link href="http://tanzhixin.github.io/2019/01/21/%E5%9C%9F%E6%98%9F%E4%B8%8A%E7%9A%84%E4%B8%80%E5%A4%A9/"/>
+    <id>http://tanzhixin.github.io/2019/01/21/土星上的一天/</id>
+    <published>2019-01-21T14:43:55.000Z</published>
+    <updated>2019-01-22T07:24:30.954Z</updated>
+    
+    <content type="html"><![CDATA[<p>根据卡西尼号探测器收集的数据，NASA 报告土星的环形成于 1000 万至 1 亿年前，比土星的形成要晚得多，而土星上的一天是 10 小时 33 分 38 秒，比以前的。由于土星没有固体表面，它的旋转难以跟踪，而它不寻常的磁场也隐藏了其旋转速度。利用卡西尼号的数据，科学家发现答案就在它的环里。 Christopher Mankovich 利用数据去分析了土星环内的波浪模式，环能响应行星内部的振动，其作用类似地震仪。通过了解环的波浪模式可以推断土星的内部结构。他的研究报告发表在《Astrophysical Journal》期刊上。最新结果 10:33:38 比 1981 年根据旅行者号数据估计的 10:39:23 要快。 </p><img src="/2019/01/21/土星上的一天/tuxing.jpg" title="土星环"><p>美丽的土星环</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;根据卡西尼号探测器收集的数据，NASA 报告土星的环形成于 1000 万至 1 亿年前，比土星的形成要晚得多，而土星上的一天是 10 小时 33 分 38 秒，比以前的。由于土星没有固体表面，它的旋转难以跟踪，而它不寻常的磁场也隐藏了其旋转速度。利用卡西尼号的数据，科学家发
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>test 中文</title>
+    <link href="http://tanzhixin.github.io/2019/01/21/test-%E4%B8%AD%E6%96%87/"/>
+    <id>http://tanzhixin.github.io/2019/01/21/test-中文/</id>
+    <published>2019-01-21T12:17:38.000Z</published>
+    <updated>2019-01-22T02:02:44.132Z</updated>
+    
+    <content type="html"><![CDATA[<p>init</p><p>$ hexo init [folder]</p><p>新建一个网站。如果没有设置 folder ，Hexo 默认在目前的文件夹建立网站。<br>new</p><p>$ hexo new [layout] <title></title></p><p>新建一篇文章。如果没有设置 layout 的话，默认使用 _config.yml 中的 default_layout 参数代替。如果标题包含空格的话，请使用引号括起来。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;init&lt;/p&gt;
+&lt;p&gt;$ hexo init [folder]&lt;/p&gt;
+&lt;p&gt;新建一个网站。如果没有设置 folder ，Hexo 默认在目前的文件夹建立网站。&lt;br&gt;new&lt;/p&gt;
+&lt;p&gt;$ hexo new [layout] &lt;title&gt;&lt;/title&gt;&lt;/p&gt;
+&lt;
+      
+    
+    </summary>
+    
+      <category term="test" scheme="http://tanzhixin.github.io/categories/test/"/>
+    
+    
+      <category term="hello" scheme="http://tanzhixin.github.io/tags/hello/"/>
+    
+  </entry>
+  
+</feed>
