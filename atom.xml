@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://tanzhixin.github.io/"/>
-  <updated>2019-01-21T12:05:28.925Z</updated>
+  <updated>2019-01-23T23:56:43.976Z</updated>
   <id>http://tanzhixin.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hexo的ssh免密deploy</title>
+    <link href="http://tanzhixin.github.io/2019/01/24/hexo%E7%9A%84ssh%E5%85%8D%E5%AF%86deploy/"/>
+    <id>http://tanzhixin.github.io/2019/01/24/hexo的ssh免密deploy/</id>
+    <published>2019-01-23T23:54:29.000Z</published>
+    <updated>2019-01-23T23:56:43.976Z</updated>
+    
+    <content type="html"><![CDATA[<p>[%codeblock %]</p><p>免密推送到github才能好用</p><p>deploy:<br>  type: git<br>  repo: ssh:<a href="mailto://git@github.com" target="_blank" rel="noopener">//git@github.com</a>/xxxxxxxxx/xxxxxxxxx.github.io.git<br>  branch: master</p><p>[%endcodeblock%]</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;[%codeblock %]&lt;/p&gt;
+&lt;p&gt;免密推送到github才能好用&lt;/p&gt;
+&lt;p&gt;deploy:&lt;br&gt;  type: git&lt;br&gt;  repo: ssh:&lt;a href=&quot;mailto://git@github.com&quot; target=&quot;_blank&quot; rel=
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
