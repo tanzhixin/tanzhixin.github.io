@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://tanzhixin.github.io/"/>
-  <updated>2019-01-24T00:03:32.813Z</updated>
+  <updated>2019-01-29T06:12:42.006Z</updated>
   <id>http://tanzhixin.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SL7下安装odoo12</title>
+    <link href="http://tanzhixin.github.io/2019/01/29/SL7%E4%B8%8B%E5%AE%89%E8%A3%85odoo12/"/>
+    <id>http://tanzhixin.github.io/2019/01/29/SL7下安装odoo12/</id>
+    <published>2019-01-29T03:16:33.000Z</published>
+    <updated>2019-01-29T06:12:42.006Z</updated>
+    
+    <content type="html"><![CDATA[<p>参考 <a href="https://linuxize.com/post/install-odoo-12-on-centos-7/" target="_blank" rel="noopener">https://linuxize.com/post/install-odoo-12-on-centos-7/</a></p><p>缘起：用户管理需求，测试小型CRM及ERP工具，ZOHO相对来说不自由，于是用云服务器作了一个自己可控的系统</p><p>odoo前身是openerp，是挪威一个哥们写的开源ERP系统，对标的是SAP，目前最新版本是odoo12，发展方向是多功能线上管理系统，目标用户是中小型企业，其他就不多说了。</p><p>1 安装Python 3.6</p><p>SL7的一个麻烦就是python36要先找centos7的SCL源的rpm包，把这个安装上去，后面才能和centos7一样，repo里自带的python36包不全，所以要用SCL源里的rh-python36。</p><figure class="highlight plain"><figcaption><span>install python36</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">yum install rh-python36 git gcc wget nodejs-less libxslt-devel bzip2-devel openldap-devel libjpeg-devel freetype-devel postgresql-devel</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>2 创建系统用户odoo2、用户组以及目录：<br><figure class="highlight plain"><figcaption><span>创建用户</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#useradd -m -U -r -d /opt/odoo12 -s /bin/bash odoo12</span><br></pre></td></tr></table></figure></p><p>3 安装pgsql-10<br>当然要用最新的pg，只能用从官方的源来安装了。</p><figure class="highlight plain"><figcaption><span>添加pgsql官方源</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-centos10-10-2.noarch.rpm</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;参考 &lt;a href=&quot;https://linuxize.com/post/install-odoo-12-on-centos-7/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://linuxize.com/post/install-odoo
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>hexo的ssh免密deploy</title>
