@@ -96,12 +96,13 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\SESSION_NAME]</span><br><span class="line"></span><br><span class="line">; Default Foreground</span><br><span class="line">&quot;Colour0&quot;=&quot;217,216,216&quot;</span><br><span class="line">; Default Bold Foreground</span><br><span class="line">&quot;Colour1&quot;=&quot;217,216,216&quot;</span><br><span class="line">; Default Background</span><br><span class="line">&quot;Colour2&quot;=&quot;28,28,28&quot;</span><br><span class="line">; Default Background</span><br><span class="line">&quot;Colour3&quot;=&quot;28,63,149&quot;</span><br><span class="line">; Cursor Text</span><br><span class="line">&quot;Colour4&quot;=&quot;28,28,28&quot;</span><br><span class="line">; Cursor Color</span><br><span class="line">&quot;Colour5&quot;=&quot;231,231,232&quot;</span><br><span class="line">; ANSI Black</span><br><span class="line">&quot;Colour6&quot;=&quot;115,113,113&quot;</span><br><span class="line">; ANSI Black Bold</span><br><span class="line">&quot;Colour7&quot;=&quot;115,113,113&quot;</span><br><span class="line">; ANSI Red</span><br><span class="line">&quot;Colour8&quot;=&quot;251,38,8&quot;</span><br><span class="line">; ANSI Red Bold</span><br><span class="line">&quot;Colour9&quot;=&quot;251,38,8&quot;</span><br><span class="line">; ANSI Green</span><br><span class="line">&quot;Colour10&quot;=&quot;167,226,46&quot;</span><br><span class="line">; ANSI Green Bold</span><br><span class="line">&quot;Colour11&quot;=&quot;167,226,46&quot;</span><br><span class="line">; ANSI Yellow</span><br><span class="line">&quot;Colour12&quot;=&quot;102,217,238&quot;</span><br><span class="line">; ANSI Yellow Bold</span><br><span class="line">&quot;Colour13&quot;=&quot;102,217,238&quot;</span><br><span class="line">; ANSI Blue</span><br><span class="line">&quot;Colour14&quot;=&quot;0,157,220&quot;</span><br><span class="line">; ANSI Blue Bold</span><br><span class="line">&quot;Colour15&quot;=&quot;0,157,220&quot;</span><br><span class="line">; ANSI Magenta</span><br><span class="line">&quot;Colour16&quot;=&quot;255,85,255&quot;</span><br><span class="line">; ANSI Magenta Bold</span><br><span class="line">&quot;Colour17&quot;=&quot;255,85,255&quot;</span><br><span class="line">; ANSI Cyan</span><br><span class="line">&quot;Colour18&quot;=&quot;255,210,4&quot;</span><br><span class="line">; ANSI Cyan Bold</span><br><span class="line">&quot;Colour19&quot;=&quot;255,210,4&quot;</span><br><span class="line">; ANSI White</span><br><span class="line">&quot;Colour20&quot;=&quot;217,216,216&quot;</span><br><span class="line">; ANSI White Bold</span><br><span class="line">&quot;Colour21&quot;=&quot;255,255,255&quot;</span><br></pre></td></tr></table></figure>
 <p>保存为reg文件后合并，注意将上述session name替换成自己的。</p>
 <p>2 putty的密匙</p>
-<p>   1) puttygen.exe导入自己的私匙，<br>   2) 保存私匙（ppk格式）<br>   3) session中auth中指定ppk私匙。</p>
+<p>   a. puttygen.exe导入自己的私匙，<br>   b. 保存私匙（ppk格式）<br>   c. session中auth中指定ppk私匙。</p>
+<p>3 连接保持<br>  见图，keepalive 20s<br></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tanzhixin.github.io/2019/02/13/putty的配色和密匙/" data-id="cjs36rzw60007onkhfxanp2qh" class="article-share-link">Share</a>
+      <a data-url="http://tanzhixin.github.io/2019/02/13/putty的配色和密匙/" data-id="cjs37onqy0007wykhax3hecbj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -180,7 +181,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tanzhixin.github.io/2019/01/29/SL7下安装odoo12/" data-id="cjs36rzvn0001onkhktiotm29" class="article-share-link">Share</a>
+      <a data-url="http://tanzhixin.github.io/2019/01/29/SL7下安装odoo12/" data-id="cjs37onqf0001wykhaginb0qf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -218,7 +219,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tanzhixin.github.io/2019/01/24/hexo的ssh免密deploy/" data-id="cjs36rzvt0004onkhusfsr8lx" class="article-share-link">Share</a>
+      <a data-url="http://tanzhixin.github.io/2019/01/24/hexo的ssh免密deploy/" data-id="cjs37onqv0004wykhkavkukby" class="article-share-link">Share</a>
       
       
     </footer>
@@ -263,7 +264,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tanzhixin.github.io/2019/01/22/hello-world/" data-id="cjs36rzvr0003onkhi8neq6mm" class="article-share-link">Share</a>
+      <a data-url="http://tanzhixin.github.io/2019/01/22/hello-world/" data-id="cjs37onqs0003wykh4azxbgxw" class="article-share-link">Share</a>
       
       
     </footer>
@@ -324,7 +325,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tanzhixin.github.io/2019/01/22/imagemagick用法/" data-id="cjs36rzw40005onkhi12pfqz8" class="article-share-link">Share</a>
+      <a data-url="http://tanzhixin.github.io/2019/01/22/imagemagick用法/" data-id="cjs37onqw0005wykh7vn5bati" class="article-share-link">Share</a>
       
       
     </footer>
@@ -361,7 +362,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tanzhixin.github.io/2019/01/22/将已有用户加入已有用户组/" data-id="cjs36rzwe000conkhm0kktpsf" class="article-share-link">Share</a>
+      <a data-url="http://tanzhixin.github.io/2019/01/22/将已有用户加入已有用户组/" data-id="cjs37onr4000cwykh0qhfpgjm" class="article-share-link">Share</a>
       
       
     </footer>
@@ -401,7 +402,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tanzhixin.github.io/2019/01/22/德国科学家在Wiley期刊上发表的论文将免费公开/" data-id="cjs36rzwh000donkhgtrm4806" class="article-share-link">Share</a>
+      <a data-url="http://tanzhixin.github.io/2019/01/22/德国科学家在Wiley期刊上发表的论文将免费公开/" data-id="cjs37onr5000dwykh7gqxmnip" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openaccess/">openaccess</a></li></ul>
@@ -442,7 +443,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tanzhixin.github.io/2019/01/21/土星上的一天/" data-id="cjs36rzwa0009onkhozvqf6ke" class="article-share-link">Share</a>
+      <a data-url="http://tanzhixin.github.io/2019/01/21/土星上的一天/" data-id="cjs37onr00009wykhh34kmhdx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -487,7 +488,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tanzhixin.github.io/2019/01/21/test-中文/" data-id="cjs36rzw80008onkhejowob54" class="article-share-link">Share</a>
+      <a data-url="http://tanzhixin.github.io/2019/01/21/test-中文/" data-id="cjs37onqz0008wykhqobz1zj0" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hello/">hello</a></li></ul>
