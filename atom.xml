@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://tanzhixin.github.io/"/>
-  <updated>2019-01-29T16:05:23.032Z</updated>
+  <updated>2019-02-13T12:23:17.153Z</updated>
   <id>http://tanzhixin.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>putty的配色和密匙</title>
+    <link href="http://tanzhixin.github.io/2019/02/13/putty%E7%9A%84%E9%85%8D%E8%89%B2%E5%92%8C%E5%AF%86%E5%8C%99/"/>
+    <id>http://tanzhixin.github.io/2019/02/13/putty的配色和密匙/</id>
+    <published>2019-02-13T12:19:05.000Z</published>
+    <updated>2019-02-13T12:23:17.153Z</updated>
+    
+    <content type="html"><![CDATA[<p>配色问题，可以通过注册表文件指定任务的几种颜色来设置，具体如下：</p><figure class="highlight plain"><figcaption><span>putty</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\SESSION_NAME]</span><br><span class="line"></span><br><span class="line">; Default Foreground</span><br><span class="line">&quot;Colour0&quot;=&quot;217,216,216&quot;</span><br><span class="line">; Default Bold Foreground</span><br><span class="line">&quot;Colour1&quot;=&quot;217,216,216&quot;</span><br><span class="line">; Default Background</span><br><span class="line">&quot;Colour2&quot;=&quot;28,28,28&quot;</span><br><span class="line">; Default Background</span><br><span class="line">&quot;Colour3&quot;=&quot;28,63,149&quot;</span><br><span class="line">; Cursor Text</span><br><span class="line">&quot;Colour4&quot;=&quot;28,28,28&quot;</span><br><span class="line">; Cursor Color</span><br><span class="line">&quot;Colour5&quot;=&quot;231,231,232&quot;</span><br><span class="line">; ANSI Black</span><br><span class="line">&quot;Colour6&quot;=&quot;115,113,113&quot;</span><br><span class="line">; ANSI Black Bold</span><br><span class="line">&quot;Colour7&quot;=&quot;115,113,113&quot;</span><br><span class="line">; ANSI Red</span><br><span class="line">&quot;Colour8&quot;=&quot;251,38,8&quot;</span><br><span class="line">; ANSI Red Bold</span><br><span class="line">&quot;Colour9&quot;=&quot;251,38,8&quot;</span><br><span class="line">; ANSI Green</span><br><span class="line">&quot;Colour10&quot;=&quot;167,226,46&quot;</span><br><span class="line">; ANSI Green Bold</span><br><span class="line">&quot;Colour11&quot;=&quot;167,226,46&quot;</span><br><span class="line">; ANSI Yellow</span><br><span class="line">&quot;Colour12&quot;=&quot;102,217,238&quot;</span><br><span class="line">; ANSI Yellow Bold</span><br><span class="line">&quot;Colour13&quot;=&quot;102,217,238&quot;</span><br><span class="line">; ANSI Blue</span><br><span class="line">&quot;Colour14&quot;=&quot;0,157,220&quot;</span><br><span class="line">; ANSI Blue Bold</span><br><span class="line">&quot;Colour15&quot;=&quot;0,157,220&quot;</span><br><span class="line">; ANSI Magenta</span><br><span class="line">&quot;Colour16&quot;=&quot;255,85,255&quot;</span><br><span class="line">; ANSI Magenta Bold</span><br><span class="line">&quot;Colour17&quot;=&quot;255,85,255&quot;</span><br><span class="line">; ANSI Cyan</span><br><span class="line">&quot;Colour18&quot;=&quot;255,210,4&quot;</span><br><span class="line">; ANSI Cyan Bold</span><br><span class="line">&quot;Colour19&quot;=&quot;255,210,4&quot;</span><br><span class="line">; ANSI White</span><br><span class="line">&quot;Colour20&quot;=&quot;217,216,216&quot;</span><br><span class="line">; ANSI White Bold</span><br><span class="line">&quot;Colour21&quot;=&quot;255,255,255&quot;</span><br></pre></td></tr></table></figure><p>保存为reg文件后合并，注意将上述session name替换成自己的。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;配色问题，可以通过注册表文件指定任务的几种颜色来设置，具体如下：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;figcaption&gt;&lt;span&gt;putty&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gut
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>SL7下安装odoo12</title>
