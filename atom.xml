@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://tanzhixin.github.io/"/>
-  <updated>2019-02-28T02:48:49.142Z</updated>
+  <updated>2019-03-15T14:45:14.527Z</updated>
   <id>http://tanzhixin.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>windows版rxtx驱动安装</title>
+    <link href="http://tanzhixin.github.io/2019/03/15/windows%E7%89%88rxtx%E9%A9%B1%E5%8A%A8%E5%AE%89%E8%A3%85/"/>
+    <id>http://tanzhixin.github.io/2019/03/15/windows版rxtx驱动安装/</id>
+    <published>2019-03-15T14:41:32.000Z</published>
+    <updated>2019-03-15T14:45:14.527Z</updated>
+    
+    <content type="html"><![CDATA[<p>1 到 <a href="http://rxtx.qbang.org/wiki/index.php/Download" target="_blank" rel="noopener">http://rxtx.qbang.org/wiki/index.php/Download</a> 下载pre-build的zip包，解压备用<br>2 RXTXcomm.jar      JAVAHOME\jre\lib\ext<br>3 rxtxSerial.dll    JAVAHOME\jre\bin </p><p>ok!</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;1 到 &lt;a href=&quot;http://rxtx.qbang.org/wiki/index.php/Download&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://rxtx.qbang.org/wiki/index.php/Download&lt;
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>DNS列表</title>
