@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://tanzhixin.github.io/"/>
-  <updated>2019-03-15T14:45:14.527Z</updated>
+  <updated>2019-04-03T00:32:17.214Z</updated>
   <id>http://tanzhixin.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>NI-visa programming</title>
+    <link href="http://tanzhixin.github.io/2019/04/03/NI-visa-programming/"/>
+    <id>http://tanzhixin.github.io/2019/04/03/NI-visa-programming/</id>
+    <published>2019-04-03T00:30:50.000Z</published>
+    <updated>2019-04-03T00:32:17.214Z</updated>
+    
+    <content type="html"><![CDATA[<p>tutor</p><p><a href="http://www.ni.com/tutorial/4478/zhs/" target="_blank" rel="noopener">http://www.ni.com/tutorial/4478/zhs/</a></p><p>manual </p><p><a href="https://documentation.help/NI-VISA/ExampleMessageBasedComm.html#Example" target="_blank" rel="noopener">https://documentation.help/NI-VISA/ExampleMessageBasedComm.html#Example</a> </p><p>and example</p><p><a href="http://ena.support.keysight.com/e5071c/manuals/webhelp/eng/programming/vba_programming/controlling_peripherals/programming_with_visa.htm" target="_blank" rel="noopener">http://ena.support.keysight.com/e5071c/manuals/webhelp/eng/programming/vba_programming/controlling_peripherals/programming_with_visa.htm</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;tutor&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.ni.com/tutorial/4478/zhs/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://www.ni.com/tutorial/4478/zhs/&lt;/a&gt;&lt;/p&gt;
+&lt;
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>windows版rxtx驱动安装</title>
