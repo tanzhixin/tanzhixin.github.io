@@ -70,6 +70,50 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-visual-studio-compile-error" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/12/visual-studio-compile-error/" class="article-date">
+  <time datetime="2019-04-12T03:12:21.000Z" itemprop="datePublished">2019-04-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/12/visual-studio-compile-error/">visual studio compile error</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>添加头文件目录：<br>   配置属性–&gt;C/C++–&gt;常规–&gt;附加包含目录 加上头文件存放的目录。</p>
+</li>
+<li><p>添加lib文件：</p>
+<p>1) 配置属性–&gt;链接器–&gt;输入–&gt;附加依赖项加入库名（×××.lib）；或者是在cpp源文件中用#pragma comment(lib,”×××.lib”)来代替。<br>   此时编译会提示：fatal error LNK1104: 无法打开文件“×××.lib”，原因是编译器找不到lib文件。<br>   给项目添加库文件路径<br>   在VS中右击项目点属性：<br>   配置属性–&gt;链接器–&gt;常规–&gt;附加目录 。在里面填上库文件所在的路径即可。</p>
+<p>2) 直接添加库文件到工程中.<br>   就像你添加.h和.cpp文件一样,把lib文件添加到工程文件列表中去。右键项目点添加选择现有项目，选择lib文件点确定即可。这个方法适用于在工程的debug版本和Release版本中都使用同一个lib库文件。</p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://tanzhixin.github.io/2019/04/12/visual-studio-compile-error/" data-id="cjudi12cm00046ljgnlkehve8" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-NI-visa-programming" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/04/03/NI-visa-programming/" class="article-date">
@@ -102,7 +146,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tanzhixin.github.io/2019/04/03/NI-visa-programming/" data-id="cju0h8o9h00001jjgxcksnvpx" class="article-share-link">Share</a>
+      <a data-url="http://tanzhixin.github.io/2019/04/03/NI-visa-programming/" data-id="cjudi12dy000m6ljgo2ldzx50" class="article-share-link">Share</a>
       
       
     </footer>
@@ -140,7 +184,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tanzhixin.github.io/2019/03/15/windows版rxtx驱动安装/" data-id="cju0h8obt000l1jjgvsz1ih40" class="article-share-link">Share</a>
+      <a data-url="http://tanzhixin.github.io/2019/03/15/windows版rxtx驱动安装/" data-id="cjudi12da000b6ljgt89me0ma" class="article-share-link">Share</a>
       
       
     </footer>
@@ -177,7 +221,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tanzhixin.github.io/2019/02/28/DNS列表/" data-id="cju0h8o9o00021jjgs4lcexfn" class="article-share-link">Share</a>
+      <a data-url="http://tanzhixin.github.io/2019/02/28/DNS列表/" data-id="cjudi12de000g6ljgbk0wfy9z" class="article-share-link">Share</a>
       
       
     </footer>
@@ -305,7 +349,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tanzhixin.github.io/2019/02/19/软件列表/" data-id="cju0h8oak000d1jjg9xa87f96" class="article-share-link">Share</a>
+      <a data-url="http://tanzhixin.github.io/2019/02/19/软件列表/" data-id="cjudi12dd000e6ljgv0eptaly" class="article-share-link">Share</a>
       
       
     </footer>
@@ -351,7 +395,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tanzhixin.github.io/2019/02/13/putty的配色和密匙/" data-id="cju0h8o9t00051jjgjyio9ceh" class="article-share-link">Share</a>
+      <a data-url="http://tanzhixin.github.io/2019/02/13/putty的配色和密匙/" data-id="cjudi12cp00056ljgqk6bwfee" class="article-share-link">Share</a>
       
       
     </footer>
@@ -430,7 +474,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tanzhixin.github.io/2019/01/29/SL7下安装odoo12/" data-id="cju0h8o9m00011jjgonkof9ct" class="article-share-link">Share</a>
+      <a data-url="http://tanzhixin.github.io/2019/01/29/SL7下安装odoo12/" data-id="cjudi12c200006ljgm9z3p7kf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -468,7 +512,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tanzhixin.github.io/2019/01/24/hexo的ssh免密deploy/" data-id="cju0h8o9s00041jjg07kd27um" class="article-share-link">Share</a>
+      <a data-url="http://tanzhixin.github.io/2019/01/24/hexo的ssh免密deploy/" data-id="cjudi12cb00036ljg0ch7km2g" class="article-share-link">Share</a>
       
       
     </footer>
@@ -513,7 +557,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tanzhixin.github.io/2019/01/22/hello-world/" data-id="cju0h8o9q00031jjg97x0ebq5" class="article-share-link">Share</a>
+      <a data-url="http://tanzhixin.github.io/2019/01/22/hello-world/" data-id="cjudi12c700016ljgjfcc84pb" class="article-share-link">Share</a>
       
       
     </footer>
@@ -574,44 +618,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tanzhixin.github.io/2019/01/22/imagemagick用法/" data-id="cju0h8o9u00061jjgeghi9g7x" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-将已有用户加入已有用户组" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/01/22/将已有用户加入已有用户组/" class="article-date">
-  <time datetime="2019-01-22T01:04:19.000Z" itemprop="datePublished">2019-01-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/22/将已有用户加入已有用户组/">将已有用户加入已有用户组</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>usermod -a -g <group> <user><br><img src="/2019/01/22/将已有用户加入已有用户组/group.jpg" title="用户组"></user></group></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://tanzhixin.github.io/2019/01/22/将已有用户加入已有用户组/" data-id="cju0h8oai000b1jjgobfonz75" class="article-share-link">Share</a>
+      <a data-url="http://tanzhixin.github.io/2019/01/22/imagemagick用法/" data-id="cjudi12ca00026ljg4hupp7oo" class="article-share-link">Share</a>
       
       
     </footer>
@@ -678,6 +685,10 @@
       <ul>
         
           <li>
+            <a href="/2019/04/12/visual-studio-compile-error/">visual studio compile error</a>
+          </li>
+        
+          <li>
             <a href="/2019/04/03/NI-visa-programming/">NI-visa programming</a>
           </li>
         
@@ -691,10 +702,6 @@
         
           <li>
             <a href="/2019/02/19/软件列表/">软件列表</a>
-          </li>
-        
-          <li>
-            <a href="/2019/02/13/putty的配色和密匙/">putty的配色和密匙</a>
           </li>
         
       </ul>
