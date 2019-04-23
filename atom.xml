@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://tanzhixin.github.io/"/>
-  <updated>2019-04-12T03:15:22.769Z</updated>
+  <updated>2019-04-23T06:51:03.999Z</updated>
   <id>http://tanzhixin.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>kms激活命令</title>
+    <link href="http://tanzhixin.github.io/2019/04/23/kms%E6%BF%80%E6%B4%BB%E5%91%BD%E4%BB%A4/"/>
+    <id>http://tanzhixin.github.io/2019/04/23/kms激活命令/</id>
+    <published>2019-04-23T06:47:19.000Z</published>
+    <updated>2019-04-23T06:51:03.999Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li><p>云端搭建kms服务器</p></li><li><p>激活windows<br>slmgr  /skms  [ip]<br>slmgr /ato</p></li><li><p>激活office<br>cd c:\program files\Microsoft Office\office15<br>cscript ospp.vbs /sethst:[ip]</p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;云端搭建kms服务器&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;激活windows&lt;br&gt;slmgr  /skms  [ip]&lt;br&gt;slmgr /ato&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;激活office&lt;br&gt;cd c:\program files\Micro
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>visual studio compile error</title>
