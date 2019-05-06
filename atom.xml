@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://tanzhixin.github.io/"/>
-  <updated>2019-04-23T06:51:03.999Z</updated>
+  <updated>2019-05-06T02:19:44.277Z</updated>
   <id>http://tanzhixin.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>git仓库在服务器之间的迁移</title>
+    <link href="http://tanzhixin.github.io/2019/05/06/git%E4%BB%93%E5%BA%93%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8B%E9%97%B4%E7%9A%84%E8%BF%81%E7%A7%BB/"/>
+    <id>http://tanzhixin.github.io/2019/05/06/git仓库在服务器之间的迁移/</id>
+    <published>2019-05-06T02:18:35.000Z</published>
+    <updated>2019-05-06T02:19:44.277Z</updated>
+    
+    <content type="html"><![CDATA[<p>git clone –bare git://192.168.10.XX/git_repo/project_name.git</p><p>git init –bare new_project_name.git</p><p>git push –mirror <a href="mailto:git@192.168.20.XX" target="_blank" rel="noopener">git@192.168.20.XX</a>/path/to/path/new_project_name.git</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;git clone –bare git://192.168.10.XX/git_repo/project_name.git&lt;/p&gt;
+&lt;p&gt;git init –bare new_project_name.git&lt;/p&gt;
+&lt;p&gt;git push –mirror &lt;a href=
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>kms激活命令</title>
