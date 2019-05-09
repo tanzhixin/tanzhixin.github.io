@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://tanzhixin.github.io/"/>
-  <updated>2019-05-09T03:02:42.600Z</updated>
+  <updated>2019-05-09T03:06:32.737Z</updated>
   <id>http://tanzhixin.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>firewalld上开端口</title>
+    <link href="http://tanzhixin.github.io/2019/05/09/firewalld%E4%B8%8A%E5%BC%80%E7%AB%AF%E5%8F%A3/"/>
+    <id>http://tanzhixin.github.io/2019/05/09/firewalld上开端口/</id>
+    <published>2019-05-09T03:05:30.000Z</published>
+    <updated>2019-05-09T03:06:32.737Z</updated>
+    
+    <content type="html"><![CDATA[<p>永久打开端口</p><h1 id="firewall-cmd-–zone-public-–add-port-443-tcp-–permanent"><a href="#firewall-cmd-–zone-public-–add-port-443-tcp-–permanent" class="headerlink" title="firewall-cmd –zone=public –add-port=443/tcp –permanent"></a>firewall-cmd –zone=public –add-port=443/tcp –permanent</h1><p>重启防火墙 </p><h1 id="firewall-cmd-–reload"><a href="#firewall-cmd-–reload" class="headerlink" title="firewall-cmd –reload"></a>firewall-cmd –reload</h1>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;永久打开端口&lt;/p&gt;
+&lt;h1 id=&quot;firewall-cmd-–zone-public-–add-port-443-tcp-–permanent&quot;&gt;&lt;a href=&quot;#firewall-cmd-–zone-public-–add-port-443-tcp-–permane
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>ntpdate server list</title>

@@ -70,6 +70,85 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-SL7下安装odoo12" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/29/SL7下安装odoo12/" class="article-date">
+  <time datetime="2019-01-29T03:16:33.000Z" itemprop="datePublished">2019-01-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/29/SL7下安装odoo12/">SL7下安装odoo12</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>参考 <a href="https://linuxize.com/post/install-odoo-12-on-centos-7/" target="_blank" rel="noopener">https://linuxize.com/post/install-odoo-12-on-centos-7/</a></p>
+<p>缘起：用户管理需求，测试小型CRM及ERP工具，ZOHO相对来说不自由，于是用云服务器作了一个自己可控的系统</p>
+<p>odoo前身是openerp，是挪威一个哥们写的开源ERP系统，对标的是SAP，目前最新版本是odoo12，发展方向是多功能线上管理系统，目标用户是中小型企业，其他就不多说了。</p>
+<p>1 安装Python 3.6</p>
+<p>SL7的一个麻烦就是python36要先找centos7的SCL源的rpm包，把这个安装上去，后面才能和centos7一样，repo里自带的python36包不全，所以要用SCL源里的rh-python36。</p>
+<figure class="highlight plain"><figcaption><span>install python36</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#yum install rh-python36 git gcc wget nodejs-less libxslt-devel bzip2-devel openldap-devel libjpeg-devel freetype-devel postgresql-devel</span><br></pre></td></tr></table></figure>
+<p>2 创建系统用户odoo2、用户组以及目录：<br><figure class="highlight plain"><figcaption><span>创建用户</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#useradd -m -U -r -d /opt/odoo12 -s /bin/bash odoo12</span><br></pre></td></tr></table></figure></p>
+<p>3 安装pgsql-10<br>当然要用最新的pg，只能用从官方的源来安装了。</p>
+<figure class="highlight plain"><figcaption><span>添加pgsql官方源，安装和配置pgsql10</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#yum install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-centos10-10-2.noarch.rpm</span><br><span class="line">#yum install postgresql10-server</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><figcaption><span>配置</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#/usr/pgsql-10/bin/postgresql-10-setup initdb -E UTF-8</span><br><span class="line">#systemctl enable postgresql-10</span><br><span class="line">#systemctl start postgresql-10</span><br><span class="line">#su - postgres -c &quot;createuser -s odoo12&quot;</span><br></pre></td></tr></table></figure>
+<p>并且创建一个与系统用户同名的数据库用户，方便认证。</p>
+<p>4 安装pdf工具包</p>
+<p>wkhtmltox软件包是一个开源的命令行工具，它可以将html转换成pdf等其他各种格式<br><figure class="highlight plain"><figcaption><span>下载和安装辅助工具软件</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.1/wkhtmltox-0.12.1_linux-centos7-amd64.rpm</span><br><span class="line">#yum localinstall wkhtmltox-0.12.1_linux-centos7-amd64.rpm</span><br></pre></td></tr></table></figure></p>
+<p>5 下载安装和配置</p>
+<p>首先切换到同名系统用户</p>
+<figure class="highlight plain"><figcaption><span>切换用户</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su - odoo12</span><br></pre></td></tr></table></figure>
+<p>从官方git源克隆最新odoo12代码</p>
+<figure class="highlight plain"><figcaption><span>克隆源</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://www.github.com/odoo/odoo --depth 1 --branch 12.0 /opt/odoo12/odoo</span><br></pre></td></tr></table></figure>
+<p>使用rh-python36</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scl enable rh-python36 bash</span><br></pre></td></tr></table></figure>
+<p>创建用于odoo的新虚拟环境，并激活；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /opt/odoo12</span><br><span class="line">python3 -m venv venv</span><br><span class="line">source venv/bin/activate</span><br></pre></td></tr></table></figure>
+<p>更新pip，并安装odoo12所需模块，确保顺利满足所有依赖要求，退出虚拟环境</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip3 install -r odoo/requirements.txt</span><br><span class="line"></span><br><span class="line">deactivate</span><br></pre></td></tr></table></figure>
+<p>以odoo12用户名建立本地附加模块目录，退出到超级用户</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir /opt/odoo12/odoo-custom-addons</span><br><span class="line">exit</span><br></pre></td></tr></table></figure>
+<p>创建系统配置文件，内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#nano /etc/odoo12.conf</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">/etc/odoo12.conf</span><br><span class="line">[options]</span><br><span class="line">; This is the password that allows database operations:</span><br><span class="line">admin_passwd = superadmin_passwd</span><br><span class="line">db_host = False</span><br><span class="line">db_port = False</span><br><span class="line">db_user = odoo12</span><br><span class="line">db_password = False</span><br><span class="line">addons_path = /opt/odoo12/odoo/addons, /opt/odoo12/odoo-custom-addons</span><br></pre></td></tr></table></figure>
+<p>记得修改超级管理密码。</p>
+<p>创建systemd 单元文件来负责服务的启动和停止</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#nano /etc/systemd/system/odoo12.service</span><br></pre></td></tr></table></figure>
+<p>/etc/systemd/system/odoo12.service 内容如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Odoo12</span><br><span class="line">Requires=postgresql-10.service</span><br><span class="line">After=network.target postgresql-10.service</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">SyslogIdentifier=odoo12</span><br><span class="line">PermissionsStartOnly=true</span><br><span class="line">User=odoo12</span><br><span class="line">Group=odoo12</span><br><span class="line">ExecStart=/usr/bin/scl enable rh-python36 -- /opt/odoo12/venv/bin/python3 /opt/odoo12/odoo/odoo-bin -c /etc/odoo12.conf</span><br><span class="line">StandardOutput=journal+console</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+<p>存盘后退出。</p>
+<p>更新systemd单元文件并启动odoo服务</p>
+<figure class="highlight plain"><figcaption><span>启动服务</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl daemon-reload</span><br><span class="line">systemctl enable odoo12</span><br><span class="line">systemctl start odoo12</span><br></pre></td></tr></table></figure>
+<p>检查服务状态，确保正常运行。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#systemctl status odoo12</span><br><span class="line">#journalctl -u odoo12</span><br></pre></td></tr></table></figure>
+<p>打开页面检查安装结果，如果看不到页面，检查端口8069是否开放，把防火墙的firewalld关闭或者打开端口</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">http://&lt;your_domain_or_IP_address&gt;:8069</span><br><span class="line"></span><br><span class="line">#netstat -lpn</span><br><span class="line"></span><br><span class="line">#firewall-cmd --permanent --zone=public --add-port=8069/tcp</span><br><span class="line">#firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+<p>看到如下页面即告成功。</p>
+<img src="/2019/01/29/SL7下安装odoo12/odoo-12-centos.png" title="首页">
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://tanzhixin.github.io/2019/01/29/SL7下安装odoo12/" data-id="cjvg2lmn40004ysjg6ynoviqr" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-hexo的ssh免密deploy" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/01/24/hexo的ssh免密deploy/" class="article-date">
@@ -98,7 +177,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tanzhixin.github.io/2019/01/24/hexo的ssh免密deploy/" data-id="cjvg2gp0n0008xojg0w7dfy5v" class="article-share-link">Share</a>
+      <a data-url="http://tanzhixin.github.io/2019/01/24/hexo的ssh免密deploy/" data-id="cjvg2lmn90009ysjgpk6mqn3i" class="article-share-link">Share</a>
       
       
     </footer>
@@ -143,7 +222,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tanzhixin.github.io/2019/01/22/hello-world/" data-id="cjvg2gp0m0007xojg2vjmopgd" class="article-share-link">Share</a>
+      <a data-url="http://tanzhixin.github.io/2019/01/22/hello-world/" data-id="cjvg2lmn80008ysjg7m2wp719" class="article-share-link">Share</a>
       
       
     </footer>
@@ -204,7 +283,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tanzhixin.github.io/2019/01/22/imagemagick用法/" data-id="cjvg2gp0p0009xojgkczfa10o" class="article-share-link">Share</a>
+      <a data-url="http://tanzhixin.github.io/2019/01/22/imagemagick用法/" data-id="cjvg2lmna000aysjg60bld6e8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -241,7 +320,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tanzhixin.github.io/2019/01/22/将已有用户加入已有用户组/" data-id="cjvg2gp17000jxojgwnz2vhpx" class="article-share-link">Share</a>
+      <a data-url="http://tanzhixin.github.io/2019/01/22/将已有用户加入已有用户组/" data-id="cjvg2lmnm000kysjgqsvp3npi" class="article-share-link">Share</a>
       
       
     </footer>
@@ -281,7 +360,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tanzhixin.github.io/2019/01/22/德国科学家在Wiley期刊上发表的论文将免费公开/" data-id="cjvg2gp18000lxojgzk016rb1" class="article-share-link">Share</a>
+      <a data-url="http://tanzhixin.github.io/2019/01/22/德国科学家在Wiley期刊上发表的论文将免费公开/" data-id="cjvg2lmnv000mysjgv1rnlio0" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openaccess/">openaccess</a></li></ul>
@@ -322,7 +401,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tanzhixin.github.io/2019/01/21/土星上的一天/" data-id="cjvg2gp0y000ixojgxxsogckb" class="article-share-link">Share</a>
+      <a data-url="http://tanzhixin.github.io/2019/01/21/土星上的一天/" data-id="cjvg2lmnl000jysjgaj4x24ds" class="article-share-link">Share</a>
       
       
     </footer>
@@ -367,7 +446,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tanzhixin.github.io/2019/01/21/test-中文/" data-id="cjvg2gp0u000dxojgpy51pn11" class="article-share-link">Share</a>
+      <a data-url="http://tanzhixin.github.io/2019/01/21/test-中文/" data-id="cjvg2lmng000eysjg9eov1v3a" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hello/">hello</a></li></ul>
@@ -436,6 +515,10 @@
       <ul>
         
           <li>
+            <a href="/2019/05/09/firewalld上开端口/">firewalld上开端口</a>
+          </li>
+        
+          <li>
             <a href="/2019/05/09/ntpdate-server-list/">ntpdate server list</a>
           </li>
         
@@ -449,10 +532,6 @@
         
           <li>
             <a href="/2019/04/12/visual-studio-compile-error/">visual studio compile error</a>
-          </li>
-        
-          <li>
-            <a href="/2019/04/03/NI-visa-programming/">NI-visa programming</a>
           </li>
         
       </ul>
