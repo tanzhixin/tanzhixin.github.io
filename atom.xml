@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://tanzhixin.github.io/"/>
-  <updated>2019-05-06T02:19:44.277Z</updated>
+  <updated>2019-05-09T03:02:42.600Z</updated>
   <id>http://tanzhixin.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ntpdate server list</title>
+    <link href="http://tanzhixin.github.io/2019/05/09/ntpdate-server-list/"/>
+    <id>http://tanzhixin.github.io/2019/05/09/ntpdate-server-list/</id>
+    <published>2019-05-09T03:02:04.000Z</published>
+    <updated>2019-05-09T03:02:42.600Z</updated>
+    
+    <content type="html"><![CDATA[<p>Name      IP     Location<br>time.nist.gov     192.43.244.18     NCAR,Boulder,Colorado<br>210.72.145.44     210.72.145.44     中国（国家授时中心）<br>133.100.11.8     133.100.11.8     日本（福冈大学）<br>time-a.nist.gov     129.6.15.28     NIST,Gaithersburg,Maryland<br>time-b.nist.gov     129.6.15.29     NIST,Gaithersburg,Maryland<br>time-a.timefreq.bldrdoc.gov     132.163.4.101     NIST,Boulder,Colorado<br>time-b.timefreq.bldrdoc.gov     132.163.4.102     NIST,Boulder,Colorado<br>time-c.timefreq.bldrdoc.gov     132.163.4.103     NIST,Boulder,Colorado<br>utcnist.colorado.edu     128.138.140.44     UniversityofColorado,Boulder<br>time-nw.nist.gov     131.107.1.10     Microsoft,Redmond,Washington<br>nist1.symmetricom.com     69.25.96.13     Symmetricom,SanJose,California<br>nist1-dc.glassey.com     216.200.93.8     Abovenet,Virginia<br>nist1-ny.glassey.com     208.184.49.9     Abovenet,NewYorkCity<br>nist1-sj.glassey.com     207.126.98.204     Abovenet,SanJose,California<br>nist1.aol-ca.truetime.com     207.200.81.113     TrueTime,AOLfacility,Sunnyvale,California<br>nist1.aol-va.truetime.com     64.236.96.53     TrueTime,AOLfacility,Virginia</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Name      IP     Location&lt;br&gt;time.nist.gov     192.43.244.18     NCAR,Boulder,Colorado&lt;br&gt;210.72.145.44     210.72.145.44     中国（国家授时中心）&lt;
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>git仓库在服务器之间的迁移</title>
