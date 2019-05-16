@@ -64,9 +64,9 @@
     <link href="http://tanzhixin.github.io/2019/05/06/git%E4%BB%93%E5%BA%93%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8B%E9%97%B4%E7%9A%84%E8%BF%81%E7%A7%BB/"/>
     <id>http://tanzhixin.github.io/2019/05/06/git仓库在服务器之间的迁移/</id>
     <published>2019-05-06T02:18:35.000Z</published>
-    <updated>2019-05-06T02:19:44.277Z</updated>
+    <updated>2019-05-16T04:05:42.130Z</updated>
     
-    <content type="html"><![CDATA[<p>git clone –bare git://192.168.10.XX/git_repo/project_name.git</p><p>git init –bare new_project_name.git</p><p>git push –mirror <a href="mailto:git@192.168.20.XX" target="_blank" rel="noopener">git@192.168.20.XX</a>/path/to/path/new_project_name.git</p>]]></content>
+    <content type="html"><![CDATA[<p>git clone –bare git://192.168.10.XX/git_repo/project_name.git</p><p>git init –bare new_project_name.git</p><p>git push –mirror <a href="mailto:git@192.168.20.XX" target="_blank" rel="noopener">git@192.168.20.XX</a>/path/to/path/new_project_name.git</p><p>使用git remote set-url命令从SSH到HTTPS的远程URL<br>$git remote set-url origin <a href="https://github.com/xxxxxx/S" target="_blank" rel="noopener">https://github.com/xxxxxx/S</a></p><p>检查远程<br>git remote -v</p>]]></content>
     
     <summary type="html">
     
