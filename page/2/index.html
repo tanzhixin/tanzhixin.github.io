@@ -70,6 +70,52 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-putty的配色和密匙" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/02/13/putty的配色和密匙/" class="article-date">
+  <time datetime="2019-02-13T12:19:05.000Z" itemprop="datePublished">2019-02-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/13/putty的配色和密匙/">putty的配色和密匙</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1 配色问题，可以通过注册表文件指定任务的几种颜色来设置，具体如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\SESSION_NAME]</span><br><span class="line"></span><br><span class="line">; Default Foreground</span><br><span class="line">&quot;Colour0&quot;=&quot;217,216,216&quot;</span><br><span class="line">; Default Bold Foreground</span><br><span class="line">&quot;Colour1&quot;=&quot;217,216,216&quot;</span><br><span class="line">; Default Background</span><br><span class="line">&quot;Colour2&quot;=&quot;28,28,28&quot;</span><br><span class="line">; Default Background</span><br><span class="line">&quot;Colour3&quot;=&quot;28,63,149&quot;</span><br><span class="line">; Cursor Text</span><br><span class="line">&quot;Colour4&quot;=&quot;28,28,28&quot;</span><br><span class="line">; Cursor Color</span><br><span class="line">&quot;Colour5&quot;=&quot;231,231,232&quot;</span><br><span class="line">; ANSI Black</span><br><span class="line">&quot;Colour6&quot;=&quot;115,113,113&quot;</span><br><span class="line">; ANSI Black Bold</span><br><span class="line">&quot;Colour7&quot;=&quot;115,113,113&quot;</span><br><span class="line">; ANSI Red</span><br><span class="line">&quot;Colour8&quot;=&quot;251,38,8&quot;</span><br><span class="line">; ANSI Red Bold</span><br><span class="line">&quot;Colour9&quot;=&quot;251,38,8&quot;</span><br><span class="line">; ANSI Green</span><br><span class="line">&quot;Colour10&quot;=&quot;167,226,46&quot;</span><br><span class="line">; ANSI Green Bold</span><br><span class="line">&quot;Colour11&quot;=&quot;167,226,46&quot;</span><br><span class="line">; ANSI Yellow</span><br><span class="line">&quot;Colour12&quot;=&quot;102,217,238&quot;</span><br><span class="line">; ANSI Yellow Bold</span><br><span class="line">&quot;Colour13&quot;=&quot;102,217,238&quot;</span><br><span class="line">; ANSI Blue</span><br><span class="line">&quot;Colour14&quot;=&quot;0,157,220&quot;</span><br><span class="line">; ANSI Blue Bold</span><br><span class="line">&quot;Colour15&quot;=&quot;0,157,220&quot;</span><br><span class="line">; ANSI Magenta</span><br><span class="line">&quot;Colour16&quot;=&quot;255,85,255&quot;</span><br><span class="line">; ANSI Magenta Bold</span><br><span class="line">&quot;Colour17&quot;=&quot;255,85,255&quot;</span><br><span class="line">; ANSI Cyan</span><br><span class="line">&quot;Colour18&quot;=&quot;255,210,4&quot;</span><br><span class="line">; ANSI Cyan Bold</span><br><span class="line">&quot;Colour19&quot;=&quot;255,210,4&quot;</span><br><span class="line">; ANSI White</span><br><span class="line">&quot;Colour20&quot;=&quot;217,216,216&quot;</span><br><span class="line">; ANSI White Bold</span><br><span class="line">&quot;Colour21&quot;=&quot;255,255,255&quot;</span><br></pre></td></tr></table></figure>
+<p>保存为reg文件后合并，注意将上述session name替换成自己的。</p>
+<p>2 putty的密匙</p>
+<p>   a. puttygen.exe导入自己的私匙，<br>   b. 保存私匙（ppk格式）<br>   c. session中auth中指定ppk私匙。</p>
+<img src="/2019/02/13/putty的配色和密匙/putty-ppk.PNG" title="puttygen">
+<p>3 连接保持<br>  见图，keepalive 20s<br><img src="/2019/02/13/putty的配色和密匙/putty-connection.PNG" title="putty-conn"></p>
+<p>4 字体及大小<br>  选择monaco字体，字体大小选择12。</p>
+<p>5 全屏退出全屏的快捷键设置</p>
+<p>   Window-&gt;Behaviour最下面有个Full screen on Alt-Enter，勾上就可以。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://tanzhixin.github.io/2019/02/13/putty的配色和密匙/" data-id="cjxffad17000eo7jgnovf57bo" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-SL7下安装odoo12" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/01/29/SL7下安装odoo12/" class="article-date">
@@ -139,7 +185,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tanzhixin.github.io/2019/01/29/SL7下安装odoo12/" data-id="cjxfej8lq0003mjjgb9csamj8" class="article-share-link">Share</a>
+      <a data-url="http://tanzhixin.github.io/2019/01/29/SL7下安装odoo12/" data-id="cjxffad0v0005o7jgeq0tf36x" class="article-share-link">Share</a>
       
       
     </footer>
@@ -177,7 +223,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tanzhixin.github.io/2019/01/24/hexo的ssh免密deploy/" data-id="cjxfej8lv0007mjjgqiuidy92" class="article-share-link">Share</a>
+      <a data-url="http://tanzhixin.github.io/2019/01/24/hexo的ssh免密deploy/" data-id="cjxffad11000ao7jgg4h1n9o6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -222,7 +268,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tanzhixin.github.io/2019/01/22/hello-world/" data-id="cjxfej8lt0006mjjgpiii3btz" class="article-share-link">Share</a>
+      <a data-url="http://tanzhixin.github.io/2019/01/22/hello-world/" data-id="cjxffad0z0009o7jg4869yns2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -283,7 +329,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tanzhixin.github.io/2019/01/22/imagemagick用法/" data-id="cjxfej8mb0008mjjg740nc6nc" class="article-share-link">Share</a>
+      <a data-url="http://tanzhixin.github.io/2019/01/22/imagemagick用法/" data-id="cjxffad12000bo7jgcqlmrj26" class="article-share-link">Share</a>
       
       
     </footer>
@@ -320,7 +366,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tanzhixin.github.io/2019/01/22/将已有用户加入已有用户组/" data-id="cjxfej8mo000hmjjg7jhngu0e" class="article-share-link">Share</a>
+      <a data-url="http://tanzhixin.github.io/2019/01/22/将已有用户加入已有用户组/" data-id="cjxffad5s000lo7jgxox9jnc8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -360,7 +406,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tanzhixin.github.io/2019/01/22/德国科学家在Wiley期刊上发表的论文将免费公开/" data-id="cjxfej8mp000jmjjguvdes0e1" class="article-share-link">Share</a>
+      <a data-url="http://tanzhixin.github.io/2019/01/22/德国科学家在Wiley期刊上发表的论文将免费公开/" data-id="cjxffad5t000no7jgwonkiwml" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openaccess/">openaccess</a></li></ul>
@@ -401,7 +447,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tanzhixin.github.io/2019/01/21/土星上的一天/" data-id="cjxfej8mn000gmjjgttbzgrj9" class="article-share-link">Share</a>
+      <a data-url="http://tanzhixin.github.io/2019/01/21/土星上的一天/" data-id="cjxffad5q000ko7jgevxd13el" class="article-share-link">Share</a>
       
       
     </footer>
@@ -446,7 +492,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tanzhixin.github.io/2019/01/21/test-中文/" data-id="cjxfej8mg000bmjjgrajvi7f4" class="article-share-link">Share</a>
+      <a data-url="http://tanzhixin.github.io/2019/01/21/test-中文/" data-id="cjxffad5a000fo7jg6kowqkvj" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hello/">hello</a></li></ul>
@@ -502,7 +548,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a></li></ul>
     </div>
   </div>
 
@@ -513,6 +559,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/06/28/撤销git刚添加的文件/">撤销git刚添加的文件</a>
+          </li>
         
           <li>
             <a href="/2019/05/09/firewalld上开端口/">firewalld上开端口</a>
@@ -528,10 +578,6 @@
         
           <li>
             <a href="/2019/04/23/kms激活命令/">kms激活命令</a>
-          </li>
-        
-          <li>
-            <a href="/2019/04/12/visual-studio-compile-error/">visual studio compile error</a>
           </li>
         
       </ul>
