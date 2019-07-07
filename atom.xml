@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://tanzhixin.github.io/"/>
-  <updated>2019-06-28T01:33:20.196Z</updated>
+  <updated>2019-07-07T01:49:40.680Z</updated>
   <id>http://tanzhixin.github.io/</id>
   
   <author>
@@ -17,11 +17,34 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>picpick截屏做书</title>
+    <link href="http://tanzhixin.github.io/2019/07/07/picpick%E6%88%AA%E5%B1%8F%E5%81%9A%E4%B9%A6/"/>
+    <id>http://tanzhixin.github.io/2019/07/07/picpick截屏做书/</id>
+    <published>2019-07-07T01:45:01.000Z</published>
+    <updated>2019-07-07T01:49:40.680Z</updated>
+    
+    <content type="html"><![CDATA[<p>做了两本，有些资料确实很难下载，doc88之类的却又收费，无奈只能自己动手丰衣足食。</p><p>picpick还真不错，能够自定义文件名并按序号自己排列好。当然最好是把显示屏旋转一下，可以获得更好的分辨效果。</p><p>剩下的就是处理图片，用imagemagick批量转换成pdf页面，然后pdftk打包成一个书籍文件。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;做了两本，有些资料确实很难下载，doc88之类的却又收费，无奈只能自己动手丰衣足食。&lt;/p&gt;
+&lt;p&gt;picpick还真不错，能够自定义文件名并按序号自己排列好。当然最好是把显示屏旋转一下，可以获得更好的分辨效果。&lt;/p&gt;
+&lt;p&gt;剩下的就是处理图片，用imagemagick批
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>撤销git刚添加的文件</title>
     <link href="http://tanzhixin.github.io/2019/06/28/%E6%92%A4%E9%94%80git%E5%88%9A%E6%B7%BB%E5%8A%A0%E7%9A%84%E6%96%87%E4%BB%B6/"/>
     <id>http://tanzhixin.github.io/2019/06/28/撤销git刚添加的文件/</id>
     <published>2019-06-28T01:09:45.000Z</published>
-    <updated>2019-06-28T01:33:20.196Z</updated>
+    <updated>2019-06-28T04:15:44.641Z</updated>
     
     <content type="html"><![CDATA[<p>add后没法看diff了，如果还想返回去看区别就只好先撤销add</p><p>git status 先看一下add 中的文件<br>git reset HEAD 如果后面什么都不跟的话 就是上一次add 里面的全部撤销了<br>git reset HEAD XXX/XXX  撤销某个文件</p>]]></content>
     
@@ -35,6 +58,8 @@
     
     </summary>
     
+    
+      <category term="test" scheme="http://tanzhixin.github.io/tags/test/"/>
     
   </entry>
   
