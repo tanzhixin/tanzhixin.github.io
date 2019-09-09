@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://tanzhixin.github.io/"/>
-  <updated>2019-09-09T02:35:07.699Z</updated>
+  <updated>2019-09-09T04:18:59.460Z</updated>
   <id>http://tanzhixin.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hexo初步</title>
+    <link href="http://tanzhixin.github.io/2019/09/09/hexo%E5%88%9D%E6%AD%A5/"/>
+    <id>http://tanzhixin.github.io/2019/09/09/hexo初步/</id>
+    <published>2019-09-09T04:16:12.000Z</published>
+    <updated>2019-09-09T04:18:59.460Z</updated>
+    
+    <content type="html"><![CDATA[<p>#内嵌代码</p><p>1:引入单行代码出现一个代码框，需要使用键盘左上角的ESC键下面的反单引号夹在文字两侧，两侧各一个就行。</p><p>例如：`Hellow world！`</p><p>显示：<br>Hellow world！</p><p>2：多行代码的引入需要在代码段的前后分别使用三个反单引号</p><p>#引入内容</p><p>第1种:通过在文字开头添加“&gt;”表示块注释，快捷键使用 Ctrl + Q 例如；</p><pre><code>如果你无法简洁的表达你的想法，那只说明你还不够了解它。 -- 阿尔伯特·爱因斯坦</code></pre><p>第2种: 使用tab键或者四个空格</p><p>#外部链接</p><p><a href="链接地址">描述</a> 为文字添加外链接，<br>示例： <a href="http://harbingwang.github.io" target="_blank" rel="noopener">HarbingWang的博客</a></p><p>#插入图片</p><p>插入图片的语法与插入链接很像，区别在一个插入图片的时候需要加一个!号</p><p>Markdown语法： <img src="图片链接地址" alt="描述"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;#内嵌代码&lt;/p&gt;
+&lt;p&gt;1:引入单行代码出现一个代码框，需要使用键盘左上角的ESC键下面的反单引号夹在文字两侧，两侧各一个就行。&lt;/p&gt;
+&lt;p&gt;例如：`Hellow world！`&lt;/p&gt;
+&lt;p&gt;显示：&lt;br&gt;Hellow world！&lt;/p&gt;
+&lt;p&gt;2：多行代码的引入需
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>专利检索常用网站</title>
@@ -444,27 +469,6 @@
     
     
       <category term="openaccess" scheme="http://tanzhixin.github.io/tags/openaccess/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>土星上的一天是10小时33分38秒</title>
-    <link href="http://tanzhixin.github.io/2019/01/21/%E5%9C%9F%E6%98%9F%E4%B8%8A%E7%9A%84%E4%B8%80%E5%A4%A9/"/>
-    <id>http://tanzhixin.github.io/2019/01/21/土星上的一天/</id>
-    <published>2019-01-21T14:43:55.000Z</published>
-    <updated>2019-01-22T07:24:30.954Z</updated>
-    
-    <content type="html"><![CDATA[<p>根据卡西尼号探测器收集的数据，NASA 报告土星的环形成于 1000 万至 1 亿年前，比土星的形成要晚得多，而土星上的一天是 10 小时 33 分 38 秒，比以前的。由于土星没有固体表面，它的旋转难以跟踪，而它不寻常的磁场也隐藏了其旋转速度。利用卡西尼号的数据，科学家发现答案就在它的环里。 Christopher Mankovich 利用数据去分析了土星环内的波浪模式，环能响应行星内部的振动，其作用类似地震仪。通过了解环的波浪模式可以推断土星的内部结构。他的研究报告发表在《Astrophysical Journal》期刊上。最新结果 10:33:38 比 1981 年根据旅行者号数据估计的 10:39:23 要快。 </p><img src="/2019/01/21/土星上的一天/tuxing.jpg" title="土星环"><p>美丽的土星环</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;根据卡西尼号探测器收集的数据，NASA 报告土星的环形成于 1000 万至 1 亿年前，比土星的形成要晚得多，而土星上的一天是 10 小时 33 分 38 秒，比以前的。由于土星没有固体表面，它的旋转难以跟踪，而它不寻常的磁场也隐藏了其旋转速度。利用卡西尼号的数据，科学家发
-      
-    
-    </summary>
-    
     
   </entry>
   
