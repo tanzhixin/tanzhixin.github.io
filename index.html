@@ -177,7 +177,7 @@
 <p>create_type1()<br>{<br>  echo “Now create <em>.pfb and </em>.enc files, wait… “<br>    for i in $NUMLIST<br>      do<br>          ttf2pt1 -GAE -pttf -OHUBs -W0 -l plane+pid=3,eid=1,0x$i $FULLNAME ${FHEAD}$i<br>        done</p>
 <h1 id="avoid-dvips-t1part-module-bugs"><a href="#avoid-dvips-t1part-module-bugs" class="headerlink" title="avoid dvips t1part module bugs."></a>avoid dvips t1part module bugs.</h1><p>  perl -pi -e ‘s/_/Z/g’ <em>.t1a </em>.afm</p>
 <p>  for ps in *.t1a<br>    do<br>        t1asm -b $ps &gt; ${ps%.t1a}.pfb<br>      done<br>      }</p>
-<p>create_map()<br>{<br>MAPFILE=t1-${FHEAD}.map<br>ENCMAP=ttf-${FHEAD}.map<br>  echo “Create *.tfm and (dvips)map file, wait…”<br>    cat &gt; $MAPFILE &lt;&lt; EndOfFile<br>    % This is map file for dvips/dvipdfm[x] and LaTeX CJK package.<br>    % Created by Edward G.J. Lee <a href="mailto:&#x65;&#x64;&#116;&#x31;&#48;&#50;&#51;&#x40;&#105;&#x6e;&#x66;&#x6f;&#x2e;&#115;&#x61;&#x79;&#x79;&#97;&#x2e;&#111;&#114;&#103;" target="_blank" rel="noopener">&#x65;&#x64;&#116;&#x31;&#48;&#50;&#51;&#x40;&#105;&#x6e;&#x66;&#x6f;&#x2e;&#115;&#x61;&#x79;&#x79;&#97;&#x2e;&#111;&#114;&#103;</a><br>    % $DATE<br>    EndOfFile<br>      cat &gt; $ENCMAP &lt;&lt; EndOfFile<br>      % This is map file for PDFLaTeX and LaTeX CJK package to embed TTF.<br>      % Created by Edward G.J. Lee <a href="mailto:&#101;&#100;&#x74;&#49;&#x30;&#50;&#51;&#x40;&#105;&#110;&#102;&#x6f;&#x2e;&#115;&#97;&#x79;&#121;&#97;&#46;&#x6f;&#x72;&#x67;" target="_blank" rel="noopener">&#101;&#100;&#x74;&#49;&#x30;&#50;&#51;&#x40;&#105;&#110;&#102;&#x6f;&#x2e;&#115;&#97;&#x79;&#121;&#97;&#46;&#x6f;&#x72;&#x67;</a><br>      % $DATE<br>      EndOfFile<br>        for i in $NUMLIST<br>      do<br>          PSNAME=<code>awk &#39;/FontName/ {print $2}&#39; ${FHEAD}$i.afm</code><br>              afm2tfm ${FHEAD}$i.afm &gt; /dev/null 2&gt;&amp;1<br>              cat &gt;&gt; $MAPFILE &lt;&lt; EndOfFile<br>              ${FHEAD}$i $PSNAME &lt;${FHEAD}$i.pfb<br>              EndOfFile<br>                  cat &gt;&gt; $ENCMAP &lt;&lt; EndOfFile<br>              ${FHEAD}$i &lt;${FHEAD}$i.enc &lt;${FNAME}<br>              EndOfFile<br>                done<br>                }</p>
+<p>create_map()<br>{<br>MAPFILE=t1-${FHEAD}.map<br>ENCMAP=ttf-${FHEAD}.map<br>  echo “Create *.tfm and (dvips)map file, wait…”<br>    cat &gt; $MAPFILE &lt;&lt; EndOfFile<br>    % This is map file for dvips/dvipdfm[x] and LaTeX CJK package.<br>    % Created by Edward G.J. Lee <a href="mailto:&#x65;&#x64;&#x74;&#x31;&#48;&#50;&#51;&#64;&#105;&#110;&#x66;&#x6f;&#46;&#x73;&#97;&#x79;&#121;&#97;&#x2e;&#111;&#114;&#103;" target="_blank" rel="noopener">&#x65;&#x64;&#x74;&#x31;&#48;&#50;&#51;&#64;&#105;&#110;&#x66;&#x6f;&#46;&#x73;&#97;&#x79;&#121;&#97;&#x2e;&#111;&#114;&#103;</a><br>    % $DATE<br>    EndOfFile<br>      cat &gt; $ENCMAP &lt;&lt; EndOfFile<br>      % This is map file for PDFLaTeX and LaTeX CJK package to embed TTF.<br>      % Created by Edward G.J. Lee <a href="mailto:&#x65;&#100;&#116;&#49;&#48;&#50;&#51;&#64;&#105;&#110;&#x66;&#x6f;&#x2e;&#x73;&#x61;&#121;&#121;&#97;&#x2e;&#x6f;&#114;&#x67;" target="_blank" rel="noopener">&#x65;&#100;&#116;&#49;&#48;&#50;&#51;&#64;&#105;&#110;&#x66;&#x6f;&#x2e;&#x73;&#x61;&#121;&#121;&#97;&#x2e;&#x6f;&#114;&#x67;</a><br>      % $DATE<br>      EndOfFile<br>        for i in $NUMLIST<br>      do<br>          PSNAME=<code>awk &#39;/FontName/ {print $2}&#39; ${FHEAD}$i.afm</code><br>              afm2tfm ${FHEAD}$i.afm &gt; /dev/null 2&gt;&amp;1<br>              cat &gt;&gt; $MAPFILE &lt;&lt; EndOfFile<br>              ${FHEAD}$i $PSNAME &lt;${FHEAD}$i.pfb<br>              EndOfFile<br>                  cat &gt;&gt; $ENCMAP &lt;&lt; EndOfFile<br>              ${FHEAD}$i &lt;${FHEAD}$i.enc &lt;${FNAME}<br>              EndOfFile<br>                done<br>                }</p>
 <p>create_cidmap()<br>{<br>cat &gt;&gt; cid-x.map &lt;&lt; EndOfFile<br>gbk$FHEAD@UGBK@ UniGB-UCS2-H :0:$FNAME<br>$FHEAD@Unicode@ unicode :0:$FNAME<br>EndOfFile<br>}</p>
 <p>create_cjkfd()<br>{<br>cat &gt; c${UTF8ENC}${FONTNAME}.fd &lt;&lt; EndOfFile<br>/ProvidesFile{c${UTF8ENC}${FONTNAME}.fd}[/filedate/space/fileversion]<br>/DeclareFontFamily{C${UTF8ENC}}{$FONTNAME}{/hyphenchar /font/m@ne}<br>/DeclareFontShape{C${UTF8ENC}}{$FONTNAME}{m}{n}{<-> CJK <em> $FHEAD}{}<br>/DeclareFontShape{C${UTF8ENC}}{$FONTNAME}{bx}{n}{<-> CJKb </-></em> $FHEAD}{/CJKbold}<br>/endinput<br>EndOfFile</-></p>
 <p>cat &gt; c${GBKENC}${FONTNAME}.fd &lt;&lt; EndOfFile<br>/ProvidesFile{c${GBKENC}${FONTNAME}.fd}[/filedate/space/fileversion]<br>/DeclareFontFamily{C${GBKENC}}{$FONTNAME}{/hyphenchar /font/m@ne}<br>/DeclareFontShape{C${GBKENC}}{$FONTNAME}{m}{n}{<-> CJK <em> gbk$FHEAD}{}<br>/DeclareFontShape{C${GBKENC}}{$FONTNAME}{bx}{n}{<-> CJKb </-></em> gbk$FHEAD}{/CJKbold}<br>/endinput<br>EndOfFile<br>}</-></p>
@@ -206,7 +206,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tanzhixin.github.io/2019/11/06/pdflatex字体生成与安装的老方案/" data-id="ck2n960j2000yekjgjhfb2u7j" class="article-share-link">Share</a>
+      <a data-url="http://tanzhixin.github.io/2019/11/06/pdflatex字体生成与安装的老方案/" data-id="ck2n97h8w0010fdjgql5o3fmt" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/latex/">latex</a></li></ul>
@@ -274,7 +274,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tanzhixin.github.io/2019/09/11/rtags安装及用法/" data-id="ck2n960ii000eekjgzn3fy50o" class="article-share-link">Share</a>
+      <a data-url="http://tanzhixin.github.io/2019/09/11/rtags安装及用法/" data-id="ck2n97h7e000jfdjgoza6yeic" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/emacs/">emacs</a></li></ul>
@@ -322,9 +322,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tanzhixin.github.io/2019/09/09/hexo初步/" data-id="ck2n960ic0008ekjgoh3nm368" class="article-share-link">Share</a>
+      <a data-url="http://tanzhixin.github.io/2019/09/09/hexo初步/" data-id="ck2n97h72000afdjg04y8wdxa" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+
     </footer>
   </div>
   
@@ -396,7 +398,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tanzhixin.github.io/2019/09/09/专利检索常用网站/" data-id="ck2n960ip000jekjgxbkan3n4" class="article-share-link">Share</a>
+      <a data-url="http://tanzhixin.github.io/2019/09/09/专利检索常用网站/" data-id="ck2n97h88000tfdjgpf62u7js" class="article-share-link">Share</a>
       
       
     </footer>
@@ -435,7 +437,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tanzhixin.github.io/2019/07/07/picpick截屏做书/" data-id="ck2n960if000bekjg6e27b4cd" class="article-share-link">Share</a>
+      <a data-url="http://tanzhixin.github.io/2019/07/07/picpick截屏做书/" data-id="ck2n97h7b000hfdjgfd32b6bs" class="article-share-link">Share</a>
       
       
     </footer>
@@ -473,7 +475,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tanzhixin.github.io/2019/06/28/撤销git刚添加的文件/" data-id="ck2n960iu000rekjgd8to2ke3" class="article-share-link">Share</a>
+      <a data-url="http://tanzhixin.github.io/2019/06/28/撤销git刚添加的文件/" data-id="ck2n97h8f000xfdjg750bn3k5" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/test/">test</a></li></ul>
@@ -513,7 +515,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tanzhixin.github.io/2019/05/09/firewalld上开端口/" data-id="ck2n960hp0005ekjgsb5sdze4" class="article-share-link">Share</a>
+      <a data-url="http://tanzhixin.github.io/2019/05/09/firewalld上开端口/" data-id="ck2n97h6x0006fdjg7qt23wkx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -550,7 +552,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tanzhixin.github.io/2019/05/09/ntpdate-server-list/" data-id="ck2n960ie000aekjg37oivdol" class="article-share-link">Share</a>
+      <a data-url="http://tanzhixin.github.io/2019/05/09/ntpdate-server-list/" data-id="ck2n97h7a000ffdjgl7afkfx4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -591,7 +593,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tanzhixin.github.io/2019/05/06/git仓库在服务器之间的迁移/" data-id="ck2n960hm0004ekjgo9vikt0c" class="article-share-link">Share</a>
+      <a data-url="http://tanzhixin.github.io/2019/05/06/git仓库在服务器之间的迁移/" data-id="ck2n97h6z0008fdjgzt5kbx89" class="article-share-link">Share</a>
       
       
     </footer>
@@ -635,7 +637,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tanzhixin.github.io/2019/04/23/kms激活命令/" data-id="ck2n960id0009ekjgzzvxth8k" class="article-share-link">Share</a>
+      <a data-url="http://tanzhixin.github.io/2019/04/23/kms激活命令/" data-id="ck2n97h78000efdjgrbfb4vmm" class="article-share-link">Share</a>
       
       
     </footer>
@@ -670,7 +672,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/emacs/">emacs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hello/">hello</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/latex/">latex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openaccess/">openaccess</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/">test</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/emacs/">emacs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hello/">hello</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/latex/">latex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openaccess/">openaccess</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/">test</a></li></ul>
     </div>
   </div>
 
@@ -680,7 +682,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/emacs/" style="font-size: 10px;">emacs</a> <a href="/tags/hello/" style="font-size: 10px;">hello</a> <a href="/tags/latex/" style="font-size: 10px;">latex</a> <a href="/tags/openaccess/" style="font-size: 10px;">openaccess</a> <a href="/tags/test/" style="font-size: 10px;">test</a>
+      <a href="/tags/emacs/" style="font-size: 10px;">emacs</a> <a href="/tags/hello/" style="font-size: 10px;">hello</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/latex/" style="font-size: 10px;">latex</a> <a href="/tags/openaccess/" style="font-size: 10px;">openaccess</a> <a href="/tags/test/" style="font-size: 10px;">test</a>
     </div>
   </div>
 

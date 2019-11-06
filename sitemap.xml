@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://tanzhixin.github.io/2019/09/09/hexo%E5%88%9D%E6%AD%A5/</loc>
+    
+    <lastmod>2019-11-06T12:23:47.956Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://tanzhixin.github.io/2019/11/06/pdflatex%E5%AD%97%E4%BD%93%E7%94%9F%E6%88%90%E4%B8%8E%E5%AE%89%E8%A3%85%E7%9A%84%E8%80%81%E6%96%B9%E6%A1%88/</loc>
     
     <lastmod>2019-11-06T12:22:40.917Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>http://tanzhixin.github.io/2019/09/11/rtags%E5%AE%89%E8%A3%85%E5%8F%8A%E7%94%A8%E6%B3%95/</loc>
     
     <lastmod>2019-09-11T03:32:13.078Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://tanzhixin.github.io/2019/09/09/hexo%E5%88%9D%E6%AD%A5/</loc>
-    
-    <lastmod>2019-09-09T06:37:51.962Z</lastmod>
     
   </url>
   
