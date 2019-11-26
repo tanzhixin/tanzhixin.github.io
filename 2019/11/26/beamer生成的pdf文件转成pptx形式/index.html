@@ -5,20 +5,20 @@
   
 
   
-  <title>DNS列表 | 大道至简</title>
+  <title>beamer生成的pdf文件转成pptx形式 | 大道至简</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="114：     114.114.114.114   114.114.115.115阿里：    223.5.5.5 223.6.6.6百度：    180.76.76.76谷歌：    8.8.8.8OpenDNS： 208.67.220.220">
-<meta name="keywords" content="technology universe physics chemistry biology hi-tech linux">
+  <meta name="description" content="历经千辛万苦用beamer做完presentation后，被秘书告知考核报告需要计时，因此必须是pptx格式，因此考虑用pdf转图片然后再打包成pptx文件 思路是这样，用pdftk把pdf文件解开成单张，然后是imagemagick将单张pdf转成高分辨率的png，最后用python-pptx把一堆png文件添加成pptx文件。 pdftk  vice.pdf  burst好像现在还有其他工具，">
+<meta name="keywords" content="latex">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DNS列表">
-<meta property="og:url" content="http://tanzhixin.github.io/2019/02/28/DNS列表/index.html">
+<meta property="og:title" content="beamer生成的pdf文件转成pptx形式">
+<meta property="og:url" content="http://tanzhixin.github.io/2019/11/26/beamer生成的pdf文件转成pptx形式/index.html">
 <meta property="og:site_name" content="大道至简">
-<meta property="og:description" content="114：     114.114.114.114   114.114.115.115阿里：    223.5.5.5 223.6.6.6百度：    180.76.76.76谷歌：    8.8.8.8OpenDNS： 208.67.220.220">
+<meta property="og:description" content="历经千辛万苦用beamer做完presentation后，被秘书告知考核报告需要计时，因此必须是pptx格式，因此考虑用pdf转图片然后再打包成pptx文件 思路是这样，用pdftk把pdf文件解开成单张，然后是imagemagick将单张pdf转成高分辨率的png，最后用python-pptx把一堆png文件添加成pptx文件。 pdftk  vice.pdf  burst好像现在还有其他工具，">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-02-28T02:48:49.142Z">
+<meta property="og:updated_time" content="2019-11-26T02:39:22.249Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="DNS列表">
-<meta name="twitter:description" content="114：     114.114.114.114   114.114.115.115阿里：    223.5.5.5 223.6.6.6百度：    180.76.76.76谷歌：    8.8.8.8OpenDNS： 208.67.220.220">
+<meta name="twitter:title" content="beamer生成的pdf文件转成pptx形式">
+<meta name="twitter:description" content="历经千辛万苦用beamer做完presentation后，被秘书告知考核报告需要计时，因此必须是pptx格式，因此考虑用pdf转图片然后再打包成pptx文件 思路是这样，用pdftk把pdf文件解开成单张，然后是imagemagick将单张pdf转成高分辨率的png，最后用python-pptx把一堆png文件添加成pptx文件。 pdftk  vice.pdf  burst好像现在还有其他工具，">
   
     <link rel="alternate" href="/atom.xml" title="大道至简" type="application/atom+xml">
   
@@ -69,10 +69,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-DNS列表" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-beamer生成的pdf文件转成pptx形式" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/02/28/DNS列表/" class="article-date">
-  <time datetime="2019-02-28T02:47:16.000Z" itemprop="datePublished">2019-02-28</time>
+    <a href="/2019/11/26/beamer生成的pdf文件转成pptx形式/" class="article-date">
+  <time datetime="2019-11-26T02:25:17.000Z" itemprop="datePublished">2019-11-26</time>
 </a>
     
   </div>
@@ -83,7 +83,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      DNS列表
+      beamer生成的pdf文件转成pptx形式
     </h1>
   
 
@@ -91,33 +91,42 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>114：     114.114.114.114   114.114.115.115<br>阿里：    223.5.5.5 223.6.6.6<br>百度：    180.76.76.76<br>谷歌：    8.8.8.8<br>OpenDNS： 208.67.220.220</p>
+        <p>历经千辛万苦用beamer做完presentation后，被秘书告知考核报告需要计时，因此必须是pptx格式，因此考虑用pdf转图片然后再打包成pptx文件</p>
+<p>思路是这样，用pdftk把pdf文件解开成单张，然后是imagemagick将单张pdf转成高分辨率的png，最后用python-pptx把一堆png文件添加成pptx文件。</p>
+<p>pdftk  vice.pdf  burst<br>好像现在还有其他工具，比如pdfsam</p>
+<p>上传到linux服务器后，用bash开始批处理<br>for files in ls *.pdf; do convert -density 900 $files  ${files%.pdf}.png;  done </p>
+<p>最后是python脚本</p>
+<p>import os;<br>import pptx;<br>from pptx.util import Inches;</p>
+<p>picFiles= [fn for fn in os.listdir() if fn.endswith(‘.png’)]<br>pptxFile = pptx.Presentation()</p>
+<p>#for fn in sorted(picFiles, key=lambda item:int(item[:item.rindex(‘.’)])):</p>
+<p>slide = pptxFile.slides.add_slide(pptxFile.slide_layouts[1]); slide.shapes.add_picture(‘pg_0001.png’, Inches(0), Inches(0), Inches(10), Inches(7.5));<br>pptxFile.save(‘vice.pptx’)</p>
+<p>#title_slide_layout = prs.slide_layouts[0]</p>
+<p>#slide = prs.slides.add_slide(title_slide_layout) </p>
+<p>#title = slide.shapes.title</p>
+<p>#subtitle = slide.placeholders[1] </p>
+<p>#title.text = “Hello, World!”</p>
+<p>#subtitle.text = “pip install python-pptx”</p>
+<p>#prs.save(“test.pptx”)</p>
+<p>python3运行脚本后就可以看到pptx文件</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tanzhixin.github.io/2019/02/28/DNS列表/" data-id="ck3f954ah0002oujgsyx2gq9d" class="article-share-link">Share</a>
+      <a data-url="http://tanzhixin.github.io/2019/11/26/beamer生成的pdf文件转成pptx形式/" data-id="ck3f954ac0001oujgjydndq4q" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/latex/">latex</a></li></ul>
+
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
-    <a href="/2019/03/15/windows版rxtx驱动安装/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          windows版rxtx驱动安装
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/02/19/软件列表/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/11/06/pdflatex字体生成与安装的老方案/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">软件列表</div>
+      <div class="article-nav-title">pdflatex字体生成与安装的老方案</div>
     </a>
   
 </nav>
