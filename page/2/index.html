@@ -309,6 +309,7 @@
             <p>做了两本，有些资料确实很难下载，doc88之类的却又收费，无奈只能自己动手丰衣足食。</p>
 <p>picpick还真不错，能够自定义文件名并按序号自己排列好。当然最好是把显示屏旋转一下，可以获得更好的分辨效果。</p>
 <p>剩下的就是处理图片，用imagemagick批量转换成pdf页面，然后pdftk打包成一个书籍文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">for file in *.png; do convert $file $&#123;file%%.*&#125;.pdf; done</span><br></pre></td></tr></table></figure>
 
           
         
