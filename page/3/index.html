@@ -235,6 +235,129 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://tanzhixin.github.io/2019/07/07/picpick截屏做书/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Thomas">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://otakism.com/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大道至简">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/07/picpick截屏做书/" itemprop="url">picpick截屏做书</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-07T09:45:01+08:00">
+                2019-07-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>做了两本，有些资料确实很难下载，doc88之类的却又收费，无奈只能自己动手丰衣足食。</p>
+<p>picpick还真不错，能够自定义文件名并按序号自己排列好。当然最好是把显示屏旋转一下，可以获得更好的分辨效果。</p>
+<p>剩下的就是处理图片，用imagemagick批量转换成pdf页面，然后pdftk打包成一个书籍文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">for file in *.png; do convert $file $&#123;file%%.*&#125;.pdf; done</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://tanzhixin.github.io/2019/06/28/撤销git刚添加的文件/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1328,217 +1451,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://tanzhixin.github.io/2019/02/19/软件列表/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Thomas">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="https://otakism.com/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="大道至简">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/02/19/软件列表/" itemprop="url">软件列表</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-19T10:52:31+08:00">
-                2019-02-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="图形图像"><a href="#图形图像" class="headerlink" title="图形图像"></a>图形图像</h2><p>imageJ</p>
-<p>paint.net</p>
-<p>irfanview</p>
-<p>picasa</p>
-<h2 id="文字处理"><a href="#文字处理" class="headerlink" title="文字处理"></a>文字处理</h2><p>office</p>
-<p>pspad</p>
-<p>notepad++ </p>
-<p>emacs</p>
-<p>texlive + texstudio</p>
-<p>winmerge </p>
-<p>jmeld</p>
-<p>overleaf</p>
-<p>github</p>
-<h2 id="文献管理"><a href="#文献管理" class="headerlink" title="文献管理"></a>文献管理</h2><p>acroread</p>
-<p>winDjview</p>
-<p>calibre</p>
-<p>kindle</p>
-<p>sumatra PDF</p>
-<p>jabref </p>
-<p>endnoteX (x)</p>
-<p>github</p>
-<p>mendeley</p>
-<p>webofScience</p>
-<h2 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h2><p>docfetcher</p>
-<p>searx</p>
-<p>mezw</p>
-<p>locate</p>
-<h2 id="词典"><a href="#词典" class="headerlink" title="词典"></a>词典</h2><p>artha</p>
-<p>golden-dict</p>
-<p>bing translator</p>
-<h2 id="视频影音"><a href="#视频影音" class="headerlink" title="视频影音"></a>视频影音</h2><p>vlc</p>
-<p>kmplayer</p>
-<p>MPC-BEx64</p>
-<p>CNTV</p>
-<p>foobar</p>
-<p>bilibili</p>
-<h2 id="远程登陆"><a href="#远程登陆" class="headerlink" title="远程登陆"></a>远程登陆</h2><p>putty</p>
-<p>msys2</p>
-<p>xming </p>
-<p>vcxsrv</p>
-<h2 id="编程调试"><a href="#编程调试" class="headerlink" title="编程调试"></a>编程调试</h2><p>cmake3</p>
-<p>git</p>
-<p>qt-online </p>
-<p>vs 2017</p>
-<p>vcpkg</p>
-<p>vscode</p>
-<p>anaconda </p>
-<p>ssh + emacs </p>
-<h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><p>filezilla</p>
-<p>irssi</p>
-<p>lftp</p>
-<p>wget curl </p>
-<p>dupeguru</p>
-<p>freemind</p>
-<h2 id="专业"><a href="#专业" class="headerlink" title="专业"></a>专业</h2><p>root 5.34.36</p>
-<p>geant4</p>
-<p>andor solis</p>
-<p>comsol</p>
-<p>solidwork</p>
-<p>gnuplot</p>
-<p>windriver</p>
-<p>yED</p>
-<p>vidyo</p>
-<p>RIGOL</p>
-<p>tesmviewer</p>
-<p>matlab</p>
-<p>OpticalRayTracer</p>
-<p>Thorlabs</p>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>7-zip</p>
-<p>chrome</p>
-<p>firefox + bitwarden</p>
-<p>TIM</p>
-<p>wechat</p>
-<p>aliwangwang</p>
-<p>钉钉</p>
-<p>scratch</p>
-<p>ihepbox</p>
-<p>winfsp + sirikari</p>
-<p>pdftkX</p>
-<p>rufus</p>
-<p>CrystalDiskInfo  </p>
-<p>diskgenius</p>
-<p>CSR bt4.0</p>
-<p>Heidi SQL</p>
-<p>inkscape</p>
-<p>ghostscript </p>
-<p>nvidia</p>
-<p>Qiku phone helper</p>
-<p>sslvpn: easyconnection</p>
-<p>pan.baidu.com</p>
-<p>cloud.189.com</p>
-<p>epson label<br>  <a href="http://www.epson.com.cn/Apps/tech_support/GuideDrive.aspx?columnid=384&amp;ptype=1031&amp;pmodel=31073" target="_blank" rel="noopener">label editor</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1591,7 +1503,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-count">39</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1613,7 +1525,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
