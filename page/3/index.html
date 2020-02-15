@@ -235,6 +235,155 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://tanzhixin.github.io/2019/09/11/rtags安装及用法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Thomas">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://otakism.com/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大道至简">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/11/rtags安装及用法/" itemprop="url">rtags安装及用法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-11T11:29:25+08:00">
+                2019-09-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>If you want C++ completion and navigation (jump to definition, jump to declaration, and so forth), there are several good options for Emacs. For a QtQuick / C++ project I’m working on, I needed the best Emacs has to offer.</p>
+<p>This turned out to be the Clang-based rtags system.</p>
+<p>Rtags is not the easiest of the options to get going, hence this short tutorial. I initially configured irony-mode, which is also Clang-based and was significantly easier to get going, but it soon started hanging on the completion of for example QStringList methods in my project. Because it also doesn’t support navigation, I decided to try rtags. So far, rtags has been working quite well on a Qt 5.x project of slightly under 200K lines of C++.<br>Pre-requisites</p>
+<p>On Ubuntu 14.04, I tested this with both libclang-3.6-dev from the standard repos and with libclang-3.8-dev from the LLVM repos. CMake should also be installed.</p>
+<p>On OSX 10.11 (El Capitan), homebrew took care of the dependencies for me (see next step).<br>Get and build rtags</p>
+<p>From the documentation, simply clone the rtags repo and build it:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git clone --recursive https://github.com/Andersbakken/rtags.git</span><br><span class="line">cd rtags</span><br><span class="line">cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=1 .</span><br><span class="line">make</span><br></pre></td></tr></table></figure></p>
+<p>Make a compilation database for your project</p>
+<p>rtags needs a compilation database file, usually called compile_commands.json, to figure out what compile options were used to compile which source files. If your project is using cmake, you only have to add the -DCMAKE_EXPORT_COMPILE_COMMANDS=1 to the cmake invocation to generate that file.</p>
+<p>In my case, and perhaps in yours, you have to use something else like Qt’s qmake system. In this case, you can use a tool like Build Ear (BEAR) or the Python-rewrite of scan-build. In both cases, you invoke the utility with your normal build command. In my Qt project, I do:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bear --append make -j16</span><br></pre></td></tr></table></figure></p>
+<p>As your project builds, bear will capture all of the compilation commands and put them in compile_commands.json. With my project, the compile_commands.json finds itself in the out-of-source (shadow) build directory.</p>
+<p>(The first time, you have to do this after a clean, or a make clean, so all of the compile commands can be captured.)</p>
+<p>BEAR is preferable, but on the latest OSX with its new system integrity protection (SIP) and on some linuxes, it won’t work and you’ll end up with an empty compilation database. In these cases, use the intercept-build command from the scan-build package linked above.<br>Start the rtags daemon RDM</p>
+<p>You can do this from emacs, but due to better system process handling, I invoke this from a normal terminal:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /where/you/built/rtags/bin</span><br><span class="line">nohup ./rdm &amp;</span><br></pre></td></tr></table></figure></p>
+<p>When working with rtags, always make sure that RDM is running.<br>Tell RDM about your project using RC</p>
+<p>rc is the rtags command one uses to communicate with the rtags daemon RDM.</p>
+<p>Importantly, make sure that rc is in your path.</p>
+<p>We only have to tell RDM once about the location of any new project. Do this as follows:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /your/project/source</span><br><span class="line">rc -J /dir/containing/compile_commands.json/</span><br></pre></td></tr></table></figure></p>
+<p>Note that the -J parameter is the directory containing the compile_commands.json file.<br>Configure your Emacs</p>
+<p>Install the Emacs rtags package:</p>
+<p><code>M-x package-install RET rtags RET</code></p>
+<p>Make sure that you also have the company package installed.</p>
+<p>Next, add the following to your Emacs init.el:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">;; ensure that we use only rtags checking</span><br><span class="line">;; https://github.com/Andersbakken/rtags#optional-1</span><br><span class="line">(defun setup-flycheck-rtags ()</span><br><span class="line">  (interactive)</span><br><span class="line">  (flycheck-select-checker &apos;rtags)</span><br><span class="line">  ;; RTags creates more accurate overlays.</span><br><span class="line">  (setq-local flycheck-highlighting-mode nil)</span><br><span class="line">  (setq-local flycheck-check-syntax-automatically nil))</span><br><span class="line"></span><br><span class="line">;; only run this if rtags is installed</span><br><span class="line">(when (require &apos;rtags nil :noerror)</span><br><span class="line">  ;; make sure you have company-mode installed</span><br><span class="line">  (require &apos;company)</span><br><span class="line">  (define-key c-mode-base-map (kbd &quot;M-.&quot;)</span><br><span class="line">    (function rtags-find-symbol-at-point))</span><br><span class="line">  (define-key c-mode-base-map (kbd &quot;M-,&quot;)</span><br><span class="line">    (function rtags-find-references-at-point))</span><br><span class="line">  ;; disable prelude&apos;s use of C-c r, as this is the rtags keyboard prefix</span><br><span class="line">  (define-key prelude-mode-map (kbd &quot;C-c r&quot;) nil)</span><br><span class="line">  ;; install standard rtags keybindings. Do M-. on the symbol below to</span><br><span class="line">  ;; jump to definition and see the keybindings.</span><br><span class="line">  (rtags-enable-standard-keybindings)</span><br><span class="line">  ;; comment this out if you don&apos;t have or don&apos;t use helm</span><br><span class="line">  (setq rtags-use-helm t)</span><br><span class="line">  ;; company completion setup</span><br><span class="line">  (setq rtags-autostart-diagnostics t)</span><br><span class="line">  (rtags-diagnostics)</span><br><span class="line">  (setq rtags-completions-enabled t)</span><br><span class="line">  (push &apos;company-rtags company-backends)</span><br><span class="line">  (global-company-mode)</span><br><span class="line">  (define-key c-mode-base-map (kbd &quot;&lt;C-tab&gt;&quot;) (function company-complete))</span><br><span class="line">  ;; use rtags flycheck mode -- clang warnings shown inline</span><br><span class="line">  (require &apos;flycheck-rtags)</span><br><span class="line">  ;; c-mode-common-hook is also called by c++-mode</span><br><span class="line">  (add-hook &apos;c-mode-common-hook #&apos;setup-flycheck-rtags))</span><br></pre></td></tr></table></figure></p>
+<p>You can either just eval this new code, or restart your emacs.<br>Using rtags</p>
+<p>I mostly use <code>M-.</code> to jump to any symbol’s definition. Pressing <code>M-.</code> again will jump to and fro between definition and declaration. Use =M-,= to see all references to the symbol under the cursor. This is where Helm comes in especially useful.</p>
+<p>Use <code>C-c r [</code> and <code>C-c r ]</code> to jump backwards and forwards through the position stack that rtags builds up as you jump between symbols. You can use <code>C-c r I</code> to get a list of rtags-extracted symbols in the current file, although semantic-mode with helm (C-c h i) gives you slightly less accurate but more colourful results. I use both.</p>
+<p>As you type, company-mode will usually interrupt after you’ve entered the first three characters of a symbol or member. I can’t wait that long, so I press C-tab to get a list of completions immediately.</p>
+<p>As an additional bonus, you’ll see Clang warnings indicated in bright red (usually) in your code window!</p>
+<p>As you’re working, remember to do builds with bear –append as shown above. I do this via M-x compile. rdm will pick up all changes and re-analyse files as you work!<br>Conclusions and other rambling</p>
+<p>I am quite impressed by how well rtags works on complex C++ projects! It is indeed clang under the hood, but rtags has overcome the considerable challenge of exposing this to Emacs in a robust and usable fashion.</p>
+<p>With this setup, I am able to take longer breaks from using QtCreator, which I don’t like very much. QtCreator has great potential, but unfortunately its Emacs keyboard emulation is sorely lacking (this could be forgiven) and as a general C++ IDE it still has a long way to go in the usability department. I remain optimistic that with competition like JetBrains (when I’m not in Emacs, I’m in something by JetBrains; their Emacs emulation is bearable!) out there, QtCreator will improve over time.</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://tanzhixin.github.io/2019/09/09/hexo初步/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1371,131 +1520,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://tanzhixin.github.io/2019/04/03/NI-visa-programming/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Thomas">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="https://otakism.com/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="大道至简">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/03/NI-visa-programming/" itemprop="url">NI-visa programming</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-03T08:30:50+08:00">
-                2019-04-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>tutor</p>
-<p><a href="http://www.ni.com/tutorial/4478/zhs/" target="_blank" rel="noopener">http://www.ni.com/tutorial/4478/zhs/</a></p>
-<p>manual </p>
-<p><a href="https://documentation.help/NI-VISA/ExampleMessageBasedComm.html#Example" target="_blank" rel="noopener">https://documentation.help/NI-VISA/ExampleMessageBasedComm.html#Example</a> </p>
-<p>and example</p>
-<p><a href="http://ena.support.keysight.com/e5071c/manuals/webhelp/eng/programming/vba_programming/controlling_peripherals/programming_with_visa.htm" target="_blank" rel="noopener">http://ena.support.keysight.com/e5071c/manuals/webhelp/eng/programming/vba_programming/controlling_peripherals/programming_with_visa.htm</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1548,7 +1572,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-count">42</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
