@@ -235,6 +235,133 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://tanzhixin.github.io/2019/11/26/beamer生成的pdf文件转成pptx形式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Thomas">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://otakism.com/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大道至简">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/11/26/beamer生成的pdf文件转成pptx形式/" itemprop="url">beamer生成的pdf文件转成pptx形式</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-26T10:25:17+08:00">
+                2019-11-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>历经千辛万苦用beamer做完presentation后，被秘书告知考核报告需要计时，因此必须是pptx格式，因此考虑用pdf转图片然后再打包成pptx文件</p>
+<p>思路是这样，用pdftk把pdf文件解开成单张，然后是imagemagick将单张pdf转成高分辨率的png，最后用python-pptx把一堆png文件添加成pptx文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pdftk  vice.pdf  burst</span><br></pre></td></tr></table></figure>
+<p>好像现在还有其他工具，比如pdfsam</p>
+<p>上传到linux服务器后，用bash开始批处理<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">for files in ls *.pdf; do convert -density 900 $files  $&#123;files%.pdf&#125;.png;  done</span><br></pre></td></tr></table></figure></p>
+<p>最后是python脚本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">import os;</span><br><span class="line">import pptx;</span><br><span class="line">from pptx.util import Inches;</span><br><span class="line"></span><br><span class="line">picFiles= [fn for fn in os.listdir() if fn.endswith(&apos;.png&apos;)]</span><br><span class="line">pptxFile = pptx.Presentation()</span><br><span class="line"></span><br><span class="line">#for fn in sorted(picFiles, key=lambda item:int(item[:item.rindex(&apos;.&apos;)])):</span><br><span class="line"></span><br><span class="line">slide = pptxFile.slides.add_slide(pptxFile.slide_layouts[1]); slide.shapes.add_picture(&apos;pg_0001.png&apos;, Inches(0), Inches(0), Inches(10), Inches(7.5));</span><br><span class="line">pptxFile.save(&apos;vice.pptx&apos;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#title_slide_layout = prs.slide_layouts[0]</span><br><span class="line">#slide = prs.slides.add_slide(title_slide_layout) </span><br><span class="line">#title = slide.shapes.title</span><br><span class="line">#subtitle = slide.placeholders[1] </span><br><span class="line">#title.text = &quot;Hello, World!&quot;</span><br><span class="line">#subtitle.text = &quot;pip install python-pptx&quot;</span><br><span class="line">#prs.save(&quot;test.pptx&quot;)</span><br></pre></td></tr></table></figure>
+<p>python3运行脚本后就可以看到pptx文件</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://tanzhixin.github.io/2019/11/06/pdflatex字体生成与安装的老方案/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -391,7 +518,7 @@
 <p>create_type1()<br>{<br>  echo “Now create <em>.pfb and </em>.enc files, wait… “<br>    for i in $NUMLIST<br>      do<br>          ttf2pt1 -GAE -pttf -OHUBs -W0 -l plane+pid=3,eid=1,0x$i $FULLNAME ${FHEAD}$i<br>        done</p>
 <h1 id="avoid-dvips-t1part-module-bugs"><a href="#avoid-dvips-t1part-module-bugs" class="headerlink" title="avoid dvips t1part module bugs."></a>avoid dvips t1part module bugs.</h1><p>  perl -pi -e ‘s/_/Z/g’ <em>.t1a </em>.afm</p>
 <p>  for ps in *.t1a<br>    do<br>        t1asm -b $ps &gt; ${ps%.t1a}.pfb<br>      done<br>      }</p>
-<p>create_map()<br>{<br>MAPFILE=t1-${FHEAD}.map<br>ENCMAP=ttf-${FHEAD}.map<br>  echo “Create *.tfm and (dvips)map file, wait…”<br>    cat &gt; $MAPFILE &lt;&lt; EndOfFile<br>    % This is map file for dvips/dvipdfm[x] and LaTeX CJK package.<br>    % Created by Edward G.J. Lee <a href="mailto:&#x65;&#x64;&#116;&#x31;&#48;&#50;&#x33;&#64;&#105;&#110;&#x66;&#111;&#46;&#x73;&#x61;&#121;&#x79;&#x61;&#x2e;&#111;&#114;&#103;" target="_blank" rel="noopener">&#x65;&#x64;&#116;&#x31;&#48;&#50;&#x33;&#64;&#105;&#110;&#x66;&#111;&#46;&#x73;&#x61;&#121;&#x79;&#x61;&#x2e;&#111;&#114;&#103;</a><br>    % $DATE<br>    EndOfFile<br>      cat &gt; $ENCMAP &lt;&lt; EndOfFile<br>      % This is map file for PDFLaTeX and LaTeX CJK package to embed TTF.<br>      % Created by Edward G.J. Lee <a href="mailto:&#101;&#x64;&#116;&#49;&#x30;&#x32;&#51;&#x40;&#105;&#110;&#102;&#x6f;&#46;&#115;&#97;&#x79;&#121;&#97;&#x2e;&#111;&#x72;&#x67;" target="_blank" rel="noopener">&#101;&#x64;&#116;&#49;&#x30;&#x32;&#51;&#x40;&#105;&#110;&#102;&#x6f;&#46;&#115;&#97;&#x79;&#121;&#97;&#x2e;&#111;&#x72;&#x67;</a><br>      % $DATE<br>      EndOfFile<br>        for i in $NUMLIST<br>      do<br>          PSNAME=<code>awk &#39;/FontName/ {print $2}&#39; ${FHEAD}$i.afm</code><br>              afm2tfm ${FHEAD}$i.afm &gt; /dev/null 2&gt;&amp;1<br>              cat &gt;&gt; $MAPFILE &lt;&lt; EndOfFile<br>              ${FHEAD}$i $PSNAME &lt;${FHEAD}$i.pfb<br>              EndOfFile<br>                  cat &gt;&gt; $ENCMAP &lt;&lt; EndOfFile<br>              ${FHEAD}$i &lt;${FHEAD}$i.enc &lt;${FNAME}<br>              EndOfFile<br>                done<br>                }</p>
+<p>create_map()<br>{<br>MAPFILE=t1-${FHEAD}.map<br>ENCMAP=ttf-${FHEAD}.map<br>  echo “Create *.tfm and (dvips)map file, wait…”<br>    cat &gt; $MAPFILE &lt;&lt; EndOfFile<br>    % This is map file for dvips/dvipdfm[x] and LaTeX CJK package.<br>    % Created by Edward G.J. Lee <a href="mailto:&#101;&#100;&#116;&#49;&#x30;&#50;&#x33;&#64;&#x69;&#110;&#102;&#x6f;&#x2e;&#x73;&#97;&#x79;&#x79;&#x61;&#x2e;&#x6f;&#x72;&#103;" target="_blank" rel="noopener">&#101;&#100;&#116;&#49;&#x30;&#50;&#x33;&#64;&#x69;&#110;&#102;&#x6f;&#x2e;&#x73;&#97;&#x79;&#x79;&#x61;&#x2e;&#x6f;&#x72;&#103;</a><br>    % $DATE<br>    EndOfFile<br>      cat &gt; $ENCMAP &lt;&lt; EndOfFile<br>      % This is map file for PDFLaTeX and LaTeX CJK package to embed TTF.<br>      % Created by Edward G.J. Lee <a href="mailto:&#101;&#x64;&#x74;&#x31;&#48;&#x32;&#x33;&#x40;&#105;&#x6e;&#102;&#111;&#x2e;&#x73;&#97;&#x79;&#x79;&#x61;&#x2e;&#x6f;&#x72;&#103;" target="_blank" rel="noopener">&#101;&#x64;&#x74;&#x31;&#48;&#x32;&#x33;&#x40;&#105;&#x6e;&#102;&#111;&#x2e;&#x73;&#97;&#x79;&#x79;&#x61;&#x2e;&#x6f;&#x72;&#103;</a><br>      % $DATE<br>      EndOfFile<br>        for i in $NUMLIST<br>      do<br>          PSNAME=<code>awk &#39;/FontName/ {print $2}&#39; ${FHEAD}$i.afm</code><br>              afm2tfm ${FHEAD}$i.afm &gt; /dev/null 2&gt;&amp;1<br>              cat &gt;&gt; $MAPFILE &lt;&lt; EndOfFile<br>              ${FHEAD}$i $PSNAME &lt;${FHEAD}$i.pfb<br>              EndOfFile<br>                  cat &gt;&gt; $ENCMAP &lt;&lt; EndOfFile<br>              ${FHEAD}$i &lt;${FHEAD}$i.enc &lt;${FNAME}<br>              EndOfFile<br>                done<br>                }</p>
 <p>create_cidmap()<br>{<br>cat &gt;&gt; cid-x.map &lt;&lt; EndOfFile<br>gbk$FHEAD@UGBK@ UniGB-UCS2-H :0:$FNAME<br>$FHEAD@Unicode@ unicode :0:$FNAME<br>EndOfFile<br>}</p>
 <p>create_cjkfd()<br>{<br>cat &gt; c${UTF8ENC}${FONTNAME}.fd &lt;&lt; EndOfFile<br>/ProvidesFile{c${UTF8ENC}${FONTNAME}.fd}[/filedate/space/fileversion]<br>/DeclareFontFamily{C${UTF8ENC}}{$FONTNAME}{/hyphenchar /font/m@ne}<br>/DeclareFontShape{C${UTF8ENC}}{$FONTNAME}{m}{n}{<-> CJK <em> $FHEAD}{}<br>/DeclareFontShape{C${UTF8ENC}}{$FONTNAME}{bx}{n}{<-> CJKb </-></em> $FHEAD}{/CJKbold}<br>/endinput<br>EndOfFile</-></p>
 <p>cat &gt; c${GBKENC}${FONTNAME}.fd &lt;&lt; EndOfFile<br>/ProvidesFile{c${GBKENC}${FONTNAME}.fd}[/filedate/space/fileversion]<br>/DeclareFontFamily{C${GBKENC}}{$FONTNAME}{/hyphenchar /font/m@ne}<br>/DeclareFontShape{C${GBKENC}}{$FONTNAME}{m}{n}{<-> CJK <em> gbk$FHEAD}{}<br>/DeclareFontShape{C${GBKENC}}{$FONTNAME}{bx}{n}{<-> CJKb </-></em> gbk$FHEAD}{/CJKbold}<br>/endinput<br>EndOfFile<br>}</-></p>
@@ -1495,133 +1622,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://tanzhixin.github.io/2019/04/23/kms激活命令/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Thomas">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="https://otakism.com/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="大道至简">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/23/kms激活命令/" itemprop="url">kms激活命令</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-23T14:47:19+08:00">
-                2019-04-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ol>
-<li><p>云端搭建kms服务器</p>
-</li>
-<li><p>激活windows<br>slmgr  /skms  [ip]<br>slmgr /ato</p>
-</li>
-<li><p>激活office<br>cd c:\program files\Microsoft Office\office15<br>cscript ospp.vbs /sethst:[ip]</p>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1674,7 +1674,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-count">44</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
