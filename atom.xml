@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://tanzhixin.github.io/"/>
-  <updated>2020-03-05T08:49:18.804Z</updated>
+  <updated>2020-03-09T04:47:22.660Z</updated>
   <id>http://tanzhixin.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>xRDP远程登陆错误color-manager-profile</title>
+    <link href="http://tanzhixin.github.io/2020/03/09/xRDP%E8%BF%9C%E7%A8%8B%E7%99%BB%E9%99%86%E9%94%99%E8%AF%AFcolor-manager-profile/"/>
+    <id>http://tanzhixin.github.io/2020/03/09/xRDP远程登陆错误color-manager-profile/</id>
+    <published>2020-03-09T04:40:35.000Z</published>
+    <updated>2020-03-09T04:47:22.660Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>xdmcp远程登录centos7服务器</p><p>遇到color manager profile 错误，需要输入密码，猜测为X服务器问题，搜索结果证实确实如此</p><p><a href="https://unix.stackexchange.com/questions/417906/authentication-is-required-to-create-a-color-profile" target="_blank" rel="noopener">https://unix.stackexchange.com/questions/417906/authentication-is-required-to-create-a-color-profile</a></p><p>修复代码如下：</p><p>创建文件 /etc/polkit-1/localauthority/50-local.d/color.pkla</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[Allow colord for all users]</span><br><span class="line">Identity=unix-user:*</span><br><span class="line">Action=org.freedesktop.color-manager.create-device;org.freedesktop.color-manager.create-profile;org.freedesktop.color-manager.delete-device;org.freedesktop.color-manager.delete-profile;org.freedesktop.color-manager.modify-device;org.freedesktop.color-manager.modify-profile</span><br><span class="line">ResultAny=yes</span><br><span class="line">ResultInactive=yes</span><br><span class="line">ResultActive=yes</span><br></pre></td></tr></table></figure><p>创建规则文件  /etc/polkit-1/rules.d/</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">polkit.addRule(function(action, subject) &#123;</span><br><span class="line">   if ((action.id == &quot;org.freedesktop.color-manager.create-device&quot; ||</span><br><span class="line">        action.id == &quot;org.freedesktop.color-manager.create-profile&quot; ||</span><br><span class="line">        action.id == &quot;org.freedesktop.color-manager.delete-device&quot; ||</span><br><span class="line">        action.id == &quot;org.freedesktop.color-manager.delete-profile&quot; ||</span><br><span class="line">        action.id == &quot;org.freedesktop.color-manager.modify-device&quot; ||</span><br><span class="line">        action.id == &quot;org.freedesktop.color-manager.modify-profile&quot;) &amp;&amp;</span><br><span class="line">        subject.isInGroup(&quot;ATTENTION&quot;)) &#123;</span><br><span class="line">                return polkit.Result.YES;</span><br><span class="line">&#125;</span><br><span class="line"> &#125;);</span><br></pre></td></tr></table></figure><p>搞定。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>SCI写作黄金法则：IMRAD架构论文的技巧</title>
@@ -426,29 +447,6 @@
     
     </summary>
     
-    
-  </entry>
-  
-  <entry>
-    <title>mcu_vs_dsp_fpga_vs_CPU</title>
-    <link href="http://tanzhixin.github.io/2019/12/06/mcu-vs-dsp-fpga-vs-CPU/"/>
-    <id>http://tanzhixin.github.io/2019/12/06/mcu-vs-dsp-fpga-vs-CPU/</id>
-    <published>2019-12-06T02:02:45.000Z</published>
-    <updated>2019-12-06T02:08:08.383Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><a href="https://www.cnblogs.com/grooovvve/p/11604016.html" target="_blank" rel="noopener">ic</a><br><a href="https://www.eefocus.com/mcu-dsp/403033" target="_blank" rel="noopener">PLD</a><br><a href="https://blog.csdn.net/woshifennu1234/article/details/80414716" target="_blank" rel="noopener">simple</a><br><a href="https://blog.csdn.net/czg13548930186/article/details/89401154" target="_blank" rel="noopener">GPU</a><br><a href="https://blog.csdn.net/STN_LCD/article/details/77602236" target="_blank" rel="noopener">deep compare</a><br><a href="https://blog.csdn.net/z1026544682/article/details/82347073" target="_blank" rel="noopener">intro</a><br><a href="https://wenku.baidu.com/view/51b97c16b7360b4c2e3f6450.html" target="_blank" rel="noopener">baidu</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla
-      
-    
-    </summary>
-    
-    
-      <category term="seu" scheme="http://tanzhixin.github.io/tags/seu/"/>
     
   </entry>
   

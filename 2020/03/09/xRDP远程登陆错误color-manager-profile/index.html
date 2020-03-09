@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="114：     114.114.114.114   114.114.115.115阿里：    223.5.5.5 223.6.6.6百度：    180.76.76.76谷歌：    8.8.8.8OpenDNS： 208.67.220.220">
+<meta name="description" content="xdmcp远程登录centos7服务器 遇到color manager profile 错误，需要输入密码，猜测为X服务器问题，搜索结果证实确实如此 https://unix.stackexchange.com/questions/417906/authentication-is-required-to-create-a-color-profile 修复代码如下： 创建文件 /etc/polkit">
 <meta name="keywords" content="technology universe physics chemistry biology hi-tech linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DNS列表">
-<meta property="og:url" content="http://tanzhixin.github.io/2019/02/28/DNS列表/index.html">
+<meta property="og:title" content="xRDP远程登陆错误color-manager-profile">
+<meta property="og:url" content="http://tanzhixin.github.io/2020/03/09/xRDP远程登陆错误color-manager-profile/index.html">
 <meta property="og:site_name" content="大道至简">
-<meta property="og:description" content="114：     114.114.114.114   114.114.115.115阿里：    223.5.5.5 223.6.6.6百度：    180.76.76.76谷歌：    8.8.8.8OpenDNS： 208.67.220.220">
+<meta property="og:description" content="xdmcp远程登录centos7服务器 遇到color manager profile 错误，需要输入密码，猜测为X服务器问题，搜索结果证实确实如此 https://unix.stackexchange.com/questions/417906/authentication-is-required-to-create-a-color-profile 修复代码如下： 创建文件 /etc/polkit">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-02-28T02:48:49.142Z">
+<meta property="og:updated_time" content="2020-03-09T04:47:22.660Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="DNS列表">
-<meta name="twitter:description" content="114：     114.114.114.114   114.114.115.115阿里：    223.5.5.5 223.6.6.6百度：    180.76.76.76谷歌：    8.8.8.8OpenDNS： 208.67.220.220">
+<meta name="twitter:title" content="xRDP远程登陆错误color-manager-profile">
+<meta name="twitter:description" content="xdmcp远程登录centos7服务器 遇到color manager profile 错误，需要输入密码，猜测为X服务器问题，搜索结果证实确实如此 https://unix.stackexchange.com/questions/417906/authentication-is-required-to-create-a-color-profile 修复代码如下： 创建文件 /etc/polkit">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://tanzhixin.github.io/2019/02/28/DNS列表/">
+  <link rel="canonical" href="http://tanzhixin.github.io/2020/03/09/xRDP远程登陆错误color-manager-profile/">
 
 
 
 
 
-  <title>DNS列表 | 大道至简</title>
+  <title>xRDP远程登陆错误color-manager-profile | 大道至简</title>
   
 
 
@@ -235,7 +235,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://tanzhixin.github.io/2019/02/28/DNS列表/">
+    <link itemprop="mainEntityOfPage" href="http://tanzhixin.github.io/2020/03/09/xRDP远程登陆错误color-manager-profile/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Thomas">
@@ -252,7 +252,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">DNS列表</h1>
+          <h1 class="post-title" itemprop="name headline">xRDP远程登陆错误color-manager-profile</h1>
         
 
         <div class="post-meta">
@@ -264,8 +264,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-28T10:47:16+08:00">
-                2019-02-28
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-09T12:40:35+08:00">
+                2020-03-09
               </time>
             
 
@@ -302,7 +302,15 @@
       
 
       
-        <p>114：     114.114.114.114   114.114.115.115<br>阿里：    223.5.5.5 223.6.6.6<br>百度：    180.76.76.76<br>谷歌：    8.8.8.8<br>OpenDNS： 208.67.220.220</p>
+        <p>xdmcp远程登录centos7服务器</p>
+<p>遇到color manager profile 错误，需要输入密码，猜测为X服务器问题，搜索结果证实确实如此</p>
+<p><a href="https://unix.stackexchange.com/questions/417906/authentication-is-required-to-create-a-color-profile" target="_blank" rel="noopener">https://unix.stackexchange.com/questions/417906/authentication-is-required-to-create-a-color-profile</a></p>
+<p>修复代码如下：</p>
+<p>创建文件 /etc/polkit-1/localauthority/50-local.d/color.pkla</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[Allow colord for all users]</span><br><span class="line">Identity=unix-user:*</span><br><span class="line">Action=org.freedesktop.color-manager.create-device;org.freedesktop.color-manager.create-profile;org.freedesktop.color-manager.delete-device;org.freedesktop.color-manager.delete-profile;org.freedesktop.color-manager.modify-device;org.freedesktop.color-manager.modify-profile</span><br><span class="line">ResultAny=yes</span><br><span class="line">ResultInactive=yes</span><br><span class="line">ResultActive=yes</span><br></pre></td></tr></table></figure>
+<p>创建规则文件  /etc/polkit-1/rules.d/</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">polkit.addRule(function(action, subject) &#123;</span><br><span class="line">   if ((action.id == &quot;org.freedesktop.color-manager.create-device&quot; ||</span><br><span class="line">        action.id == &quot;org.freedesktop.color-manager.create-profile&quot; ||</span><br><span class="line">        action.id == &quot;org.freedesktop.color-manager.delete-device&quot; ||</span><br><span class="line">        action.id == &quot;org.freedesktop.color-manager.delete-profile&quot; ||</span><br><span class="line">        action.id == &quot;org.freedesktop.color-manager.modify-device&quot; ||</span><br><span class="line">        action.id == &quot;org.freedesktop.color-manager.modify-profile&quot;) &amp;&amp;</span><br><span class="line">        subject.isInGroup(&quot;ATTENTION&quot;)) &#123;</span><br><span class="line">                return polkit.Result.YES;</span><br><span class="line">	&#125;</span><br><span class="line"> &#125;);</span><br></pre></td></tr></table></figure>
+<p>搞定。</p>
 
       
     </div>
@@ -327,8 +335,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/19/软件列表/" rel="next" title="软件列表">
-                <i class="fa fa-chevron-left"></i> 软件列表
+              <a href="/2020/03/05/SCI写作黄金法则IMRAD架构论文的技巧/" rel="next" title="SCI写作黄金法则：IMRAD架构论文的技巧">
+                <i class="fa fa-chevron-left"></i> SCI写作黄金法则：IMRAD架构论文的技巧
               </a>
             
           </div>
@@ -336,10 +344,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/15/windows版rxtx驱动安装/" rel="prev" title="windows版rxtx驱动安装">
-                windows版rxtx驱动安装 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
