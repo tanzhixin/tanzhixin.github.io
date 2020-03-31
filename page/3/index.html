@@ -235,6 +235,125 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://tanzhixin.github.io/2019/12/31/中国集成电路产业发展艰难历程回顾/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Thomas">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://otakism.com/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大道至简">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/12/31/中国集成电路产业发展艰难历程回顾/" itemprop="url">中国集成电路产业发展艰难历程回顾</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-31T15:14:56+08:00">
+                2019-12-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://tanzhixin.github.io/2019/12/31/未曾忘却的记忆/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1305,7 +1424,7 @@
 <p>create_type1()<br>{<br>  echo “Now create <em>.pfb and </em>.enc files, wait… “<br>    for i in $NUMLIST<br>      do<br>          ttf2pt1 -GAE -pttf -OHUBs -W0 -l plane+pid=3,eid=1,0x$i $FULLNAME ${FHEAD}$i<br>        done</p>
 <h1 id="avoid-dvips-t1part-module-bugs"><a href="#avoid-dvips-t1part-module-bugs" class="headerlink" title="avoid dvips t1part module bugs."></a>avoid dvips t1part module bugs.</h1><p>  perl -pi -e ‘s/_/Z/g’ <em>.t1a </em>.afm</p>
 <p>  for ps in *.t1a<br>    do<br>        t1asm -b $ps &gt; ${ps%.t1a}.pfb<br>      done<br>      }</p>
-<p>create_map()<br>{<br>MAPFILE=t1-${FHEAD}.map<br>ENCMAP=ttf-${FHEAD}.map<br>  echo “Create *.tfm and (dvips)map file, wait…”<br>    cat &gt; $MAPFILE &lt;&lt; EndOfFile<br>    % This is map file for dvips/dvipdfm[x] and LaTeX CJK package.<br>    % Created by Edward G.J. Lee <a href="mailto:&#x65;&#x64;&#x74;&#x31;&#x30;&#50;&#x33;&#x40;&#105;&#110;&#x66;&#111;&#46;&#115;&#97;&#x79;&#121;&#97;&#x2e;&#x6f;&#114;&#x67;" target="_blank" rel="noopener">&#x65;&#x64;&#x74;&#x31;&#x30;&#50;&#x33;&#x40;&#105;&#110;&#x66;&#111;&#46;&#115;&#97;&#x79;&#121;&#97;&#x2e;&#x6f;&#114;&#x67;</a><br>    % $DATE<br>    EndOfFile<br>      cat &gt; $ENCMAP &lt;&lt; EndOfFile<br>      % This is map file for PDFLaTeX and LaTeX CJK package to embed TTF.<br>      % Created by Edward G.J. Lee <a href="mailto:&#x65;&#100;&#116;&#x31;&#x30;&#x32;&#x33;&#64;&#x69;&#110;&#102;&#111;&#46;&#x73;&#x61;&#x79;&#x79;&#x61;&#x2e;&#111;&#114;&#x67;" target="_blank" rel="noopener">&#x65;&#100;&#116;&#x31;&#x30;&#x32;&#x33;&#64;&#x69;&#110;&#102;&#111;&#46;&#x73;&#x61;&#x79;&#x79;&#x61;&#x2e;&#111;&#114;&#x67;</a><br>      % $DATE<br>      EndOfFile<br>        for i in $NUMLIST<br>      do<br>          PSNAME=<code>awk &#39;/FontName/ {print $2}&#39; ${FHEAD}$i.afm</code><br>              afm2tfm ${FHEAD}$i.afm &gt; /dev/null 2&gt;&amp;1<br>              cat &gt;&gt; $MAPFILE &lt;&lt; EndOfFile<br>              ${FHEAD}$i $PSNAME &lt;${FHEAD}$i.pfb<br>              EndOfFile<br>                  cat &gt;&gt; $ENCMAP &lt;&lt; EndOfFile<br>              ${FHEAD}$i &lt;${FHEAD}$i.enc &lt;${FNAME}<br>              EndOfFile<br>                done<br>                }</p>
+<p>create_map()<br>{<br>MAPFILE=t1-${FHEAD}.map<br>ENCMAP=ttf-${FHEAD}.map<br>  echo “Create *.tfm and (dvips)map file, wait…”<br>    cat &gt; $MAPFILE &lt;&lt; EndOfFile<br>    % This is map file for dvips/dvipdfm[x] and LaTeX CJK package.<br>    % Created by Edward G.J. Lee <a href="mailto:&#x65;&#x64;&#116;&#49;&#48;&#x32;&#51;&#64;&#105;&#x6e;&#102;&#x6f;&#46;&#115;&#97;&#121;&#x79;&#97;&#46;&#x6f;&#114;&#103;" target="_blank" rel="noopener">&#x65;&#x64;&#116;&#49;&#48;&#x32;&#51;&#64;&#105;&#x6e;&#102;&#x6f;&#46;&#115;&#97;&#121;&#x79;&#97;&#46;&#x6f;&#114;&#103;</a><br>    % $DATE<br>    EndOfFile<br>      cat &gt; $ENCMAP &lt;&lt; EndOfFile<br>      % This is map file for PDFLaTeX and LaTeX CJK package to embed TTF.<br>      % Created by Edward G.J. Lee <a href="mailto:&#101;&#x64;&#x74;&#49;&#48;&#x32;&#x33;&#x40;&#105;&#110;&#x66;&#x6f;&#46;&#x73;&#x61;&#x79;&#x79;&#x61;&#46;&#x6f;&#x72;&#103;" target="_blank" rel="noopener">&#101;&#x64;&#x74;&#49;&#48;&#x32;&#x33;&#x40;&#105;&#110;&#x66;&#x6f;&#46;&#x73;&#x61;&#x79;&#x79;&#x61;&#46;&#x6f;&#x72;&#103;</a><br>      % $DATE<br>      EndOfFile<br>        for i in $NUMLIST<br>      do<br>          PSNAME=<code>awk &#39;/FontName/ {print $2}&#39; ${FHEAD}$i.afm</code><br>              afm2tfm ${FHEAD}$i.afm &gt; /dev/null 2&gt;&amp;1<br>              cat &gt;&gt; $MAPFILE &lt;&lt; EndOfFile<br>              ${FHEAD}$i $PSNAME &lt;${FHEAD}$i.pfb<br>              EndOfFile<br>                  cat &gt;&gt; $ENCMAP &lt;&lt; EndOfFile<br>              ${FHEAD}$i &lt;${FHEAD}$i.enc &lt;${FNAME}<br>              EndOfFile<br>                done<br>                }</p>
 <p>create_cidmap()<br>{<br>cat &gt;&gt; cid-x.map &lt;&lt; EndOfFile<br>gbk$FHEAD@UGBK@ UniGB-UCS2-H :0:$FNAME<br>$FHEAD@Unicode@ unicode :0:$FNAME<br>EndOfFile<br>}</p>
 <p>create_cjkfd()<br>{<br>cat &gt; c${UTF8ENC}${FONTNAME}.fd &lt;&lt; EndOfFile<br>/ProvidesFile{c${UTF8ENC}${FONTNAME}.fd}[/filedate/space/fileversion]<br>/DeclareFontFamily{C${UTF8ENC}}{$FONTNAME}{/hyphenchar /font/m@ne}<br>/DeclareFontShape{C${UTF8ENC}}{$FONTNAME}{m}{n}{<-> CJK <em> $FHEAD}{}<br>/DeclareFontShape{C${UTF8ENC}}{$FONTNAME}{bx}{n}{<-> CJKb </-></em> $FHEAD}{/CJKbold}<br>/endinput<br>EndOfFile</-></p>
 <p>cat &gt; c${GBKENC}${FONTNAME}.fd &lt;&lt; EndOfFile<br>/ProvidesFile{c${GBKENC}${FONTNAME}.fd}[/filedate/space/fileversion]<br>/DeclareFontFamily{C${GBKENC}}{$FONTNAME}{/hyphenchar /font/m@ne}<br>/DeclareFontShape{C${GBKENC}}{$FONTNAME}{m}{n}{<-> CJK <em> gbk$FHEAD}{}<br>/DeclareFontShape{C${GBKENC}}{$FONTNAME}{bx}{n}{<-> CJKb </-></em> gbk$FHEAD}{/CJKbold}<br>/endinput<br>EndOfFile<br>}</-></p>
@@ -1514,140 +1633,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://tanzhixin.github.io/2019/09/09/hexo初步/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Thomas">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="https://otakism.com/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="大道至简">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/09/09/hexo初步/" itemprop="url">hexo初步</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-09T12:16:12+08:00">
-                2019-09-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="内嵌代码"><a href="#内嵌代码" class="headerlink" title="内嵌代码"></a>内嵌代码</h1><p>1:引入单行代码出现一个代码框，需要使用键盘左上角的ESC键下面的反单引号夹在文字两侧，两侧各一个反单引号就行。<br>2：多行代码的引入需要在代码段的前后分别使用三个反单引号</p>
-<h1 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h1><p>用 <code>\</code> 表示注释，\ 后面的文字解析为纯文本格式。</p>
-<h1 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h1><p>使用 &gt; 表示文字引用：</p>
-<h1 id="外部链接"><a href="#外部链接" class="headerlink" title="外部链接"></a>外部链接</h1><p><code>[描述](链接地址)</code> 为文字添加外链接，<br>示例： <a href="http://harbingwang.github.io" target="_blank" rel="noopener">HarbingWang的博客</a></p>
-<h1 id="插入网络图片"><a href="#插入网络图片" class="headerlink" title="插入网络图片"></a>插入网络图片</h1><p>插入图片的语法与插入链接很像，区别在一个插入图片的时候需要加一个!号</p>
-<p>Markdown语法： <code>![描述](图片链接地址)</code></p>
-<h1 id="插入本地图片"><a href="#插入本地图片" class="headerlink" title="插入本地图片"></a>插入本地图片</h1><p>在\hexo\source目录下新建文件夹，命名为images或者其他你喜欢的名字，然后编辑你的md博文，插入下面的代码样式<br><code>![“图片描述”](/images/你的图片名字.JPG)</code></p>
-<h1 id="插入音乐"><a href="#插入音乐" class="headerlink" title="插入音乐"></a>插入音乐</h1><p>插入音频，使用插件hexo-tag-aplayer，语法如下：</p>
-<h1 id="插入视频"><a href="#插入视频" class="headerlink" title="插入视频"></a>插入视频</h1><p>引用视频则直接插入iframe代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;/js/youtube-autoresizer.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;iframe width=&quot;640&quot; height=&quot;360&quot; src=&quot;https://www.youtube.com/embed/HfElOZSEqn4&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;</span><br></pre></td></tr></table></figure></p>
-<h1 id="脚注"><a href="#脚注" class="headerlink" title="脚注"></a>脚注</h1><p>使用成对的 [^long] [^long]:  来表示脚注</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1695,7 +1685,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">50</span>
+                  <span class="site-state-item-count">51</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
