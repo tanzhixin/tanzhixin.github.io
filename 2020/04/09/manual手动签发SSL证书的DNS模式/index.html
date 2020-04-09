@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="为了签发SSL证书，可以通过DNS-1认证模式，手动通过域名服务认证 第一步： 安装acme.sh12curl https://get.acme.sh | shsource ~/.bashrc 第二步： 初次申请要求认证，获得challenge key，记录好，用于下一步填写···acme.sh –issue -d www.example.com –dns  –yes-I-know-dns-man">
+<meta name="description" content="为了签发SSL证书，可以通过DNS-1认证模式，手动通过域名服务认证 第一步： 安装acme.sh12curl https://get.acme.sh | shsource ~/.bashrc 第二步： 初次申请要求认证，获得challenge key，记录好，用于下一步填写1acme.sh --issue -d www.example.com --dns  --yes-I-know-dns-ma">
 <meta name="keywords" content="web">
 <meta property="og:type" content="article">
 <meta property="og:title" content="手动签发SSL证书的DNS模式">
 <meta property="og:url" content="http://tanzhixin.github.io/2020/04/09/manual手动签发SSL证书的DNS模式/index.html">
 <meta property="og:site_name" content="大道至简">
-<meta property="og:description" content="为了签发SSL证书，可以通过DNS-1认证模式，手动通过域名服务认证 第一步： 安装acme.sh12curl https://get.acme.sh | shsource ~/.bashrc 第二步： 初次申请要求认证，获得challenge key，记录好，用于下一步填写···acme.sh –issue -d www.example.com –dns  –yes-I-know-dns-man">
+<meta property="og:description" content="为了签发SSL证书，可以通过DNS-1认证模式，手动通过域名服务认证 第一步： 安装acme.sh12curl https://get.acme.sh | shsource ~/.bashrc 第二步： 初次申请要求认证，获得challenge key，记录好，用于下一步填写1acme.sh --issue -d www.example.com --dns  --yes-I-know-dns-ma">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2020-04-09T14:51:55.503Z">
+<meta property="og:updated_time" content="2020-04-09T14:59:58.833Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="手动签发SSL证书的DNS模式">
-<meta name="twitter:description" content="为了签发SSL证书，可以通过DNS-1认证模式，手动通过域名服务认证 第一步： 安装acme.sh12curl https://get.acme.sh | shsource ~/.bashrc 第二步： 初次申请要求认证，获得challenge key，记录好，用于下一步填写···acme.sh –issue -d www.example.com –dns  –yes-I-know-dns-man">
+<meta name="twitter:description" content="为了签发SSL证书，可以通过DNS-1认证模式，手动通过域名服务认证 第一步： 安装acme.sh12curl https://get.acme.sh | shsource ~/.bashrc 第二步： 初次申请要求认证，获得challenge key，记录好，用于下一步填写1acme.sh --issue -d www.example.com --dns  --yes-I-know-dns-ma">
 
 
 
@@ -304,12 +304,11 @@
       
         <p>为了签发SSL证书，可以通过DNS-1认证模式，手动通过域名服务认证</p>
 <h1 id="第一步：-安装acme-sh"><a href="#第一步：-安装acme-sh" class="headerlink" title="第一步： 安装acme.sh"></a>第一步： 安装acme.sh</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl https://get.acme.sh | sh</span><br><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
-<h1 id="第二步：-初次申请要求认证，获得challenge-key，记录好，用于下一步填写"><a href="#第二步：-初次申请要求认证，获得challenge-key，记录好，用于下一步填写" class="headerlink" title="第二步： 初次申请要求认证，获得challenge key，记录好，用于下一步填写"></a>第二步： 初次申请要求认证，获得challenge key，记录好，用于下一步填写</h1><p>···<br>acme.sh –issue -d <a href="http://www.example.com" target="_blank" rel="noopener">www.example.com</a> –dns  –yes-I-know-dns-manual-mode-enough-go-ahead-please<br>···</p>
+<h1 id="第二步：-初次申请要求认证，获得challenge-key，记录好，用于下一步填写"><a href="#第二步：-初次申请要求认证，获得challenge-key，记录好，用于下一步填写" class="headerlink" title="第二步： 初次申请要求认证，获得challenge key，记录好，用于下一步填写"></a>第二步： 初次申请要求认证，获得challenge key，记录好，用于下一步填写</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">acme.sh --issue -d www.example.com --dns  --yes-I-know-dns-manual-mode-enough-go-ahead-please</span><br></pre></td></tr></table></figure>
 <h1 id="第三步：-登录域名服务器，添加txt类型-acme-challenge-www解析记录xxxxxxxxxxxxxxxxxx，并测试"><a href="#第三步：-登录域名服务器，添加txt类型-acme-challenge-www解析记录xxxxxxxxxxxxxxxxxx，并测试" class="headerlink" title="第三步： 登录域名服务器，添加txt类型_acme-challenge.www解析记录xxxxxxxxxxxxxxxxxx，并测试"></a>第三步： 登录域名服务器，添加txt类型_acme-challenge.www解析记录xxxxxxxxxxxxxxxxxx，并测试</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dig -t TXT  _acme-challenge.www.example.com</span><br></pre></td></tr></table></figure>
 <h1 id="第四步：-认证，并获取证书"><a href="#第四步：-认证，并获取证书" class="headerlink" title="第四步： 认证，并获取证书"></a>第四步： 认证，并获取证书</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">acme.sh --renew -d www.example.com  --yes-I-know-dns-manual-mode-enough-go-ahead-please</span><br></pre></td></tr></table></figure>
-<h1 id="第五步：-添加段，配置nginx-conf，使用SSL证书"><a href="#第五步：-添加段，配置nginx-conf，使用SSL证书" class="headerlink" title="第五步： 添加段，配置nginx.conf，使用SSL证书"></a>第五步： 添加段，配置nginx.conf，使用SSL证书</h1><p>···</p>
-<p>server {<br>    listen              443 ssl;<br>    server_name         <a href="http://www.example.com" target="_blank" rel="noopener">www.example.com</a>;<br>    ssl_certificate     <a href="http://www.example.com.crt" target="_blank" rel="noopener">www.example.com.crt</a>;<br>    ssl_certificate_key <a href="http://www.example.com.key" target="_blank" rel="noopener">www.example.com.key</a>;<br>    ssl_protocols       TLSv1 TLSv1.1 TLSv1.2;<br>    ssl_ciphers         HIGH:!aNULL:!MD5;<br>    …<br>}</p>
-<p>···</p>
+<h1 id="第五步：-添加段，配置nginx-conf，使用SSL证书"><a href="#第五步：-添加段，配置nginx-conf，使用SSL证书" class="headerlink" title="第五步： 添加段，配置nginx.conf，使用SSL证书"></a>第五步： 添加段，配置nginx.conf，使用SSL证书</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">    listen              443 ssl;</span><br><span class="line">    server_name         www.example.com;</span><br><span class="line">    ssl_certificate     www.example.com.crt;</span><br><span class="line">    ssl_certificate_key www.example.com.key;</span><br><span class="line">    ssl_protocols       TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">    ssl_ciphers         HIGH:!aNULL:!MD5;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>完工!</p>
 
       
     </div>
