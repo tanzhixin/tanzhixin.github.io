@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://tanzhixin.github.io/"/>
-  <updated>2020-04-09T06:00:28.755Z</updated>
+  <updated>2020-04-09T13:37:53.081Z</updated>
   <id>http://tanzhixin.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>手动签发SSL证书的DNS模式</title>
+    <link href="http://tanzhixin.github.io/2020/04/09/manual%E6%89%8B%E5%8A%A8%E7%AD%BE%E5%8F%91SSL%E8%AF%81%E4%B9%A6%E7%9A%84DNS%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://tanzhixin.github.io/2020/04/09/manual手动签发SSL证书的DNS模式/</id>
+    <published>2020-04-09T13:33:22.000Z</published>
+    <updated>2020-04-09T13:37:53.081Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>为了签发SSL证书，可以通过DNS-1认证模式，手动通过域名服务认证</p><h1 id="第一步：-安装acme-sh"><a href="#第一步：-安装acme-sh" class="headerlink" title="第一步： 安装acme.sh"></a>第一步： 安装acme.sh</h1><h1 id="第二步：-初次要求签发，获得challenge-key"><a href="#第二步：-初次要求签发，获得challenge-key" class="headerlink" title="第二步： 初次要求签发，获得challenge key"></a>第二步： 初次要求签发，获得challenge key</h1><h1 id="第三步：-登录域名服务器，添加txt解析记录"><a href="#第三步：-登录域名服务器，添加txt解析记录" class="headerlink" title="第三步： 登录域名服务器，添加txt解析记录"></a>第三步： 登录域名服务器，添加txt解析记录</h1><h1 id="第四步：-认证，并获取证书"><a href="#第四步：-认证，并获取证书" class="headerlink" title="第四步： 认证，并获取证书"></a>第四步： 认证，并获取证书</h1><h1 id="第五步：-布置SSL证书"><a href="#第五步：-布置SSL证书" class="headerlink" title="第五步： 布置SSL证书"></a>第五步： 布置SSL证书</h1>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+    
+      <category term="web" scheme="http://tanzhixin.github.io/tags/web/"/>
+    
+  </entry>
   
   <entry>
     <title>王小波的另一面:戏称写文章为&quot;放毒&quot;</title>
@@ -428,27 +451,6 @@
     
     
       <category term="poetry" scheme="http://tanzhixin.github.io/tags/poetry/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>观潮-苏轼</title>
-    <link href="http://tanzhixin.github.io/2020/01/14/guan%E6%BD%AE/"/>
-    <id>http://tanzhixin.github.io/2020/01/14/guan潮/</id>
-    <published>2020-01-14T07:27:16.000Z</published>
-    <updated>2020-01-14T07:32:07.115Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>《观潮》苏轼</p><p>庐山烟雨浙江潮，未到千般恨不消。</p><p>到得还来别无事，庐山烟雨浙江潮。</p><p><img src="http://n2-q.mafengwo.net/s12/M00/E8/87/wKgED1vNrdmAB66GAAUbYhe8SzE82.jpeg" alt="庐山烟雨"></p><p><img src="http://i0.sinaimg.cn/travel/2013/1210/U7398P704DT20131210153009.jpg" alt="钱塘潮"></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla
-      
-    
-    </summary>
-    
     
   </entry>
   
