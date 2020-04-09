@@ -235,6 +235,217 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://tanzhixin.github.io/2020/02/18/三维参数化建模/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Thomas">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://otakism.com/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大道至简">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/02/18/三维参数化建模/" itemprop="url">三维参数化建模中常用曲线的参数方程</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-18T16:41:44+08:00">
+                2020-02-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1、变径螺旋线</p>
+<p>参数方程：</p>
+<p>r=t</p>
+<p>theta=10+t<em>(10</em>360)</p>
+<p>z=t*5</p>
+<p>坐标系类型：圆柱坐标系</p>
+<p>2、螺旋线</p>
+<p>参数方程：</p>
+<p>x=5<em>cos(t</em>(5*360))</p>
+<p>y=5<em>sin(t</em>(5*360))</p>
+<p>z=10*t</p>
+<p>坐标系类型：笛卡尔坐标系</p>
+<p>3、蝴蝶曲线</p>
+<p>参数方程：</p>
+<p>rho=10*t</p>
+<p>theta=360<em>t</em>4</p>
+<p>phi=-360<em>t</em>10</p>
+<p>坐标系类型：球坐标系</p>
+<p>4、玫瑰线</p>
+<p>参数方程：</p>
+<p>theta=t*360</p>
+<p>r=10+10<em>sin(8</em>theta)</p>
+<p>z=4<em>sin(8</em>theta)</p>
+<p>坐标系类型：柱坐标系</p>
+<p>5、环形螺旋线</p>
+<p>参数方程：</p>
+<p>theta = t *360</p>
+<p>r = 60+12<em> sin(theta</em>40)</p>
+<p>z = 12<em> cos(theta</em>40)</p>
+<p>坐标系类型：圆柱坐标系</p>
+<p>6、对数曲线</p>
+<p>参数方程：</p>
+<p>x=10*t</p>
+<p>y=log(10*t+0.0001)</p>
+<p>z=0</p>
+<p>坐标系类型：笛卡尔坐标</p>
+<p>7、渐开线</p>
+<p>参数方程：</p>
+<p>r=1</p>
+<p>angle=360*t</p>
+<p>s=2<em>pi</em>r*t</p>
+<p>x0=s*cos(angle)</p>
+<p>y0=s*sin(angle)</p>
+<p>x=x0+s*sin(angle)</p>
+<p>y=y0-s*cos(angle)</p>
+<p>z=0</p>
+<p>坐标系类型：笛卡尔坐标</p>
+<p>8、球面螺旋线</p>
+<p>参数方程：</p>
+<p>rho=5</p>
+<p>theta=t*180</p>
+<p>phi=t<em>360</em>20</p>
+<p>坐标系类型：球坐标系</p>
+<p>9、双弧外摆线</p>
+<p>参数方程：</p>
+<p>l=3</p>
+<p>b=3</p>
+<p>x=3<em>b</em>cos(t<em>360)+l</em>cos(3<em>t</em>360)</p>
+<p>y=3<em>b</em>sin(t<em>360)+l</em>sin(3<em>t</em>360)</p>
+<p>坐标系类型：笛卡尔坐标系</p>
+<p>10、星形线</p>
+<p>参数方程：</p>
+<p>a=10</p>
+<p>x=a<em>(cos(t</em>360))^3</p>
+<p>y=a<em>(sin(t</em>360))^3</p>
+<p>坐标系类型：笛卡尔坐标系</p>
+<p>11、心形线</p>
+<p>参数方程：</p>
+<p>a=5</p>
+<p>r=a*(1+cos(theta))</p>
+<p>theta=t*360</p>
+<p>z=0</p>
+<p>坐标系类型：圆柱坐标系</p>
+<p>12、抛物线</p>
+<p>参数方程：</p>
+<p>x=(3*t)</p>
+<p>y=(4<em>t)+(5</em>t^2)</p>
+<p>z=0</p>
+<p>坐标系类型：笛卡尔坐标</p>
+<p>13、蝶形线</p>
+<p>参数方程：</p>
+<p>r=5</p>
+<p>theta=t*3600</p>
+<p>z=(sin(3.5*theta-90))+24</p>
+<p>坐标系类型：圆柱坐标系</p>
+<p>14、圆柱齿轮用渐开线</p>
+<p>参数方程：</p>
+<p>afa=60*t</p>
+<p>x=10<em>cos(afa)+pi</em>10<em>afa/180</em>sin(afa)</p>
+<p>y=10<em>sin(afa)-pi</em>10<em>afa/180</em>cos(afa)</p>
+<p>z=0</p>
+<p>坐标系类型：笛卡尔坐标系</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://tanzhixin.github.io/2020/02/15/千字文/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1686,159 +1897,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://tanzhixin.github.io/2020/01/13/five馒头的故事/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Thomas">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="https://otakism.com/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="大道至简">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/01/13/five馒头的故事/" itemprop="url">five馒头的故事</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-01-13T13:54:47+08:00">
-                2020-01-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <img src="/2020/01/13/five馒头的故事/wangxuan.png" title="[王选的故事]">
-<p>先抄一遍吧</p>
-<p><img src="http://img.mp.itc.cn/upload/20161227/2f66866514d649c8a60a841f0fe2c724_th.jpg" alt="五个馒头"></p>
-<p>第一个馒头</p>
-<p>A、一位饿得奄奄一息的人，跌跌撞撞地跑到一位农夫家。农夫给他一个馒头、一碗水，饥饿者得救了。得救者走到农夫家里，发现农夫家里一无所有，感动得热泪盈眶，长跪不起。此后，他身怀感恩，把爱带给他所遇到的需要帮助的人。</p>
-<p>B、一位饿得奄奄一息的人，跌跌撞撞地跑到一位农夫家。农夫给他一个馒头、一碗水，饥饿者得救了。得救者走到农夫家里，发现农夫家里摆着很多好吃的，感恩很快被愤怒替代。他举刀杀了农夫，因为，他发现农夫还有那么多没有给他。</p>
-<p>思考1：同样的行为会得到完全相反的结果看到自己得到的，会感恩；看到自己没有得到的，会仇恨。</p>
-<p>思考2：救人命的是农夫奉献的馒头和水，与农夫自身拥有的并无关系。但现实的教育，更注重农夫一无所有情况下的慷慨，那意味着更高尚。这不自然改变了人们心中的标准和预期。实际上，爱心存在于生活的每一点，都平常得不能再平常，每个人都可以献爱心，而不是期待一个像A农夫那样的人出现。每个人都是自己的救世主。每个人都可以力所能及地帮助身边的人。</p>
-<p>思考3：感恩或者仇恨，往往都由一些细节决定而非本质决定。从本质上看，A和B两种情况下，结果都应该是感恩的。但只有正常而理性的人才能在两种情况下都保持同样的感恩心态。</p>
-<p>思考4：在感恩和仇恨之外，是否还可以有另外一种心态存在？</p>
-<p>第二个馒头</p>
-<p>A、一位饿得奄奄一息的人，跌跌撞撞地跑到一位农夫家。农夫给他一个馒头、一碗水，饥饿者得救了。但后来，人们发现这个被救者是个被通缉的贪官。于是，很多人仇恨农夫，认为他助纣为虐。</p>
-<p>B、一位饿得奄奄一息的人，跌跌撞撞地跑到一位农夫家。农夫给他一个馒头、一碗水，饥饿者得救了。但后来，人们发现这个被救者是个曾经多次助人的善人。于是，很多人称赞农夫做了一件大功德事。</p>
-<p>思考1：当救人于难要视身份救人，每个人都会根据自己的标准决定应该救什么人，应该不救什么人。于是，很多人多一事不如少一事，见什么人都不救了。</p>
-<p>思考2：如果人们在两种情况下，都能对农夫身怀敬意，爱心或会茁壮成长。反之，则在势利、戒心等等的影响下，爱心会丧失。</p>
-<p>第三个馒头</p>
-<p>A、一位饿得奄奄一息的人，跌跌撞撞地跑到一位农夫家。这位农夫，指着另外一个农夫的家说：看，那家就是曾施舍馒头和水救人的人，你去求他吧。饥饿者艰难地走到那个农夫家门口，农夫开开门，抱歉地说：我没有吃的了。于是，全村的人都仇恨这位农夫，而没有人指责那位从来不帮人的农夫。</p>
-<p>B、一位饿得奄奄一息的人，跌跌撞撞地跑到一位农夫家。这位农夫，指着另外一个农夫的家说：看，那家就是曾施舍馒头和水救人的人，你去求他吧。饥饿者艰难地走到那个农夫家门口，农夫开开门，说：我只有半个馒头了。于是，全村的人都鄙视这位农夫，而没有人指责那位从来不帮人的农夫。</p>
-<p>思考1：对于有爱心者，人们的标准会不由自主地抬高。</p>
-<p>思考2：对于自私者，人们把期望值降低到最小，因而也不会失望。</p>
-<p>思考3：超道德是驱逐爱心的强大力量，直到所有的人在面对饥饿者时都关上家门。</p>
-<p>第四个馒头</p>
-<p>A、一位饿得奄奄一息的人，跌跌撞撞地跑到一位农夫家。农夫给他一个馒头、一碗水，饥饿者得救了。得救者走到农夫家里，发现农夫家里一无所有。感动得热泪盈眶，长跪不起。此后，他身怀感恩，把爱带给他所遇到的需要帮助的人。同时，对于农夫的任何行为，他都不问善恶，全力支持。农夫失去镜子，认为自己一切都是对的。后来，因犯大错破产。</p>
-<p>B、一位饿得奄奄一息的人，跌跌撞撞地跑到一位农夫家。农夫给他一个馒头、一碗水，饥饿者得救了。得救者走到农夫家里，发现农夫家里一无所有。感动得热泪盈眶，长跪不起。此后，他身怀感恩，把爱带给他所遇到的需要帮助的人。但是，对于农夫的行为，支持其善，直言其错，农夫辛勤耕耘，并不断改进，渐渐兴旺，广施爱心。</p>
-<p>思考1：感恩的方式不同会导致不同的结果。</p>
-<p>思考2：正常的思维什么时候都要保持，直言、批评往往是更好的方式。</p>
-<p>思考3：其实，吃完馒头、喝碗水后，转身离开，也是一种感恩。很多时候，帮助人的人，只是怀着一颗平和、感恩的心在做，并不刻意希望得到赞美或者回报。</p>
-<p>第五个馒头</p>
-<p>A、一位饿得奄奄一息的人，跌跌撞撞地跑到一位农夫家。农夫给他一个馒头、一碗水，饥饿者得救了。村里人逢人见到农夫就夸他，做了一件善事。后来，即使遇到自己力不能及的事情，农夫也主动伸手相助。</p>
-<p>B、一位饿得奄奄一息的人，跌跌撞撞地跑到一位农夫家。农夫给他一个馒头、一碗水，饥饿者得救了。有人怀疑农夫作秀，甚至怀疑这个饥饿者就是农夫自己找人扮演的。于是，农夫遇到求助者，就躲得远远的，恐怕再遭诋毁。</p>
-<p>思考1：赞美或者诋毁，往往会影响一些人的行为，一些心智不够成熟者的行为。</p>
-<p>思考2：如果祈求某种行为得到一致的评价，只会让自己走火入魔。</p>
-<p>思考3：遇到诋毁就逃避的人，永远只能当懦夫。</p>
-<p>思考4：农夫应该迅速忘记那个馒头和那碗水，并忘掉人们所说的，平静地做自己的事情，做一个快乐的农夫。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1891,7 +1949,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">52</span>
+                  <span class="site-state-item-count">53</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1913,7 +1971,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
@@ -1953,6 +2011,10 @@
                   </li>
                 
                   <li class="links-of-blogroll-item">
+                    <a href="https://lammps.sandia.gov/" title="lammps" target="_blank">lammps</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
                     <a href="https://linggle.com/" title="lingge" target="_blank">lingge</a>
                   </li>
                 
@@ -1977,7 +2039,7 @@
                   </li>
                 
                   <li class="links-of-blogroll-item">
-                    <a href="https://github.com/Awesome-Windows/Awesome/blob/master/README-cn.md" title="awesome-windows" target="_blank">awesome-windows</a>
+                    <a href="https://github.com/Awesome-Windows/Awesome/blob/master/README-cn.md" title="awesomwin" target="_blank">awesomwin</a>
                   </li>
                 
                   <li class="links-of-blogroll-item">
