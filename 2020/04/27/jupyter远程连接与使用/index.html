@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="python,">
 
 
 
@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="git clone –bare git://192.168.10.XX/git_repo/project_name.git git init –bare new_project_name.git git push –mirror git@192.168.20.XX/path/to/path/new_project_name.git 使用git remote set-url命令从SSH到HTTPS的">
-<meta name="keywords" content="technology universe physics chemistry biology hi-tech linux">
+<meta name="description" content="使用conda包管理器或者pip3安装jupyter, pip需要使用aliyun镜像来安装jupyter包1pip3 install jupyter-notebook 生成默认配置文件以便修改1jupyter-notebook --generate-config 在ipython终端下生成远程连接密匙12345from notebook.auth  import passwdpasswd()En">
+<meta name="keywords" content="python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git仓库在服务器之间的迁移">
-<meta property="og:url" content="http://tanzhixin.github.io/2019/05/06/git仓库在服务器之间的迁移/index.html">
+<meta property="og:title" content="jupyter远程连接与使用">
+<meta property="og:url" content="http://tanzhixin.github.io/2020/04/27/jupyter远程连接与使用/index.html">
 <meta property="og:site_name" content="大道至简">
-<meta property="og:description" content="git clone –bare git://192.168.10.XX/git_repo/project_name.git git init –bare new_project_name.git git push –mirror git@192.168.20.XX/path/to/path/new_project_name.git 使用git remote set-url命令从SSH到HTTPS的">
+<meta property="og:description" content="使用conda包管理器或者pip3安装jupyter, pip需要使用aliyun镜像来安装jupyter包1pip3 install jupyter-notebook 生成默认配置文件以便修改1jupyter-notebook --generate-config 在ipython终端下生成远程连接密匙12345from notebook.auth  import passwdpasswd()En">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-05-16T04:05:42.130Z">
+<meta property="og:updated_time" content="2020-04-27T09:06:05.820Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="git仓库在服务器之间的迁移">
-<meta name="twitter:description" content="git clone –bare git://192.168.10.XX/git_repo/project_name.git git init –bare new_project_name.git git push –mirror git@192.168.20.XX/path/to/path/new_project_name.git 使用git remote set-url命令从SSH到HTTPS的">
+<meta name="twitter:title" content="jupyter远程连接与使用">
+<meta name="twitter:description" content="使用conda包管理器或者pip3安装jupyter, pip需要使用aliyun镜像来安装jupyter包1pip3 install jupyter-notebook 生成默认配置文件以便修改1jupyter-notebook --generate-config 在ipython终端下生成远程连接密匙12345from notebook.auth  import passwdpasswd()En">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://tanzhixin.github.io/2019/05/06/git仓库在服务器之间的迁移/">
+  <link rel="canonical" href="http://tanzhixin.github.io/2020/04/27/jupyter远程连接与使用/">
 
 
 
 
 
-  <title>git仓库在服务器之间的迁移 | 大道至简</title>
+  <title>jupyter远程连接与使用 | 大道至简</title>
   
 
 
@@ -235,7 +235,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://tanzhixin.github.io/2019/05/06/git仓库在服务器之间的迁移/">
+    <link itemprop="mainEntityOfPage" href="http://tanzhixin.github.io/2020/04/27/jupyter远程连接与使用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Thomas">
@@ -252,7 +252,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">git仓库在服务器之间的迁移</h1>
+          <h1 class="post-title" itemprop="name headline">jupyter远程连接与使用</h1>
         
 
         <div class="post-meta">
@@ -264,8 +264,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-06T10:18:35+08:00">
-                2019-05-06
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-04-27T16:49:08+08:00">
+                2020-04-27
               </time>
             
 
@@ -302,11 +302,13 @@
       
 
       
-        <p>git clone –bare git://192.168.10.XX/git_repo/project_name.git</p>
-<p>git init –bare new_project_name.git</p>
-<p>git push –mirror <a href="mailto:git@192.168.20.XX" target="_blank" rel="noopener">git@192.168.20.XX</a>/path/to/path/new_project_name.git</p>
-<p>使用git remote set-url命令从SSH到HTTPS的远程URL<br>$git remote set-url origin <a href="https://github.com/xxxxxx/S" target="_blank" rel="noopener">https://github.com/xxxxxx/S</a></p>
-<p>检查远程<br>git remote -v</p>
+        <h2 id="使用conda包管理器或者pip3安装jupyter-pip需要使用aliyun镜像来安装jupyter包"><a href="#使用conda包管理器或者pip3安装jupyter-pip需要使用aliyun镜像来安装jupyter包" class="headerlink" title="使用conda包管理器或者pip3安装jupyter, pip需要使用aliyun镜像来安装jupyter包"></a>使用conda包管理器或者pip3安装jupyter, pip需要使用aliyun镜像来安装jupyter包</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install jupyter-notebook</span><br></pre></td></tr></table></figure>
+<h2 id="生成默认配置文件以便修改"><a href="#生成默认配置文件以便修改" class="headerlink" title="生成默认配置文件以便修改"></a>生成默认配置文件以便修改</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter-notebook --generate-config</span><br></pre></td></tr></table></figure>
+<h2 id="在ipython终端下生成远程连接密匙"><a href="#在ipython终端下生成远程连接密匙" class="headerlink" title="在ipython终端下生成远程连接密匙"></a>在ipython终端下生成远程连接密匙</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">from notebook.auth  import passwd</span><br><span class="line">passwd()</span><br><span class="line">Enter password: </span><br><span class="line">Verify password: </span><br><span class="line">Out[2]: &apos;sha1:1b4ea9662b35:3e3d6a823d264d466f125a0939623c05e7b66007&apos;</span><br></pre></td></tr></table></figure>
+<p>复制，准备粘贴到配置文件中。</p>
+<h2 id="修改配置文件-jupyter-jupyter-notebook-config-py"><a href="#修改配置文件-jupyter-jupyter-notebook-config-py" class="headerlink" title="修改配置文件~/.jupyter/jupyter_notebook_config.py"></a>修改配置文件~/.jupyter/jupyter_notebook_config.py</h2><p>修改ip、端口、不自动打开浏览器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">c.NotebookApp.ip=&apos;*&apos;                  # ×允许任何ip访问</span><br><span class="line">c.NotebookApp.open_browser = False</span><br><span class="line">c.NotebookApp.password = &apos;sha1:xxxx&apos;  # key  </span><br><span class="line">c.NotebookApp.port = 7777             # 可自行指定一个端口, 访问时使用该端口</span><br></pre></td></tr></table></figure></p>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>在服务器端运行 jupyter-notebook，根据提示的ip地址端口打开浏览器连接，输入设置的密匙字符串，通过远程连接认证。</p>
+<p>然后就可以创建ipynb文件，实现与matlab notebook类似的文学编程体验。</p>
 
       
     </div>
@@ -322,6 +324,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+        </div>
+      
 
       
       
@@ -331,8 +339,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/23/kms激活命令/" rel="next" title="kms激活命令">
-                <i class="fa fa-chevron-left"></i> kms激活命令
+              <a href="/2020/04/09/manual手动签发SSL证书的DNS模式/" rel="next" title="手动签发SSL证书的DNS模式">
+                <i class="fa fa-chevron-left"></i> 手动签发SSL证书的DNS模式
               </a>
             
           </div>
@@ -340,10 +348,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/05/09/ntpdate-server-list/" rel="prev" title="ntpdate server list">
-                ntpdate server list <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -395,8 +399,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -567,6 +580,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用conda包管理器或者pip3安装jupyter-pip需要使用aliyun镜像来安装jupyter包"><span class="nav-number">1.</span> <span class="nav-text">使用conda包管理器或者pip3安装jupyter, pip需要使用aliyun镜像来安装jupyter包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生成默认配置文件以便修改"><span class="nav-number">2.</span> <span class="nav-text">生成默认配置文件以便修改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在ipython终端下生成远程连接密匙"><span class="nav-number">3.</span> <span class="nav-text">在ipython终端下生成远程连接密匙</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改配置文件-jupyter-jupyter-notebook-config-py"><span class="nav-number">4.</span> <span class="nav-text">修改配置文件~/.jupyter/jupyter_notebook_config.py</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试"><span class="nav-number">5.</span> <span class="nav-text">测试</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
