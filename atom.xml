@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://tanzhixin.github.io/"/>
-  <updated>2020-05-15T06:39:46.694Z</updated>
+  <updated>2020-05-15T06:44:27.400Z</updated>
   <id>http://tanzhixin.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://tanzhixin.github.io/2020/05/15/Server%E4%B8%8A%E6%99%AE%E9%80%9A%E7%94%A8%E6%88%B7%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E5%8C%85/"/>
     <id>http://tanzhixin.github.io/2020/05/15/Server上普通用户安装软件包/</id>
     <published>2020-05-15T06:32:36.000Z</published>
-    <updated>2020-05-15T06:39:46.694Z</updated>
+    <updated>2020-05-15T06:44:27.400Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="find-the-package-in-rpmfind-net-and-download-it"><a href="#find-the-package-in-rpmfind-net-and-download-it" class="headerlink" title="find the package in rpmfind.net and download it."></a>find the package in rpmfind.net and download it.</h1><p><img src="http://rpmfind.net" alt="rpmfind"></p><h1 id="install-in-user-space"><a href="#install-in-user-space" class="headerlink" title="install in user space:"></a>install in user space:</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm2cpio zip-3.0-11.el7.x86_64.rpm | cpio -idvm</span><br></pre></td></tr></table></figure><h1 id="include-path-in-bashrc"><a href="#include-path-in-bashrc" class="headerlink" title="include path in .bashrc:"></a>include path in .bashrc:</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export ZIP_HOME=/home/hadoop/zip</span><br><span class="line">export PATH=$ZIP_HOME/bin:$PATH</span><br><span class="line">source .bashrc</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="find-the-package-in-rpmfind-net-and-download-it"><a href="#find-the-package-in-rpmfind-net-and-download-it" class="headerlink" title="find the package in rpmfind.net and download it."></a>find the package in rpmfind.net and download it.</h1><p><a href="Http://rpmfind.net/" target="_blank" rel="noopener">rpmfind</a><br><a href="https://pkgs.org/" target="_blank" rel="noopener">pkgs</a></p><h1 id="Install-in-user-space"><a href="#Install-in-user-space" class="headerlink" title="Install in user space:"></a>Install in user space:</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm2cpio zip-3.0-11.el7.x86_64.rpm | cpio -idvm</span><br></pre></td></tr></table></figure><h1 id="include-path-in-bashrc"><a href="#include-path-in-bashrc" class="headerlink" title="include path in .bashrc:"></a>include path in .bashrc:</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export ZIP_HOME=/home/hadoop/zip</span><br><span class="line">export PATH=$ZIP_HOME/bin:$PATH</span><br><span class="line">source .bashrc</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
