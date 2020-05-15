@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="emacs,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="用户服务：  ~/.config/systemd/user/emacssystemctl –user enable emacssystemctl –user start emacs 内容如下： 1234567891011121314[Unit]Description=Emacs daemonAfter=syslog.target network.target [Service]Type=forki">
-<meta name="keywords" content="emacs">
+<meta name="description" content="find the package in rpmfind.net and download it.install in user space:1rpm2cpio zip-3.0-11.el7.x86_64.rpm | cpio -idvm include path in .bashrc:123export ZIP_HOME=/home/hadoop/zipexport PATH=$ZIP_HOME/">
+<meta name="keywords" content="technology universe physics chemistry biology hi-tech linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="emacs和systemd">
-<meta property="og:url" content="http://tanzhixin.github.io/2020/02/10/emacs和systemd/index.html">
+<meta property="og:title" content="Server上普通用户安装软件包">
+<meta property="og:url" content="http://tanzhixin.github.io/2020/05/15/Server上普通用户安装软件包/index.html">
 <meta property="og:site_name" content="大道至简">
-<meta property="og:description" content="用户服务：  ~/.config/systemd/user/emacssystemctl –user enable emacssystemctl –user start emacs 内容如下： 1234567891011121314[Unit]Description=Emacs daemonAfter=syslog.target network.target [Service]Type=forki">
+<meta property="og:description" content="find the package in rpmfind.net and download it.install in user space:1rpm2cpio zip-3.0-11.el7.x86_64.rpm | cpio -idvm include path in .bashrc:123export ZIP_HOME=/home/hadoop/zipexport PATH=$ZIP_HOME/">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2020-02-10T01:51:18.760Z">
+<meta property="og:updated_time" content="2020-05-15T06:35:40.390Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="emacs和systemd">
-<meta name="twitter:description" content="用户服务：  ~/.config/systemd/user/emacssystemctl –user enable emacssystemctl –user start emacs 内容如下： 1234567891011121314[Unit]Description=Emacs daemonAfter=syslog.target network.target [Service]Type=forki">
+<meta name="twitter:title" content="Server上普通用户安装软件包">
+<meta name="twitter:description" content="find the package in rpmfind.net and download it.install in user space:1rpm2cpio zip-3.0-11.el7.x86_64.rpm | cpio -idvm include path in .bashrc:123export ZIP_HOME=/home/hadoop/zipexport PATH=$ZIP_HOME/">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://tanzhixin.github.io/2020/02/10/emacs和systemd/">
+  <link rel="canonical" href="http://tanzhixin.github.io/2020/05/15/Server上普通用户安装软件包/">
 
 
 
 
 
-  <title>emacs和systemd | 大道至简</title>
+  <title>Server上普通用户安装软件包 | 大道至简</title>
   
 
 
@@ -235,7 +235,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://tanzhixin.github.io/2020/02/10/emacs和systemd/">
+    <link itemprop="mainEntityOfPage" href="http://tanzhixin.github.io/2020/05/15/Server上普通用户安装软件包/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Thomas">
@@ -252,7 +252,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">emacs和systemd</h1>
+          <h1 class="post-title" itemprop="name headline">Server上普通用户安装软件包</h1>
         
 
         <div class="post-meta">
@@ -264,8 +264,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-10T09:47:06+08:00">
-                2020-02-10
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-15T14:32:36+08:00">
+                2020-05-15
               </time>
             
 
@@ -302,10 +302,8 @@
       
 
       
-        <p>用户服务：  ~/.config/systemd/user/emacs<br>systemctl –user enable emacs<br>systemctl –user start emacs</p>
-<p>内容如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Emacs daemon</span><br><span class="line">After=syslog.target network.target</span><br><span class="line"> </span><br><span class="line">[Service]</span><br><span class="line">Type=forking</span><br><span class="line">ExecStart=/usr/bin/emacs --daemon</span><br><span class="line">ExecStop=/usr/bin/emacsclient --eval &quot;(progn (setq kill-emacs-hook &apos;nil) (kill-emacs))&quot;</span><br><span class="line">Restart=always</span><br><span class="line">Environment=SSH_AUTH_SOCK=/run/user/1000/keyring/ssh GPG_AGENT_INFO=/run/user/1000/keyring/gpg:0:1</span><br><span class="line">TimeoutStartSec=0</span><br><span class="line"> </span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
-<p>ok！</p>
+        <h1 id="find-the-package-in-rpmfind-net-and-download-it"><a href="#find-the-package-in-rpmfind-net-and-download-it" class="headerlink" title="find the package in rpmfind.net and download it."></a>find the package in rpmfind.net and download it.</h1><h1 id="install-in-user-space"><a href="#install-in-user-space" class="headerlink" title="install in user space:"></a>install in user space:</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm2cpio zip-3.0-11.el7.x86_64.rpm | cpio -idvm</span><br></pre></td></tr></table></figure>
+<h1 id="include-path-in-bashrc"><a href="#include-path-in-bashrc" class="headerlink" title="include path in .bashrc:"></a>include path in .bashrc:</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export ZIP_HOME=/home/hadoop/zip</span><br><span class="line">export PATH=$ZIP_HOME/bin:$PATH</span><br><span class="line">source .bashrc</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -321,12 +319,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/emacs/" rel="tag"># emacs</a>
-          
-        </div>
-      
 
       
       
@@ -336,8 +328,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/01/14/san垂岗/" rel="next" title="三垂岗-严遂成">
-                <i class="fa fa-chevron-left"></i> 三垂岗-严遂成
+              <a href="/2020/05/15/SiC带动山西半导体产业集群发展/" rel="next" title="SiC带动山西半导体产业集群发展">
+                <i class="fa fa-chevron-left"></i> SiC带动山西半导体产业集群发展
               </a>
             
           </div>
@@ -345,10 +337,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/02/14/阻止文明的坍塌/" rel="prev" title="阻止文明的坍塌：看懂技术的「自我退步」规律">
-                阻止文明的坍塌：看懂技术的「自我退步」规律 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -400,8 +388,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -572,6 +569,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#find-the-package-in-rpmfind-net-and-download-it"><span class="nav-number">1.</span> <span class="nav-text">find the package in rpmfind.net and download it.</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#install-in-user-space"><span class="nav-number">2.</span> <span class="nav-text">install in user space:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#include-path-in-bashrc"><span class="nav-number">3.</span> <span class="nav-text">include path in .bashrc:</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
