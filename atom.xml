@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://tanzhixin.github.io/"/>
-  <updated>2020-05-15T06:44:27.400Z</updated>
+  <updated>2020-05-17T01:49:30.189Z</updated>
   <id>http://tanzhixin.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>texlive2020安装</title>
+    <link href="http://tanzhixin.github.io/2020/05/17/texlive2020%E5%AE%89%E8%A3%85/"/>
+    <id>http://tanzhixin.github.io/2020/05/17/texlive2020安装/</id>
+    <published>2020-05-17T01:46:37.000Z</published>
+    <updated>2020-05-17T01:49:30.189Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="下载安装包"><a href="#下载安装包" class="headerlink" title="下载安装包"></a>下载安装包</h1><p><a href="https://tug.org/texlive/acquire-netinstall.html" target="_blank" rel="noopener">texlive netinstall</a></p><h1 id="创建安装方案"><a href="#创建安装方案" class="headerlink" title="创建安装方案"></a>创建安装方案</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./install-tl &gt; Enter command: P</span><br></pre></td></tr></table></figure><h1 id="修改安装目录，重定义到用户主目录下"><a href="#修改安装目录，重定义到用户主目录下" class="headerlink" title="修改安装目录，重定义到用户主目录下"></a>修改安装目录，重定义到用户主目录下</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i &apos;s|/usr/local/|~/|g&apos; texlive.profile Modifies generated texlive.profile to replace all occurances of /usr/local/ with ~/</span><br></pre></td></tr></table></figure><h1 id="重新开始网络安装"><a href="#重新开始网络安装" class="headerlink" title="重新开始网络安装"></a>重新开始网络安装</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./install-tl -profile texlive.profile</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Server上普通用户安装软件包</title>
@@ -426,29 +447,6 @@
     
     
       <category term="science" scheme="http://tanzhixin.github.io/tags/science/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>lego图纸</title>
-    <link href="http://tanzhixin.github.io/2020/02/15/lego%E5%9B%BE%E7%BA%B8/"/>
-    <id>http://tanzhixin.github.io/2020/02/15/lego图纸/</id>
-    <published>2020-02-15T07:02:49.000Z</published>
-    <updated>2020-02-16T02:31:31.947Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>ev3</p><ol><li><p>BannerPrinter0z</p></li><li><p>BOBB3E</p><img src="/2020/02/15/lego图纸/BOBB3E.pdf" title="[BOB]"></li><li>DINOR3X    </li><li><p>EL3CTRICGUITAR</p></li><li><p>EV3D4</p><img src="/2020/02/15/lego图纸/EV3D4.jpg" title="[EV3D4]">        <img src="/2020/02/15/lego图纸/EV3D4.pdf" title="[EV3D4]">        </li><li><p>EV3GAME</p><img src="/2020/02/15/lego图纸/EV3GAME.jpg" title="[EV3GAME picture]"><img src="/2020/02/15/lego图纸/EV3GAME.pdf" title="[EV3GAME map]">            </li><li><p>KRAZ3</p><img src="/2020/02/15/lego图纸/KRAZ3.jpg" title="[KRAZ3 picture]">                <img src="/2020/02/15/lego图纸/KRAZ3.pdf" title="[KRAZ3 map]">                </li><li><p>MR-B3AM</p><img src="/2020/02/15/lego图纸/MR-B3AM.jpg" title="[MR-B3AM picture]">            <img src="/2020/02/15/lego图纸/MR-B3AM.pdf" title="[MR-B3AM map]">            </li><li><p>RAC-TRUCK</p><img src="/2020/02/15/lego图纸/RAC3_TRUCK.jpg" title="[RAC3_TRUCK picture]"><img src="/2020/02/15/lego图纸/RAC3_TRUCK.pdf" title="[RAC3_TRUCK map]"></li><li><p>ROBODOZ3R</p><img src="/2020/02/15/lego图纸/ROBODOZ3R.pdf" title="[ROBODOZ3R map]"></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla
-      
-    
-    </summary>
-    
-    
-      <category term="lego" scheme="http://tanzhixin.github.io/tags/lego/"/>
     
   </entry>
   
