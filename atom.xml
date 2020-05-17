@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://tanzhixin.github.io/"/>
-  <updated>2020-05-17T01:49:30.189Z</updated>
+  <updated>2020-05-17T01:52:05.397Z</updated>
   <id>http://tanzhixin.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://tanzhixin.github.io/2020/05/17/texlive2020%E5%AE%89%E8%A3%85/"/>
     <id>http://tanzhixin.github.io/2020/05/17/texlive2020安装/</id>
     <published>2020-05-17T01:46:37.000Z</published>
-    <updated>2020-05-17T01:49:30.189Z</updated>
+    <updated>2020-05-17T01:52:05.397Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="下载安装包"><a href="#下载安装包" class="headerlink" title="下载安装包"></a>下载安装包</h1><p><a href="https://tug.org/texlive/acquire-netinstall.html" target="_blank" rel="noopener">texlive netinstall</a></p><h1 id="创建安装方案"><a href="#创建安装方案" class="headerlink" title="创建安装方案"></a>创建安装方案</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./install-tl &gt; Enter command: P</span><br></pre></td></tr></table></figure><h1 id="修改安装目录，重定义到用户主目录下"><a href="#修改安装目录，重定义到用户主目录下" class="headerlink" title="修改安装目录，重定义到用户主目录下"></a>修改安装目录，重定义到用户主目录下</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i &apos;s|/usr/local/|~/|g&apos; texlive.profile Modifies generated texlive.profile to replace all occurances of /usr/local/ with ~/</span><br></pre></td></tr></table></figure><h1 id="重新开始网络安装"><a href="#重新开始网络安装" class="headerlink" title="重新开始网络安装"></a>重新开始网络安装</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./install-tl -profile texlive.profile</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="下载安装包"><a href="#下载安装包" class="headerlink" title="下载安装包"></a>下载安装包</h1><p><a href="https://tug.org/texlive/acquire-netinstall.html" target="_blank" rel="noopener">texlive netinstall</a></p><h1 id="创建安装方案"><a href="#创建安装方案" class="headerlink" title="创建安装方案"></a>创建安装方案</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./install-tl &gt; Enter command: P</span><br></pre></td></tr></table></figure><h1 id="修改安装目录，重定义到用户主目录下"><a href="#修改安装目录，重定义到用户主目录下" class="headerlink" title="修改安装目录，重定义到用户主目录下"></a>修改安装目录，重定义到用户主目录下</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i &apos;s|/usr/local/|~/|g&apos; texlive.profile</span><br></pre></td></tr></table></figure><h1 id="重新开始网络安装"><a href="#重新开始网络安装" class="headerlink" title="重新开始网络安装"></a>重新开始网络安装</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./install-tl -profile texlive.profile</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
