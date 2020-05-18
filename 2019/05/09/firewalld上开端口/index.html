@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="永久打开端口 firewall-cmd –zone=public –add-port=443/tcp –permanent重启防火墙  firewall-cmd –reload">
+<meta name="description" content="永久打开端口 firewall-cmd —zone=public —add-port=443/tcp —permanent重启防火墙  firewall-cmd —reload">
 <meta name="keywords" content="technology universe physics chemistry biology hi-tech linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="firewalld上开端口">
 <meta property="og:url" content="http://tanzhixin.github.io/2019/05/09/firewalld上开端口/index.html">
 <meta property="og:site_name" content="大道至简">
-<meta property="og:description" content="永久打开端口 firewall-cmd –zone=public –add-port=443/tcp –permanent重启防火墙  firewall-cmd –reload">
+<meta property="og:description" content="永久打开端口 firewall-cmd —zone=public —add-port=443/tcp —permanent重启防火墙  firewall-cmd —reload">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:updated_time" content="2019-05-09T03:06:32.737Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="firewalld上开端口">
-<meta name="twitter:description" content="永久打开端口 firewall-cmd –zone=public –add-port=443/tcp –permanent重启防火墙  firewall-cmd –reload">
+<meta name="twitter:description" content="永久打开端口 firewall-cmd —zone=public —add-port=443/tcp —permanent重启防火墙  firewall-cmd —reload">
 
 
 
@@ -303,8 +303,8 @@
 
       
         <p>永久打开端口</p>
-<h1 id="firewall-cmd-–zone-public-–add-port-443-tcp-–permanent"><a href="#firewall-cmd-–zone-public-–add-port-443-tcp-–permanent" class="headerlink" title="firewall-cmd –zone=public –add-port=443/tcp –permanent"></a>firewall-cmd –zone=public –add-port=443/tcp –permanent</h1><p>重启防火墙 </p>
-<h1 id="firewall-cmd-–reload"><a href="#firewall-cmd-–reload" class="headerlink" title="firewall-cmd –reload"></a>firewall-cmd –reload</h1>
+<h1 id="firewall-cmd-—zone-public-—add-port-443-tcp-—permanent"><a href="#firewall-cmd-—zone-public-—add-port-443-tcp-—permanent" class="headerlink" title="firewall-cmd —zone=public —add-port=443/tcp —permanent"></a>firewall-cmd —zone=public —add-port=443/tcp —permanent</h1><p>重启防火墙 </p>
+<h1 id="firewall-cmd-—reload"><a href="#firewall-cmd-—reload" class="headerlink" title="firewall-cmd —reload"></a>firewall-cmd —reload</h1>
       
     </div>
     
@@ -583,7 +583,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#firewall-cmd-–zone-public-–add-port-443-tcp-–permanent"><span class="nav-number">1.</span> <span class="nav-text">firewall-cmd –zone=public –add-port=443/tcp –permanent</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#firewall-cmd-–reload"><span class="nav-number">2.</span> <span class="nav-text">firewall-cmd –reload</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#firewall-cmd-—zone-public-—add-port-443-tcp-—permanent"><span class="nav-number">1.</span> <span class="nav-text">firewall-cmd —zone=public —add-port=443/tcp —permanent</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#firewall-cmd-—reload"><span class="nav-number">2.</span> <span class="nav-text">firewall-cmd —reload</span></a></li></ol></div>
             
 
           </div>
@@ -730,24 +730,7 @@
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
 
 
 
@@ -800,6 +783,45 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
 
   
 

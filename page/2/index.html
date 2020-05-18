@@ -1048,7 +1048,7 @@
 <p>说实话，那些脚本我不知道做啥的，但做了那么多功课，看到结果还是熟悉的。我还是想通过ttf2tfm一步步实现，实际上假如没有这个fontforge工具和一些脚本，我们应该也一样能做,因为通过ttf2tfm，ttf2pfb,ttf2afm我们可以转成类似的结果。以ttf2tfm使用为例，方法就是首先在$TRXHOME中搜索一下有个叫Unicode.sfd的东西，将他拷贝到~/cnfonts文件夹，敲上命令：ttf2tfm simsun.ttc song @Unicode@（含义可以 man ttf2tfm）,就产生同样的tfm文件，但是发现电脑并没有ttf2pfb程序，就没再折腾。</p>
 <p>建立一个描述文件：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">% This is c70song.fd for CJK package.</span><br><span class="line">% created by Edward G.J. Lee</span><br><span class="line">% modify by Yue Wang</span><br><span class="line">\ProvidesFile&#123;c70song.fd&#125;</span><br><span class="line">\DeclareFontFamily&#123;C70&#125;&#123;song&#125;&#123;\hyphenchar \font\m@ne&#125;</span><br><span class="line">\DeclareFontShape&#123;C70&#125;&#123;song&#125;&#123;m&#125;&#123;n&#125;&#123;&lt;-&gt; CJK * song&#125;&#123;&#125;</span><br><span class="line">\DeclareFontShape&#123;C70&#125;&#123;song&#125;&#123;bx&#125;&#123;n&#125;&#123;&lt;-&gt; CJKb * song&#125;&#123;\CJKbold&#125;</span><br><span class="line">\endinput</span><br></pre></td></tr></table></figure>
-<p>具体含义也非常简单，<->表示对任何字符都适用。</-></p>
+<p>具体含义也非常简单，&lt;-&gt;表示对任何字符都适用。</p>
 <p>然后是建立一个映射文件，正如我们以前看的gbsu**的类似，适用一个小脚本就可以完成：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">for i in*.tfm</span><br><span class="line">do</span><br><span class="line">cat &gt;&gt; song.map &lt;&lt; EOF</span><br><span class="line">$&#123;i%.tfm&#125; $&#123;i%.tfm&#125; &lt; $&#123;i%.tfm&#125;.pfb</span><br><span class="line">EOF</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
 <p>保存成脚本文件mkmap.sh，chmod +x mkmap.sh, 执行即可。</p>
@@ -2032,24 +2032,7 @@
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
 
 
 
@@ -2102,6 +2085,45 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
 
   
 

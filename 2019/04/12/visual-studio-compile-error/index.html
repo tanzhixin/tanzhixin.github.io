@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="添加头文件目录：   配置属性–&amp;gt;C/C++–&amp;gt;常规–&amp;gt;附加包含目录 加上头文件存放的目录。  添加lib文件： 1) 配置属性–&amp;gt;链接器–&amp;gt;输入–&amp;gt;附加依赖项加入库名（×××.lib）；或者是在cpp源文件中用#pragma comment(lib,”×××.lib”)来代替。   此时编译会提示：fatal error LNK1104: 无法打开文件“××">
+<meta name="description" content="添加头文件目录：   配置属性—&amp;gt;C/C++—&amp;gt;常规—&amp;gt;附加包含目录 加上头文件存放的目录。  添加lib文件： 1) 配置属性—&amp;gt;链接器—&amp;gt;输入—&amp;gt;附加依赖项加入库名（×××.lib）；或者是在cpp源文件中用#pragma comment(lib,”×××.lib”)来代替。   此时编译会提示：fatal error LNK1104: 无法打开文件“××">
 <meta name="keywords" content="technology universe physics chemistry biology hi-tech linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="visual studio compile error">
 <meta property="og:url" content="http://tanzhixin.github.io/2019/04/12/visual-studio-compile-error/index.html">
 <meta property="og:site_name" content="大道至简">
-<meta property="og:description" content="添加头文件目录：   配置属性–&amp;gt;C/C++–&amp;gt;常规–&amp;gt;附加包含目录 加上头文件存放的目录。  添加lib文件： 1) 配置属性–&amp;gt;链接器–&amp;gt;输入–&amp;gt;附加依赖项加入库名（×××.lib）；或者是在cpp源文件中用#pragma comment(lib,”×××.lib”)来代替。   此时编译会提示：fatal error LNK1104: 无法打开文件“××">
+<meta property="og:description" content="添加头文件目录：   配置属性—&amp;gt;C/C++—&amp;gt;常规—&amp;gt;附加包含目录 加上头文件存放的目录。  添加lib文件： 1) 配置属性—&amp;gt;链接器—&amp;gt;输入—&amp;gt;附加依赖项加入库名（×××.lib）；或者是在cpp源文件中用#pragma comment(lib,”×××.lib”)来代替。   此时编译会提示：fatal error LNK1104: 无法打开文件“××">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:updated_time" content="2019-04-12T03:15:22.769Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="visual studio compile error">
-<meta name="twitter:description" content="添加头文件目录：   配置属性–&amp;gt;C/C++–&amp;gt;常规–&amp;gt;附加包含目录 加上头文件存放的目录。  添加lib文件： 1) 配置属性–&amp;gt;链接器–&amp;gt;输入–&amp;gt;附加依赖项加入库名（×××.lib）；或者是在cpp源文件中用#pragma comment(lib,”×××.lib”)来代替。   此时编译会提示：fatal error LNK1104: 无法打开文件“××">
+<meta name="twitter:description" content="添加头文件目录：   配置属性—&amp;gt;C/C++—&amp;gt;常规—&amp;gt;附加包含目录 加上头文件存放的目录。  添加lib文件： 1) 配置属性—&amp;gt;链接器—&amp;gt;输入—&amp;gt;附加依赖项加入库名（×××.lib）；或者是在cpp源文件中用#pragma comment(lib,”×××.lib”)来代替。   此时编译会提示：fatal error LNK1104: 无法打开文件“××">
 
 
 
@@ -303,10 +303,10 @@
 
       
         <ol>
-<li><p>添加头文件目录：<br>   配置属性–&gt;C/C++–&gt;常规–&gt;附加包含目录 加上头文件存放的目录。</p>
+<li><p>添加头文件目录：<br>   配置属性—&gt;C/C++—&gt;常规—&gt;附加包含目录 加上头文件存放的目录。</p>
 </li>
 <li><p>添加lib文件：</p>
-<p>1) 配置属性–&gt;链接器–&gt;输入–&gt;附加依赖项加入库名（×××.lib）；或者是在cpp源文件中用#pragma comment(lib,”×××.lib”)来代替。<br>   此时编译会提示：fatal error LNK1104: 无法打开文件“×××.lib”，原因是编译器找不到lib文件。<br>   给项目添加库文件路径<br>   在VS中右击项目点属性：<br>   配置属性–&gt;链接器–&gt;常规–&gt;附加目录 。在里面填上库文件所在的路径即可。</p>
+<p>1) 配置属性—&gt;链接器—&gt;输入—&gt;附加依赖项加入库名（×××.lib）；或者是在cpp源文件中用#pragma comment(lib,”×××.lib”)来代替。<br>   此时编译会提示：fatal error LNK1104: 无法打开文件“×××.lib”，原因是编译器找不到lib文件。<br>   给项目添加库文件路径<br>   在VS中右击项目点属性：<br>   配置属性—&gt;链接器—&gt;常规—&gt;附加目录 。在里面填上库文件所在的路径即可。</p>
 <p>2) 直接添加库文件到工程中.<br>   就像你添加.h和.cpp文件一样,把lib文件添加到工程文件列表中去。右键项目点添加选择现有项目，选择lib文件点确定即可。这个方法适用于在工程的debug版本和Release版本中都使用同一个lib库文件。</p>
 </li>
 </ol>
@@ -711,24 +711,7 @@
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
 
 
 
@@ -781,6 +764,45 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
 
   
 

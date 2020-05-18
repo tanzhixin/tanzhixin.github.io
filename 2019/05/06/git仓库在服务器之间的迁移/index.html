@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="git clone –bare git://192.168.10.XX/git_repo/project_name.git git init –bare new_project_name.git git push –mirror git@192.168.20.XX/path/to/path/new_project_name.git 使用git remote set-url命令从SSH到HTTPS的">
+<meta name="description" content="git clone —bare git://192.168.10.XX/git_repo/project_name.git git init —bare new_project_name.git git push —mirror git@192.168.20.XX/path/to/path/new_project_name.git 使用git remote set-url命令从SSH到HTTPS的">
 <meta name="keywords" content="technology universe physics chemistry biology hi-tech linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git仓库在服务器之间的迁移">
 <meta property="og:url" content="http://tanzhixin.github.io/2019/05/06/git仓库在服务器之间的迁移/index.html">
 <meta property="og:site_name" content="大道至简">
-<meta property="og:description" content="git clone –bare git://192.168.10.XX/git_repo/project_name.git git init –bare new_project_name.git git push –mirror git@192.168.20.XX/path/to/path/new_project_name.git 使用git remote set-url命令从SSH到HTTPS的">
+<meta property="og:description" content="git clone —bare git://192.168.10.XX/git_repo/project_name.git git init —bare new_project_name.git git push —mirror git@192.168.20.XX/path/to/path/new_project_name.git 使用git remote set-url命令从SSH到HTTPS的">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:updated_time" content="2019-05-16T04:05:42.130Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git仓库在服务器之间的迁移">
-<meta name="twitter:description" content="git clone –bare git://192.168.10.XX/git_repo/project_name.git git init –bare new_project_name.git git push –mirror git@192.168.20.XX/path/to/path/new_project_name.git 使用git remote set-url命令从SSH到HTTPS的">
+<meta name="twitter:description" content="git clone —bare git://192.168.10.XX/git_repo/project_name.git git init —bare new_project_name.git git push —mirror git@192.168.20.XX/path/to/path/new_project_name.git 使用git remote set-url命令从SSH到HTTPS的">
 
 
 
@@ -302,9 +302,9 @@
       
 
       
-        <p>git clone –bare git://192.168.10.XX/git_repo/project_name.git</p>
-<p>git init –bare new_project_name.git</p>
-<p>git push –mirror <a href="mailto:git@192.168.20.XX" target="_blank" rel="noopener">git@192.168.20.XX</a>/path/to/path/new_project_name.git</p>
+        <p>git clone —bare git://192.168.10.XX/git_repo/project_name.git</p>
+<p>git init —bare new_project_name.git</p>
+<p>git push —mirror git@192.168.20.XX/path/to/path/new_project_name.git</p>
 <p>使用git remote set-url命令从SSH到HTTPS的远程URL<br>$git remote set-url origin <a href="https://github.com/xxxxxx/S" target="_blank" rel="noopener">https://github.com/xxxxxx/S</a></p>
 <p>检查远程<br>git remote -v</p>
 
@@ -708,24 +708,7 @@
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
 
 
 
@@ -778,6 +761,45 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
 
   
 

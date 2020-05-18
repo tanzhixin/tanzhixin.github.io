@@ -309,7 +309,7 @@
             <p>安装的过程：<br>Install TeXLive</p>
 <hr>
 <p>First, install TeXLive.</p>
-<p>wget <a href="ftp://ftp.tsinghua.edu.cn/mirror/CTAN/systems/texlive/Images/texlive2007-live-20070212.iso.zip" target="_blank" rel="noopener">ftp://ftp.tsinghua.edu.cn/mirror/CTAN/systems/texlive/Images/texlive2007-live-20070212.iso.zip</a><br>unzip texlive2007-live-20070212.iso.zip<br>mount -o loop texlive2007-live-20070212.iso /mnt<br>cd /mnt<br>sudo ./install-tl</p>
+<p>wget ftp://ftp.tsinghua.edu.cn/mirror/CTAN/systems/texlive/Images/texlive2007-live-20070212.iso.zip<br>unzip texlive2007-live-20070212.iso.zip<br>mount -o loop texlive2007-live-20070212.iso /mnt<br>cd /mnt<br>sudo ./install-tl</p>
 <p>press I to install.</p>
 <p>Setup System Path</p>
 <hr>
@@ -328,13 +328,13 @@
 <p>for i in *.tfm<br>do<br>cat &gt;&gt; hei.map &lt;&lt; EOF<br>${i%.tfm} ${i%.tfm} &lt; ${i%.tfm}.pfb<br>EOF<br>done</p>
 <p>Make map file:<br>chmod +x makemap<br>./makemap</p>
 <p>create a file name c70hei.fd for CJK package:</p>
-<p>% This is c70hei.fd for CJK package.<br>% created by Edward G.J. Lee<br>% modify by Yue Wang<br>/ProvidesFile{c70hei.fd}<br>/DeclareFontFamily{C70}{hei}{/hyphenchar /font/m@ne}<br>/DeclareFontShape{C70}{hei}{m}{n}{<-> CJK <em> hei}{}<br>/DeclareFontShape{C70}{hei}{bx}{n}{<-> CJKb </-></em> hei}{/CJKbold}<br>/endinput</-></p>
+<p>% This is c70hei.fd for CJK package.<br>% created by Edward G.J. Lee<br>% modify by Yue Wang<br>/ProvidesFile{c70hei.fd}<br>/DeclareFontFamily{C70}{hei}{/hyphenchar /font/m@ne}<br>/DeclareFontShape{C70}{hei}{m}{n}{&lt;-&gt; CJK <em> hei}{}<br>/DeclareFontShape{C70}{hei}{bx}{n}{&lt;-&gt; CJKb </em> hei}{/CJKbold}<br>/endinput</p>
 <p>Copy Fonts into  TEXMF</p>
 <hr>
 <p>create the local directory to save the font<br>cd ~/.texlive2007<br>cd texmf-var<br>mkdir -p fonts/map/dvips/CJK<br>mkdir -p fonts/tfm/CJK/hei<br>mkdir -p fonts/type1/CJK/hei<br>mkdir -p tex/latex/CJK/UTF8<br>cp ~/font/hei.map fonts/map/dvips/CJK/<br>cp ~/font/<em>.tfm fonts/tfm/CJK/hei<br>cp ~/font/</em>.pfb fonts/type1/CJK/hei<br>cp ~/font/c70hei.fd tex/latex/CJK/UTF8</p>
 <p>Update The System and Test</p>
 <hr>
-<p>Just run:<br>texhash<br>updmap –enable Map hei.map<br>create a test file to test your work.</p>
+<p>Just run:<br>texhash<br>updmap —enable Map hei.map<br>create a test file to test your work.</p>
 <p>/documentclass{article}<br>/usepackage{CJKutf8}<br>/begin{document}<br>/begin{CJK}{UTF8}{hei}<br>你好!<br>/end{CJK}<br>/end{document}</p>
 <p>latex test.tex<br>xdvi test.dvi<br>dvipdfm test.dvi<br>xpdf test.pdf<br>pdflatex test.pdf<br>……</p>
 <p>Virtual GBK Font(Not Essential)</p>
@@ -343,7 +343,7 @@
 <p>first, Let’s suggest that you have finished the task of creating a utf8 heiti font for LaTeX and you are still in the ~/font directory with all the fonts and scripts undeleted. you also copy all the utf8 fonts into your ~/.texlive2007 directory and they are working with no problem.</p>
 <p>run these commands. if you do not delete something , <em>.tfm and uni2sfd.pl are still in your ~/font dir.<br>perl uni2sfd.pl hei UGBK.sfd gbkhei gbk<br>mkdir ~/.texlive2007/texmf-var/fonts/tfm/CJK/gbkhei<br>mv gbkhei</em>.tfm ~/.texlive2007/texmf-var/fonts/tfm/CJK/gbkhei<br>mkdir ~/.texlive2007/texmf-var/fonts/vf<br>mv gbkhei*.vf ~/.texlive2007/texmf-var/fonts/vf<br>mkdir ~/.texlive2007/texmf-var/tex/latex/CJK/GBK</p>
 <p>create a file named c19hei.fd just like the c70hei.fd in<br>~/.texlive2007/texmf-var/tex/latex/CJK/GBK</p>
-<p>% This is c19hei.fd for CJK package.<br>% created by Edward G.J. Lee<br>/ProvidesFile{c19hei.fd}<br>/DeclareFontFamily{C19}{hei}{/hyphenchar /font/m@ne}<br>/DeclareFontShape{C19}{hei}{m}{n}{<-> CJK <em> gbkhei}{}<br>/DeclareFontShape{C19}{hei}{bx}{n}{<-> CJKb </-></em> gbkhei}{/CJKbold}<br>/endinput</-></p>
+<p>% This is c19hei.fd for CJK package.<br>% created by Edward G.J. Lee<br>/ProvidesFile{c19hei.fd}<br>/DeclareFontFamily{C19}{hei}{/hyphenchar /font/m@ne}<br>/DeclareFontShape{C19}{hei}{m}{n}{&lt;-&gt; CJK <em> gbkhei}{}<br>/DeclareFontShape{C19}{hei}{bx}{n}{&lt;-&gt; CJKb </em> gbkhei}{/CJKbold}<br>/endinput</p>
 <p>make a test file in <em>GBK</em> encoding like this:</p>
 <p>/documentclass{article}<br>/usepackage{CJK}<br>/begin{document}<br>/begin{CJK}{GBK}{hei}<br>你好<br>/end{CJK}<br>/end{document}</p>
 <p>if you are lucky, you will get the good outputs without problem (no texhash or updmap needed)</p>
@@ -365,9 +365,9 @@
 <p>modify all the fd files there.<br>for those fd file in ctexutf8 directory, use song,fang … instead of unisong,<br>unifang, unisongsl,unifangsl….., for those fd files in ctex directory, use<br>gbksong instead of gbksongsl, gbkfang instead of gbkfangsl….<br>And dont use /CJKbold , use hei instead.</p>
 <p>an example file should like:<br>in utf8 directory</p>
 <p>/ProvidesFile{c70rm.fd}<br>  [2006/06/09 v0.8 ctex<br>     font definition file]</p>
-<p>/DeclareFontFamily{C70}{rm}{/hyphenchar /font/m@ne}<br>/DeclareFontShape{C70}{rm}{m}{n}{<-> CJK <em> song}{}<br>/DeclareFontShape{C70}{rm}{bx}{n}{<-> CJK </-></em> hei}{}<br>/DeclareFontShape{C70}{rm}{m}{sl}{<-> CJK * song}{}</-></-></p>
+<p>/DeclareFontFamily{C70}{rm}{/hyphenchar /font/m@ne}<br>/DeclareFontShape{C70}{rm}{m}{n}{&lt;-&gt; CJK <em> song}{}<br>/DeclareFontShape{C70}{rm}{bx}{n}{&lt;-&gt; CJK </em> hei}{}<br>/DeclareFontShape{C70}{rm}{m}{sl}{&lt;-&gt; CJK * song}{}</p>
 <p>in ctex directory</p>
-<p>/ProvidesFile{c19sf.fd}<br>  [2006/06/09 v0.8 ctex<br>     font definition file]<br>     /DeclareFontFamily{C19}{sf}{/hyphenchar /font/m@ne}<br>     /DeclareFontShape{C19}{sf}{m}{n}{<-> CJK <em> gbkyou}{}<br>     /DeclareFontShape{C19}{sf}{bx}{n}{<-> CJKb </-></em> gbkhei}{}<br>     /DeclareFontShape{C19}{sf}{m}{sl}{<-> CJK <em> gbkyou}{}<br>     /DeclareFontShape{C19}{sf}{bx}{sl}{<-> CJKb </-></em> gbkhei}{}<br>     /DeclareFontShape{C19}{sf}{m}{it}{<-> CJK <em> gbkyou}{}<br>     /DeclareFontShape{C19}{sf}{bx}{it}{<-> CJKb </-></em> gbkhei}{}<br>     /endinput</-></-></-></p>
+<p>/ProvidesFile{c19sf.fd}<br>  [2006/06/09 v0.8 ctex<br>     font definition file]<br>     /DeclareFontFamily{C19}{sf}{/hyphenchar /font/m@ne}<br>     /DeclareFontShape{C19}{sf}{m}{n}{&lt;-&gt; CJK <em> gbkyou}{}<br>     /DeclareFontShape{C19}{sf}{bx}{n}{&lt;-&gt; CJKb </em> gbkhei}{}<br>     /DeclareFontShape{C19}{sf}{m}{sl}{&lt;-&gt; CJK <em> gbkyou}{}<br>     /DeclareFontShape{C19}{sf}{bx}{sl}{&lt;-&gt; CJKb </em> gbkhei}{}<br>     /DeclareFontShape{C19}{sf}{m}{it}{&lt;-&gt; CJK <em> gbkyou}{}<br>     /DeclareFontShape{C19}{sf}{bx}{it}{&lt;-&gt; CJKb </em> gbkhei}{}<br>     /endinput</p>
 <p>Last,run texhash and test the files.<br>Utf8 test file</p>
 <p>/documentclass{ctexreputf8}<br>/begin{document}<br>你好<br>/end{document}</p>
 <p> GBK test file</p>
@@ -375,30 +375,29 @@
 <p>上面给出了安装texlive的方法以及如何为texlive安装中文字体。此处谨以hei体为例进行了说明</p>
 <p>可以看出上面的字体制作过程相当的繁琐。利用脚本可以自动化这个过程</p>
 <p>下面是两个脚本的内容：ctexlive 用法 ctexlive simsun.ttf song<br>===============================ctexlive begin=========================</p>
-<p>#!/bin/bash</p>
-<h1 id="1-source-ttf-file-such-as-media-wind-WINDOWS-Fonts-simkai-ttf"><a href="#1-source-ttf-file-such-as-media-wind-WINDOWS-Fonts-simkai-ttf" class="headerlink" title="$1 source ttf file, such as /media/wind/WINDOWS/Fonts/simkai.ttf"></a>$1 source ttf file, such as /media/wind/WINDOWS/Fonts/simkai.ttf</h1><h1 id="2-the-name-of-font-such-as-song-kai-hei-fang-and-etc"><a href="#2-the-name-of-font-such-as-song-kai-hei-fang-and-etc" class="headerlink" title="$2 the name of font, such as song, kai, hei, fang, and etc."></a>$2 the name of font, such as song, kai, hei, fang, and etc.</h1><h1 id="use-format-ctexlive-media-wind-WINDOWS-Fonts-simsun-ttc-song"><a href="#use-format-ctexlive-media-wind-WINDOWS-Fonts-simsun-ttc-song" class="headerlink" title="use format, ./ctexlive /media/wind/WINDOWS/Fonts simsun.ttc song"></a>use format, ./ctexlive /media/wind/WINDOWS/Fonts simsun.ttc song</h1><h1 id="for-UTF8-usepackage-CJKutf8-and-begin-CJK-UTF8"><a href="#for-UTF8-usepackage-CJKutf8-and-begin-CJK-UTF8" class="headerlink" title="for UTF8. /usepackage{CJKutf8} and /begin{CJK}{UTF8}{}"></a>for UTF8. /usepackage{CJKutf8} and /begin{CJK}{UTF8}{}</h1><h1 id="prepare-directory-and-files"><a href="#prepare-directory-and-files" class="headerlink" title="prepare directory and files"></a>prepare directory and files</h1><p>mkdir -p ~/font<br>cd ~/font<br>cp /usr/local/texlive/2007/texmf-dist/source/latex/CJK/utils/subfonts/<em> ~/font/<br>cp /usr/local/texlive/2007/texmf/fonts/sfd/</em>.sfd ~/font/<br>mkdir -p $2<br>cd $2</p>
+<h1 id="bin-bash"><a href="#bin-bash" class="headerlink" title="!/bin/bash"></a>!/bin/bash</h1><h1 id="1-source-ttf-file-such-as-media-wind-WINDOWS-Fonts-simkai-ttf"><a href="#1-source-ttf-file-such-as-media-wind-WINDOWS-Fonts-simkai-ttf" class="headerlink" title="$1 source ttf file, such as /media/wind/WINDOWS/Fonts/simkai.ttf"></a>$1 source ttf file, such as /media/wind/WINDOWS/Fonts/simkai.ttf</h1><h1 id="2-the-name-of-font-such-as-song-kai-hei-fang-and-etc"><a href="#2-the-name-of-font-such-as-song-kai-hei-fang-and-etc" class="headerlink" title="$2 the name of font, such as song, kai, hei, fang, and etc."></a>$2 the name of font, such as song, kai, hei, fang, and etc.</h1><h1 id="use-format-ctexlive-media-wind-WINDOWS-Fonts-simsun-ttc-song"><a href="#use-format-ctexlive-media-wind-WINDOWS-Fonts-simsun-ttc-song" class="headerlink" title="use format, ./ctexlive /media/wind/WINDOWS/Fonts simsun.ttc song"></a>use format, ./ctexlive /media/wind/WINDOWS/Fonts simsun.ttc song</h1><h1 id="for-UTF8-usepackage-CJKutf8-and-begin-CJK-UTF8"><a href="#for-UTF8-usepackage-CJKutf8-and-begin-CJK-UTF8" class="headerlink" title="for UTF8. /usepackage{CJKutf8} and /begin{CJK}{UTF8}{}"></a>for UTF8. /usepackage{CJKutf8} and /begin{CJK}{UTF8}{}</h1><h1 id="prepare-directory-and-files"><a href="#prepare-directory-and-files" class="headerlink" title="prepare directory and files"></a>prepare directory and files</h1><p>mkdir -p ~/font<br>cd ~/font<br>cp /usr/local/texlive/2007/texmf-dist/source/latex/CJK/utils/subfonts/<em> ~/font/<br>cp /usr/local/texlive/2007/texmf/fonts/sfd/</em>.sfd ~/font/<br>mkdir -p $2<br>cd $2</p>
 <h1 id="generate-font"><a href="#generate-font" class="headerlink" title="generate font"></a>generate font</h1><p>time fontforge -script ../subfonts.pe $1 $2 ../Unicode.sfd</p>
 <h1 id="create-map-file"><a href="#create-map-file" class="headerlink" title="create map file"></a>create map file</h1><p>for i in *.tfm<br>do<br>cat &gt;&gt; $2.map &lt;&lt; EOF<br>${i%.tfm} ${i%.tfm} &lt; ${i%.tfm}.pfb<br>EOF<br>done</p>
-<h1 id="create-fd-file"><a href="#create-fd-file" class="headerlink" title="create fd file"></a>create fd file</h1><p>cat &gt;&gt; c70$2.fd &lt;&lt; EOF<br>% This is c70$2.fd for CJK package.<br>% created by Edward G.J. Lee<br>% modify by Yue Wang<br>/ProvidesFile{c70$2.fd}<br>/DeclareFontFamily{C70}{$2}{/hyphenchar /font/m@ne}<br>/DeclareFontShape{C70}{$2}{m}{n}{<-> CJK <em> $2}{}<br>/DeclareFontShape{C70}{$2}{bx}{n}{<-> CJKb </-></em> $2}{/CJKbold}<br>/endinput<br>EOF</-></p>
+<h1 id="create-fd-file"><a href="#create-fd-file" class="headerlink" title="create fd file"></a>create fd file</h1><p>cat &gt;&gt; c70$2.fd &lt;&lt; EOF<br>% This is c70$2.fd for CJK package.<br>% created by Edward G.J. Lee<br>% modify by Yue Wang<br>/ProvidesFile{c70$2.fd}<br>/DeclareFontFamily{C70}{$2}{/hyphenchar /font/m@ne}<br>/DeclareFontShape{C70}{$2}{m}{n}{&lt;-&gt; CJK <em> $2}{}<br>/DeclareFontShape{C70}{$2}{bx}{n}{&lt;-&gt; CJKb </em> $2}{/CJKbold}<br>/endinput<br>EOF</p>
 <h1 id="Copy-Fonts-into-TEXMF"><a href="#Copy-Fonts-into-TEXMF" class="headerlink" title="Copy Fonts into TEXMF"></a>Copy Fonts into TEXMF</h1><p>cd ~/.texlive2007/texmf-var<br>mkdir -p fonts/map/dvips/CJK<br>mkdir -p tex/latex/CJK/UTF8<br>mkdir -p fonts/tfm/CJK/$2<br>mkdir -p fonts/type1/CJK/$2<br>cp ~/font/$2/$2.map fonts/map/dvips/CJK/<br>cp ~/font/$2/c70$2.fd tex/latex/CJK/UTF8<br>cp ~/font/$2/<em>.tfm fonts/tfm/CJK/$2<br>cp ~/font/$2/</em>.pfb fonts/type1/CJK/$2</p>
-<h1 id="Update-The-System"><a href="#Update-The-System" class="headerlink" title="Update The System"></a>Update The System</h1><p>texhash<br>updmap –enable Map $2.map</p>
+<h1 id="Update-The-System"><a href="#Update-The-System" class="headerlink" title="Update The System"></a>Update The System</h1><p>texhash<br>updmap —enable Map $2.map</p>
 <h1 id="for-GBK-usepackage-CJK-and-begin-CJK-GBK-song"><a href="#for-GBK-usepackage-CJK-and-begin-CJK-GBK-song" class="headerlink" title="for GBK. /usepackage{CJK} and /begin{CJK}{GBK}{song}"></a>for GBK. /usepackage{CJK} and /begin{CJK}{GBK}{song}</h1><p>cd ~/font/$2<br>perl ../uni2sfd.pl $2 ../UGBK.sfd gbk$2 gbk<br>mkdir -p ~/.texlive2007/texmf-var/fonts/tfm/CJK/gbk$2<br>mv gbk$2<em>.tfm ~/.texlive2007/texmf-var/fonts/tfm/CJK/gbk$2<br>mkdir -p ~/.texlive2007/texmf-var/fonts/vf<br>mv gbk$2</em>.vf ~/.texlive2007/texmf-var/fonts/vf<br>mkdir -p ~/.texlive2007/texmf-var/tex/latex/CJK/GBK</p>
 <h1 id="create-fd-file-for-gbk"><a href="#create-fd-file-for-gbk" class="headerlink" title="create fd file for gbk"></a>create fd file for gbk</h1><p>cd ~/.texlive2007/texmf-var/tex/latex/CJK/GBK</p>
-<p>cat &gt;&gt; c19$2.fd &lt;&lt; EOF<br>% This is c19$2.fd for CJK package.<br>% created by Edward G.J. Lee<br>/ProvidesFile{c19$2.fd}<br>/DeclareFontFamily{C19}{$2}{/hyphenchar /font/m@ne}<br>/DeclareFontShape{C19}{$2}{m}{n}{<-> CJK <em> gbk$2}{}<br>/DeclareFontShape{C19}{$2}{bx}{n}{<-> CJKb </-></em> gbk$2}{/CJKbold}<br>/endinput<br>===============================ctexlive end=========================</-></p>
+<p>cat &gt;&gt; c19$2.fd &lt;&lt; EOF<br>% This is c19$2.fd for CJK package.<br>% created by Edward G.J. Lee<br>/ProvidesFile{c19$2.fd}<br>/DeclareFontFamily{C19}{$2}{/hyphenchar /font/m@ne}<br>/DeclareFontShape{C19}{$2}{m}{n}{&lt;-&gt; CJK <em> gbk$2}{}<br>/DeclareFontShape{C19}{$2}{bx}{n}{&lt;-&gt; CJKb </em> gbk$2}{/CJKbold}<br>/endinput<br>===============================ctexlive end=========================</p>
 <p>用法:mkfont.sh simsun.ttf simsun song<br>==============================mkfont.sh begin======================<br>FULLNAME=$1<br>TTF2PT1=<code>which ttf2pt1</code><br>DATE=<code>date</code><br>TEXMF=~/texmf</p>
 <p>if [ $# -eq 3 ]<br>then<br>  FNAME=<code>basename $FULLNAME</code><br>    eval <code>echo $FNAME | awk -F. &#39;{printf &quot;FHEAD=%s;FTAIL=%s&quot;,/$1,/$2}&#39;</code><br>      FHEAD=$3<br>        FONTNAME=$3<br>    else<br>      echo “Usage: <code>basename $0</code> your.ttf subfont_name font_name”<br>        exit<br>        fi</p>
 <p>check_enc()<br>{<br>    NUMLIST=<code>awk &#39;BEGIN{ n=1; while(n&lt;256){printf &quot;%02x/n&quot;,n; n++}}&#39;</code><br>        MAP=unicode-sample.map<br>        UTF8ENC=70<br>            GBKENC=19<br>            UTF8FD=${TEXMF}/tex/latex/CJK/UTF8<br>                GBKFD=${TEXMF}/tex/latex/CJK/GBK<br>            }</p>
 <p>create_type1()<br>{<br>  echo “Now create <em>.pfb and </em>.enc files, wait… “<br>    for i in $NUMLIST<br>      do<br>          ttf2pt1 -GAE -pttf -OHUBs -W0 -l plane+pid=3,eid=1,0x$i $FULLNAME ${FHEAD}$i<br>        done</p>
 <h1 id="avoid-dvips-t1part-module-bugs"><a href="#avoid-dvips-t1part-module-bugs" class="headerlink" title="avoid dvips t1part module bugs."></a>avoid dvips t1part module bugs.</h1><p>  perl -pi -e ‘s/_/Z/g’ <em>.t1a </em>.afm</p>
 <p>  for ps in *.t1a<br>    do<br>        t1asm -b $ps &gt; ${ps%.t1a}.pfb<br>      done<br>      }</p>
-<p>create_map()<br>{<br>MAPFILE=t1-${FHEAD}.map<br>ENCMAP=ttf-${FHEAD}.map<br>  echo “Create *.tfm and (dvips)map file, wait…”<br>    cat &gt; $MAPFILE &lt;&lt; EndOfFile<br>    % This is map file for dvips/dvipdfm[x] and LaTeX CJK package.<br>    % Created by Edward G.J. Lee <a href="mailto:&#x65;&#100;&#x74;&#x31;&#x30;&#x32;&#51;&#64;&#105;&#x6e;&#102;&#111;&#x2e;&#x73;&#x61;&#121;&#121;&#x61;&#x2e;&#111;&#114;&#x67;" target="_blank" rel="noopener">&#x65;&#100;&#x74;&#x31;&#x30;&#x32;&#51;&#64;&#105;&#x6e;&#102;&#111;&#x2e;&#x73;&#x61;&#121;&#121;&#x61;&#x2e;&#111;&#114;&#x67;</a><br>    % $DATE<br>    EndOfFile<br>      cat &gt; $ENCMAP &lt;&lt; EndOfFile<br>      % This is map file for PDFLaTeX and LaTeX CJK package to embed TTF.<br>      % Created by Edward G.J. Lee <a href="mailto:&#x65;&#x64;&#x74;&#x31;&#48;&#x32;&#x33;&#x40;&#105;&#x6e;&#102;&#x6f;&#46;&#x73;&#97;&#121;&#x79;&#x61;&#x2e;&#111;&#114;&#x67;" target="_blank" rel="noopener">&#x65;&#x64;&#x74;&#x31;&#48;&#x32;&#x33;&#x40;&#105;&#x6e;&#102;&#x6f;&#46;&#x73;&#97;&#121;&#x79;&#x61;&#x2e;&#111;&#114;&#x67;</a><br>      % $DATE<br>      EndOfFile<br>        for i in $NUMLIST<br>      do<br>          PSNAME=<code>awk &#39;/FontName/ {print $2}&#39; ${FHEAD}$i.afm</code><br>              afm2tfm ${FHEAD}$i.afm &gt; /dev/null 2&gt;&amp;1<br>              cat &gt;&gt; $MAPFILE &lt;&lt; EndOfFile<br>              ${FHEAD}$i $PSNAME &lt;${FHEAD}$i.pfb<br>              EndOfFile<br>                  cat &gt;&gt; $ENCMAP &lt;&lt; EndOfFile<br>              ${FHEAD}$i &lt;${FHEAD}$i.enc &lt;${FNAME}<br>              EndOfFile<br>                done<br>                }</p>
+<p>create_map()<br>{<br>MAPFILE=t1-${FHEAD}.map<br>ENCMAP=ttf-${FHEAD}.map<br>  echo “Create *.tfm and (dvips)map file, wait…”<br>    cat &gt; $MAPFILE &lt;&lt; EndOfFile<br>    % This is map file for dvips/dvipdfm[x] and LaTeX CJK package.<br>    % Created by Edward G.J. Lee <a href="&#x6d;&#97;&#105;&#x6c;&#116;&#x6f;&#58;&#101;&#100;&#x74;&#x31;&#48;&#50;&#51;&#64;&#105;&#110;&#102;&#x6f;&#46;&#115;&#97;&#x79;&#121;&#97;&#x2e;&#x6f;&#x72;&#x67;">&#101;&#100;&#x74;&#x31;&#48;&#50;&#51;&#64;&#105;&#110;&#102;&#x6f;&#46;&#115;&#97;&#x79;&#121;&#97;&#x2e;&#x6f;&#x72;&#x67;</a><br>    % $DATE<br>    EndOfFile<br>      cat &gt; $ENCMAP &lt;&lt; EndOfFile<br>      % This is map file for PDFLaTeX and LaTeX CJK package to embed TTF.<br>      % Created by Edward G.J. Lee <a href="&#109;&#97;&#105;&#x6c;&#116;&#111;&#58;&#101;&#100;&#x74;&#x31;&#x30;&#50;&#x33;&#64;&#x69;&#x6e;&#x66;&#x6f;&#46;&#x73;&#97;&#x79;&#x79;&#97;&#46;&#x6f;&#x72;&#103;">&#101;&#100;&#x74;&#x31;&#x30;&#50;&#x33;&#64;&#x69;&#x6e;&#x66;&#x6f;&#46;&#x73;&#97;&#x79;&#x79;&#97;&#46;&#x6f;&#x72;&#103;</a><br>      % $DATE<br>      EndOfFile<br>        for i in $NUMLIST<br>      do<br>          PSNAME=<code>awk &#39;/FontName/ {print $2}&#39; ${FHEAD}$i.afm</code><br>              afm2tfm ${FHEAD}$i.afm &gt; /dev/null 2&gt;&amp;1<br>              cat &gt;&gt; $MAPFILE &lt;&lt; EndOfFile<br>              ${FHEAD}$i $PSNAME &lt;${FHEAD}$i.pfb<br>              EndOfFile<br>                  cat &gt;&gt; $ENCMAP &lt;&lt; EndOfFile<br>              ${FHEAD}$i &lt;${FHEAD}$i.enc &lt;${FNAME}<br>              EndOfFile<br>                done<br>                }</p>
 <p>create_cidmap()<br>{<br>cat &gt;&gt; cid-x.map &lt;&lt; EndOfFile<br>gbk$FHEAD@UGBK@ UniGB-UCS2-H :0:$FNAME<br>$FHEAD@Unicode@ unicode :0:$FNAME<br>EndOfFile<br>}</p>
-<p>create_cjkfd()<br>{<br>cat &gt; c${UTF8ENC}${FONTNAME}.fd &lt;&lt; EndOfFile<br>/ProvidesFile{c${UTF8ENC}${FONTNAME}.fd}[/filedate/space/fileversion]<br>/DeclareFontFamily{C${UTF8ENC}}{$FONTNAME}{/hyphenchar /font/m@ne}<br>/DeclareFontShape{C${UTF8ENC}}{$FONTNAME}{m}{n}{<-> CJK <em> $FHEAD}{}<br>/DeclareFontShape{C${UTF8ENC}}{$FONTNAME}{bx}{n}{<-> CJKb </-></em> $FHEAD}{/CJKbold}<br>/endinput<br>EndOfFile</-></p>
-<p>cat &gt; c${GBKENC}${FONTNAME}.fd &lt;&lt; EndOfFile<br>/ProvidesFile{c${GBKENC}${FONTNAME}.fd}[/filedate/space/fileversion]<br>/DeclareFontFamily{C${GBKENC}}{$FONTNAME}{/hyphenchar /font/m@ne}<br>/DeclareFontShape{C${GBKENC}}{$FONTNAME}{m}{n}{<-> CJK <em> gbk$FHEAD}{}<br>/DeclareFontShape{C${GBKENC}}{$FONTNAME}{bx}{n}{<-> CJKb </-></em> gbk$FHEAD}{/CJKbold}<br>/endinput<br>EndOfFile<br>}</-></p>
+<p>create_cjkfd()<br>{<br>cat &gt; c${UTF8ENC}${FONTNAME}.fd &lt;&lt; EndOfFile<br>/ProvidesFile{c${UTF8ENC}${FONTNAME}.fd}[/filedate/space/fileversion]<br>/DeclareFontFamily{C${UTF8ENC}}{$FONTNAME}{/hyphenchar /font/m@ne}<br>/DeclareFontShape{C${UTF8ENC}}{$FONTNAME}{m}{n}{&lt;-&gt; CJK <em> $FHEAD}{}<br>/DeclareFontShape{C${UTF8ENC}}{$FONTNAME}{bx}{n}{&lt;-&gt; CJKb </em> $FHEAD}{/CJKbold}<br>/endinput<br>EndOfFile</p>
+<p>cat &gt; c${GBKENC}${FONTNAME}.fd &lt;&lt; EndOfFile<br>/ProvidesFile{c${GBKENC}${FONTNAME}.fd}[/filedate/space/fileversion]<br>/DeclareFontFamily{C${GBKENC}}{$FONTNAME}{/hyphenchar /font/m@ne}<br>/DeclareFontShape{C${GBKENC}}{$FONTNAME}{m}{n}{&lt;-&gt; CJK <em> gbk$FHEAD}{}<br>/DeclareFontShape{C${GBKENC}}{$FONTNAME}{bx}{n}{&lt;-&gt; CJKb </em> gbk$FHEAD}{/CJKbold}<br>/endinput<br>EndOfFile<br>}</p>
 <p>create_vf()<br>{<br>  echo “Create virtual fonts file, wait…”<br>  perl uni2sfd.pl $FHEAD UGBK.sfd gbk$FHEAD gbk<br>  }</p>
 <h1 id="main"><a href="#main" class="headerlink" title="main()"></a>main()</h1><p>check_enc<br>create_type1<br>create_map<br>create_cidmap<br>create_cjkfd<br>create_vf</p>
 <p>AFM=${TEXMF}/fonts/afm/$FHEAD<br>TFM=${TEXMF}/fonts/tfm/$FHEAD<br>PFB=${TEXMF}/fonts/type1/$FHEAD<br>ENC=${TEXMF}/fonts/enc/$FHEAD<br>VF=${TEXMF}/fonts/vf/$FHEAD<br>TTF=${TEXMF}/fonts/truetype/$FHEAD<br>MAPDIR=${TEXMF}/fonts/map<br>rm -f <em>.t1a<br>mkdir -p $AFM $TFM $PFB $ENC $VF $TTF<br>mv -f </em>.enc $ENC<br>mv -f <em>.afm $AFM<br>mv -f </em>.tfm $TFM<br>mv -f <em>.pfb $PFB<br>mv -f </em>.vf $VF<br>mv -f $FNAME $TTF<br>mkdir -p $MAPDIR/dvips<br>mkdir -p $MAPDIR/pdftex<br>mkdir -p $MAPDIR/dvipdfm<br>mv -f $MAPFILE $MAPDIR/dvips<br>mv -f $ENCMAP $MAPDIR/pdftex<br>cat  cid-x.map &gt;&gt; $MAPDIR/dvipdfm/cid-x.map<br>rm cid-x.map<br>mkdir -p $UTF8FD $GBKFD<br>mv -f c${UTF8ENC}${FONTNAME}.fd $UTF8FD<br>mv -f c${GBKENC}${FONTNAME}.fd $GBKFD</p>
-<p>echo “Running texhash and updmap, pls wait”<br>texhash &gt;/dev/null 2&gt;&amp;1<br>updmap –enable Map=t1-${FHEAD}.map &gt;/dev/null 2&gt;&amp;1</p>
+<p>echo “Running texhash and updmap, pls wait”<br>texhash &gt;/dev/null 2&gt;&amp;1<br>updmap —enable Map=t1-${FHEAD}.map &gt;/dev/null 2&gt;&amp;1</p>
 <p>echo “Congradulations! you have added ${FHEAD} into your texmf”<br>==============================mkfont.sh end========================</p>
 <p>更省事的办法是直接下载YueWang-zhfonts-final_1.01.tar.bz2</p>
 <p>這個是針對TeXLive2007的字體包,總的來說,它解決了以下的問題:</p>
@@ -693,7 +692,7 @@
 <h1 id="插入本地图片"><a href="#插入本地图片" class="headerlink" title="插入本地图片"></a>插入本地图片</h1><p>在\hexo\source目录下新建文件夹，命名为images或者其他你喜欢的名字，然后编辑你的md博文，插入下面的代码样式<br><code>![“图片描述”](/images/你的图片名字.JPG)</code></p>
 <h1 id="插入音乐"><a href="#插入音乐" class="headerlink" title="插入音乐"></a>插入音乐</h1><p>插入音频，使用插件hexo-tag-aplayer，语法如下：</p>
 <h1 id="插入视频"><a href="#插入视频" class="headerlink" title="插入视频"></a>插入视频</h1><p>引用视频则直接插入iframe代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;/js/youtube-autoresizer.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;iframe width=&quot;640&quot; height=&quot;360&quot; src=&quot;https://www.youtube.com/embed/HfElOZSEqn4&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;</span><br></pre></td></tr></table></figure></p>
-<h1 id="脚注"><a href="#脚注" class="headerlink" title="脚注"></a>脚注</h1><p>使用成对的 [^long] [^long]:  来表示脚注</p>
+<h1 id="脚注"><a href="#脚注" class="headerlink" title="脚注"></a>脚注</h1><p>使用成对的 <sup><a href="#fn_long" id="reffn_long">long</a></sup> <sup><a href="#fn_long" id="reffn_long">long</a></sup>:  来表示脚注</p>
 
           
         
@@ -1215,8 +1214,8 @@
         
           
             <p>永久打开端口</p>
-<h1 id="firewall-cmd-–zone-public-–add-port-443-tcp-–permanent"><a href="#firewall-cmd-–zone-public-–add-port-443-tcp-–permanent" class="headerlink" title="firewall-cmd –zone=public –add-port=443/tcp –permanent"></a>firewall-cmd –zone=public –add-port=443/tcp –permanent</h1><p>重启防火墙 </p>
-<h1 id="firewall-cmd-–reload"><a href="#firewall-cmd-–reload" class="headerlink" title="firewall-cmd –reload"></a>firewall-cmd –reload</h1>
+<h1 id="firewall-cmd-—zone-public-—add-port-443-tcp-—permanent"><a href="#firewall-cmd-—zone-public-—add-port-443-tcp-—permanent" class="headerlink" title="firewall-cmd —zone=public —add-port=443/tcp —permanent"></a>firewall-cmd —zone=public —add-port=443/tcp —permanent</h1><p>重启防火墙 </p>
+<h1 id="firewall-cmd-—reload"><a href="#firewall-cmd-—reload" class="headerlink" title="firewall-cmd —reload"></a>firewall-cmd —reload</h1>
           
         
       
@@ -1455,9 +1454,9 @@
       
         
           
-            <p>git clone –bare git://192.168.10.XX/git_repo/project_name.git</p>
-<p>git init –bare new_project_name.git</p>
-<p>git push –mirror <a href="mailto:git@192.168.20.XX" target="_blank" rel="noopener">git@192.168.20.XX</a>/path/to/path/new_project_name.git</p>
+            <p>git clone —bare git://192.168.10.XX/git_repo/project_name.git</p>
+<p>git init —bare new_project_name.git</p>
+<p>git push —mirror git@192.168.20.XX/path/to/path/new_project_name.git</p>
 <p>使用git remote set-url命令从SSH到HTTPS的远程URL<br>$git remote set-url origin <a href="https://github.com/xxxxxx/S" target="_blank" rel="noopener">https://github.com/xxxxxx/S</a></p>
 <p>检查远程<br>git remote -v</p>
 
@@ -1965,24 +1964,7 @@
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
 
 
 
@@ -2035,6 +2017,45 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
 
   
 
