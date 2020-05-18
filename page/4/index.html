@@ -235,6 +235,125 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://tanzhixin.github.io/2019/12/31/未曾忘却的记忆/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Thomas">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://otakism.com/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大道至简">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/12/31/未曾忘却的记忆/" itemprop="url">未曾忘却的记忆</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-31T15:14:34+08:00">
+                2019-12-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://tanzhixin.github.io/2019/12/24/EnglishPresentation英语展讲/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1186,7 +1305,7 @@
 <p>create_type1()<br>{<br>  echo “Now create <em>.pfb and </em>.enc files, wait… “<br>    for i in $NUMLIST<br>      do<br>          ttf2pt1 -GAE -pttf -OHUBs -W0 -l plane+pid=3,eid=1,0x$i $FULLNAME ${FHEAD}$i<br>        done</p>
 <h1 id="avoid-dvips-t1part-module-bugs"><a href="#avoid-dvips-t1part-module-bugs" class="headerlink" title="avoid dvips t1part module bugs."></a>avoid dvips t1part module bugs.</h1><p>  perl -pi -e ‘s/_/Z/g’ <em>.t1a </em>.afm</p>
 <p>  for ps in *.t1a<br>    do<br>        t1asm -b $ps &gt; ${ps%.t1a}.pfb<br>      done<br>      }</p>
-<p>create_map()<br>{<br>MAPFILE=t1-${FHEAD}.map<br>ENCMAP=ttf-${FHEAD}.map<br>  echo “Create *.tfm and (dvips)map file, wait…”<br>    cat &gt; $MAPFILE &lt;&lt; EndOfFile<br>    % This is map file for dvips/dvipdfm[x] and LaTeX CJK package.<br>    % Created by Edward G.J. Lee <a href="mailto:&#101;&#x64;&#x74;&#49;&#48;&#x32;&#x33;&#64;&#x69;&#110;&#102;&#x6f;&#46;&#x73;&#97;&#x79;&#x79;&#x61;&#46;&#111;&#x72;&#103;" target="_blank" rel="noopener">&#101;&#x64;&#x74;&#49;&#48;&#x32;&#x33;&#64;&#x69;&#110;&#102;&#x6f;&#46;&#x73;&#97;&#x79;&#x79;&#x61;&#46;&#111;&#x72;&#103;</a><br>    % $DATE<br>    EndOfFile<br>      cat &gt; $ENCMAP &lt;&lt; EndOfFile<br>      % This is map file for PDFLaTeX and LaTeX CJK package to embed TTF.<br>      % Created by Edward G.J. Lee <a href="mailto:&#101;&#100;&#x74;&#x31;&#x30;&#50;&#51;&#x40;&#105;&#x6e;&#102;&#111;&#46;&#115;&#x61;&#x79;&#x79;&#x61;&#46;&#111;&#114;&#103;" target="_blank" rel="noopener">&#101;&#100;&#x74;&#x31;&#x30;&#50;&#51;&#x40;&#105;&#x6e;&#102;&#111;&#46;&#115;&#x61;&#x79;&#x79;&#x61;&#46;&#111;&#114;&#103;</a><br>      % $DATE<br>      EndOfFile<br>        for i in $NUMLIST<br>      do<br>          PSNAME=<code>awk &#39;/FontName/ {print $2}&#39; ${FHEAD}$i.afm</code><br>              afm2tfm ${FHEAD}$i.afm &gt; /dev/null 2&gt;&amp;1<br>              cat &gt;&gt; $MAPFILE &lt;&lt; EndOfFile<br>              ${FHEAD}$i $PSNAME &lt;${FHEAD}$i.pfb<br>              EndOfFile<br>                  cat &gt;&gt; $ENCMAP &lt;&lt; EndOfFile<br>              ${FHEAD}$i &lt;${FHEAD}$i.enc &lt;${FNAME}<br>              EndOfFile<br>                done<br>                }</p>
+<p>create_map()<br>{<br>MAPFILE=t1-${FHEAD}.map<br>ENCMAP=ttf-${FHEAD}.map<br>  echo “Create *.tfm and (dvips)map file, wait…”<br>    cat &gt; $MAPFILE &lt;&lt; EndOfFile<br>    % This is map file for dvips/dvipdfm[x] and LaTeX CJK package.<br>    % Created by Edward G.J. Lee <a href="mailto:&#101;&#100;&#x74;&#x31;&#x30;&#50;&#x33;&#x40;&#105;&#x6e;&#102;&#x6f;&#46;&#x73;&#x61;&#121;&#x79;&#97;&#46;&#111;&#x72;&#x67;" target="_blank" rel="noopener">&#101;&#100;&#x74;&#x31;&#x30;&#50;&#x33;&#x40;&#105;&#x6e;&#102;&#x6f;&#46;&#x73;&#x61;&#121;&#x79;&#97;&#46;&#111;&#x72;&#x67;</a><br>    % $DATE<br>    EndOfFile<br>      cat &gt; $ENCMAP &lt;&lt; EndOfFile<br>      % This is map file for PDFLaTeX and LaTeX CJK package to embed TTF.<br>      % Created by Edward G.J. Lee <a href="mailto:&#x65;&#100;&#x74;&#x31;&#48;&#x32;&#x33;&#x40;&#x69;&#x6e;&#102;&#x6f;&#x2e;&#x73;&#x61;&#x79;&#121;&#x61;&#46;&#x6f;&#x72;&#103;" target="_blank" rel="noopener">&#x65;&#100;&#x74;&#x31;&#48;&#x32;&#x33;&#x40;&#x69;&#x6e;&#102;&#x6f;&#x2e;&#x73;&#x61;&#x79;&#121;&#x61;&#46;&#x6f;&#x72;&#103;</a><br>      % $DATE<br>      EndOfFile<br>        for i in $NUMLIST<br>      do<br>          PSNAME=<code>awk &#39;/FontName/ {print $2}&#39; ${FHEAD}$i.afm</code><br>              afm2tfm ${FHEAD}$i.afm &gt; /dev/null 2&gt;&amp;1<br>              cat &gt;&gt; $MAPFILE &lt;&lt; EndOfFile<br>              ${FHEAD}$i $PSNAME &lt;${FHEAD}$i.pfb<br>              EndOfFile<br>                  cat &gt;&gt; $ENCMAP &lt;&lt; EndOfFile<br>              ${FHEAD}$i &lt;${FHEAD}$i.enc &lt;${FNAME}<br>              EndOfFile<br>                done<br>                }</p>
 <p>create_cidmap()<br>{<br>cat &gt;&gt; cid-x.map &lt;&lt; EndOfFile<br>gbk$FHEAD@UGBK@ UniGB-UCS2-H :0:$FNAME<br>$FHEAD@Unicode@ unicode :0:$FNAME<br>EndOfFile<br>}</p>
 <p>create_cjkfd()<br>{<br>cat &gt; c${UTF8ENC}${FONTNAME}.fd &lt;&lt; EndOfFile<br>/ProvidesFile{c${UTF8ENC}${FONTNAME}.fd}[/filedate/space/fileversion]<br>/DeclareFontFamily{C${UTF8ENC}}{$FONTNAME}{/hyphenchar /font/m@ne}<br>/DeclareFontShape{C${UTF8ENC}}{$FONTNAME}{m}{n}{<-> CJK <em> $FHEAD}{}<br>/DeclareFontShape{C${UTF8ENC}}{$FONTNAME}{bx}{n}{<-> CJKb </-></em> $FHEAD}{/CJKbold}<br>/endinput<br>EndOfFile</-></p>
 <p>cat &gt; c${GBKENC}${FONTNAME}.fd &lt;&lt; EndOfFile<br>/ProvidesFile{c${GBKENC}${FONTNAME}.fd}[/filedate/space/fileversion]<br>/DeclareFontFamily{C${GBKENC}}{$FONTNAME}{/hyphenchar /font/m@ne}<br>/DeclareFontShape{C${GBKENC}}{$FONTNAME}{m}{n}{<-> CJK <em> gbk$FHEAD}{}<br>/DeclareFontShape{C${GBKENC}}{$FONTNAME}{bx}{n}{<-> CJKb </-></em> gbk$FHEAD}{/CJKbold}<br>/endinput<br>EndOfFile<br>}</-></p>
@@ -1524,163 +1643,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://tanzhixin.github.io/2019/09/09/专利检索常用网站/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Thomas">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="https://otakism.com/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="大道至简">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/09/09/专利检索常用网站/" itemprop="url">专利检索常用网站</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-09T10:07:20+08:00">
-                2019-09-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ol>
-<li><p><a href="http://epub.sipo.gov.cn/" title="中国专利公布公告网" target="_blank" rel="noopener">中国专利公布公告网</a></p>
-</li>
-<li><p><a href="http://www.pss-system.gov.cn/" title="专利检索及分析" target="_blank" rel="noopener">专利检索及分析</a></p>
-</li>
-<li><p><a href="http://cpquery.sipo.gov.cn/" title="中国及多国专利审查信息查询" target="_blank" rel="noopener">中国及多国专利审查信息查询</a></p>
-</li>
-<li><p><a href="http://search.cnipr.com/" title="专利信息服务平台" target="_blank" rel="noopener">专利信息服务平台</a></p>
-</li>
-<li><p><a href="http://chinaip.sipo.gov.cn/" title="国家重点产业专利信息服务平台" target="_blank" rel="noopener">国家重点产业专利信息服务平台</a></p>
-</li>
-<li><p><a href="http://www.cnpatent.com/" title="中国专利网" target="_blank" rel="noopener">中国专利网</a></p>
-</li>
-<li><p><a href="http://www.patentics.com" title="patentics" target="_blank" rel="noopener">patentics</a></p>
-</li>
-<li><p><a href="http://www.soopat.com/" title="soopat" target="_blank" rel="noopener">soopat</a></p>
-</li>
-<li><p><a href="http://www.incopat.com/" title="incopat" target="_blank" rel="noopener">incopat</a></p>
-</li>
-<li><p><a href="https://www.tiikong.com/patent/query/index.do" title="情报嗒嗒" target="_blank" rel="noopener">情报嗒嗒</a></p>
-</li>
-<li><p><a href="http://so.baiten.cn/" title="佰腾专利检索" target="_blank" rel="noopener">佰腾专利检索</a></p>
-</li>
-<li><p><a href="http://www.guangdongip.gov.cn" title="广东省知识产权公共信息综合服务平台" target="_blank" rel="noopener">广东省知识产权公共信息综合服务平台</a></p>
-</li>
-<li><p><a href="http://www.shanghaiip.cn/" title="上海知识产权（专利）服务平台" target="_blank" rel="noopener">上海知识产权（专利）服务平台</a></p>
-</li>
-<li><p><a href="http://58.213.145.74:8080/cniprBZ/index.htm" title="江苏省中外专利检索与分析平台" target="_blank" rel="noopener">江苏省中外专利检索与分析平台</a></p>
-</li>
-<li><p><a href="www.beijingip.cn/jopm_ww/loginedPage/web2/onlineSearch/zljsindex.jsp" title="北京市知识产权公共信息服务平台">北京市知识产权公共信息服务平台</a></p>
-</li>
-<li><p><a href="http://kns.cnki.net/kns/brief/result.aspx?dbprefix=SCOD" title="中国知网" target="_blank" rel="noopener">中国知网</a></p>
-</li>
-<li><p><a href="http://librarian.wanfangdata.com.cn/default.aspx?dbid=Paper" title="万方数据" target="_blank" rel="noopener">万方数据</a></p>
-</li>
-<li><p><a href="http://www.drugfuture.com/Index.html" title="药物在线" target="_blank" rel="noopener">药物在线</a></p>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1733,7 +1695,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">59</span>
+                  <span class="site-state-item-count">60</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
