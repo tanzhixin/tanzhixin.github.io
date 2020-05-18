@@ -7,7 +7,7 @@
 
 <html class="theme-next muse use-motion" lang="zh-cn">
 <head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="大道至简">
 <meta property="og:description" content="一、电容的基本原理电容，和电感、电阻一起，是电子学三大基本无源器件；电容的功能就是以电场能的形式储存电能量。以平行板电容器为例，简单介绍下电容的基本原理 如上图所示，在两块距离较近、相互平行的金属平板上(平板之间为电介质)加载一个直流电压；稳定后，与电压正极相连的金属平板将呈现一定量的正电荷，而与电压负极相连的金属平板将呈现相等量的负电荷；这样，两个金属平板之间就会形成一个静电场，所以电容是以电场">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2020-05-18T04:44:05.421Z">
+<meta property="og:updated_time" content="2020-05-18T05:15:47.076Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="capacity关于电容">
 <meta name="twitter:description" content="一、电容的基本原理电容，和电感、电阻一起，是电子学三大基本无源器件；电容的功能就是以电场能的形式储存电能量。以平行板电容器为例，简单介绍下电容的基本原理 如上图所示，在两块距离较近、相互平行的金属平板上(平板之间为电介质)加载一个直流电压；稳定后，与电压正极相连的金属平板将呈现一定量的正电荷，而与电压负极相连的金属平板将呈现相等量的负电荷；这样，两个金属平板之间就会形成一个静电场，所以电容是以电场">
@@ -128,7 +128,7 @@
 
 
 
-  <title>capacity关于电容 | 大道至简</title>
+  <title>capacity关于电容 | 大道至简</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -147,7 +147,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -306,7 +306,7 @@
 <p>如上图所示，在两块距离较近、相互平行的金属平板上(平板之间为电介质)加载一个直流电压；稳定后，与电压正极相连的金属平板将呈现一定量的正电荷，而与电压负极相连的金属平板将呈现相等量的负电荷；这样，两个金属平板之间就会形成一个静电场，所以电容是以电场能的形式储存电能量，储存的电荷量为Q。<br>电容储存的电荷量Q与电压U和自身属性(也就是电容值C)有关，也就是Q=U*C。根据理论推导，平行板电容器的电容公式如下</p>
 <p>理想电容内部是介质(Dielectric)，没有自由电荷，不可能产生电荷移动也就是电流，那么理想电容是如何通交流的呢？</p>
 <h2 id="通交流"><a href="#通交流" class="headerlink" title="通交流"></a>通交流</h2><p>电压可以在电容内部形成一个电场，而交流电压就会产生交变电场。根据麦克斯韦方程组中的全电流定律：</p>
-<p>即电流或变化的电场都可以产生磁场，麦克斯韦将ε(∂E/∂t)定义为位移电流，是一个等效电流，代表着电场的变化。(这里电流代表电流密度，即J)<br>设交流电压为正弦变化，即：<br>           $ u = U\cos \omage t$</p>
+<p>即电流或变化的电场都可以产生磁场，麦克斯韦将ε(∂E/∂t)定义为位移电流，是一个等效电流，代表着电场的变化。(这里电流代表电流密度，即J)<br>设交流电压为正弦变化，即：<br>           $$ u = U\cos \omage t$$</p>
 <p>实际位移电流等于电流密度乘以面积：</p>
 
       
@@ -730,7 +730,24 @@
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 
