@@ -235,6 +235,133 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://tanzhixin.github.io/2019/04/12/visual-studio-compile-error/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Thomas">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://otakism.com/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大道至简">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/12/visual-studio-compile-error/" itemprop="url">visual studio compile error</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-12T11:12:21+08:00">
+                2019-04-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li><p>添加头文件目录：<br>   配置属性–&gt;C/C++–&gt;常规–&gt;附加包含目录 加上头文件存放的目录。</p>
+</li>
+<li><p>添加lib文件：</p>
+<p>1) 配置属性–&gt;链接器–&gt;输入–&gt;附加依赖项加入库名（×××.lib）；或者是在cpp源文件中用#pragma comment(lib,”×××.lib”)来代替。<br>   此时编译会提示：fatal error LNK1104: 无法打开文件“×××.lib”，原因是编译器找不到lib文件。<br>   给项目添加库文件路径<br>   在VS中右击项目点属性：<br>   配置属性–&gt;链接器–&gt;常规–&gt;附加目录 。在里面填上库文件所在的路径即可。</p>
+<p>2) 直接添加库文件到工程中.<br>   就像你添加.h和.cpp文件一样,把lib文件添加到工程文件列表中去。右键项目点添加选择现有项目，选择lib文件点确定即可。这个方法适用于在工程的debug版本和Release版本中都使用同一个lib库文件。</p>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://tanzhixin.github.io/2019/04/03/NI-visa-programming/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1475,129 +1602,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://tanzhixin.github.io/2019/01/22/德国科学家在Wiley期刊上发表的论文将免费公开/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Thomas">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="https://otakism.com/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="大道至简">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/22/德国科学家在Wiley期刊上发表的论文将免费公开/" itemprop="url">德国科学家在 Wiley 期刊上发表的论文将免费公开</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-22T06:02:36+08:00">
-                2019-01-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>由德国图书馆、高校和研究机构组建的联盟 Project DEAL 与学术出版商 Wiley 签署了<a href="https://www.the-scientist.com/news-opinion/german-institutions-and-wiley-reach-open-access-publishing-deal-65327" title="协议" target="_blank" rel="noopener">开放获取协议</a>，根据为期 3 年的合约，700 多家德国研究机构的科学家将能获得 Wiley 旗下所有学术期刊 1997 年之后的全部访问权，而德国科学家在 Wiley 期刊上发表的论文将对所有人免费公开。</p>
-<p><img src="robert-jan-smits-hero-x.jpg" alt="协议" title="协议"></p>
-<p>协议细节将在一个月后公开。Wiley 总编辑 Guido Herrmann 表示，这是首个出版商和科研领先的国家就向开放获取转变达成的合约。“我们相信，在致力于更加开放的获取和开放科学的运动中，这是一个重要且特殊的时刻。”Herrmann 说。最新合约可能增加对爱思唯尔和施普林格的压力。这两家出版商也是 Project DEAL 一直谈判的对象。</p>
-<p>Project DEAL 已同施普林格达成一项过渡协议，但同爱思唯尔的对话似乎已经停止</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1650,7 +1654,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">62</span>
+                  <span class="site-state-item-count">63</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
