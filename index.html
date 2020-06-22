@@ -235,6 +235,156 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://tanzhixin.github.io/2020/06/22/OPA集成运放使用总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Thomas">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://otakism.com/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大道至简">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/06/22/OPA集成运放使用总结/" itemprop="url">集成运放使用总结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-06-22T09:56:40+08:00">
+                2020-06-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>集成运放使用总结</p>
+<p>同相放大 反相放大 比较器 加法器 差分  仪表放大   微分  积分  滤波使用 </p>
+<p>运放:      没有反馈直接利用运放的开环增益是没有意义的。 </p>
+<p>主要参数： </p>
+<ol>
+<li>电源电压范围：一般给运放供电最好低于其极限供电电压若干伏； </li>
+<li>共模输入信号范围：运放对输入信号的电压都有一个承受范围，是指输入运放反相输入端或同相输入端的电压限制，通常小于供电电压1-2V； </li>
+<li>开环增益：运放内部的输出电压与输入电压的比值。开环增益通常很大。但开环增益只是运放内部的电压增益描述，运放通常存在反馈，在有反馈存在后，输入输出关系与开环增益无关。 </li>
+<li>共模抑制比（CMR）：是指运放抑制共模信号的能力。为输入共模信号与输出共模信号的比值。 </li>
+<li>转换速率（SR）：指的是输入信号出现一个跳变时，运放输出这个跳变的响应速度。 </li>
+</ol>
+<p>没有反馈直接利用运放的开环增益是没有意义的？ 运放的开环增益很大，直接利用运放的开环增益，会使运放进入深度饱和状态，很小的输入信号会有极大的超出运放供电范围的输出，在是不可行的。<br>负反馈：  会降低运放的增益，但是具有提高运放稳定性、减少失真、增加带宽等优点。加入了反馈组件的系统，构成了一个闭环的系统————输出信号的一部分进入输入端而形成一个具有反馈的封闭系统，该系统增益——闭环增益。</p>
+<h1 id="运放内部有对反馈的Vf进行180°的相移，从而使之与Vin反相，这样既削弱了Vout又可以降低其增益。"><a href="#运放内部有对反馈的Vf进行180°的相移，从而使之与Vin反相，这样既削弱了Vout又可以降低其增益。" class="headerlink" title="运放内部有对反馈的Vf进行180°的相移，从而使之与Vin反相，这样既削弱了Vout又可以降低其增益。"></a>运放内部有对反馈的Vf进行180°的相移，从而使之与Vin反相，这样既削弱了Vout又可以降低其增益。</h1><p>运放：     同相放大器 （输入输出同相） 增益计算稍有区别     </p>
+<p>反相放大器（输入输出反相） 同相放大器：同相放大器放大直流信号            </p>
+<h2 id="同相放大器放大交流信号"><a href="#同相放大器放大交流信号" class="headerlink" title="同相放大器放大交流信号"></a>同相放大器放大交流信号</h2><p>增益均为：Av（同相）=1+Rf/R1.</p>
+<h2 id="关于运放供电问题：-使用单电源供电，则仅能放大输入信号的正半周期。"><a href="#关于运放供电问题：-使用单电源供电，则仅能放大输入信号的正半周期。" class="headerlink" title="关于运放供电问题： 使用单电源供电，则仅能放大输入信号的正半周期。"></a>关于运放供电问题： 使用单电源供电，则仅能放大输入信号的正半周期。</h2><p>使用双电源供电，则能够对全周期信号进行放大。<br>但是大部分应用采用单电源供电，此时可以考虑，将输入信号整体向上平移，将信号全部推至正半周。以有效实现放大。 </p>
+<h2 id="跟随器：-是增益为1-的同相放大器-输出信号100-反馈到输入端"><a href="#跟随器：-是增益为1-的同相放大器-输出信号100-反馈到输入端" class="headerlink" title="跟随器：   是增益为1 的同相放大器            输出信号100%反馈到输入端"></a>跟随器：   是增益为1 的同相放大器            输出信号100%反馈到输入端</h2><p>Rf=0，R1=∞。<br>作用：高输入阻抗，低输出阻抗， 阻抗匹配使用。</p>
+<h2 id="反向放大器：-输入与输出相位差180°-见上右图"><a href="#反向放大器：-输入与输出相位差180°-见上右图" class="headerlink" title="反向放大器：   输入与输出相位差180°          见上右图"></a>反向放大器：   输入与输出相位差180°          见上右图</h2><p>其中对于交流信号输入反向放大器输入端增加电容<br>运放的失调电压：一个理想的运放，当输入电压为0时，输出电压也应为0。但实际上它的差分输入级很难做到完全对称。通常在输入电压为0时，存在一定的输出电压——失调电压。<br>运放的输入补偿电压：失调电压除以噪声增益得到输入失调电压或者叫输入补偿电压。通过补偿管脚OFFSET之间加电位器进行补偿 </p>
+<h2 id="比较器："><a href="#比较器：" class="headerlink" title="比较器："></a>比较器：</h2><p>运放用来构造成比较器，对两个电压进行比较，其中一个通常为固定电平的参考电压，另一个为被比较信号。当Vin高于参考电压时，输出高电平，否则输出低电平。</p>
+<h3 id="过零比较器-与0V进行比较"><a href="#过零比较器-与0V进行比较" class="headerlink" title="过零比较器:  与0V进行比较"></a>过零比较器:  与0V进行比较</h3><h3 id="非过零比较器-与Vref进行比较"><a href="#非过零比较器-与Vref进行比较" class="headerlink" title="非过零比较器:     与Vref进行比较"></a>非过零比较器:     与Vref进行比较</h3><h3 id="迟滞比较器（施密特触发器）"><a href="#迟滞比较器（施密特触发器）" class="headerlink" title="迟滞比较器（施密特触发器）:"></a>迟滞比较器（施密特触发器）:</h3><p>应用场景：如果输入信号，由于噪声影响出现很多小范围的波动，那么在接近Vref的位置可能出现输出频繁的跳变。影响系统正常工作。</p>
+<h2 id="加法放大器：-将反相放大器连接多个输入，就成了一个加法放大器。"><a href="#加法放大器：-将反相放大器连接多个输入，就成了一个加法放大器。" class="headerlink" title="加法放大器：  将反相放大器连接多个输入，就成了一个加法放大器。"></a>加法放大器：  将反相放大器连接多个输入，就成了一个加法放大器。</h2><p>输出Vout=-[（Rf/R1）V1+（Rf/R2）V2+（Rf/R3）V3] 若：R1=R2=R3=R<br> Vout=-Rf/R（V1+V2+V3） 若：R1=R2=R3=Rf   Vout=V1+ V2 + V3 做加法。<br>此外通过调整  Rf/R 可以求n 个输入信号的算入平均值。 R=n Rf</p>
+<h2 id="差分放大器：对微弱有用信号采用差分放大器进行放大。-放大差模-抑制共模"><a href="#差分放大器：对微弱有用信号采用差分放大器进行放大。-放大差模-抑制共模" class="headerlink" title="差分放大器：对微弱有用信号采用差分放大器进行放大。    放大差模 抑制共模"></a>差分放大器：对微弱有用信号采用差分放大器进行放大。    放大差模 抑制共模</h2><p>Vout=R2/R1（V2-V1）;</p>
+<p>用公式来说明其放大差模抑制共模的能力： V2=V+  +V n V1=V-  +Vn<br>Vn为传输过程中的干扰信号，在V2和V1达到差分放大器后，V2-V1消去了共模信号，而来自于传感器或者其它的差模信号V+和V-得到了放大。<br>实际应用过程中，并不是所有的共模信号都能被消去，因此有共模抑制比的概念：<br>共模抑制比：CMR=20lg（Av(差模)/Av(共模)）      dB Av(差模)——<br>——差模信号电压增益    Av(共模)—— ——共模信号电压增益   </p>
+<h1 id="仪表放大器：（多运放）-特点：输入阻抗很高、共模抑制比很高、输出阻抗地。"><a href="#仪表放大器：（多运放）-特点：输入阻抗很高、共模抑制比很高、输出阻抗地。" class="headerlink" title="仪表放大器：（多运放） 特点：输入阻抗很高、共模抑制比很高、输出阻抗地。"></a>仪表放大器：（多运放） 特点：输入阻抗很高、共模抑制比很高、输出阻抗地。</h1><p>A1和A2构成同相放大器——提供高输入阻抗 和电压增益    A1和A2对称使用<br>A3位差分放大器<br>仪表放大器的增益（三运放）：Vout=（1+(2R1/RG)）(V2-V1)</p>
+<p>用公式来说明其放大差模抑制共模的能力： V2=V+  +V n V1=V-  +Vn<br>Vn为传输过程中的干扰信号，在V2和V1达到差分放大器后，V2-V1消去了共模信号，而来自于传感器或者其它的差模信号V+和V-得到了放大。<br>实际应用过程中，并不是所有的共模信号都能被消去，因此有共模抑制比的概念：<br>共模抑制比：CMR=20lg（Av(差模)/Av(共模)）      dB Av(差模)——<br>——差模信号电压增益    Av(共模)—— ——共模信号电压增益<br>仪表放大器：（多运放） 特点：输入阻抗很高、共模抑制比很高、输出阻抗地。<br>A1和A2构成同相放大器——提供高输入阻抗 和电压增益    A1和A2对称使用<br>A3位差分放大器<br>仪表放大器的增益（三运放）：Vout=（1+(2R1/RG)）(V2-V1)</p>
+<h1 id="有源微分器-积分器"><a href="#有源微分器-积分器" class="headerlink" title="有源微分器  积分器:"></a>有源微分器  积分器:</h1><p>前面学习过由RC电路组成的微分器和积分器，但是其输出部分无运放做封闭，其RC时间常数，容易受到后续电路输入阻抗的影响而变得不稳定。<br>有源微分器：   输出与该时刻输入的变化率相等。 ΔVin/Δt=VE<br>Vout= —VE                    与输入的变化率增益为-1 有源积分器：<br>某一时刻的输出为之前输入信号的总面积： 输出等于  —（输入幅度X时间   ）<br>即为   -(为输入与时间积分)    增益-t</p>
+<h2 id="有源滤波器：利用运放组成的有源滤波-有源滤波和无源滤波的区别："><a href="#有源滤波器：利用运放组成的有源滤波-有源滤波和无源滤波的区别：" class="headerlink" title="有源滤波器：利用运放组成的有源滤波 有源滤波和无源滤波的区别："></a>有源滤波器：利用运放组成的有源滤波 有源滤波和无源滤波的区别：</h2><p>有源滤波器：集成运放和 R、C 组成，具有不用电感、体积小、重量轻等优点。<br>集成运放的开环电压增益和输入阻抗均很高，输出电阻小，构成有源滤波电路后还具有一定的电压放大和缓冲作用。但集成运放带宽有限，所以目前的有源滤波电路的工作频率难以做得很高。由于有运放的封闭，后续的电路输入阻抗不会对滤波器造成影响，因此有源滤波器更好的频率特性。 </p>
+<h2 id="无源滤波器：这种电路主要有无源元件-R、L-和-C-组成；-1"><a href="#无源滤波器：这种电路主要有无源元件-R、L-和-C-组成；-1" class="headerlink" title="无源滤波器：这种电路主要有无源元件 R、L 和 C 组成； (1)"></a>无源滤波器：这种电路主要有无源元件 R、L 和 C 组成； (1)</h2><p>有源滤波器是电子的，无源滤波器是机械的。(2) 有源滤波器是检测到某<br>一设定好的谐波次数后抵消它，无源滤波器是通过电抗器与电容器的配合形成某<br>次谐波通道吸收谐波。(3) 采用无源滤波器因为有电容器的原因，所以可提高功<br>率因素。采用有源滤波器只是消除谐波与功率因素无关。(4)  有源滤波器造价是<br>无源滤波器的 3 倍以上，无源滤波器造价相 对较低(5)<br>有源滤波器用于小电流，无源滤 波器可用于大电流。</p>
+<h2 id="有源高通滤波器：-在无源高通滤波器之后加一个-同相放大器"><a href="#有源高通滤波器：-在无源高通滤波器之后加一个-同相放大器" class="headerlink" title="有源高通滤波器：   在无源高通滤波器之后加一个  同相放大器"></a>有源高通滤波器：   在无源高通滤波器之后加一个  同相放大器</h2><p>一阶有源高通：；   衰减量 -3dB 二阶有源高通： ；   衰减量 -3dB<br>二阶的高通滤波比一阶高通频率特性更好，在截止频率前，低频信号衰减更快。<br>为达到较好的阻尼系数，二阶有源高通滤波器的Rf/R1=0.586.<br>但是由于运放自身的带宽限制，高通滤波器的频率也不是可以无限增大的，当达到一定频率达到一定程度后。同样出现衰减<br>  有源低通滤波器：   在无源低通滤波器之后加一个  同相放大器<br>一阶有源低通：；    衰减量 -3dB<br>二阶有源低通： ；    衰减量 -3dB</p>
+<h2 id="有源带通滤波器：-将有-源高通滤波器-和-有源低通滤波器-组合"><a href="#有源带通滤波器：-将有-源高通滤波器-和-有源低通滤波器-组合" class="headerlink" title="有源带通滤波器：   将有  源高通滤波器  和  有源低通滤波器  组合"></a>有源带通滤波器：   将有  源高通滤波器  和  有源低通滤波器  组合</h2><p>频率接近于fc的方可通过： ；    衰 减量 -3dB</p>
+<h2 id="有源带阻滤波器：-（陷波器）"><a href="#有源带阻滤波器：-（陷波器）" class="headerlink" title="有源带阻滤波器：  （陷波器）"></a>有源带阻滤波器：  （陷波器）</h2><p>应用：设备使用过程中，常容易被50HZ的市电干扰所影响，这时可以使用陷波器将50HZ频率附近的噪音进行滤除。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://tanzhixin.github.io/2020/06/05/mariadb设置unicode/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1480,133 +1630,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://tanzhixin.github.io/2020/05/09/RIGOL-DP800系列电源使用技巧5答/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Thomas">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="https://otakism.com/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="大道至简">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/05/09/RIGOL-DP800系列电源使用技巧5答/" itemprop="url">RIGOL DP700 DP800系列电源使用技巧5答</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-09T08:45:54+08:00">
-                2020-05-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>直流电源即产生纯净稳定直流电源的仪器。直流电源的选型需要考虑几个重要的参数，包括通道数，总功率，每通道输出规格，分辨率等等。每项指标都与我们实际测试的需求及应用相关。<br>RIGOL DP800系列包含单路输出，两路输出和三路输出多款可编程线性直流电源。它们拥有纯净输出，优异的性能指标，多种分析功能，丰富的接口，可满足多样化的测试需求。<br>DP700 系列电源是一款高性价比、经济型的可编程线性直流电源，它拥有优异的性能指标、纯净可靠的输出和清晰的用户界面，支持定时输出和外触发功能，提供远程通信接口，可满足多样化的测试需求。</p>
-<p>以下为安泰测试汇总的有关RIGOL DP700、DP800系列电源的使用常见问题及高效应对策略：</p>
-<h1 id="一、RIGOL的DP系列电源恒流输出不正常该如何处理？"><a href="#一、RIGOL的DP系列电源恒流输出不正常该如何处理？" class="headerlink" title="一、RIGOL的DP系列电源恒流输出不正常该如何处理？"></a>一、RIGOL的DP系列电源恒流输出不正常该如何处理？</h1><h2 id="1）检查所选档位的最大输出功率是否满足负载要求。"><a href="#1）检查所选档位的最大输出功率是否满足负载要求。" class="headerlink" title="1）检查所选档位的最大输出功率是否满足负载要求。"></a>1）检查所选档位的最大输出功率是否满足负载要求。</h2><h2 id="2）若满足，请检查以下几项："><a href="#2）若满足，请检查以下几项：" class="headerlink" title="2）若满足，请检查以下几项："></a>2）若满足，请检查以下几项：</h2><h3 id="•-连接负载与电源的线缆是否有短路现象，是否接触良好。"><a href="#•-连接负载与电源的线缆是否有短路现象，是否接触良好。" class="headerlink" title="•   连接负载与电源的线缆是否有短路现象，是否接触良好。"></a>•   连接负载与电源的线缆是否有短路现象，是否接触良好。</h3><h3 id="•-查看负载是否出现问题。"><a href="#•-查看负载是否出现问题。" class="headerlink" title="•   查看负载是否出现问题。"></a>•   查看负载是否出现问题。</h3><h3 id="•-查看该档位的电压设置值是否合适，如果过低，可以适当加大电压设置值。"><a href="#•-查看该档位的电压设置值是否合适，如果过低，可以适当加大电压设置值。" class="headerlink" title="•   查看该档位的电压设置值是否合适，如果过低，可以适当加大电压设置值。"></a>•   查看该档位的电压设置值是否合适，如果过低，可以适当加大电压设置值。</h3><h1 id="二、电源如何恒压输出或恒流输出？"><a href="#二、电源如何恒压输出或恒流输出？" class="headerlink" title="二、电源如何恒压输出或恒流输出？"></a>二、电源如何恒压输出或恒流输出？</h1><p>恒压输出：假设负载电阻RL、设定电压值/设定电流值为RC。当RL&gt;RC时，电源将工作在恒压模式。<br>恒流输出：假设负载电阻RL、设定电压值/设定电流值为RC。当RL&lt;RC时，电源将工作在恒流模式。</p>
-<h1 id="三、可编程直流电源可以使用有源负载吗？"><a href="#三、可编程直流电源可以使用有源负载吗？" class="headerlink" title="三、可编程直流电源可以使用有源负载吗？"></a>三、可编程直流电源可以使用有源负载吗？</h1><p>RIGOL DP800系列和DP1000系列是可编程的线性DC电源。它们只能为无法输出电流的纯负载提供电源。<br>DP800系列或DP1000系列电源不应使用有源负载，例如可提供电源的负载（电池，太阳能电池等）。有源负载可能导致电源控制回路不稳定，并可能损坏受电设备。 建议不要将电源连接到有源负载。 </p>
-<h1 id="四、电源怎么进行串并联？"><a href="#四、电源怎么进行串并联？" class="headerlink" title="四、电源怎么进行串并联？"></a>四、电源怎么进行串并联？</h1><p>可以连接一个电源或多个电源的两个或更多个隔离通道以提供更高的电压或电流。<br>注意：只能隔离通道串联或并联。<br>对于DP831A，三个通道中的任意两个可以串联连接。CH1和CH2或CH3可以并联连接，但CH2和CH3不能并联。对于DP832A / DP832，CH1和CH2或CH3可以串联或并联，但CH2和CH3不能串联或并联。</p>
-<h2 id="1、-串联电源以提供更高的电压"><a href="#1、-串联电源以提供更高的电压" class="headerlink" title="1、 串联电源以提供更高的电压"></a>1、 串联电源以提供更高的电压</h2><p>产生更高电压的最简单方法是串联电源，设置每个电源输出相同的电流，每个电源应具有相同的电流限制。电源输出电压的总和将应用于DUT。<br>注意：确保通道在CV（恒定电压）模式下工作。如果其中一个通道工作在CC（恒定电流）模式，其他通道将进入不可预测的输出的未调节状态。</p>
-<h2 id="2、并联电源以提供更高的电流"><a href="#2、并联电源以提供更高的电流" class="headerlink" title="2、并联电源以提供更高的电流"></a>2、并联电源以提供更高的电流</h2><p>创建更高电流的最简单方法是并联电源，总输出电流是各个电源的输出电流之和。您可以分别设置每个电源的输出。<br>根据实际应用中的负载，通道可以在CV或CC模式下工作<br>例如：用DP832A输出50V的电压，或者4A电流<br>DP832A有两个30V/3A的输出通道，可以使用两通道串联实现输出50V电压，或者两通道并联实现4A电流。</p>
-<h1 id="五、可编程直流电源的编程分辨率、显示分辨率、回读分辨率分别指什么？"><a href="#五、可编程直流电源的编程分辨率、显示分辨率、回读分辨率分别指什么？" class="headerlink" title="五、可编程直流电源的编程分辨率、显示分辨率、回读分辨率分别指什么？"></a>五、可编程直流电源的编程分辨率、显示分辨率、回读分辨率分别指什么？</h1><p>编程分辨率指的是电源通过键盘可设置的最小电压、电流。<br>显示分辨率指的是电源屏幕可显示最小电压、电流。<br>回读分辨率指的是机器内部回读的最小电压、电流。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1659,7 +1682,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">65</span>
+                  <span class="site-state-item-count">66</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1713,7 +1736,7 @@
               <ul class="links-of-blogroll-list">
                 
                   <li class="links-of-blogroll-item">
-                    <a href="https://apps.webofknowledge.com/" title="webofSCI" target="_blank">webofSCI</a>
+                    <a href="http://isiknowledge.com/wos/" title="webofSCI" target="_blank">webofSCI</a>
                   </li>
                 
                   <li class="links-of-blogroll-item">
