@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Software on 笔记</title>
+        <link>https://tanzhixin.github.io/tanzhixin/categories/software/</link>
+        <description>Recent content in Software on 笔记</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <lastBuildDate>Sat, 22 Mar 2025 09:21:28 +0800</lastBuildDate><atom:link href="https://tanzhixin.github.io/tanzhixin/categories/software/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Tmux终端复用工具</title>
+        <link>https://tanzhixin.github.io/tanzhixin/p/tmux%E7%BB%88%E7%AB%AF%E5%A4%8D%E7%94%A8%E5%B7%A5%E5%85%B7/</link>
+        <pubDate>Sat, 22 Mar 2025 09:21:28 +0800</pubDate>
+        
+        <guid>https://tanzhixin.github.io/tanzhixin/p/tmux%E7%BB%88%E7%AB%AF%E5%A4%8D%E7%94%A8%E5%B7%A5%E5%85%B7/</guid>
+        <description>&lt;p&gt;tmux 是一个终端复用器，它使用户可以在一个终端界面内管理多个会话、窗口和窗格。&lt;/p&gt;
+&lt;h1 id=&#34;用途&#34;&gt;用途
+&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;分屏；&lt;/li&gt;
+&lt;li&gt;会话与窗口解绑，提交任务后台运行；&lt;/li&gt;
+&lt;li&gt;结对编程；&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;tmux的四个层次&#34;&gt;tmux的四个层次：
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;server：  服务。tmux运行的基础服务，以下模块均依赖于此服务；&lt;/li&gt;
+&lt;li&gt;session：  会话。一个服务可以包含多个会话；&lt;/li&gt;
+&lt;li&gt;window：  窗口。一个会话可以包含多个窗口；&lt;/li&gt;
+&lt;li&gt;panel：  窗格/面板。一个窗口可以包含多个窗格。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;命令选项&#34;&gt;命令选项
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;查看会话：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;tmux ls&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;新建会话：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;tmux new -s &amp;lt;session-name&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;接入会话：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;tmux attach -t &amp;lt;session-name&amp;gt; 或 tmux a -t 0
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;重命名：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;tmux rename-session -t 0 &amp;lt;new-name&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;切换会话：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;tmux switch -t &amp;lt;session-name&amp;gt; 或 tmux s -t 0&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;杀死会话：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;tmux kill-session -t &amp;lt;session-name&amp;gt; 或 tmux kill-session -t 0
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h1 id=&#34;快捷键&#34;&gt;快捷键
+&lt;/h1&gt;&lt;p&gt;tmux 默认的前缀键是 &amp;ldquo;Ctrl+b&amp;rdquo;。&lt;/p&gt;
+&lt;p&gt;列出所有快捷键的命令：tmux list-keys&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;会话的快捷键&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;s：列出所有会话&lt;/li&gt;
+&lt;li&gt;d：离开当前会话&lt;/li&gt;
+&lt;li&gt;$：重命名当前会话&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;窗口的快捷键&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;c：创建一个新窗口&lt;/li&gt;
+&lt;li&gt;n：切换到下一个窗口&lt;/li&gt;
+&lt;li&gt;w：从列表中选择窗口&lt;/li&gt;
+&lt;li&gt;0~9：切换到指定编号的窗口，编号显示在状态栏&lt;/li&gt;
+&lt;li&gt;,：窗口重命名&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;窗格的快捷键&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;%：分成左右两个窗格&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;：分成上下两个窗格&lt;/li&gt;
+&lt;li&gt;z：当前窗格全屏显示，再按一次恢复&lt;/li&gt;
+&lt;li&gt;q：显示窗格编号&lt;/li&gt;
+&lt;li&gt;t：在当前窗格显示时间&lt;/li&gt;
+&lt;li&gt;arrow key：光标切换到其他窗格&lt;/li&gt;
+&lt;li&gt;o：光标切换到下一个窗格&lt;/li&gt;
+&lt;li&gt;{：左移当前窗格&lt;/li&gt;
+&lt;li&gt;}：右移当前窗格&lt;/li&gt;
+&lt;li&gt;Ctrl+o：上移当前窗格&lt;/li&gt;
+&lt;li&gt;Alt+o：下移当前窗格&lt;/li&gt;
+&lt;li&gt;space：切换窗格布局&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>Git相关</title>
+        <link>https://tanzhixin.github.io/tanzhixin/p/git%E7%9B%B8%E5%85%B3/</link>
+        <pubDate>Sat, 22 Mar 2025 00:38:07 +0800</pubDate>
+        
+        <guid>https://tanzhixin.github.io/tanzhixin/p/git%E7%9B%B8%E5%85%B3/</guid>
+        <description>&lt;h1 id=&#34;撤销&#34;&gt;撤销
+&lt;/h1&gt;&lt;p&gt;add后没法看diff了，如果还想返回去看区别就只好先撤销add&lt;/p&gt;
+&lt;p&gt;git status 先看一下add 中的文件
+git reset HEAD 如果后面什么都不跟的话 就是上一次add 里面的全部撤销了
+git reset HEAD XXX/XXX  撤销某个文件&lt;/p&gt;
+&lt;h1 id=&#34;迁移仓库&#34;&gt;迁移仓库
+&lt;/h1&gt;&lt;h1 id=&#34;github-personal-access-token&#34;&gt;github personal access token.
+&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;profile -&amp;gt; settings -&amp;gt; personal-access-tokens&lt;/li&gt;
+&lt;li&gt;输入token名称&lt;/li&gt;
+&lt;li&gt;选择到具体仓库&lt;/li&gt;
+&lt;li&gt;no expiration&lt;/li&gt;
+&lt;li&gt;确认，复制字符串&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        <item>
+        <title>putty配置</title>
+        <link>https://tanzhixin.github.io/tanzhixin/p/putty%E9%85%8D%E7%BD%AE/</link>
+        <pubDate>Fri, 21 Mar 2025 23:40:40 +0800</pubDate>
+        
+        <guid>https://tanzhixin.github.io/tanzhixin/p/putty%E9%85%8D%E7%BD%AE/</guid>
+        <description>&lt;ol&gt;
+&lt;li&gt;配色问题，可以通过注册表文件指定任务的几种颜色来设置，具体如下：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;31
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;32
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;33
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;34
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;35
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;36
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;37
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;38
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;39
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;40
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;41
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;42
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;43
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;44
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;45
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;46
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;47
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;48
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Windows Registry Editor Version 5.00
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\SESSION_NAME]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; Default Foreground
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour0&amp;#34;=&amp;#34;217,216,216&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; Default Bold Foreground
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour1&amp;#34;=&amp;#34;217,216,216&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; Default Background
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour2&amp;#34;=&amp;#34;28,28,28&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; Default Background
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour3&amp;#34;=&amp;#34;28,63,149&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; Cursor Text
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour4&amp;#34;=&amp;#34;28,28,28&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; Cursor Color
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour5&amp;#34;=&amp;#34;231,231,232&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; ANSI Black
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour6&amp;#34;=&amp;#34;115,113,113&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; ANSI Black Bold
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour7&amp;#34;=&amp;#34;115,113,113&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; ANSI Red
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour8&amp;#34;=&amp;#34;251,38,8&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; ANSI Red Bold
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour9&amp;#34;=&amp;#34;251,38,8&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; ANSI Green
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour10&amp;#34;=&amp;#34;167,226,46&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; ANSI Green Bold
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour11&amp;#34;=&amp;#34;167,226,46&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; ANSI Yellow
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour12&amp;#34;=&amp;#34;102,217,238&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; ANSI Yellow Bold
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour13&amp;#34;=&amp;#34;102,217,238&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; ANSI Blue
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour14&amp;#34;=&amp;#34;0,157,220&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; ANSI Blue Bold
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour15&amp;#34;=&amp;#34;0,157,220&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; ANSI Magenta
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour16&amp;#34;=&amp;#34;255,85,255&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; ANSI Magenta Bold
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour17&amp;#34;=&amp;#34;255,85,255&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; ANSI Cyan
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour18&amp;#34;=&amp;#34;255,210,4&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; ANSI Cyan Bold
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour19&amp;#34;=&amp;#34;255,210,4&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; ANSI White
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour20&amp;#34;=&amp;#34;217,216,216&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; ANSI White Bold
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour21&amp;#34;=&amp;#34;255,255,255&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;保存为reg文件后合并，注意将上述session name替换成自己的。&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;putty的密匙&lt;/p&gt;
+&lt;p&gt;a. puttygen.exe导入自己的私匙，
+b. 保存私匙（ppk格式）
+c. session中auth中指定ppk私匙。&lt;/p&gt;
+&lt;figure&gt;&lt;img src=&#34;https://tanzhixin.github.io/tanzhixin/p/putty%E9%85%8D%E7%BD%AE/putty-ppk.PNG&#34;
+       alt=&#34;puttygen&#34;&gt;
+   &lt;/figure&gt;
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;连接保持
+见图，keepalive 20s
+&lt;figure&gt;&lt;img src=&#34;https://tanzhixin.github.io/tanzhixin/p/putty%E9%85%8D%E7%BD%AE/putty-connection.PNG&#34;
+      alt=&#34;保持链接&#34;&gt;
+  &lt;/figure&gt;
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;字体及大小
+选择monaco字体，字体大小选择12。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;全屏退出全屏的快捷键设置&lt;/p&gt;
+&lt;p&gt;Window-&amp;gt;Behaviour最下面有个Full screen on Alt-Enter，勾上就可以。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

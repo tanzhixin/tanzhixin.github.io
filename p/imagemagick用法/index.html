@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="imagemagick是一个很高效的命令行图片处理工具，可以结合shell编程实现批量处理，加快处理效率。一般我用来批量处理的工作有：批量改变大小、批量改变添加水印等。\nimagemagick用法：\n命令格式如下：\nconvert &lt;输入图片名&gt; [+/-命令和命令的参数]* &lt;输出图片名&gt;\n常用的命令有：\n-crop 宽x高+起点横坐标+起点纵坐标：裁剪图[]\n-resize 宽x高[!]：改变尺寸，如果使用惊叹号，表示不保留视觉比例，强行改变尺寸匹配给定的宽和高\n-colors 颜色数：设定图片采用的颜色数，如果是生成png或gif图片应指定这个参数\n-quality 质量：设定jpeg图片输出质量，推荐采用80，此命令仅用于输出格式是jpg的情况，不应省略，省略的话默认质量是95，生成图片过大+profile &ldquo;*&quot;：图片中不存储附加信息，必须使用，否则生成图片过大\n1、看图片： display命令；如果想看这个文件夹下的所有图片，display *即可。space是翻页；\n2、调整图片大小： convert -resize xxx*xxx a.jpg b.jpg 这是用解析度为参数；其实更方便的是用相对大小， convert -resize 25% a.jpg b.jpg。这个命令支持批处理，很赞；\n3、改变图片格式： convert a.jpg b.bmp等等，随便写，靠后缀来识别。当图片需要跨平台时，这个功能显得尤为实用；\n4、批量生成缩略图： mogrify -sample 80*60 *.jpg 不过这个命令会覆盖原有的文件，操作前需要进行原始文件的备份；\n5、图片加框（非常实用）：convert -border 60*60 “#000000″ a.jpg b.jpg，这里，60＊60是表示边框的宽度，第一个是纵边框的宽度，第二个是横边框的宽度，＃000000是RGB格式的边框色彩，通常不是黑色就是 白色，无所谓了；\n6、在图片上加上文字：对于图片分来来说，很是赞，convert -fill green -pointsize 40 -draw ‘text 10,50 “charry.org”‘ a.jpg b.jpg。表示在距离图片左上角10＊50的位置处，用绿色的文字写下charry.org，如果要指定别的字体，可以用 -font参数；\n7、高斯模糊：convert -blur 80 a.jpg b.jpg 参数还可以写成 -blur 80*5 后面的5表示sigma值；\n">
+<title>Imagemagick用法</title>
+
+<link rel='canonical' href='https://tanzhixin.github.io/tanzhixin/p/imagemagick%E7%94%A8%E6%B3%95/'>
+
+<link rel="stylesheet" href="/tanzhixin/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Imagemagick用法">
+<meta property='og:description' content="imagemagick是一个很高效的命令行图片处理工具，可以结合shell编程实现批量处理，加快处理效率。一般我用来批量处理的工作有：批量改变大小、批量改变添加水印等。\nimagemagick用法：\n命令格式如下：\nconvert &lt;输入图片名&gt; [+/-命令和命令的参数]* &lt;输出图片名&gt;\n常用的命令有：\n-crop 宽x高+起点横坐标+起点纵坐标：裁剪图[]\n-resize 宽x高[!]：改变尺寸，如果使用惊叹号，表示不保留视觉比例，强行改变尺寸匹配给定的宽和高\n-colors 颜色数：设定图片采用的颜色数，如果是生成png或gif图片应指定这个参数\n-quality 质量：设定jpeg图片输出质量，推荐采用80，此命令仅用于输出格式是jpg的情况，不应省略，省略的话默认质量是95，生成图片过大+profile &ldquo;*&quot;：图片中不存储附加信息，必须使用，否则生成图片过大\n1、看图片： display命令；如果想看这个文件夹下的所有图片，display *即可。space是翻页；\n2、调整图片大小： convert -resize xxx*xxx a.jpg b.jpg 这是用解析度为参数；其实更方便的是用相对大小， convert -resize 25% a.jpg b.jpg。这个命令支持批处理，很赞；\n3、改变图片格式： convert a.jpg b.bmp等等，随便写，靠后缀来识别。当图片需要跨平台时，这个功能显得尤为实用；\n4、批量生成缩略图： mogrify -sample 80*60 *.jpg 不过这个命令会覆盖原有的文件，操作前需要进行原始文件的备份；\n5、图片加框（非常实用）：convert -border 60*60 “#000000″ a.jpg b.jpg，这里，60＊60是表示边框的宽度，第一个是纵边框的宽度，第二个是横边框的宽度，＃000000是RGB格式的边框色彩，通常不是黑色就是 白色，无所谓了；\n6、在图片上加上文字：对于图片分来来说，很是赞，convert -fill green -pointsize 40 -draw ‘text 10,50 “charry.org”‘ a.jpg b.jpg。表示在距离图片左上角10＊50的位置处，用绿色的文字写下charry.org，如果要指定别的字体，可以用 -font参数；\n7、高斯模糊：convert -blur 80 a.jpg b.jpg 参数还可以写成 -blur 80*5 后面的5表示sigma值；\n">
+<meta property='og:url' content='https://tanzhixin.github.io/tanzhixin/p/imagemagick%E7%94%A8%E6%B3%95/'>
+<meta property='og:site_name' content='笔记'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-03-21T22:57:56&#43;08:00'/><meta property='article:modified_time' content='2025-03-21T22:57:56&#43;08:00'/>
+<meta name="twitter:title" content="Imagemagick用法">
+<meta name="twitter:description" content="imagemagick是一个很高效的命令行图片处理工具，可以结合shell编程实现批量处理，加快处理效率。一般我用来批量处理的工作有：批量改变大小、批量改变添加水印等。\nimagemagick用法：\n命令格式如下：\nconvert &lt;输入图片名&gt; [+/-命令和命令的参数]* &lt;输出图片名&gt;\n常用的命令有：\n-crop 宽x高+起点横坐标+起点纵坐标：裁剪图[]\n-resize 宽x高[!]：改变尺寸，如果使用惊叹号，表示不保留视觉比例，强行改变尺寸匹配给定的宽和高\n-colors 颜色数：设定图片采用的颜色数，如果是生成png或gif图片应指定这个参数\n-quality 质量：设定jpeg图片输出质量，推荐采用80，此命令仅用于输出格式是jpg的情况，不应省略，省略的话默认质量是95，生成图片过大+profile &ldquo;*&quot;：图片中不存储附加信息，必须使用，否则生成图片过大\n1、看图片： display命令；如果想看这个文件夹下的所有图片，display *即可。space是翻页；\n2、调整图片大小： convert -resize xxx*xxx a.jpg b.jpg 这是用解析度为参数；其实更方便的是用相对大小， convert -resize 25% a.jpg b.jpg。这个命令支持批处理，很赞；\n3、改变图片格式： convert a.jpg b.bmp等等，随便写，靠后缀来识别。当图片需要跨平台时，这个功能显得尤为实用；\n4、批量生成缩略图： mogrify -sample 80*60 *.jpg 不过这个命令会覆盖原有的文件，操作前需要进行原始文件的备份；\n5、图片加框（非常实用）：convert -border 60*60 “#000000″ a.jpg b.jpg，这里，60＊60是表示边框的宽度，第一个是纵边框的宽度，第二个是横边框的宽度，＃000000是RGB格式的边框色彩，通常不是黑色就是 白色，无所谓了；\n6、在图片上加上文字：对于图片分来来说，很是赞，convert -fill green -pointsize 40 -draw ‘text 10,50 “charry.org”‘ a.jpg b.jpg。表示在距离图片左上角10＊50的位置处，用绿色的文字写下charry.org，如果要指定别的字体，可以用 -font参数；\n7、高斯模糊：convert -blur 80 a.jpg b.jpg 参数还可以写成 -blur 80*5 后面的5表示sigma值；\n">
+    <link rel="shortcut icon" href="/tanzhixin/favicon.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/tanzhixin/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/tanzhixin/img/lightsword_hu_926d383419d79b57.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">👁</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/tanzhixin">笔记</a></h1>
+            <h2 class="site-description">个人站点</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/388586883'
+                        target="_blank"
+                        title="Bilibili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-bilibili"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 10a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v6a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4v-6z" /><path d="M8 3l2 3" /><path d="M16 3l-2 3" /><path d="M9 13v-2" /><path d="M15 11v2" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/tanzhixin'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/tanzhixin/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/tanzhixin/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/tanzhixin/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/tanzhixin/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/tanzhixin/%E9%93%BE%E6%8E%A5/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>链接</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="https://tanzhixin.github.io/tanzhixin/en/" >English</option>
+                                
+                                    <option value="https://tanzhixin.github.io/tanzhixin/" selected>中文</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/tanzhixin/p/imagemagick%E7%94%A8%E6%B3%95/">Imagemagick用法</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Mar 21, 2025</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 1 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>imagemagick是一个很高效的命令行图片处理工具，可以结合shell编程实现批量处理，加快处理效率。一般我用来批量处理的工作有：批量改变大小、批量改变添加水印等。</p>
+<figure><img src="/tanzhixin/p/imagemagick%E7%94%A8%E6%B3%95/imagemagick.png"
+    alt="白胡子老头" width="400">
+</figure>
+
+<p>imagemagick用法：</p>
+<p>命令格式如下：</p>
+<p>convert &lt;输入图片名&gt; [+/-命令和命令的参数]* &lt;输出图片名&gt;</p>
+<p>常用的命令有：</p>
+<p>-crop 宽x高+起点横坐标+起点纵坐标：裁剪图[]</p>
+<p>-resize 宽x高[!]：改变尺寸，如果使用惊叹号，表示不保留视觉比例，强行改变尺寸匹配给定的宽和高</p>
+<p>-colors 颜色数：设定图片采用的颜色数，如果是生成png或gif图片应指定这个参数</p>
+<p>-quality 质量：设定jpeg图片输出质量，推荐采用80，此命令仅用于输出格式是jpg的情况，不应省略，省略的话默认质量是95，生成图片过大+profile &ldquo;*&quot;：图片中不存储附加信息，必须使用，否则生成图片过大</p>
+<p>1、看图片： display命令；如果想看这个文件夹下的所有图片，display *即可。space是翻页；</p>
+<p>2、调整图片大小： convert -resize xxx*xxx a.jpg b.jpg 这是用解析度为参数；其实更方便的是用相对大小， convert -resize 25% a.jpg b.jpg。这个命令支持批处理，很赞；</p>
+<p>3、改变图片格式： convert a.jpg b.bmp等等，随便写，靠后缀来识别。当图片需要跨平台时，这个功能显得尤为实用；</p>
+<p>4、批量生成缩略图： mogrify -sample 80*60 *.jpg 不过这个命令会覆盖原有的文件，操作前需要进行原始文件的备份；</p>
+<p>5、图片加框（非常实用）：convert -border 60*60 “#000000″ a.jpg b.jpg，这里，60＊60是表示边框的宽度，第一个是纵边框的宽度，第二个是横边框的宽度，＃000000是RGB格式的边框色彩，通常不是黑色就是 白色，无所谓了；</p>
+<p>6、在图片上加上文字：对于图片分来来说，很是赞，convert -fill green -pointsize 40 -draw ‘text 10,50 “charry.org”‘ a.jpg b.jpg。表示在距离图片左上角10＊50的位置处，用绿色的文字写下charry.org，如果要指定别的字体，可以用 -font参数；</p>
+<p>7、高斯模糊：convert -blur 80 a.jpg b.jpg 参数还可以写成 -blur 80*5 后面的5表示sigma值；</p>
+<p>8、上下翻转： convert -flip a.jpg b.jpg</p>
+<p>9、左右翻转： convert -flop a.jpg b.jpg</p>
+<p>10、反色，形成底片的样子 convert -negate a.jpg b.jpg</p>
+<p>11、变成黑白色：convert -monochrome a.jpg b.jpg 是黑白色，不是灰度图</p>
+<p>12、油画的效果，有的时候很有感觉 convert -paint 4 a.jpg b.jpg</p>
+<p>13、旋转一定角度： convert -rotate 30 a.jpg b.jpg</p>
+<p>14、炭笔的效果，和油画的使用方法一样，把paint 换成 charcoal</p>
+<p>15、毛玻璃效果，同上，参数为 -spread</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2025 笔记
+    </section>
+    
+    <section class="powerby">
+        
+            不积跬步，无以至千里；不积小流，无以成江海 <br/>
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/tanzhixin/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

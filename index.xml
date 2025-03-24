@@ -1,0 +1,1187 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>笔记</title>
+        <link>https://tanzhixin.github.io/tanzhixin/</link>
+        <description>Recent content on 笔记</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <lastBuildDate>Sat, 22 Mar 2025 09:21:28 +0800</lastBuildDate><atom:link href="https://tanzhixin.github.io/tanzhixin/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Tmux终端复用工具</title>
+        <link>https://tanzhixin.github.io/tanzhixin/p/tmux%E7%BB%88%E7%AB%AF%E5%A4%8D%E7%94%A8%E5%B7%A5%E5%85%B7/</link>
+        <pubDate>Sat, 22 Mar 2025 09:21:28 +0800</pubDate>
+        
+        <guid>https://tanzhixin.github.io/tanzhixin/p/tmux%E7%BB%88%E7%AB%AF%E5%A4%8D%E7%94%A8%E5%B7%A5%E5%85%B7/</guid>
+        <description>&lt;p&gt;tmux 是一个终端复用器，它使用户可以在一个终端界面内管理多个会话、窗口和窗格。&lt;/p&gt;
+&lt;h1 id=&#34;用途&#34;&gt;用途
+&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;分屏；&lt;/li&gt;
+&lt;li&gt;会话与窗口解绑，提交任务后台运行；&lt;/li&gt;
+&lt;li&gt;结对编程；&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;tmux的四个层次&#34;&gt;tmux的四个层次：
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;server：  服务。tmux运行的基础服务，以下模块均依赖于此服务；&lt;/li&gt;
+&lt;li&gt;session：  会话。一个服务可以包含多个会话；&lt;/li&gt;
+&lt;li&gt;window：  窗口。一个会话可以包含多个窗口；&lt;/li&gt;
+&lt;li&gt;panel：  窗格/面板。一个窗口可以包含多个窗格。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;命令选项&#34;&gt;命令选项
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;查看会话：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;tmux ls&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;新建会话：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;tmux new -s &amp;lt;session-name&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;接入会话：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;tmux attach -t &amp;lt;session-name&amp;gt; 或 tmux a -t 0
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;重命名：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;tmux rename-session -t 0 &amp;lt;new-name&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;切换会话：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;tmux switch -t &amp;lt;session-name&amp;gt; 或 tmux s -t 0&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;杀死会话：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;tmux kill-session -t &amp;lt;session-name&amp;gt; 或 tmux kill-session -t 0
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h1 id=&#34;快捷键&#34;&gt;快捷键
+&lt;/h1&gt;&lt;p&gt;tmux 默认的前缀键是 &amp;ldquo;Ctrl+b&amp;rdquo;。&lt;/p&gt;
+&lt;p&gt;列出所有快捷键的命令：tmux list-keys&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;会话的快捷键&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;s：列出所有会话&lt;/li&gt;
+&lt;li&gt;d：离开当前会话&lt;/li&gt;
+&lt;li&gt;$：重命名当前会话&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;窗口的快捷键&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;c：创建一个新窗口&lt;/li&gt;
+&lt;li&gt;n：切换到下一个窗口&lt;/li&gt;
+&lt;li&gt;w：从列表中选择窗口&lt;/li&gt;
+&lt;li&gt;0~9：切换到指定编号的窗口，编号显示在状态栏&lt;/li&gt;
+&lt;li&gt;,：窗口重命名&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;窗格的快捷键&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;%：分成左右两个窗格&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;：分成上下两个窗格&lt;/li&gt;
+&lt;li&gt;z：当前窗格全屏显示，再按一次恢复&lt;/li&gt;
+&lt;li&gt;q：显示窗格编号&lt;/li&gt;
+&lt;li&gt;t：在当前窗格显示时间&lt;/li&gt;
+&lt;li&gt;arrow key：光标切换到其他窗格&lt;/li&gt;
+&lt;li&gt;o：光标切换到下一个窗格&lt;/li&gt;
+&lt;li&gt;{：左移当前窗格&lt;/li&gt;
+&lt;li&gt;}：右移当前窗格&lt;/li&gt;
+&lt;li&gt;Ctrl+o：上移当前窗格&lt;/li&gt;
+&lt;li&gt;Alt+o：下移当前窗格&lt;/li&gt;
+&lt;li&gt;space：切换窗格布局&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>Docker软件</title>
+        <link>https://tanzhixin.github.io/tanzhixin/p/docker%E8%BD%AF%E4%BB%B6/</link>
+        <pubDate>Sat, 22 Mar 2025 08:55:00 +0800</pubDate>
+        
+        <guid>https://tanzhixin.github.io/tanzhixin/p/docker%E8%BD%AF%E4%BB%B6/</guid>
+        <description>&lt;h1 id=&#34;基础教程&#34;&gt;基础教程
+&lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.runoob.com/docker/docker-tutorial.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.runoob.com/docker/docker-tutorial.html&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;添加镜像&#34;&gt;添加镜像
+&lt;/h1&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-gdscript3&#34; data-lang=&#34;gdscript3&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;sudo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;mkdir&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;etc&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;docker&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;sudo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;tee&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;etc&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;docker&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;daemon&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;json&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;EOF&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;s2&#34;&gt;&amp;#34;registry-mirrors&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;s2&#34;&gt;&amp;#34;https://docker.1ms.run&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;s2&#34;&gt;&amp;#34;https://docker.xuanyuan.me&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;EOF&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;sudo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;systemctl&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;daemon&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;reload&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;sudo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;systemctl&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;restart&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;docker&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;镜像列表&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;名称&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;地址&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;轩辕搜索 docker tags&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://dockers.xuanyuan.me&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://dockers.xuanyuan.me&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;AtomHub 可信镜像仓库平台 27（只包含基础镜像，共336个）&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://atomhub.openatom.cn&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://atomhub.openatom.cn&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;DaoCloud 镜像站 90&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://docker.m.daocloud.io&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://docker.m.daocloud.io&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Docker Hub Container Image Library 16&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://docker.fxxk.dedyn.io&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://docker.fxxk.dedyn.io&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;镜像使用说明 19&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://dislabaiot.xyz&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://dislabaiot.xyz&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;镜像使用说明 250&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://doublezonline.cloud&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://doublezonline.cloud&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h1 id=&#34;调试&#34;&gt;调试
+&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;查log&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; docker  logs  &amp;lt;container&amp;gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;进入镜像检查&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; docker  exec  -it &amp;lt;container&amp;gt;  \bin\bash
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+        </item>
+        <item>
+        <title>Git相关</title>
+        <link>https://tanzhixin.github.io/tanzhixin/p/git%E7%9B%B8%E5%85%B3/</link>
+        <pubDate>Sat, 22 Mar 2025 00:38:07 +0800</pubDate>
+        
+        <guid>https://tanzhixin.github.io/tanzhixin/p/git%E7%9B%B8%E5%85%B3/</guid>
+        <description>&lt;h1 id=&#34;撤销&#34;&gt;撤销
+&lt;/h1&gt;&lt;p&gt;add后没法看diff了，如果还想返回去看区别就只好先撤销add&lt;/p&gt;
+&lt;p&gt;git status 先看一下add 中的文件
+git reset HEAD 如果后面什么都不跟的话 就是上一次add 里面的全部撤销了
+git reset HEAD XXX/XXX  撤销某个文件&lt;/p&gt;
+&lt;h1 id=&#34;迁移仓库&#34;&gt;迁移仓库
+&lt;/h1&gt;&lt;h1 id=&#34;github-personal-access-token&#34;&gt;github personal access token.
+&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;profile -&amp;gt; settings -&amp;gt; personal-access-tokens&lt;/li&gt;
+&lt;li&gt;输入token名称&lt;/li&gt;
+&lt;li&gt;选择到具体仓库&lt;/li&gt;
+&lt;li&gt;no expiration&lt;/li&gt;
+&lt;li&gt;确认，复制字符串&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        <item>
+        <title>常用软件windows版</title>
+        <link>https://tanzhixin.github.io/tanzhixin/p/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6windows%E7%89%88/</link>
+        <pubDate>Sat, 22 Mar 2025 00:31:52 +0800</pubDate>
+        
+        <guid>https://tanzhixin.github.io/tanzhixin/p/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6windows%E7%89%88/</guid>
+        <description>&lt;h2 id=&#34;图形图像&#34;&gt;图形图像
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;imageJ&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;paint.net&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;irfanview&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;picasa&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;文字处理&#34;&gt;文字处理
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;office&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;pspad&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;notepad++&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;emacs&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;texlive + texstudio&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;winmerge&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;jmeld&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;overleaf&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;github&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;文献管理&#34;&gt;文献管理
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;acroread&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;winDjview&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;calibre&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;kindle&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;sumatra PDF&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;jabref&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;endnoteX (x)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;github&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;mendeley&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;webofScience&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;搜索&#34;&gt;搜索
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;docfetcher&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;searx&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;mezw&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;locate&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;词典&#34;&gt;词典
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;artha&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;golden-dict&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;bing translator&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;视频影音&#34;&gt;视频影音
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;vlc&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;kmplayer&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;MPC-BEx64&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;CNTV&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;foobar&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;bilibili&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;远程登陆&#34;&gt;远程登陆
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;putty&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;msys2&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;xming&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;vcxsrv&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;编程调试&#34;&gt;编程调试
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;cmake3&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;git&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;qt-online&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;vs 2017&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;vcpkg&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;vscode&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;anaconda&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ssh + emacs&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;工具&#34;&gt;工具
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;filezilla&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;irssi&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;lftp&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;wget curl&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;dupeguru&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;freemind&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;专业&#34;&gt;专业
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;root 5.34.36&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;geant4&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;andor solis&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;comsol&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;solidwork&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;gnuplot&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;windriver&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;yED&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;vidyo&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;RIGOL&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;teamviewer&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;matlab&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;OpticalRayTracer&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Thorlabs&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;其他&#34;&gt;其他
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;7-zip&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;chrome&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;firefox + bitwarden&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;TIM&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;wechat&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;aliwangwang&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;钉钉&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;scratch&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ihepbox&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;winfsp + sirikari&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;pdftkX&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;rufus&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;CrystalDiskInfo&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;diskgenius&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;CSR bt4.0&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Heidi SQL&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;inkscape&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ghostscript&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;nvidia&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Qiku phone helper&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;sslvpn: easyconnection&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;pan.baidu.com&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;cloud.189.com&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;epson label&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>Linux相关</title>
+        <link>https://tanzhixin.github.io/tanzhixin/p/linux%E7%9B%B8%E5%85%B3/</link>
+        <pubDate>Sat, 22 Mar 2025 00:28:58 +0800</pubDate>
+        
+        <guid>https://tanzhixin.github.io/tanzhixin/p/linux%E7%9B%B8%E5%85%B3/</guid>
+        <description>&lt;h1 id=&#34;网络管理&#34;&gt;网络管理
+&lt;/h1&gt;&lt;h2 id=&#34;firewalld&#34;&gt;firewalld
+&lt;/h2&gt;&lt;h2 id=&#34;network-manager&#34;&gt;network-manager
+&lt;/h2&gt;&lt;h1 id=&#34;用户管理&#34;&gt;用户管理
+&lt;/h1&gt;&lt;h2 id=&#34;将已有用户加入已有用户组&#34;&gt;将已有用户加入已有用户组
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;usermod -a -g &amp;lt;group&amp;gt; &amp;lt;user&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+        </item>
+        <item>
+        <title>RXTX的windows驱动</title>
+        <link>https://tanzhixin.github.io/tanzhixin/p/rxtx%E7%9A%84windows%E9%A9%B1%E5%8A%A8/</link>
+        <pubDate>Sat, 22 Mar 2025 00:23:43 +0800</pubDate>
+        
+        <guid>https://tanzhixin.github.io/tanzhixin/p/rxtx%E7%9A%84windows%E9%A9%B1%E5%8A%A8/</guid>
+        <description>&lt;ol&gt;
+&lt;li&gt;到 &lt;a class=&#34;link&#34; href=&#34;http://rxtx.qbang.org/wiki/index.php/Download&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;http://rxtx.qbang.org/wiki/index.php/Download&lt;/a&gt; 下载pre-build的zip包，解压备用&lt;/li&gt;
+&lt;li&gt;RXTXcomm.jar      JAVAHOME\jre\lib\ext&lt;/li&gt;
+&lt;li&gt;rxtxSerial.dll    JAVAHOME\jre\bin&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;ok!&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>VS Compile Error</title>
+        <link>https://tanzhixin.github.io/tanzhixin/p/vs-compile-error/</link>
+        <pubDate>Sat, 22 Mar 2025 00:21:33 +0800</pubDate>
+        
+        <guid>https://tanzhixin.github.io/tanzhixin/p/vs-compile-error/</guid>
+        <description>&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;添加头文件目录：
+配置属性&amp;ndash;&amp;gt;C/C++&amp;ndash;&amp;gt;常规&amp;ndash;&amp;gt;附加包含目录 加上头文件存放的目录。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;添加lib文件：&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;配置属性&amp;ndash;&amp;gt;链接器&amp;ndash;&amp;gt;输入&amp;ndash;&amp;gt;附加依赖项加入库名（×××.lib）；或者是在cpp源文件中用#pragma comment(lib,&amp;quot;×××.lib&amp;quot;)来代替。
+此时编译会提示：fatal error LNK1104: 无法打开文件“×××.lib”，原因是编译器找不到lib文件。
+给项目添加库文件路径
+在VS中右击项目点属性：
+配置属性&amp;ndash;&amp;gt;链接器&amp;ndash;&amp;gt;常规&amp;ndash;&amp;gt;附加目录 。在里面填上库文件所在的路径即可。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;直接添加库文件到工程中.
+就像你添加.h和.cpp文件一样,把lib文件添加到工程文件列表中去。右键项目点添加选择现有项目，选择lib文件点确定即可。这个方法适用于在工程的debug版本和Release版本中都使用同一个lib库文件。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        <item>
+        <title>oodoo配置</title>
+        <link>https://tanzhixin.github.io/tanzhixin/p/oodoo%E9%85%8D%E7%BD%AE/</link>
+        <pubDate>Fri, 21 Mar 2025 23:50:41 +0800</pubDate>
+        
+        <guid>https://tanzhixin.github.io/tanzhixin/p/oodoo%E9%85%8D%E7%BD%AE/</guid>
+        <description>&lt;p&gt;参考 &lt;a class=&#34;link&#34; href=&#34;https://linuxize.com/post/install-odoo-12-on-centos-7/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://linuxize.com/post/install-odoo-12-on-centos-7/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;缘起：用户管理需求，测试小型CRM及ERP工具，ZOHO相对来说不自由，于是用云服务器作了一个自己可控的系统&lt;/p&gt;
+&lt;p&gt;odoo前身是openerp，是挪威一个哥们写的开源ERP系统，对标的是SAP，目前最新版本是odoo12，发展方向是多功能线上管理系统，目标用户是中小型企业，其他就不多说了。&lt;/p&gt;
+&lt;p&gt;1 安装Python 3.6&lt;/p&gt;
+&lt;p&gt;SL7的一个麻烦就是python36要先找centos7的SCL源的rpm包，把这个安装上去，后面才能和centos7一样，repo里自带的python36包不全，所以要用SCL源里的rh-python36。&lt;/p&gt;
+&lt;p&gt;{% codeblock install python36 %}
+#yum install rh-python36 git gcc wget nodejs-less libxslt-devel bzip2-devel openldap-devel libjpeg-devel freetype-devel postgresql-devel
+{% endcodeblock %}&lt;/p&gt;
+&lt;p&gt;2 创建系统用户odoo2、用户组以及目录：
+{% codeblock 创建用户 %}
+#useradd -m -U -r -d /opt/odoo12 -s /bin/bash odoo12
+{% endcodeblock %}&lt;/p&gt;
+&lt;p&gt;3 安装pgsql-10
+当然要用最新的pg，只能用从官方的源来安装了。&lt;/p&gt;
+&lt;p&gt;{% codeblock 添加pgsql官方源，安装和配置pgsql10 %}
+#yum install &lt;a class=&#34;link&#34; href=&#34;https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-centos10-10-2.noarch.rpm&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-centos10-10-2.noarch.rpm&lt;/a&gt;
+#yum install postgresql10-server
+{% endcodeblock %}&lt;/p&gt;
+&lt;p&gt;{% codeblock 配置%}
+#/usr/pgsql-10/bin/postgresql-10-setup initdb -E UTF-8
+#systemctl enable postgresql-10
+#systemctl start postgresql-10
+#su - postgres -c &amp;ldquo;createuser -s odoo12&amp;rdquo;
+{% endcodeblock %}&lt;/p&gt;
+&lt;p&gt;并且创建一个与系统用户同名的数据库用户，方便认证。&lt;/p&gt;
+&lt;p&gt;4 安装pdf工具包&lt;/p&gt;
+&lt;p&gt;wkhtmltox软件包是一个开源的命令行工具，它可以将html转换成pdf等其他各种格式
+{% codeblock 下载和安装辅助工具软件 %}
+#wget &lt;a class=&#34;link&#34; href=&#34;https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.1/wkhtmltox-0.12.1_linux-centos7-amd64.rpm&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.1/wkhtmltox-0.12.1_linux-centos7-amd64.rpm&lt;/a&gt;
+#yum localinstall wkhtmltox-0.12.1_linux-centos7-amd64.rpm
+{% endcodeblock %}&lt;/p&gt;
+&lt;p&gt;5 下载安装和配置&lt;/p&gt;
+&lt;p&gt;首先切换到同名系统用户&lt;/p&gt;
+&lt;p&gt;{% codeblock 切换用户 %}
+su - odoo12
+{% endcodeblock %}&lt;/p&gt;
+&lt;p&gt;从官方git源克隆最新odoo12代码&lt;/p&gt;
+&lt;p&gt;{% codeblock 克隆源%}
+git clone &lt;a class=&#34;link&#34; href=&#34;https://www.github.com/odoo/odoo&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.github.com/odoo/odoo&lt;/a&gt; &amp;ndash;depth 1 &amp;ndash;branch 12.0 /opt/odoo12/odoo
+{% endcodeblock %}&lt;/p&gt;
+&lt;p&gt;使用rh-python36&lt;/p&gt;
+&lt;p&gt;{% codeblock %}
+scl enable rh-python36 bash
+{% endcodeblock %}&lt;/p&gt;
+&lt;p&gt;创建用于odoo的新虚拟环境，并激活；&lt;/p&gt;
+&lt;p&gt;{% codeblock %}
+cd /opt/odoo12
+python3 -m venv venv
+source venv/bin/activate
+{% endcodeblock %}&lt;/p&gt;
+&lt;p&gt;更新pip，并安装odoo12所需模块，确保顺利满足所有依赖要求，退出虚拟环境&lt;/p&gt;
+&lt;p&gt;{% codeblock %}
+pip3 install -r odoo/requirements.txt&lt;/p&gt;
+&lt;p&gt;deactivate
+{% endcodeblock %}&lt;/p&gt;
+&lt;p&gt;以odoo12用户名建立本地附加模块目录，退出到超级用户&lt;/p&gt;
+&lt;p&gt;{% codeblock %}
+mkdir /opt/odoo12/odoo-custom-addons
+exit
+{% endcodeblock %}&lt;/p&gt;
+&lt;p&gt;创建系统配置文件，内容如下：&lt;/p&gt;
+&lt;p&gt;{% codeblock %}
+#nano /etc/odoo12.conf
+{% endcodeblock %}&lt;/p&gt;
+&lt;p&gt;{% codeblock %}&lt;/p&gt;
+&lt;p&gt;/etc/odoo12.conf
+[options]
+; This is the password that allows database operations:
+admin_passwd = superadmin_passwd
+db_host = False
+db_port = False
+db_user = odoo12
+db_password = False
+addons_path = /opt/odoo12/odoo/addons, /opt/odoo12/odoo-custom-addons
+{% endcodeblock %}&lt;/p&gt;
+&lt;p&gt;记得修改超级管理密码。&lt;/p&gt;
+&lt;p&gt;创建systemd 单元文件来负责服务的启动和停止&lt;/p&gt;
+&lt;p&gt;{% codeblock %}
+#nano /etc/systemd/system/odoo12.service
+{% endcodeblock %}&lt;/p&gt;
+&lt;p&gt;/etc/systemd/system/odoo12.service 内容如下&lt;/p&gt;
+&lt;p&gt;{% codeblock %}
+[Unit]
+Description=Odoo12
+Requires=postgresql-10.service
+After=network.target postgresql-10.service&lt;/p&gt;
+&lt;p&gt;[Service]
+Type=simple
+SyslogIdentifier=odoo12
+PermissionsStartOnly=true
+User=odoo12
+Group=odoo12
+ExecStart=/usr/bin/scl enable rh-python36 &amp;ndash; /opt/odoo12/venv/bin/python3 /opt/odoo12/odoo/odoo-bin -c /etc/odoo12.conf
+StandardOutput=journal+console&lt;/p&gt;
+&lt;p&gt;[Install]
+WantedBy=multi-user.target
+{% endcodeblock %}&lt;/p&gt;
+&lt;p&gt;存盘后退出。&lt;/p&gt;
+&lt;p&gt;更新systemd单元文件并启动odoo服务&lt;/p&gt;
+&lt;p&gt;{% codeblock 启动服务%}
+systemctl daemon-reload
+systemctl enable odoo12
+systemctl start odoo12
+{% endcodeblock %}&lt;/p&gt;
+&lt;p&gt;检查服务状态，确保正常运行。&lt;/p&gt;
+&lt;p&gt;{% codeblock %}
+#systemctl status odoo12
+#journalctl -u odoo12
+{% endcodeblock %}&lt;/p&gt;
+&lt;p&gt;打开页面检查安装结果，如果看不到页面，检查端口8069是否开放，把防火墙的firewalld关闭或者打开端口&lt;/p&gt;
+&lt;p&gt;{% codeblock %}
+http://&amp;lt;your_domain_or_IP_address&amp;gt;:8069&lt;/p&gt;
+&lt;p&gt;#netstat -lpn&lt;/p&gt;
+&lt;p&gt;#firewall-cmd &amp;ndash;permanent &amp;ndash;zone=public &amp;ndash;add-port=8069/tcp
+#firewall-cmd &amp;ndash;reload
+{% endcodeblock %}&lt;/p&gt;
+&lt;p&gt;看到如下页面即告成功。&lt;/p&gt;
+&lt;p&gt;{% asset_img odoo-12-centos.png  首页 %}&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>putty配置</title>
+        <link>https://tanzhixin.github.io/tanzhixin/p/putty%E9%85%8D%E7%BD%AE/</link>
+        <pubDate>Fri, 21 Mar 2025 23:40:40 +0800</pubDate>
+        
+        <guid>https://tanzhixin.github.io/tanzhixin/p/putty%E9%85%8D%E7%BD%AE/</guid>
+        <description>&lt;ol&gt;
+&lt;li&gt;配色问题，可以通过注册表文件指定任务的几种颜色来设置，具体如下：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;31
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;32
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;33
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;34
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;35
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;36
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;37
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;38
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;39
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;40
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;41
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;42
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;43
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;44
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;45
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;46
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;47
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;48
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Windows Registry Editor Version 5.00
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\SESSION_NAME]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; Default Foreground
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour0&amp;#34;=&amp;#34;217,216,216&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; Default Bold Foreground
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour1&amp;#34;=&amp;#34;217,216,216&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; Default Background
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour2&amp;#34;=&amp;#34;28,28,28&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; Default Background
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour3&amp;#34;=&amp;#34;28,63,149&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; Cursor Text
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour4&amp;#34;=&amp;#34;28,28,28&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; Cursor Color
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour5&amp;#34;=&amp;#34;231,231,232&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; ANSI Black
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour6&amp;#34;=&amp;#34;115,113,113&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; ANSI Black Bold
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour7&amp;#34;=&amp;#34;115,113,113&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; ANSI Red
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour8&amp;#34;=&amp;#34;251,38,8&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; ANSI Red Bold
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour9&amp;#34;=&amp;#34;251,38,8&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; ANSI Green
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour10&amp;#34;=&amp;#34;167,226,46&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; ANSI Green Bold
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour11&amp;#34;=&amp;#34;167,226,46&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; ANSI Yellow
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour12&amp;#34;=&amp;#34;102,217,238&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; ANSI Yellow Bold
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour13&amp;#34;=&amp;#34;102,217,238&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; ANSI Blue
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour14&amp;#34;=&amp;#34;0,157,220&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; ANSI Blue Bold
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour15&amp;#34;=&amp;#34;0,157,220&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; ANSI Magenta
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour16&amp;#34;=&amp;#34;255,85,255&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; ANSI Magenta Bold
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour17&amp;#34;=&amp;#34;255,85,255&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; ANSI Cyan
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour18&amp;#34;=&amp;#34;255,210,4&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; ANSI Cyan Bold
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour19&amp;#34;=&amp;#34;255,210,4&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; ANSI White
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour20&amp;#34;=&amp;#34;217,216,216&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; ANSI White Bold
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour21&amp;#34;=&amp;#34;255,255,255&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;保存为reg文件后合并，注意将上述session name替换成自己的。&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;putty的密匙&lt;/p&gt;
+&lt;p&gt;a. puttygen.exe导入自己的私匙，
+b. 保存私匙（ppk格式）
+c. session中auth中指定ppk私匙。&lt;/p&gt;
+&lt;figure&gt;&lt;img src=&#34;https://tanzhixin.github.io/tanzhixin/p/putty%E9%85%8D%E7%BD%AE/putty-ppk.PNG&#34;
+       alt=&#34;puttygen&#34;&gt;
+   &lt;/figure&gt;
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;连接保持
+见图，keepalive 20s
+&lt;figure&gt;&lt;img src=&#34;https://tanzhixin.github.io/tanzhixin/p/putty%E9%85%8D%E7%BD%AE/putty-connection.PNG&#34;
+      alt=&#34;保持链接&#34;&gt;
+  &lt;/figure&gt;
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;字体及大小
+选择monaco字体，字体大小选择12。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;全屏退出全屏的快捷键设置&lt;/p&gt;
+&lt;p&gt;Window-&amp;gt;Behaviour最下面有个Full screen on Alt-Enter，勾上就可以。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        <item>
+        <title>截屏做书</title>
+        <link>https://tanzhixin.github.io/tanzhixin/p/%E6%88%AA%E5%B1%8F%E5%81%9A%E4%B9%A6/</link>
+        <pubDate>Fri, 21 Mar 2025 23:38:05 +0800</pubDate>
+        
+        <guid>https://tanzhixin.github.io/tanzhixin/p/%E6%88%AA%E5%B1%8F%E5%81%9A%E4%B9%A6/</guid>
+        <description>&lt;p&gt;做了两本，有些资料确实很难下载，网上有些资料还收费，无奈只能自己动手丰衣足食。&lt;/p&gt;
+&lt;p&gt;picpick还真不错，能够自定义文件名并按序号自己排列好。当然最好是把显示屏旋转一下，可以获得更好的分辨效果。&lt;/p&gt;
+&lt;p&gt;剩下的就是处理图片，用imagemagick批量转换成pdf页面，然后pdftk打包成一个书籍文件。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>NI-programming</title>
+        <link>https://tanzhixin.github.io/tanzhixin/p/ni-programming/</link>
+        <pubDate>Fri, 21 Mar 2025 23:18:28 +0800</pubDate>
+        
+        <guid>https://tanzhixin.github.io/tanzhixin/p/ni-programming/</guid>
+        <description>&lt;p&gt;tutor&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://www.ni.com/tutorial/4478/zhs/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;http://www.ni.com/tutorial/4478/zhs/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;manual&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://documentation.help/NI-VISA/ExampleMessageBasedComm.html#Example&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://documentation.help/NI-VISA/ExampleMessageBasedComm.html#Example&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;and example&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://ena.support.keysight.com/e5071c/manuals/webhelp/eng/programming/vba_programming/controlling_peripherals/programming_with_visa.htm&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;http://ena.support.keysight.com/e5071c/manuals/webhelp/eng/programming/vba_programming/controlling_peripherals/programming_with_visa.htm&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>KMS激活</title>
+        <link>https://tanzhixin.github.io/tanzhixin/p/kms%E6%BF%80%E6%B4%BB/</link>
+        <pubDate>Fri, 21 Mar 2025 23:16:39 +0800</pubDate>
+        
+        <guid>https://tanzhixin.github.io/tanzhixin/p/kms%E6%BF%80%E6%B4%BB/</guid>
+        <description>&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;云端搭建kms服务器&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;激活windows
+slmgr  /skms  [ip]
+slmgr /ato&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;激活office
+cd c:\program files\Microsoft Office\office15
+cscript ospp.vbs /sethst:[ip]&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        <item>
+        <title>Imagemagick用法</title>
+        <link>https://tanzhixin.github.io/tanzhixin/p/imagemagick%E7%94%A8%E6%B3%95/</link>
+        <pubDate>Fri, 21 Mar 2025 22:57:56 +0800</pubDate>
+        
+        <guid>https://tanzhixin.github.io/tanzhixin/p/imagemagick%E7%94%A8%E6%B3%95/</guid>
+        <description>&lt;p&gt;imagemagick是一个很高效的命令行图片处理工具，可以结合shell编程实现批量处理，加快处理效率。一般我用来批量处理的工作有：批量改变大小、批量改变添加水印等。&lt;/p&gt;
+&lt;figure&gt;&lt;img src=&#34;https://tanzhixin.github.io/tanzhixin/p/imagemagick%E7%94%A8%E6%B3%95/imagemagick.png&#34;
+    alt=&#34;白胡子老头&#34; width=&#34;400&#34;&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;imagemagick用法：&lt;/p&gt;
+&lt;p&gt;命令格式如下：&lt;/p&gt;
+&lt;p&gt;convert &amp;lt;输入图片名&amp;gt; [+/-命令和命令的参数]* &amp;lt;输出图片名&amp;gt;&lt;/p&gt;
+&lt;p&gt;常用的命令有：&lt;/p&gt;
+&lt;p&gt;-crop 宽x高+起点横坐标+起点纵坐标：裁剪图[]&lt;/p&gt;
+&lt;p&gt;-resize 宽x高[!]：改变尺寸，如果使用惊叹号，表示不保留视觉比例，强行改变尺寸匹配给定的宽和高&lt;/p&gt;
+&lt;p&gt;-colors 颜色数：设定图片采用的颜色数，如果是生成png或gif图片应指定这个参数&lt;/p&gt;
+&lt;p&gt;-quality 质量：设定jpeg图片输出质量，推荐采用80，此命令仅用于输出格式是jpg的情况，不应省略，省略的话默认质量是95，生成图片过大+profile &amp;ldquo;*&amp;quot;：图片中不存储附加信息，必须使用，否则生成图片过大&lt;/p&gt;
+&lt;p&gt;1、看图片： display命令；如果想看这个文件夹下的所有图片，display *即可。space是翻页；&lt;/p&gt;
+&lt;p&gt;2、调整图片大小： convert -resize xxx*xxx a.jpg b.jpg 这是用解析度为参数；其实更方便的是用相对大小， convert -resize 25% a.jpg b.jpg。这个命令支持批处理，很赞；&lt;/p&gt;
+&lt;p&gt;3、改变图片格式： convert a.jpg b.bmp等等，随便写，靠后缀来识别。当图片需要跨平台时，这个功能显得尤为实用；&lt;/p&gt;
+&lt;p&gt;4、批量生成缩略图： mogrify -sample 80*60 *.jpg 不过这个命令会覆盖原有的文件，操作前需要进行原始文件的备份；&lt;/p&gt;
+&lt;p&gt;5、图片加框（非常实用）：convert -border 60*60 “#000000″ a.jpg b.jpg，这里，60＊60是表示边框的宽度，第一个是纵边框的宽度，第二个是横边框的宽度，＃000000是RGB格式的边框色彩，通常不是黑色就是 白色，无所谓了；&lt;/p&gt;
+&lt;p&gt;6、在图片上加上文字：对于图片分来来说，很是赞，convert -fill green -pointsize 40 -draw ‘text 10,50 “charry.org”‘ a.jpg b.jpg。表示在距离图片左上角10＊50的位置处，用绿色的文字写下charry.org，如果要指定别的字体，可以用 -font参数；&lt;/p&gt;
+&lt;p&gt;7、高斯模糊：convert -blur 80 a.jpg b.jpg 参数还可以写成 -blur 80*5 后面的5表示sigma值；&lt;/p&gt;
+&lt;p&gt;8、上下翻转： convert -flip a.jpg b.jpg&lt;/p&gt;
+&lt;p&gt;9、左右翻转： convert -flop a.jpg b.jpg&lt;/p&gt;
+&lt;p&gt;10、反色，形成底片的样子 convert -negate a.jpg b.jpg&lt;/p&gt;
+&lt;p&gt;11、变成黑白色：convert -monochrome a.jpg b.jpg 是黑白色，不是灰度图&lt;/p&gt;
+&lt;p&gt;12、油画的效果，有的时候很有感觉 convert -paint 4 a.jpg b.jpg&lt;/p&gt;
+&lt;p&gt;13、旋转一定角度： convert -rotate 30 a.jpg b.jpg&lt;/p&gt;
+&lt;p&gt;14、炭笔的效果，和油画的使用方法一样，把paint 换成 charcoal&lt;/p&gt;
+&lt;p&gt;15、毛玻璃效果，同上，参数为 -spread&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>network网络相关</title>
+        <link>https://tanzhixin.github.io/tanzhixin/p/network%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3/</link>
+        <pubDate>Fri, 21 Mar 2025 22:49:16 +0800</pubDate>
+        
+        <guid>https://tanzhixin.github.io/tanzhixin/p/network%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3/</guid>
+        <description>&lt;h1 id=&#34;ntp服务器&#34;&gt;NTP服务器
+&lt;/h1&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;Name&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;IP&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;Location&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;time.nist.gov&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;192.43.244.18&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;NCAR,Boulder,Colorado&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;210.72.145.44&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;210.72.145.44&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;中国（国家授时中心）&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;133.100.11.8&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;133.100.11.8&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;日本（福冈大学）&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;time-a.nist.gov&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;129.6.15.28&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;NIST,Gaithersburg,Maryland&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;time-b.nist.gov&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;129.6.15.29&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;NIST,Gaithersburg,Maryland&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;time-a.timefreq.bldrdoc.gov&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;132.163.4.101&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;NIST,Boulder,Colorado&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;time-b.timefreq.bldrdoc.gov&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;132.163.4.102&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;NIST,Boulder,Colorado&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;time-c.timefreq.bldrdoc.gov&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;132.163.4.103&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;NIST,Boulder,Colorado&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;utcnist.colorado.edu&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;128.138.140.44&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;UniversityofColorado,Boulder&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;time-nw.nist.gov&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;131.107.1.10&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Microsoft,Redmond,Washington&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;nist1.symmetricom.com&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;69.25.96.13&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Symmetricom,SanJose,California&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;nist1-dc.glassey.com&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;216.200.93.8&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Abovenet,Virginia&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;nist1-ny.glassey.com&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;208.184.49.9&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Abovenet,NewYorkCity&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;nist1-sj.glassey.com&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;207.126.98.204&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Abovenet,SanJose,California&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;nist1.aol-ca.truetime.com&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;207.200.81.113&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;TrueTime,AOLfacility,Sunnyvale,California&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;nist1.aol-va.truetime.com&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;64.236.96.53&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;TrueTime,AOLfacility,Virginia&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h1 id=&#34;dns列表&#34;&gt;DNS列表
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;ihep:     202.38.128.58&lt;/li&gt;
+&lt;li&gt;114：     114.114.114.114   114.114.115.115&lt;/li&gt;
+&lt;li&gt;阿里：    223.5.5.5         223.6.6.6&lt;/li&gt;
+&lt;li&gt;百度：    180.76.76.76&lt;/li&gt;
+&lt;li&gt;谷歌：    8.8.8.8&lt;/li&gt;
+&lt;li&gt;OpenDNS： 208.67.220.220&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;firewall-cmd&#34;&gt;firewall-cmd
+&lt;/h1&gt;&lt;p&gt;永久打开端口&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;firewall-cmd --zone=public --add-port=443/tcp --permanent
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;重启防火墙&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-gdscript3&#34; data-lang=&#34;gdscript3&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;firewall&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cmd&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;--&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;reload&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h1 id=&#34;networkman&#34;&gt;networkman
+&lt;/h1&gt;&lt;h1 id=&#34;git仓库的迁移&#34;&gt;git仓库的迁移
+&lt;/h1&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git clone --bare git://192.168.10.XX/git_repo/project_name.git
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git init --bare new_project_name.git
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git push --mirror git@192.168.20.XX/path/to/path/new_project_name.git
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;使用git remote set-url命令从SSH到HTTPS的远程URL&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git remote set-url origin https://github.com/xxxxxx/S
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+        </item>
+        <item>
+        <title>归档</title>
+        <link>https://tanzhixin.github.io/tanzhixin/archives/</link>
+        <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://tanzhixin.github.io/tanzhixin/archives/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>关于</title>
+        <link>https://tanzhixin.github.io/tanzhixin/%E5%85%B3%E4%BA%8E/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://tanzhixin.github.io/tanzhixin/%E5%85%B3%E4%BA%8E/</guid>
+        <description>&lt;p&gt;Research Engineer.&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>链接</title>
+        <link>https://tanzhixin.github.io/tanzhixin/%E9%93%BE%E6%8E%A5/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://tanzhixin.github.io/tanzhixin/%E9%93%BE%E6%8E%A5/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>搜索</title>
+        <link>https://tanzhixin.github.io/tanzhixin/search/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://tanzhixin.github.io/tanzhixin/search/</guid>
+        <description></description>
+        </item>
+        
+    </channel>
+</rss>

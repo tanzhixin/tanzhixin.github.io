@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Ssh on 笔记</title>
+        <link>https://tanzhixin.github.io/tanzhixin/tags/ssh/</link>
+        <description>Recent content in Ssh on 笔记</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <lastBuildDate>Fri, 21 Mar 2025 23:40:40 +0800</lastBuildDate><atom:link href="https://tanzhixin.github.io/tanzhixin/tags/ssh/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>putty配置</title>
+        <link>https://tanzhixin.github.io/tanzhixin/p/putty%E9%85%8D%E7%BD%AE/</link>
+        <pubDate>Fri, 21 Mar 2025 23:40:40 +0800</pubDate>
+        
+        <guid>https://tanzhixin.github.io/tanzhixin/p/putty%E9%85%8D%E7%BD%AE/</guid>
+        <description>&lt;ol&gt;
+&lt;li&gt;配色问题，可以通过注册表文件指定任务的几种颜色来设置，具体如下：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;31
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;32
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;33
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;34
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;35
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;36
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;37
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;38
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;39
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;40
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;41
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;42
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;43
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;44
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;45
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;46
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;47
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;48
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Windows Registry Editor Version 5.00
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\SESSION_NAME]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; Default Foreground
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour0&amp;#34;=&amp;#34;217,216,216&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; Default Bold Foreground
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour1&amp;#34;=&amp;#34;217,216,216&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; Default Background
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour2&amp;#34;=&amp;#34;28,28,28&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; Default Background
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour3&amp;#34;=&amp;#34;28,63,149&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; Cursor Text
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour4&amp;#34;=&amp;#34;28,28,28&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; Cursor Color
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour5&amp;#34;=&amp;#34;231,231,232&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; ANSI Black
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour6&amp;#34;=&amp;#34;115,113,113&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; ANSI Black Bold
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour7&amp;#34;=&amp;#34;115,113,113&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; ANSI Red
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour8&amp;#34;=&amp;#34;251,38,8&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; ANSI Red Bold
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour9&amp;#34;=&amp;#34;251,38,8&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; ANSI Green
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour10&amp;#34;=&amp;#34;167,226,46&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; ANSI Green Bold
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour11&amp;#34;=&amp;#34;167,226,46&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; ANSI Yellow
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour12&amp;#34;=&amp;#34;102,217,238&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; ANSI Yellow Bold
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour13&amp;#34;=&amp;#34;102,217,238&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; ANSI Blue
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour14&amp;#34;=&amp;#34;0,157,220&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; ANSI Blue Bold
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour15&amp;#34;=&amp;#34;0,157,220&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; ANSI Magenta
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour16&amp;#34;=&amp;#34;255,85,255&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; ANSI Magenta Bold
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour17&amp;#34;=&amp;#34;255,85,255&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; ANSI Cyan
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour18&amp;#34;=&amp;#34;255,210,4&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; ANSI Cyan Bold
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour19&amp;#34;=&amp;#34;255,210,4&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; ANSI White
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour20&amp;#34;=&amp;#34;217,216,216&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;; ANSI White Bold
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;Colour21&amp;#34;=&amp;#34;255,255,255&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;保存为reg文件后合并，注意将上述session name替换成自己的。&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;putty的密匙&lt;/p&gt;
+&lt;p&gt;a. puttygen.exe导入自己的私匙，
+b. 保存私匙（ppk格式）
+c. session中auth中指定ppk私匙。&lt;/p&gt;
+&lt;figure&gt;&lt;img src=&#34;https://tanzhixin.github.io/tanzhixin/p/putty%E9%85%8D%E7%BD%AE/putty-ppk.PNG&#34;
+       alt=&#34;puttygen&#34;&gt;
+   &lt;/figure&gt;
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;连接保持
+见图，keepalive 20s
+&lt;figure&gt;&lt;img src=&#34;https://tanzhixin.github.io/tanzhixin/p/putty%E9%85%8D%E7%BD%AE/putty-connection.PNG&#34;
+      alt=&#34;保持链接&#34;&gt;
+  &lt;/figure&gt;
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;字体及大小
+选择monaco字体，字体大小选择12。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;全屏退出全屏的快捷键设置&lt;/p&gt;
+&lt;p&gt;Window-&amp;gt;Behaviour最下面有个Full screen on Alt-Enter，勾上就可以。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
