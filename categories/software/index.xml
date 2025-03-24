@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Software on 笔记</title>
-        <link>https://tanzhixin.github.io/tanzhixin/categories/software/</link>
+        <link>https://tanzhixin.github.io/categories/software/</link>
         <description>Recent content in Software on 笔记</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Sat, 22 Mar 2025 09:21:28 +0800</lastBuildDate><atom:link href="https://tanzhixin.github.io/tanzhixin/categories/software/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 22 Mar 2025 09:21:28 +0800</lastBuildDate><atom:link href="https://tanzhixin.github.io/categories/software/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Tmux终端复用工具</title>
-        <link>https://tanzhixin.github.io/tanzhixin/p/tmux%E7%BB%88%E7%AB%AF%E5%A4%8D%E7%94%A8%E5%B7%A5%E5%85%B7/</link>
+        <link>https://tanzhixin.github.io/p/tmux%E7%BB%88%E7%AB%AF%E5%A4%8D%E7%94%A8%E5%B7%A5%E5%85%B7/</link>
         <pubDate>Sat, 22 Mar 2025 09:21:28 +0800</pubDate>
         
-        <guid>https://tanzhixin.github.io/tanzhixin/p/tmux%E7%BB%88%E7%AB%AF%E5%A4%8D%E7%94%A8%E5%B7%A5%E5%85%B7/</guid>
+        <guid>https://tanzhixin.github.io/p/tmux%E7%BB%88%E7%AB%AF%E5%A4%8D%E7%94%A8%E5%B7%A5%E5%85%B7/</guid>
         <description>&lt;p&gt;tmux 是一个终端复用器，它使用户可以在一个终端界面内管理多个会话、窗口和窗格。&lt;/p&gt;
 &lt;h1 id=&#34;用途&#34;&gt;用途
 &lt;/h1&gt;&lt;ol&gt;
@@ -128,10 +128,10 @@
         </item>
         <item>
         <title>Git相关</title>
-        <link>https://tanzhixin.github.io/tanzhixin/p/git%E7%9B%B8%E5%85%B3/</link>
+        <link>https://tanzhixin.github.io/p/git%E7%9B%B8%E5%85%B3/</link>
         <pubDate>Sat, 22 Mar 2025 00:38:07 +0800</pubDate>
         
-        <guid>https://tanzhixin.github.io/tanzhixin/p/git%E7%9B%B8%E5%85%B3/</guid>
+        <guid>https://tanzhixin.github.io/p/git%E7%9B%B8%E5%85%B3/</guid>
         <description>&lt;h1 id=&#34;撤销&#34;&gt;撤销
 &lt;/h1&gt;&lt;p&gt;add后没法看diff了，如果还想返回去看区别就只好先撤销add&lt;/p&gt;
 &lt;p&gt;git status 先看一下add 中的文件
@@ -150,10 +150,10 @@ git reset HEAD XXX/XXX  撤销某个文件&lt;/p&gt;
         </item>
         <item>
         <title>putty配置</title>
-        <link>https://tanzhixin.github.io/tanzhixin/p/putty%E9%85%8D%E7%BD%AE/</link>
+        <link>https://tanzhixin.github.io/p/putty%E9%85%8D%E7%BD%AE/</link>
         <pubDate>Fri, 21 Mar 2025 23:40:40 +0800</pubDate>
         
-        <guid>https://tanzhixin.github.io/tanzhixin/p/putty%E9%85%8D%E7%BD%AE/</guid>
+        <guid>https://tanzhixin.github.io/p/putty%E9%85%8D%E7%BD%AE/</guid>
         <description>&lt;ol&gt;
 &lt;li&gt;配色问题，可以通过注册表文件指定任务的几种颜色来设置，具体如下：&lt;/li&gt;
 &lt;/ol&gt;
@@ -266,7 +266,7 @@ git reset HEAD XXX/XXX  撤销某个文件&lt;/p&gt;
 &lt;p&gt;a. puttygen.exe导入自己的私匙，
 b. 保存私匙（ppk格式）
 c. session中auth中指定ppk私匙。&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://tanzhixin.github.io/tanzhixin/p/putty%E9%85%8D%E7%BD%AE/putty-ppk.PNG&#34;
+&lt;figure&gt;&lt;img src=&#34;https://tanzhixin.github.io/p/putty%E9%85%8D%E7%BD%AE/putty-ppk.PNG&#34;
        alt=&#34;puttygen&#34;&gt;
    &lt;/figure&gt;
 
@@ -274,7 +274,7 @@ c. session中auth中指定ppk私匙。&lt;/p&gt;
 &lt;li&gt;
 &lt;p&gt;连接保持
 见图，keepalive 20s
-&lt;figure&gt;&lt;img src=&#34;https://tanzhixin.github.io/tanzhixin/p/putty%E9%85%8D%E7%BD%AE/putty-connection.PNG&#34;
+&lt;figure&gt;&lt;img src=&#34;https://tanzhixin.github.io/p/putty%E9%85%8D%E7%BD%AE/putty-connection.PNG&#34;
       alt=&#34;保持链接&#34;&gt;
   &lt;/figure&gt;
 &lt;/p&gt;

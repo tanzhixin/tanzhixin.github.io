@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>配置 on 笔记</title>
-        <link>https://tanzhixin.github.io/tanzhixin/tags/%E9%85%8D%E7%BD%AE/</link>
+        <link>https://tanzhixin.github.io/tags/%E9%85%8D%E7%BD%AE/</link>
         <description>Recent content in 配置 on 笔记</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Fri, 21 Mar 2025 23:40:40 +0800</lastBuildDate><atom:link href="https://tanzhixin.github.io/tanzhixin/tags/%E9%85%8D%E7%BD%AE/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 21 Mar 2025 23:40:40 +0800</lastBuildDate><atom:link href="https://tanzhixin.github.io/tags/%E9%85%8D%E7%BD%AE/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>putty配置</title>
-        <link>https://tanzhixin.github.io/tanzhixin/p/putty%E9%85%8D%E7%BD%AE/</link>
+        <link>https://tanzhixin.github.io/p/putty%E9%85%8D%E7%BD%AE/</link>
         <pubDate>Fri, 21 Mar 2025 23:40:40 +0800</pubDate>
         
-        <guid>https://tanzhixin.github.io/tanzhixin/p/putty%E9%85%8D%E7%BD%AE/</guid>
+        <guid>https://tanzhixin.github.io/p/putty%E9%85%8D%E7%BD%AE/</guid>
         <description>&lt;ol&gt;
 &lt;li&gt;配色问题，可以通过注册表文件指定任务的几种颜色来设置，具体如下：&lt;/li&gt;
 &lt;/ol&gt;
@@ -124,7 +124,7 @@
 &lt;p&gt;a. puttygen.exe导入自己的私匙，
 b. 保存私匙（ppk格式）
 c. session中auth中指定ppk私匙。&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://tanzhixin.github.io/tanzhixin/p/putty%E9%85%8D%E7%BD%AE/putty-ppk.PNG&#34;
+&lt;figure&gt;&lt;img src=&#34;https://tanzhixin.github.io/p/putty%E9%85%8D%E7%BD%AE/putty-ppk.PNG&#34;
        alt=&#34;puttygen&#34;&gt;
    &lt;/figure&gt;
 
@@ -132,7 +132,7 @@ c. session中auth中指定ppk私匙。&lt;/p&gt;
 &lt;li&gt;
 &lt;p&gt;连接保持
 见图，keepalive 20s
-&lt;figure&gt;&lt;img src=&#34;https://tanzhixin.github.io/tanzhixin/p/putty%E9%85%8D%E7%BD%AE/putty-connection.PNG&#34;
+&lt;figure&gt;&lt;img src=&#34;https://tanzhixin.github.io/p/putty%E9%85%8D%E7%BD%AE/putty-connection.PNG&#34;
       alt=&#34;保持链接&#34;&gt;
   &lt;/figure&gt;
 &lt;/p&gt;

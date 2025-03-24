@@ -2,111 +2,111 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://tanzhixin.github.io/tanzhixin/</loc>
+    <loc>https://tanzhixin.github.io/</loc>
     <lastmod>2025-03-22T09:21:28+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://tanzhixin.github.io/tanzhixin/en/"
+                href="https://tanzhixin.github.io/en/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://tanzhixin.github.io/tanzhixin/"
+                href="https://tanzhixin.github.io/"
                 />
   </url><url>
-    <loc>https://tanzhixin.github.io/tanzhixin/categories/</loc>
+    <loc>https://tanzhixin.github.io/categories/</loc>
     <lastmod>2025-03-22T09:21:28+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://tanzhixin.github.io/tanzhixin/en/categories/"
+                href="https://tanzhixin.github.io/en/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://tanzhixin.github.io/tanzhixin/categories/"
+                href="https://tanzhixin.github.io/categories/"
                 />
   </url><url>
-    <loc>https://tanzhixin.github.io/tanzhixin/post/</loc>
+    <loc>https://tanzhixin.github.io/post/</loc>
     <lastmod>2025-03-22T09:21:28+08:00</lastmod>
   </url><url>
-    <loc>https://tanzhixin.github.io/tanzhixin/categories/software/</loc>
+    <loc>https://tanzhixin.github.io/categories/software/</loc>
     <lastmod>2025-03-22T09:21:28+08:00</lastmod>
   </url><url>
-    <loc>https://tanzhixin.github.io/tanzhixin/p/tmux%E7%BB%88%E7%AB%AF%E5%A4%8D%E7%94%A8%E5%B7%A5%E5%85%B7/</loc>
+    <loc>https://tanzhixin.github.io/p/tmux%E7%BB%88%E7%AB%AF%E5%A4%8D%E7%94%A8%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2025-03-22T09:21:28+08:00</lastmod>
   </url><url>
-    <loc>https://tanzhixin.github.io/tanzhixin/p/docker%E8%BD%AF%E4%BB%B6/</loc>
+    <loc>https://tanzhixin.github.io/p/docker%E8%BD%AF%E4%BB%B6/</loc>
     <lastmod>2025-03-22T08:55:00+08:00</lastmod>
   </url><url>
-    <loc>https://tanzhixin.github.io/tanzhixin/p/git%E7%9B%B8%E5%85%B3/</loc>
+    <loc>https://tanzhixin.github.io/p/git%E7%9B%B8%E5%85%B3/</loc>
     <lastmod>2025-03-22T00:38:07+08:00</lastmod>
   </url><url>
-    <loc>https://tanzhixin.github.io/tanzhixin/p/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6windows%E7%89%88/</loc>
+    <loc>https://tanzhixin.github.io/p/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6windows%E7%89%88/</loc>
     <lastmod>2025-03-22T00:31:52+08:00</lastmod>
   </url><url>
-    <loc>https://tanzhixin.github.io/tanzhixin/p/linux%E7%9B%B8%E5%85%B3/</loc>
+    <loc>https://tanzhixin.github.io/p/linux%E7%9B%B8%E5%85%B3/</loc>
     <lastmod>2025-03-22T00:28:58+08:00</lastmod>
   </url><url>
-    <loc>https://tanzhixin.github.io/tanzhixin/p/rxtx%E7%9A%84windows%E9%A9%B1%E5%8A%A8/</loc>
+    <loc>https://tanzhixin.github.io/p/rxtx%E7%9A%84windows%E9%A9%B1%E5%8A%A8/</loc>
     <lastmod>2025-03-22T00:23:43+08:00</lastmod>
   </url><url>
-    <loc>https://tanzhixin.github.io/tanzhixin/p/vs-compile-error/</loc>
+    <loc>https://tanzhixin.github.io/p/vs-compile-error/</loc>
     <lastmod>2025-03-22T00:21:33+08:00</lastmod>
   </url><url>
-    <loc>https://tanzhixin.github.io/tanzhixin/p/oodoo%E9%85%8D%E7%BD%AE/</loc>
+    <loc>https://tanzhixin.github.io/p/oodoo%E9%85%8D%E7%BD%AE/</loc>
     <lastmod>2025-03-21T23:50:41+08:00</lastmod>
   </url><url>
-    <loc>https://tanzhixin.github.io/tanzhixin/p/putty%E9%85%8D%E7%BD%AE/</loc>
+    <loc>https://tanzhixin.github.io/p/putty%E9%85%8D%E7%BD%AE/</loc>
     <lastmod>2025-03-21T23:40:40+08:00</lastmod>
   </url><url>
-    <loc>https://tanzhixin.github.io/tanzhixin/tags/ssh/</loc>
+    <loc>https://tanzhixin.github.io/tags/ssh/</loc>
     <lastmod>2025-03-21T23:40:40+08:00</lastmod>
   </url><url>
-    <loc>https://tanzhixin.github.io/tanzhixin/tags/</loc>
+    <loc>https://tanzhixin.github.io/tags/</loc>
     <lastmod>2025-03-21T23:40:40+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://tanzhixin.github.io/tanzhixin/en/tags/"
+                href="https://tanzhixin.github.io/en/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://tanzhixin.github.io/tanzhixin/tags/"
+                href="https://tanzhixin.github.io/tags/"
                 />
   </url><url>
-    <loc>https://tanzhixin.github.io/tanzhixin/tags/%E9%85%8D%E7%BD%AE/</loc>
+    <loc>https://tanzhixin.github.io/tags/%E9%85%8D%E7%BD%AE/</loc>
     <lastmod>2025-03-21T23:40:40+08:00</lastmod>
   </url><url>
-    <loc>https://tanzhixin.github.io/tanzhixin/p/%E6%88%AA%E5%B1%8F%E5%81%9A%E4%B9%A6/</loc>
+    <loc>https://tanzhixin.github.io/p/%E6%88%AA%E5%B1%8F%E5%81%9A%E4%B9%A6/</loc>
     <lastmod>2025-03-21T23:38:05+08:00</lastmod>
   </url><url>
-    <loc>https://tanzhixin.github.io/tanzhixin/p/ni-programming/</loc>
+    <loc>https://tanzhixin.github.io/p/ni-programming/</loc>
     <lastmod>2025-03-21T23:18:28+08:00</lastmod>
   </url><url>
-    <loc>https://tanzhixin.github.io/tanzhixin/p/kms%E6%BF%80%E6%B4%BB/</loc>
+    <loc>https://tanzhixin.github.io/p/kms%E6%BF%80%E6%B4%BB/</loc>
     <lastmod>2025-03-21T23:16:39+08:00</lastmod>
   </url><url>
-    <loc>https://tanzhixin.github.io/tanzhixin/p/imagemagick%E7%94%A8%E6%B3%95/</loc>
+    <loc>https://tanzhixin.github.io/p/imagemagick%E7%94%A8%E6%B3%95/</loc>
     <lastmod>2025-03-21T22:57:56+08:00</lastmod>
   </url><url>
-    <loc>https://tanzhixin.github.io/tanzhixin/p/network%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3/</loc>
+    <loc>https://tanzhixin.github.io/p/network%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3/</loc>
     <lastmod>2025-03-21T22:49:16+08:00</lastmod>
   </url><url>
-    <loc>https://tanzhixin.github.io/tanzhixin/page/</loc>
+    <loc>https://tanzhixin.github.io/page/</loc>
     <lastmod>2019-05-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://tanzhixin.github.io/tanzhixin/archives/</loc>
+    <loc>https://tanzhixin.github.io/archives/</loc>
     <lastmod>2019-05-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://tanzhixin.github.io/tanzhixin/categories/test/</loc>
+    <loc>https://tanzhixin.github.io/categories/test/</loc>
   </url><url>
-    <loc>https://tanzhixin.github.io/tanzhixin/%E5%85%B3%E4%BA%8E/</loc>
+    <loc>https://tanzhixin.github.io/%E5%85%B3%E4%BA%8E/</loc>
   </url><url>
-    <loc>https://tanzhixin.github.io/tanzhixin/%E9%93%BE%E6%8E%A5/</loc>
+    <loc>https://tanzhixin.github.io/%E9%93%BE%E6%8E%A5/</loc>
   </url><url>
-    <loc>https://tanzhixin.github.io/tanzhixin/search/</loc>
+    <loc>https://tanzhixin.github.io/search/</loc>
   </url>
 </urlset>

@@ -4,16 +4,16 @@
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="参考 https://linuxize.com/post/install-odoo-12-on-centos-7/\n缘起：用户管理需求，测试小型CRM及ERP工具，ZOHO相对来说不自由，于是用云服务器作了一个自己可控的系统\nodoo前身是openerp，是挪威一个哥们写的开源ERP系统，对标的是SAP，目前最新版本是odoo12，发展方向是多功能线上管理系统，目标用户是中小型企业，其他就不多说了。\n1 安装Python 3.6\nSL7的一个麻烦就是python36要先找centos7的SCL源的rpm包，把这个安装上去，后面才能和centos7一样，repo里自带的python36包不全，所以要用SCL源里的rh-python36。\n{% codeblock install python36 %} #yum install rh-python36 git gcc wget nodejs-less libxslt-devel bzip2-devel openldap-devel libjpeg-devel freetype-devel postgresql-devel {% endcodeblock %}\n2 创建系统用户odoo2、用户组以及目录： {% codeblock 创建用户 %} #useradd -m -U -r -d /opt/odoo12 -s /bin/bash odoo12 {% endcodeblock %}\n3 安装pgsql-10 当然要用最新的pg，只能用从官方的源来安装了。\n{% codeblock 添加pgsql官方源，安装和配置pgsql10 %} #yum install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-centos10-10-2.noarch.rpm #yum install postgresql10-server {% endcodeblock %}\n{% codeblock 配置%} #/usr/pgsql-10/bin/postgresql-10-setup initdb -E UTF-8 #systemctl enable postgresql-10 #systemctl start postgresql-10 #su - postgres -c &ldquo;createuser -s odoo12&rdquo; {% endcodeblock %}\n">
 <title>oodoo配置</title>
 
-<link rel='canonical' href='https://tanzhixin.github.io/tanzhixin/p/oodoo%E9%85%8D%E7%BD%AE/'>
+<link rel='canonical' href='https://tanzhixin.github.io/p/oodoo%E9%85%8D%E7%BD%AE/'>
 
-<link rel="stylesheet" href="/tanzhixin/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="oodoo配置">
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="oodoo配置">
 <meta property='og:description' content="参考 https://linuxize.com/post/install-odoo-12-on-centos-7/\n缘起：用户管理需求，测试小型CRM及ERP工具，ZOHO相对来说不自由，于是用云服务器作了一个自己可控的系统\nodoo前身是openerp，是挪威一个哥们写的开源ERP系统，对标的是SAP，目前最新版本是odoo12，发展方向是多功能线上管理系统，目标用户是中小型企业，其他就不多说了。\n1 安装Python 3.6\nSL7的一个麻烦就是python36要先找centos7的SCL源的rpm包，把这个安装上去，后面才能和centos7一样，repo里自带的python36包不全，所以要用SCL源里的rh-python36。\n{% codeblock install python36 %} #yum install rh-python36 git gcc wget nodejs-less libxslt-devel bzip2-devel openldap-devel libjpeg-devel freetype-devel postgresql-devel {% endcodeblock %}\n2 创建系统用户odoo2、用户组以及目录： {% codeblock 创建用户 %} #useradd -m -U -r -d /opt/odoo12 -s /bin/bash odoo12 {% endcodeblock %}\n3 安装pgsql-10 当然要用最新的pg，只能用从官方的源来安装了。\n{% codeblock 添加pgsql官方源，安装和配置pgsql10 %} #yum install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-centos10-10-2.noarch.rpm #yum install postgresql10-server {% endcodeblock %}\n{% codeblock 配置%} #/usr/pgsql-10/bin/postgresql-10-setup initdb -E UTF-8 #systemctl enable postgresql-10 #systemctl start postgresql-10 #su - postgres -c &ldquo;createuser -s odoo12&rdquo; {% endcodeblock %}\n">
-<meta property='og:url' content='https://tanzhixin.github.io/tanzhixin/p/oodoo%E9%85%8D%E7%BD%AE/'>
+<meta property='og:url' content='https://tanzhixin.github.io/p/oodoo%E9%85%8D%E7%BD%AE/'>
 <meta property='og:site_name' content='笔记'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-03-21T23:50:41&#43;08:00'/><meta property='article:modified_time' content='2025-03-21T23:50:41&#43;08:00'/>
 <meta name="twitter:title" content="oodoo配置">
 <meta name="twitter:description" content="参考 https://linuxize.com/post/install-odoo-12-on-centos-7/\n缘起：用户管理需求，测试小型CRM及ERP工具，ZOHO相对来说不自由，于是用云服务器作了一个自己可控的系统\nodoo前身是openerp，是挪威一个哥们写的开源ERP系统，对标的是SAP，目前最新版本是odoo12，发展方向是多功能线上管理系统，目标用户是中小型企业，其他就不多说了。\n1 安装Python 3.6\nSL7的一个麻烦就是python36要先找centos7的SCL源的rpm包，把这个安装上去，后面才能和centos7一样，repo里自带的python36包不全，所以要用SCL源里的rh-python36。\n{% codeblock install python36 %} #yum install rh-python36 git gcc wget nodejs-less libxslt-devel bzip2-devel openldap-devel libjpeg-devel freetype-devel postgresql-devel {% endcodeblock %}\n2 创建系统用户odoo2、用户组以及目录： {% codeblock 创建用户 %} #useradd -m -U -r -d /opt/odoo12 -s /bin/bash odoo12 {% endcodeblock %}\n3 安装pgsql-10 当然要用最新的pg，只能用从官方的源来安装了。\n{% codeblock 添加pgsql官方源，安装和配置pgsql10 %} #yum install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-centos10-10-2.noarch.rpm #yum install postgresql10-server {% endcodeblock %}\n{% codeblock 配置%} #/usr/pgsql-10/bin/postgresql-10-setup initdb -E UTF-8 #systemctl enable postgresql-10 #systemctl start postgresql-10 #su - postgres -c &ldquo;createuser -s odoo12&rdquo; {% endcodeblock %}\n">
-    <link rel="shortcut icon" href="/tanzhixin/favicon.ico" />
+    <link rel="shortcut icon" href="/favicon.ico" />
 
     </head>
     <body class="
@@ -52,13 +52,13 @@
         
             
             <figure class="site-avatar">
-                <a href="/tanzhixin/">
+                <a href="/">
                 
                     
                     
                     
                         
-                        <img src="/tanzhixin/img/lightsword_hu_926d383419d79b57.png" width="300"
+                        <img src="/img/lightsword_hu_926d383419d79b57.png" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
@@ -71,7 +71,7 @@
         
         
         <div class="site-meta">
-            <h1 class="site-name"><a href="/tanzhixin">笔记</a></h1>
+            <h1 class="site-name"><a href="/">笔记</a></h1>
             <h2 class="site-description">个人站点</h2>
         </div>
     </header><ol class="menu-social">
@@ -135,7 +135,7 @@
         
         
         <li >
-            <a href='/tanzhixin/' >
+            <a href='/' >
                 
                 
                 
@@ -155,7 +155,7 @@
         
         
         <li >
-            <a href='/tanzhixin/%E5%85%B3%E4%BA%8E/' >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
                 
                 
                 
@@ -174,7 +174,7 @@
         
         
         <li >
-            <a href='/tanzhixin/archives/' >
+            <a href='/archives/' >
                 
                 
                 
@@ -194,7 +194,7 @@
         
         
         <li >
-            <a href='/tanzhixin/search/' >
+            <a href='/search/' >
                 
                 
                 
@@ -213,7 +213,7 @@
         
         
         <li >
-            <a href='/tanzhixin/%E9%93%BE%E6%8E%A5/' >
+            <a href='/%E9%93%BE%E6%8E%A5/' >
                 
                 
                 
@@ -247,9 +247,9 @@
 
                             <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
                                 
-                                    <option value="https://tanzhixin.github.io/tanzhixin/en/" >English</option>
+                                    <option value="https://tanzhixin.github.io/en/" >English</option>
                                 
-                                    <option value="https://tanzhixin.github.io/tanzhixin/" selected>中文</option>
+                                    <option value="https://tanzhixin.github.io/" selected>中文</option>
                                 
                             </select>
                         </li>
@@ -293,7 +293,7 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/tanzhixin/p/oodoo%E9%85%8D%E7%BD%AE/">oodoo配置</a>
+            <a href="/p/oodoo%E9%85%8D%E7%BD%AE/">oodoo配置</a>
         </h2>
     
         
@@ -601,7 +601,7 @@ http://&lt;your_domain_or_IP_address&gt;:8069</p>
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/tanzhixin/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
 <script>
     (function () {
         const customFont = document.createElement('link');
