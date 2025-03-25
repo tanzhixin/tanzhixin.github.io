@@ -492,6 +492,51 @@
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git remote set-url origin https://github.com/xxxxxx/S
 </span></span></code></pre></td></tr></table>
 </div>
+</div><h1 id="selinux设置">selinux设置
+</h1><p>打开nginx网络访问许可,解决gunicorn的转发权限；
+···
+setsebool -P httpd_can_network_connect 1</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">与getsebool相对应，可以现查：
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>getsebool -a                                  #列出所有模块
+getsebool -a | grep httpd                       #列出所有与httpd相关的模块</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">其他相关命令
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>#查看selinux状态
+sestatus</p>
+<p>#查看getenforce状态
+getenforce</p>
+<p>#临时关闭selinux，设置SELinux 成为permissive模式
+setenforce 0</p>
+<p>#临时打开selinux，设置SELinux 成为enforcing模式
+setenforce 1</p>
+<p>#永久关闭SELinux
+vi /etc/selinux/config
+修改并设置SELINUX=disabled，再重启服务器。</p>
+<p>#查看某个端口的规则
+semanage port -l | grep 6379</p>
+<p>#查看redis端口规则
+semanage port -l | grep redis_port_t</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"></code></pre></td></tr></table>
+</div>
 </div>
 </section>
 
