@@ -2,16 +2,111 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>笔记</title>
-        <link>https://tanzhixin.github.io/</link>
+        <link>http://localhost:8080/</link>
         <description>Recent content on 笔记</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Sat, 22 Mar 2025 09:21:28 +0800</lastBuildDate><atom:link href="https://tanzhixin.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 10 Apr 2025 15:00:02 +0800</lastBuildDate><atom:link href="http://localhost:8080/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>手机利用termux架设webdav服务器</title>
+        <link>http://localhost:8080/p/%E6%89%8B%E6%9C%BA%E5%88%A9%E7%94%A8termux%E6%9E%B6%E8%AE%BEwebdav%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
+        <pubDate>Thu, 10 Apr 2025 15:00:02 +0800</pubDate>
+        
+        <guid>http://localhost:8080/p/%E6%89%8B%E6%9C%BA%E5%88%A9%E7%94%A8termux%E6%9E%B6%E8%AE%BEwebdav%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
+        <description>&lt;h1 id=&#34;背景&#34;&gt;背景
+&lt;/h1&gt;&lt;p&gt;手里有个旧手机mate30pro，触摸屏断线后下半部分无法使用，换屏勉强成功，后玻璃盖又碎了，摄像头也不准，只能放弃，当是一场经历。&lt;/p&gt;
+&lt;p&gt;想想还有点利用价值，就装了个termux，日常跑点服务应该没问题，nginx什么的就没必要了，最后琢磨到webdav上&lt;/p&gt;
+&lt;p&gt;开始考虑用nginx，毕竟熟悉一点。检查后发现，虽然termux的nginx也打包了webdav支持，但是不支持ext模块，自己重新编译的代价太大，网上还是基于apache2的资料多一些。&lt;/p&gt;
+&lt;h1 id=&#34;实践&#34;&gt;实践
+&lt;/h1&gt;&lt;p&gt;安装apache2后， 可以先测试apache2的运行&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;apachectl start
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;apachectl stop
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;termux 默认目录为：  /data/data/com.termux/files/home
+apache2配置文件的相对目录为： ../usr/etc/apache2/&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;主配置文件  httpd.conf&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;修改端口、服务器名称，启用4个dav相关模块并启用DAV配置文件&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   Listen 8080                        # 端口
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   ServerName   localhost             # 服务器名
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   LoadModule dav_module libexec/apache2/mod_dav.so
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   LoadModule dav_fs_module libexec/apache2/mod_dav_fs.so
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   LoadModule dav_lock_module libexec/apache2/mod_dav_lock.so
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   LoadModule auth_digest_module libexec/apache2/mod_auth_digest.so
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   Include etc/apache2/extra/httpd-dav.conf
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;DAV配置文件 httpd-dav.conf
+主要是修改该文件中的options权限&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &amp;lt;RequireAny&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        Require method PROPFIND MKCOL GET POST DELETE PUT COPY MOVE LOCK UNLOCK OPTIONS
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        Require user XXXX
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &amp;lt;/RequireAny&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;创建目录，设置用户名密码&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-gdscript3&#34; data-lang=&#34;gdscript3&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;mkdir&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;data&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;data&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;com&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;termux&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;files&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;usr&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;uploads&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;htdigest&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;c&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;/data/data/com.termux/files/usr/user.passwd&amp;#34;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;DAV&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;upload&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;XXXX&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;用curl或者raidriver测试。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;参考&#34;&gt;参考：
+&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://blog.csdn.net/SilentCWQH/article/details/127559615&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Termux 使用 apache 搭建 webdav 服务器&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.jianshu.com/p/5b00162ea5c7&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;termux安装apache2 webdav&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.oryoy.com/news/jie-mi-apache-dav-mod-zhang-wo-wen-jian-gong-xiang-yu-xie-zuo-de-li-qi.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;揭秘Apache Dav Mod：掌握文件共享与协作的利器&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        <item>
         <title>Tmux终端复用工具</title>
-        <link>https://tanzhixin.github.io/p/tmux%E7%BB%88%E7%AB%AF%E5%A4%8D%E7%94%A8%E5%B7%A5%E5%85%B7/</link>
+        <link>http://localhost:8080/p/tmux%E7%BB%88%E7%AB%AF%E5%A4%8D%E7%94%A8%E5%B7%A5%E5%85%B7/</link>
         <pubDate>Sat, 22 Mar 2025 09:21:28 +0800</pubDate>
         
-        <guid>https://tanzhixin.github.io/p/tmux%E7%BB%88%E7%AB%AF%E5%A4%8D%E7%94%A8%E5%B7%A5%E5%85%B7/</guid>
+        <guid>http://localhost:8080/p/tmux%E7%BB%88%E7%AB%AF%E5%A4%8D%E7%94%A8%E5%B7%A5%E5%85%B7/</guid>
         <description>&lt;p&gt;tmux 是一个终端复用器，它使用户可以在一个终端界面内管理多个会话、窗口和窗格。&lt;/p&gt;
 &lt;h1 id=&#34;用途&#34;&gt;用途
 &lt;/h1&gt;&lt;ol&gt;
@@ -128,10 +223,10 @@
         </item>
         <item>
         <title>Docker软件</title>
-        <link>https://tanzhixin.github.io/p/docker%E8%BD%AF%E4%BB%B6/</link>
+        <link>http://localhost:8080/p/docker%E8%BD%AF%E4%BB%B6/</link>
         <pubDate>Sat, 22 Mar 2025 08:55:00 +0800</pubDate>
         
-        <guid>https://tanzhixin.github.io/p/docker%E8%BD%AF%E4%BB%B6/</guid>
+        <guid>http://localhost:8080/p/docker%E8%BD%AF%E4%BB%B6/</guid>
         <description>&lt;h1 id=&#34;基础教程&#34;&gt;基础教程
 &lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.runoob.com/docker/docker-tutorial.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;https://www.runoob.com/docker/docker-tutorial.html&lt;/a&gt;&lt;/p&gt;
@@ -232,10 +327,10 @@
         </item>
         <item>
         <title>Git相关</title>
-        <link>https://tanzhixin.github.io/p/git%E7%9B%B8%E5%85%B3/</link>
+        <link>http://localhost:8080/p/git%E7%9B%B8%E5%85%B3/</link>
         <pubDate>Sat, 22 Mar 2025 00:38:07 +0800</pubDate>
         
-        <guid>https://tanzhixin.github.io/p/git%E7%9B%B8%E5%85%B3/</guid>
+        <guid>http://localhost:8080/p/git%E7%9B%B8%E5%85%B3/</guid>
         <description>&lt;h1 id=&#34;撤销&#34;&gt;撤销
 &lt;/h1&gt;&lt;p&gt;add后没法看diff了，如果还想返回去看区别就只好先撤销add&lt;/p&gt;
 &lt;p&gt;git status 先看一下add 中的文件
@@ -254,10 +349,10 @@ git reset HEAD XXX/XXX  撤销某个文件&lt;/p&gt;
         </item>
         <item>
         <title>常用软件windows版</title>
-        <link>https://tanzhixin.github.io/p/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6windows%E7%89%88/</link>
+        <link>http://localhost:8080/p/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6windows%E7%89%88/</link>
         <pubDate>Sat, 22 Mar 2025 00:31:52 +0800</pubDate>
         
-        <guid>https://tanzhixin.github.io/p/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6windows%E7%89%88/</guid>
+        <guid>http://localhost:8080/p/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6windows%E7%89%88/</guid>
         <description>&lt;h2 id=&#34;图形图像&#34;&gt;图形图像
 &lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;
@@ -571,10 +666,10 @@ git reset HEAD XXX/XXX  撤销某个文件&lt;/p&gt;
         </item>
         <item>
         <title>Linux相关</title>
-        <link>https://tanzhixin.github.io/p/linux%E7%9B%B8%E5%85%B3/</link>
+        <link>http://localhost:8080/p/linux%E7%9B%B8%E5%85%B3/</link>
         <pubDate>Sat, 22 Mar 2025 00:28:58 +0800</pubDate>
         
-        <guid>https://tanzhixin.github.io/p/linux%E7%9B%B8%E5%85%B3/</guid>
+        <guid>http://localhost:8080/p/linux%E7%9B%B8%E5%85%B3/</guid>
         <description>&lt;h1 id=&#34;网络管理&#34;&gt;网络管理
 &lt;/h1&gt;&lt;h2 id=&#34;firewalld&#34;&gt;firewalld
 &lt;/h2&gt;&lt;h2 id=&#34;network-manager&#34;&gt;network-manager
@@ -591,11 +686,110 @@ git reset HEAD XXX/XXX  撤销某个文件&lt;/p&gt;
 &lt;/div&gt;</description>
         </item>
         <item>
+        <title>专利检索网站</title>
+        <link>http://localhost:8080/p/%E4%B8%93%E5%88%A9%E6%A3%80%E7%B4%A2%E7%BD%91%E7%AB%99/</link>
+        <pubDate>Sat, 22 Mar 2025 00:26:08 +0800</pubDate>
+        
+        <guid>http://localhost:8080/p/%E4%B8%93%E5%88%A9%E6%A3%80%E7%B4%A2%E7%BD%91%E7%AB%99/</guid>
+        <description>&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://epub.sipo.gov.cn/&#34;  title=&#34;中国专利公布公告网&#34;
+     target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;中国专利公布公告网&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://www.pss-system.gov.cn/&#34;  title=&#34;专利检索及分析&#34;
+     target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;专利检索及分析&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://cpquery.sipo.gov.cn/&#34;  title=&#34;中国及多国专利审查信息查询&#34;
+     target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;中国及多国专利审查信息查询&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://search.cnipr.com/&#34;  title=&#34;专利信息服务平台&#34;
+     target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;专利信息服务平台&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://chinaip.sipo.gov.cn/&#34;  title=&#34;国家重点产业专利信息服务平台&#34;
+     target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;国家重点产业专利信息服务平台&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://www.cnpatent.com/&#34;  title=&#34;中国专利网&#34;
+     target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;中国专利网&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://www.patentics.com&#34;  title=&#34;patentics&#34;
+     target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;patentics&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://www.soopat.com/&#34;  title=&#34;soopat&#34;
+     target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;soopat&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://www.incopat.com/&#34;  title=&#34;incopat&#34;
+     target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;incopat&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.tiikong.com/patent/query/index.do&#34;  title=&#34;情报嗒嗒&#34;
+     target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;情报嗒嗒&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://so.baiten.cn/&#34;  title=&#34;佰腾专利检索&#34;
+     target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;佰腾专利检索&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://www.guangdongip.gov.cn&#34;  title=&#34;广东省知识产权公共信息综合服务平台&#34;
+     target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;广东省知识产权公共信息综合服务平台&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://www.shanghaiip.cn/&#34;  title=&#34;上海知识产权（专利）服务平台&#34;
+     target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;上海知识产权（专利）服务平台&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://58.213.145.74:8080/cniprBZ/index.htm&#34;  title=&#34;江苏省中外专利检索与分析平台&#34;
+     target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;江苏省中外专利检索与分析平台&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;www.beijingip.cn/jopm_ww/loginedPage/web2/onlineSearch/zljsindex.jsp&#34;  title=&#34;北京市知识产权公共信息服务平台&#34;
+    &gt;北京市知识产权公共信息服务平台&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://kns.cnki.net/kns/brief/result.aspx?dbprefix=SCOD&#34;  title=&#34;中国知网&#34;
+     target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;中国知网&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://librarian.wanfangdata.com.cn/default.aspx?dbid=Paper&#34;  title=&#34;万方数据&#34;
+     target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;万方数据&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://www.drugfuture.com/Index.html&#34;  title=&#34;药物在线&#34;
+     target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;药物在线&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        <item>
         <title>RXTX的windows驱动</title>
-        <link>https://tanzhixin.github.io/p/rxtx%E7%9A%84windows%E9%A9%B1%E5%8A%A8/</link>
+        <link>http://localhost:8080/p/rxtx%E7%9A%84windows%E9%A9%B1%E5%8A%A8/</link>
         <pubDate>Sat, 22 Mar 2025 00:23:43 +0800</pubDate>
         
-        <guid>https://tanzhixin.github.io/p/rxtx%E7%9A%84windows%E9%A9%B1%E5%8A%A8/</guid>
+        <guid>http://localhost:8080/p/rxtx%E7%9A%84windows%E9%A9%B1%E5%8A%A8/</guid>
         <description>&lt;ol&gt;
 &lt;li&gt;到 &lt;a class=&#34;link&#34; href=&#34;http://rxtx.qbang.org/wiki/index.php/Download&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;http://rxtx.qbang.org/wiki/index.php/Download&lt;/a&gt; 下载pre-build的zip包，解压备用&lt;/li&gt;
@@ -607,10 +801,10 @@ git reset HEAD XXX/XXX  撤销某个文件&lt;/p&gt;
         </item>
         <item>
         <title>VS Compile Error</title>
-        <link>https://tanzhixin.github.io/p/vs-compile-error/</link>
+        <link>http://localhost:8080/p/vs-compile-error/</link>
         <pubDate>Sat, 22 Mar 2025 00:21:33 +0800</pubDate>
         
-        <guid>https://tanzhixin.github.io/p/vs-compile-error/</guid>
+        <guid>http://localhost:8080/p/vs-compile-error/</guid>
         <description>&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;添加头文件目录：
@@ -637,10 +831,10 @@ git reset HEAD XXX/XXX  撤销某个文件&lt;/p&gt;
         </item>
         <item>
         <title>oodoo配置</title>
-        <link>https://tanzhixin.github.io/p/oodoo%E9%85%8D%E7%BD%AE/</link>
+        <link>http://localhost:8080/p/oodoo%E9%85%8D%E7%BD%AE/</link>
         <pubDate>Fri, 21 Mar 2025 23:50:41 +0800</pubDate>
         
-        <guid>https://tanzhixin.github.io/p/oodoo%E9%85%8D%E7%BD%AE/</guid>
+        <guid>http://localhost:8080/p/oodoo%E9%85%8D%E7%BD%AE/</guid>
         <description>&lt;p&gt;参考 &lt;a class=&#34;link&#34; href=&#34;https://linuxize.com/post/install-odoo-12-on-centos-7/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;https://linuxize.com/post/install-odoo-12-on-centos-7/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;缘起：用户管理需求，测试小型CRM及ERP工具，ZOHO相对来说不自由，于是用云服务器作了一个自己可控的系统&lt;/p&gt;
@@ -767,10 +961,10 @@ http://&amp;lt;your_domain_or_IP_address&amp;gt;:8069&lt;/p&gt;
         </item>
         <item>
         <title>putty配置</title>
-        <link>https://tanzhixin.github.io/p/putty%E9%85%8D%E7%BD%AE/</link>
+        <link>http://localhost:8080/p/putty%E9%85%8D%E7%BD%AE/</link>
         <pubDate>Fri, 21 Mar 2025 23:40:40 +0800</pubDate>
         
-        <guid>https://tanzhixin.github.io/p/putty%E9%85%8D%E7%BD%AE/</guid>
+        <guid>http://localhost:8080/p/putty%E9%85%8D%E7%BD%AE/</guid>
         <description>&lt;ol&gt;
 &lt;li&gt;配色问题，可以通过注册表文件指定任务的几种颜色来设置，具体如下：&lt;/li&gt;
 &lt;/ol&gt;
@@ -883,7 +1077,7 @@ http://&amp;lt;your_domain_or_IP_address&amp;gt;:8069&lt;/p&gt;
 &lt;p&gt;a. puttygen.exe导入自己的私匙，
 b. 保存私匙（ppk格式）
 c. session中auth中指定ppk私匙。&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://tanzhixin.github.io/p/putty%E9%85%8D%E7%BD%AE/putty-ppk.PNG&#34;
+&lt;figure&gt;&lt;img src=&#34;http://localhost:8080/p/putty%E9%85%8D%E7%BD%AE/putty-ppk.PNG&#34;
        alt=&#34;puttygen&#34;&gt;
    &lt;/figure&gt;
 
@@ -891,7 +1085,7 @@ c. session中auth中指定ppk私匙。&lt;/p&gt;
 &lt;li&gt;
 &lt;p&gt;连接保持
 见图，keepalive 20s
-&lt;figure&gt;&lt;img src=&#34;https://tanzhixin.github.io/p/putty%E9%85%8D%E7%BD%AE/putty-connection.PNG&#34;
+&lt;figure&gt;&lt;img src=&#34;http://localhost:8080/p/putty%E9%85%8D%E7%BD%AE/putty-connection.PNG&#34;
       alt=&#34;保持链接&#34;&gt;
   &lt;/figure&gt;
 &lt;/p&gt;
@@ -909,10 +1103,10 @@ c. session中auth中指定ppk私匙。&lt;/p&gt;
         </item>
         <item>
         <title>截屏做书</title>
-        <link>https://tanzhixin.github.io/p/%E6%88%AA%E5%B1%8F%E5%81%9A%E4%B9%A6/</link>
+        <link>http://localhost:8080/p/%E6%88%AA%E5%B1%8F%E5%81%9A%E4%B9%A6/</link>
         <pubDate>Fri, 21 Mar 2025 23:38:05 +0800</pubDate>
         
-        <guid>https://tanzhixin.github.io/p/%E6%88%AA%E5%B1%8F%E5%81%9A%E4%B9%A6/</guid>
+        <guid>http://localhost:8080/p/%E6%88%AA%E5%B1%8F%E5%81%9A%E4%B9%A6/</guid>
         <description>&lt;p&gt;做了两本，有些资料确实很难下载，网上有些资料还收费，无奈只能自己动手丰衣足食。&lt;/p&gt;
 &lt;p&gt;picpick还真不错，能够自定义文件名并按序号自己排列好。当然最好是把显示屏旋转一下，可以获得更好的分辨效果。&lt;/p&gt;
 &lt;p&gt;剩下的就是处理图片，用imagemagick批量转换成pdf页面，然后pdftk打包成一个书籍文件。&lt;/p&gt;
@@ -920,10 +1114,10 @@ c. session中auth中指定ppk私匙。&lt;/p&gt;
         </item>
         <item>
         <title>NI-programming</title>
-        <link>https://tanzhixin.github.io/p/ni-programming/</link>
+        <link>http://localhost:8080/p/ni-programming/</link>
         <pubDate>Fri, 21 Mar 2025 23:18:28 +0800</pubDate>
         
-        <guid>https://tanzhixin.github.io/p/ni-programming/</guid>
+        <guid>http://localhost:8080/p/ni-programming/</guid>
         <description>&lt;p&gt;tutor&lt;/p&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://www.ni.com/tutorial/4478/zhs/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;http://www.ni.com/tutorial/4478/zhs/&lt;/a&gt;&lt;/p&gt;
@@ -937,10 +1131,10 @@ c. session中auth中指定ppk私匙。&lt;/p&gt;
         </item>
         <item>
         <title>KMS激活</title>
-        <link>https://tanzhixin.github.io/p/kms%E6%BF%80%E6%B4%BB/</link>
+        <link>http://localhost:8080/p/kms%E6%BF%80%E6%B4%BB/</link>
         <pubDate>Fri, 21 Mar 2025 23:16:39 +0800</pubDate>
         
-        <guid>https://tanzhixin.github.io/p/kms%E6%BF%80%E6%B4%BB/</guid>
+        <guid>http://localhost:8080/p/kms%E6%BF%80%E6%B4%BB/</guid>
         <description>&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;云端搭建kms服务器&lt;/p&gt;
@@ -960,12 +1154,12 @@ cscript ospp.vbs /sethst:[ip]&lt;/p&gt;
         </item>
         <item>
         <title>Imagemagick用法</title>
-        <link>https://tanzhixin.github.io/p/imagemagick%E7%94%A8%E6%B3%95/</link>
+        <link>http://localhost:8080/p/imagemagick%E7%94%A8%E6%B3%95/</link>
         <pubDate>Fri, 21 Mar 2025 22:57:56 +0800</pubDate>
         
-        <guid>https://tanzhixin.github.io/p/imagemagick%E7%94%A8%E6%B3%95/</guid>
+        <guid>http://localhost:8080/p/imagemagick%E7%94%A8%E6%B3%95/</guid>
         <description>&lt;p&gt;imagemagick是一个很高效的命令行图片处理工具，可以结合shell编程实现批量处理，加快处理效率。一般我用来批量处理的工作有：批量改变大小、批量改变添加水印等。&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://tanzhixin.github.io/p/imagemagick%E7%94%A8%E6%B3%95/imagemagick.png&#34;
+&lt;figure&gt;&lt;img src=&#34;http://localhost:8080/p/imagemagick%E7%94%A8%E6%B3%95/imagemagick.png&#34;
     alt=&#34;白胡子老头&#34; width=&#34;400&#34;&gt;
 &lt;/figure&gt;
 
@@ -996,10 +1190,10 @@ cscript ospp.vbs /sethst:[ip]&lt;/p&gt;
         </item>
         <item>
         <title>network网络相关</title>
-        <link>https://tanzhixin.github.io/p/network%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3/</link>
+        <link>http://localhost:8080/p/network%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3/</link>
         <pubDate>Fri, 21 Mar 2025 22:49:16 +0800</pubDate>
         
-        <guid>https://tanzhixin.github.io/p/network%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3/</guid>
+        <guid>http://localhost:8080/p/network%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3/</guid>
         <description>&lt;h1 id=&#34;ntp服务器&#34;&gt;NTP服务器
 &lt;/h1&gt;&lt;table&gt;
   &lt;thead&gt;
@@ -1196,35 +1390,35 @@ semanage port -l | grep redis_port_t&lt;/p&gt;
         </item>
         <item>
         <title>归档</title>
-        <link>https://tanzhixin.github.io/archives/</link>
+        <link>http://localhost:8080/archives/</link>
         <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
         
-        <guid>https://tanzhixin.github.io/archives/</guid>
+        <guid>http://localhost:8080/archives/</guid>
         <description></description>
         </item>
         <item>
         <title>关于</title>
-        <link>https://tanzhixin.github.io/%E5%85%B3%E4%BA%8E/</link>
+        <link>http://localhost:8080/%E5%85%B3%E4%BA%8E/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://tanzhixin.github.io/%E5%85%B3%E4%BA%8E/</guid>
+        <guid>http://localhost:8080/%E5%85%B3%E4%BA%8E/</guid>
         <description>&lt;p&gt;Research Engineer.&lt;/p&gt;
 </description>
         </item>
         <item>
         <title>链接</title>
-        <link>https://tanzhixin.github.io/%E9%93%BE%E6%8E%A5/</link>
+        <link>http://localhost:8080/%E9%93%BE%E6%8E%A5/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://tanzhixin.github.io/%E9%93%BE%E6%8E%A5/</guid>
+        <guid>http://localhost:8080/%E9%93%BE%E6%8E%A5/</guid>
         <description></description>
         </item>
         <item>
         <title>搜索</title>
-        <link>https://tanzhixin.github.io/search/</link>
+        <link>http://localhost:8080/search/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://tanzhixin.github.io/search/</guid>
+        <guid>http://localhost:8080/search/</guid>
         <description></description>
         </item>
         

@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=8080&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="imagemagick是一个很高效的命令行图片处理工具，可以结合shell编程实现批量处理，加快处理效率。一般我用来批量处理的工作有：批量改变大小、批量改变添加水印等。\nimagemagick用法：\n命令格式如下：\nconvert &lt;输入图片名&gt; [+/-命令和命令的参数]* &lt;输出图片名&gt;\n常用的命令有：\n-crop 宽x高+起点横坐标+起点纵坐标：裁剪图[]\n-resize 宽x高[!]：改变尺寸，如果使用惊叹号，表示不保留视觉比例，强行改变尺寸匹配给定的宽和高\n-colors 颜色数：设定图片采用的颜色数，如果是生成png或gif图片应指定这个参数\n-quality 质量：设定jpeg图片输出质量，推荐采用80，此命令仅用于输出格式是jpg的情况，不应省略，省略的话默认质量是95，生成图片过大+profile &ldquo;*&quot;：图片中不存储附加信息，必须使用，否则生成图片过大\n1、看图片： display命令；如果想看这个文件夹下的所有图片，display *即可。space是翻页；\n2、调整图片大小： convert -resize xxx*xxx a.jpg b.jpg 这是用解析度为参数；其实更方便的是用相对大小， convert -resize 25% a.jpg b.jpg。这个命令支持批处理，很赞；\n3、改变图片格式： convert a.jpg b.bmp等等，随便写，靠后缀来识别。当图片需要跨平台时，这个功能显得尤为实用；\n4、批量生成缩略图： mogrify -sample 80*60 *.jpg 不过这个命令会覆盖原有的文件，操作前需要进行原始文件的备份；\n5、图片加框（非常实用）：convert -border 60*60 “#000000″ a.jpg b.jpg，这里，60＊60是表示边框的宽度，第一个是纵边框的宽度，第二个是横边框的宽度，＃000000是RGB格式的边框色彩，通常不是黑色就是 白色，无所谓了；\n6、在图片上加上文字：对于图片分来来说，很是赞，convert -fill green -pointsize 40 -draw ‘text 10,50 “charry.org”‘ a.jpg b.jpg。表示在距离图片左上角10＊50的位置处，用绿色的文字写下charry.org，如果要指定别的字体，可以用 -font参数；\n7、高斯模糊：convert -blur 80 a.jpg b.jpg 参数还可以写成 -blur 80*5 后面的5表示sigma值；\n">
-<title>Imagemagick用法</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="背景 手里有个旧手机mate30pro，触摸屏断线后下半部分无法使用，换屏勉强成功，后玻璃盖又碎了，摄像头也不准，只能放弃，当是一场经历。\n想想还有点利用价值，就装了个termux，日常跑点服务应该没问题，nginx什么的就没必要了，最后琢磨到webdav上\n开始考虑用nginx，毕竟熟悉一点。检查后发现，虽然termux的nginx也打包了webdav支持，但是不支持ext模块，自己重新编译的代价太大，网上还是基于apache2的资料多一些。\n实践 安装apache2后， 可以先测试apache2的运行\n1 2 apachectl start apachectl stop termux 默认目录为： /data/data/com.termux/files/home apache2配置文件的相对目录为： ../usr/etc/apache2/\n主配置文件 httpd.conf 修改端口、服务器名称，启用4个dav相关模块并启用DAV配置文件\n1 2 3 4 5 6 7 8 Listen 8080 # 端口 ServerName localhost # 服务器名 LoadModule dav_module libexec/apache2/mod_dav.so LoadModule dav_fs_module libexec/apache2/mod_dav_fs.so LoadModule dav_lock_module libexec/apache2/mod_dav_lock.so LoadModule auth_digest_module libexec/apache2/mod_auth_digest.so Include etc/apache2/extra/httpd-dav.conf DAV配置文件 httpd-dav.conf 主要是修改该文件中的options权限 1 2 3 4 &lt;RequireAny&gt; Require method PROPFIND MKCOL GET POST DELETE PUT COPY MOVE LOCK UNLOCK OPTIONS Require user XXXX &lt;/RequireAny&gt; 创建目录，设置用户名密码 1 2 mkdir /data/data/com.termux/files/usr/uploads/ htdigest -c &#34;/data/data/com.termux/files/usr/user.passwd&#34; DAV-upload XXXX 用curl或者raidriver测试。 参考： Termux 使用 apache 搭建 webdav 服务器 termux安装apache2 webdav 揭秘Apache Dav Mod：掌握文件共享与协作的利器 ">
+<title>手机利用termux架设webdav服务器</title>
 
-<link rel='canonical' href='http://localhost:8080/p/imagemagick%E7%94%A8%E6%B3%95/'>
+<link rel='canonical' href='http://localhost:8080/p/%E6%89%8B%E6%9C%BA%E5%88%A9%E7%94%A8termux%E6%9E%B6%E8%AE%BEwebdav%E6%9C%8D%E5%8A%A1%E5%99%A8/'>
 
-<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Imagemagick用法">
-<meta property='og:description' content="imagemagick是一个很高效的命令行图片处理工具，可以结合shell编程实现批量处理，加快处理效率。一般我用来批量处理的工作有：批量改变大小、批量改变添加水印等。\nimagemagick用法：\n命令格式如下：\nconvert &lt;输入图片名&gt; [+/-命令和命令的参数]* &lt;输出图片名&gt;\n常用的命令有：\n-crop 宽x高+起点横坐标+起点纵坐标：裁剪图[]\n-resize 宽x高[!]：改变尺寸，如果使用惊叹号，表示不保留视觉比例，强行改变尺寸匹配给定的宽和高\n-colors 颜色数：设定图片采用的颜色数，如果是生成png或gif图片应指定这个参数\n-quality 质量：设定jpeg图片输出质量，推荐采用80，此命令仅用于输出格式是jpg的情况，不应省略，省略的话默认质量是95，生成图片过大+profile &ldquo;*&quot;：图片中不存储附加信息，必须使用，否则生成图片过大\n1、看图片： display命令；如果想看这个文件夹下的所有图片，display *即可。space是翻页；\n2、调整图片大小： convert -resize xxx*xxx a.jpg b.jpg 这是用解析度为参数；其实更方便的是用相对大小， convert -resize 25% a.jpg b.jpg。这个命令支持批处理，很赞；\n3、改变图片格式： convert a.jpg b.bmp等等，随便写，靠后缀来识别。当图片需要跨平台时，这个功能显得尤为实用；\n4、批量生成缩略图： mogrify -sample 80*60 *.jpg 不过这个命令会覆盖原有的文件，操作前需要进行原始文件的备份；\n5、图片加框（非常实用）：convert -border 60*60 “#000000″ a.jpg b.jpg，这里，60＊60是表示边框的宽度，第一个是纵边框的宽度，第二个是横边框的宽度，＃000000是RGB格式的边框色彩，通常不是黑色就是 白色，无所谓了；\n6、在图片上加上文字：对于图片分来来说，很是赞，convert -fill green -pointsize 40 -draw ‘text 10,50 “charry.org”‘ a.jpg b.jpg。表示在距离图片左上角10＊50的位置处，用绿色的文字写下charry.org，如果要指定别的字体，可以用 -font参数；\n7、高斯模糊：convert -blur 80 a.jpg b.jpg 参数还可以写成 -blur 80*5 后面的5表示sigma值；\n">
-<meta property='og:url' content='http://localhost:8080/p/imagemagick%E7%94%A8%E6%B3%95/'>
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="手机利用termux架设webdav服务器">
+<meta property='og:description' content="背景 手里有个旧手机mate30pro，触摸屏断线后下半部分无法使用，换屏勉强成功，后玻璃盖又碎了，摄像头也不准，只能放弃，当是一场经历。\n想想还有点利用价值，就装了个termux，日常跑点服务应该没问题，nginx什么的就没必要了，最后琢磨到webdav上\n开始考虑用nginx，毕竟熟悉一点。检查后发现，虽然termux的nginx也打包了webdav支持，但是不支持ext模块，自己重新编译的代价太大，网上还是基于apache2的资料多一些。\n实践 安装apache2后， 可以先测试apache2的运行\n1 2 apachectl start apachectl stop termux 默认目录为： /data/data/com.termux/files/home apache2配置文件的相对目录为： ../usr/etc/apache2/\n主配置文件 httpd.conf 修改端口、服务器名称，启用4个dav相关模块并启用DAV配置文件\n1 2 3 4 5 6 7 8 Listen 8080 # 端口 ServerName localhost # 服务器名 LoadModule dav_module libexec/apache2/mod_dav.so LoadModule dav_fs_module libexec/apache2/mod_dav_fs.so LoadModule dav_lock_module libexec/apache2/mod_dav_lock.so LoadModule auth_digest_module libexec/apache2/mod_auth_digest.so Include etc/apache2/extra/httpd-dav.conf DAV配置文件 httpd-dav.conf 主要是修改该文件中的options权限 1 2 3 4 &lt;RequireAny&gt; Require method PROPFIND MKCOL GET POST DELETE PUT COPY MOVE LOCK UNLOCK OPTIONS Require user XXXX &lt;/RequireAny&gt; 创建目录，设置用户名密码 1 2 mkdir /data/data/com.termux/files/usr/uploads/ htdigest -c &#34;/data/data/com.termux/files/usr/user.passwd&#34; DAV-upload XXXX 用curl或者raidriver测试。 参考： Termux 使用 apache 搭建 webdav 服务器 termux安装apache2 webdav 揭秘Apache Dav Mod：掌握文件共享与协作的利器 ">
+<meta property='og:url' content='http://localhost:8080/p/%E6%89%8B%E6%9C%BA%E5%88%A9%E7%94%A8termux%E6%9E%B6%E8%AE%BEwebdav%E6%9C%8D%E5%8A%A1%E5%99%A8/'>
 <meta property='og:site_name' content='笔记'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-03-21T22:57:56&#43;08:00'/><meta property='article:modified_time' content='2025-03-21T22:57:56&#43;08:00'/>
-<meta name="twitter:title" content="Imagemagick用法">
-<meta name="twitter:description" content="imagemagick是一个很高效的命令行图片处理工具，可以结合shell编程实现批量处理，加快处理效率。一般我用来批量处理的工作有：批量改变大小、批量改变添加水印等。\nimagemagick用法：\n命令格式如下：\nconvert &lt;输入图片名&gt; [+/-命令和命令的参数]* &lt;输出图片名&gt;\n常用的命令有：\n-crop 宽x高+起点横坐标+起点纵坐标：裁剪图[]\n-resize 宽x高[!]：改变尺寸，如果使用惊叹号，表示不保留视觉比例，强行改变尺寸匹配给定的宽和高\n-colors 颜色数：设定图片采用的颜色数，如果是生成png或gif图片应指定这个参数\n-quality 质量：设定jpeg图片输出质量，推荐采用80，此命令仅用于输出格式是jpg的情况，不应省略，省略的话默认质量是95，生成图片过大+profile &ldquo;*&quot;：图片中不存储附加信息，必须使用，否则生成图片过大\n1、看图片： display命令；如果想看这个文件夹下的所有图片，display *即可。space是翻页；\n2、调整图片大小： convert -resize xxx*xxx a.jpg b.jpg 这是用解析度为参数；其实更方便的是用相对大小， convert -resize 25% a.jpg b.jpg。这个命令支持批处理，很赞；\n3、改变图片格式： convert a.jpg b.bmp等等，随便写，靠后缀来识别。当图片需要跨平台时，这个功能显得尤为实用；\n4、批量生成缩略图： mogrify -sample 80*60 *.jpg 不过这个命令会覆盖原有的文件，操作前需要进行原始文件的备份；\n5、图片加框（非常实用）：convert -border 60*60 “#000000″ a.jpg b.jpg，这里，60＊60是表示边框的宽度，第一个是纵边框的宽度，第二个是横边框的宽度，＃000000是RGB格式的边框色彩，通常不是黑色就是 白色，无所谓了；\n6、在图片上加上文字：对于图片分来来说，很是赞，convert -fill green -pointsize 40 -draw ‘text 10,50 “charry.org”‘ a.jpg b.jpg。表示在距离图片左上角10＊50的位置处，用绿色的文字写下charry.org，如果要指定别的字体，可以用 -font参数；\n7、高斯模糊：convert -blur 80 a.jpg b.jpg 参数还可以写成 -blur 80*5 后面的5表示sigma值；\n">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-04-10T15:00:02&#43;08:00'/><meta property='article:modified_time' content='2025-04-10T15:00:02&#43;08:00'/>
+<meta name="twitter:title" content="手机利用termux架设webdav服务器">
+<meta name="twitter:description" content="背景 手里有个旧手机mate30pro，触摸屏断线后下半部分无法使用，换屏勉强成功，后玻璃盖又碎了，摄像头也不准，只能放弃，当是一场经历。\n想想还有点利用价值，就装了个termux，日常跑点服务应该没问题，nginx什么的就没必要了，最后琢磨到webdav上\n开始考虑用nginx，毕竟熟悉一点。检查后发现，虽然termux的nginx也打包了webdav支持，但是不支持ext模块，自己重新编译的代价太大，网上还是基于apache2的资料多一些。\n实践 安装apache2后， 可以先测试apache2的运行\n1 2 apachectl start apachectl stop termux 默认目录为： /data/data/com.termux/files/home apache2配置文件的相对目录为： ../usr/etc/apache2/\n主配置文件 httpd.conf 修改端口、服务器名称，启用4个dav相关模块并启用DAV配置文件\n1 2 3 4 5 6 7 8 Listen 8080 # 端口 ServerName localhost # 服务器名 LoadModule dav_module libexec/apache2/mod_dav.so LoadModule dav_fs_module libexec/apache2/mod_dav_fs.so LoadModule dav_lock_module libexec/apache2/mod_dav_lock.so LoadModule auth_digest_module libexec/apache2/mod_auth_digest.so Include etc/apache2/extra/httpd-dav.conf DAV配置文件 httpd-dav.conf 主要是修改该文件中的options权限 1 2 3 4 &lt;RequireAny&gt; Require method PROPFIND MKCOL GET POST DELETE PUT COPY MOVE LOCK UNLOCK OPTIONS Require user XXXX &lt;/RequireAny&gt; 创建目录，设置用户名密码 1 2 mkdir /data/data/com.termux/files/usr/uploads/ htdigest -c &#34;/data/data/com.termux/files/usr/user.passwd&#34; DAV-upload XXXX 用curl或者raidriver测试。 参考： Termux 使用 apache 搭建 webdav 服务器 termux安装apache2 webdav 揭秘Apache Dav Mod：掌握文件共享与协作的利器 ">
     <link rel="shortcut icon" href="/favicon.ico" />
 
     </head>
@@ -293,7 +293,7 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/imagemagick%E7%94%A8%E6%B3%95/">Imagemagick用法</a>
+            <a href="/p/%E6%89%8B%E6%9C%BA%E5%88%A9%E7%94%A8termux%E6%9E%B6%E8%AE%BEwebdav%E6%9C%8D%E5%8A%A1%E5%99%A8/">手机利用termux架设webdav服务器</a>
         </h2>
     
         
@@ -315,7 +315,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Mar 21, 2025</time>
+                <time class="article-time--published">Apr 10, 2025</time>
             </div>
         
 
@@ -345,34 +345,93 @@
     <section class="article-content">
     
     
-    <p>imagemagick是一个很高效的命令行图片处理工具，可以结合shell编程实现批量处理，加快处理效率。一般我用来批量处理的工作有：批量改变大小、批量改变添加水印等。</p>
-<figure><img src="/p/imagemagick%E7%94%A8%E6%B3%95/imagemagick.png"
-    alt="白胡子老头" width="400">
-</figure>
-
-<p>imagemagick用法：</p>
-<p>命令格式如下：</p>
-<p>convert &lt;输入图片名&gt; [+/-命令和命令的参数]* &lt;输出图片名&gt;</p>
-<p>常用的命令有：</p>
-<p>-crop 宽x高+起点横坐标+起点纵坐标：裁剪图[]</p>
-<p>-resize 宽x高[!]：改变尺寸，如果使用惊叹号，表示不保留视觉比例，强行改变尺寸匹配给定的宽和高</p>
-<p>-colors 颜色数：设定图片采用的颜色数，如果是生成png或gif图片应指定这个参数</p>
-<p>-quality 质量：设定jpeg图片输出质量，推荐采用80，此命令仅用于输出格式是jpg的情况，不应省略，省略的话默认质量是95，生成图片过大+profile &ldquo;*&quot;：图片中不存储附加信息，必须使用，否则生成图片过大</p>
-<p>1、看图片： display命令；如果想看这个文件夹下的所有图片，display *即可。space是翻页；</p>
-<p>2、调整图片大小： convert -resize xxx*xxx a.jpg b.jpg 这是用解析度为参数；其实更方便的是用相对大小， convert -resize 25% a.jpg b.jpg。这个命令支持批处理，很赞；</p>
-<p>3、改变图片格式： convert a.jpg b.bmp等等，随便写，靠后缀来识别。当图片需要跨平台时，这个功能显得尤为实用；</p>
-<p>4、批量生成缩略图： mogrify -sample 80*60 *.jpg 不过这个命令会覆盖原有的文件，操作前需要进行原始文件的备份；</p>
-<p>5、图片加框（非常实用）：convert -border 60*60 “#000000″ a.jpg b.jpg，这里，60＊60是表示边框的宽度，第一个是纵边框的宽度，第二个是横边框的宽度，＃000000是RGB格式的边框色彩，通常不是黑色就是 白色，无所谓了；</p>
-<p>6、在图片上加上文字：对于图片分来来说，很是赞，convert -fill green -pointsize 40 -draw ‘text 10,50 “charry.org”‘ a.jpg b.jpg。表示在距离图片左上角10＊50的位置处，用绿色的文字写下charry.org，如果要指定别的字体，可以用 -font参数；</p>
-<p>7、高斯模糊：convert -blur 80 a.jpg b.jpg 参数还可以写成 -blur 80*5 后面的5表示sigma值；</p>
-<p>8、上下翻转： convert -flip a.jpg b.jpg</p>
-<p>9、左右翻转： convert -flop a.jpg b.jpg</p>
-<p>10、反色，形成底片的样子 convert -negate a.jpg b.jpg</p>
-<p>11、变成黑白色：convert -monochrome a.jpg b.jpg 是黑白色，不是灰度图</p>
-<p>12、油画的效果，有的时候很有感觉 convert -paint 4 a.jpg b.jpg</p>
-<p>13、旋转一定角度： convert -rotate 30 a.jpg b.jpg</p>
-<p>14、炭笔的效果，和油画的使用方法一样，把paint 换成 charcoal</p>
-<p>15、毛玻璃效果，同上，参数为 -spread</p>
+    <h1 id="背景">背景
+</h1><p>手里有个旧手机mate30pro，触摸屏断线后下半部分无法使用，换屏勉强成功，后玻璃盖又碎了，摄像头也不准，只能放弃，当是一场经历。</p>
+<p>想想还有点利用价值，就装了个termux，日常跑点服务应该没问题，nginx什么的就没必要了，最后琢磨到webdav上</p>
+<p>开始考虑用nginx，毕竟熟悉一点。检查后发现，虽然termux的nginx也打包了webdav支持，但是不支持ext模块，自己重新编译的代价太大，网上还是基于apache2的资料多一些。</p>
+<h1 id="实践">实践
+</h1><p>安装apache2后， 可以先测试apache2的运行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">apachectl start
+</span></span><span class="line"><span class="cl">apachectl stop
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>termux 默认目录为：  /data/data/com.termux/files/home
+apache2配置文件的相对目录为： ../usr/etc/apache2/</p>
+<ol>
+<li>主配置文件  httpd.conf</li>
+</ol>
+<p>修改端口、服务器名称，启用4个dav相关模块并启用DAV配置文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">   Listen 8080                        # 端口
+</span></span><span class="line"><span class="cl">   ServerName   localhost             # 服务器名
+</span></span><span class="line"><span class="cl">   LoadModule dav_module libexec/apache2/mod_dav.so
+</span></span><span class="line"><span class="cl">   LoadModule dav_fs_module libexec/apache2/mod_dav_fs.so
+</span></span><span class="line"><span class="cl">   LoadModule dav_lock_module libexec/apache2/mod_dav_lock.so
+</span></span><span class="line"><span class="cl">   LoadModule auth_digest_module libexec/apache2/mod_auth_digest.so
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   Include etc/apache2/extra/httpd-dav.conf
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>DAV配置文件 httpd-dav.conf
+主要是修改该文件中的options权限</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">    &lt;RequireAny&gt;
+</span></span><span class="line"><span class="cl">        Require method PROPFIND MKCOL GET POST DELETE PUT COPY MOVE LOCK UNLOCK OPTIONS
+</span></span><span class="line"><span class="cl">        Require user XXXX
+</span></span><span class="line"><span class="cl">    &lt;/RequireAny&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="3">
+<li>创建目录，设置用户名密码</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">mkdir</span> <span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">com</span><span class="o">.</span><span class="n">termux</span><span class="o">/</span><span class="n">files</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">uploads</span><span class="o">/</span>
+</span></span><span class="line"><span class="cl"><span class="n">htdigest</span> <span class="o">-</span><span class="n">c</span> <span class="s2">&#34;/data/data/com.termux/files/usr/user.passwd&#34;</span> <span class="n">DAV</span><span class="o">-</span><span class="n">upload</span> <span class="n">XXXX</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="4">
+<li>用curl或者raidriver测试。</li>
+</ol>
+<h1 id="参考">参考：
+</h1><ol>
+<li><a class="link" href="https://blog.csdn.net/SilentCWQH/article/details/127559615"  target="_blank" rel="noopener"
+    >Termux 使用 apache 搭建 webdav 服务器</a></li>
+<li><a class="link" href="https://www.jianshu.com/p/5b00162ea5c7"  target="_blank" rel="noopener"
+    >termux安装apache2 webdav</a></li>
+<li><a class="link" href="https://www.oryoy.com/news/jie-mi-apache-dav-mod-zhang-wo-wen-jian-gong-xiang-yu-xie-zuo-de-li-qi.html"  target="_blank" rel="noopener"
+    >揭秘Apache Dav Mod：掌握文件共享与协作的利器</a></li>
+</ol>
 
 </section>
 
