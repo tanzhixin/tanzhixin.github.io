@@ -10,7 +10,7 @@
 <meta property='og:description' content="一、背景 有些工作必须要GUI 真正可以把linux作为日常的桌面，看个pdf和挂个libera.chat就随意了 二、前提条件： multi-user.service 字符界面下\n注意阅读材料 /usr/share/doc/tigervnc/HOWTO.md\n三、服务器端 1. 安装 1 dnf install -y tigervnc-server 2. 设置用户及其对应的window，注意VNC里面用户是与window绑定的 #nano /etc/tigervnc/vncserver.users\n1 2 3 4 5 6 7 8 # TigerVNC User assignment # # This file assigns users to specific VNC display numbers. # The syntax is &lt;display&gt;=&lt;username&gt;. E.g.: # # :2=andrew # :3=lisa :1=xxxx 3. 设置默认工作流，类似与xinit的配置 #nano /etc/tigervnc/vncserver-config-defaults\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 ## Default settings for VNC servers started by the vncserver service # # Any settings given here will override the builtin defaults, but can # also be overriden by ~/.config/tigervnc/config and vncserver-config-mandatory. # # See HOWTO.md and the following manpages for more details: # vncsession(8) Xvnc(1) # # Several common settings are shown below. Uncomment and modify to your # liking. # session=gnome # securitytypes=vncauth,tlsvnc # geometry=2000x1200 # localhost # alwaysshared # Default to GNOME session # Note: change this only when you know what are you doing #securitytypes=vncauth,tlsvnc geometry=1920x1080 dpi=96 session=gnome-session &amp; 这里用的传统配置，注意加后台运行标记，第一次没加，然后DISPLAY还设定到远程ip，结果是远程服务器启动的xwindow直接跳出到我的windows桌面上\n">
 <meta property='og:url' content='https://tanzhixin.github.io/p/tigervnc%E4%BD%BF%E7%94%A8/'>
 <meta property='og:site_name' content='笔记'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-04-11T12:10:56&#43;08:00'/><meta property='article:modified_time' content='2025-04-11T12:10:56&#43;08:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='vnc' /><meta property='article:published_time' content='2025-04-11T12:10:56&#43;08:00'/><meta property='article:modified_time' content='2025-04-11T12:10:56&#43;08:00'/>
 <meta name="twitter:title" content="TigerVNC使用">
 <meta name="twitter:description" content="一、背景 有些工作必须要GUI 真正可以把linux作为日常的桌面，看个pdf和挂个libera.chat就随意了 二、前提条件： multi-user.service 字符界面下\n注意阅读材料 /usr/share/doc/tigervnc/HOWTO.md\n三、服务器端 1. 安装 1 dnf install -y tigervnc-server 2. 设置用户及其对应的window，注意VNC里面用户是与window绑定的 #nano /etc/tigervnc/vncserver.users\n1 2 3 4 5 6 7 8 # TigerVNC User assignment # # This file assigns users to specific VNC display numbers. # The syntax is &lt;display&gt;=&lt;username&gt;. E.g.: # # :2=andrew # :3=lisa :1=xxxx 3. 设置默认工作流，类似与xinit的配置 #nano /etc/tigervnc/vncserver-config-defaults\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 ## Default settings for VNC servers started by the vncserver service # # Any settings given here will override the builtin defaults, but can # also be overriden by ~/.config/tigervnc/config and vncserver-config-mandatory. # # See HOWTO.md and the following manpages for more details: # vncsession(8) Xvnc(1) # # Several common settings are shown below. Uncomment and modify to your # liking. # session=gnome # securitytypes=vncauth,tlsvnc # geometry=2000x1200 # localhost # alwaysshared # Default to GNOME session # Note: change this only when you know what are you doing #securitytypes=vncauth,tlsvnc geometry=1920x1080 dpi=96 session=gnome-session &amp; 这里用的传统配置，注意加后台运行标记，第一次没加，然后DISPLAY还设定到远程ip，结果是远程服务器启动的xwindow直接跳出到我的windows桌面上\n">
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -337,6 +337,14 @@
 
     <div class="article-details">
     
+    <header class="article-category">
+        
+            <a href="/categories/software/" >
+                Software
+            </a>
+        
+    </header>
+    
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
@@ -489,6 +497,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>这里用的传统配置，注意加后台运行标记，第一次没加，然后DISPLAY还设定到远程ip，结果是远程服务器启动的xwindow直接跳出到我的windows桌面上</p>
+<p>localhost则限定本地连接，可能与ssh tunnel相关</p>
 <h2 id="4-普通用户设置自己的vnc登录密码">4. 普通用户设置自己的vnc登录密码
 </h2><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -545,18 +554,28 @@
 </h1><h2 id="1-通过安全隧道">1. 通过安全隧道
 </h2><h2 id="2-普通用户自己设置vnc连接">2. 普通用户自己设置vnc连接
 </h2><h1 id="参考">参考
-</h1><p><a class="link" href="https://blog.csdn.net/housonglin1213/article/details/50717576"  target="_blank" rel="noopener"
-    >启RHEL7的VNC Server服务及防火墙配置的方法</a>
-<a class="link" href="https://www.cnblogs.com/kstsixeam/p/15474758.html"  target="_blank" rel="noopener"
-    >Windows使用TigerVNC连接Linux图形化桌面</a>
-<a class="link" href="https://blog.csdn.net/u010766726/article/details/105185357"  target="_blank" rel="noopener"
-    ></a></p>
+</h1><ol>
+<li><a class="link" href="https://blog.csdn.net/housonglin1213/article/details/50717576"  target="_blank" rel="noopener"
+    >启RHEL7的VNC Server服务及防火墙配置的方法</a></li>
+<li><a class="link" href="https://www.cnblogs.com/kstsixeam/p/15474758.html"  target="_blank" rel="noopener"
+    >Windows使用TigerVNC连接Linux图形化桌面</a></li>
+<li><a class="link" href="https://blog.csdn.net/u010766726/article/details/105185357"  target="_blank" rel="noopener"
+    >CentOS 7 下 VNC 安装并指定端口启动</a></li>
+<li><a class="link" href="https://zhuanlan.zhihu.com/p/556664196"  target="_blank" rel="noopener"
+    >在Linux下配置RealVNC和TigerVNC</a></li>
+</ol>
 
 </section>
 
 
     <footer class="article-footer">
     
+    <section class="article-tags">
+        
+            <a href="/tags/vnc/">Vnc</a>
+        
+    </section>
+
 
     
     <section class="article-copyright">
@@ -579,6 +598,54 @@
     
 
     
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/tmux%E7%BB%88%E7%AB%AF%E5%A4%8D%E7%94%A8%E5%B7%A5%E5%85%B7/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Tmux终端复用工具</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/git%E7%9B%B8%E5%85%B3/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Git相关</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/putty%E9%85%8D%E7%BD%AE/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">putty配置</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
 
      
     

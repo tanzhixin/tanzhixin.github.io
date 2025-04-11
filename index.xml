@@ -109,6 +109,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;这里用的传统配置，注意加后台运行标记，第一次没加，然后DISPLAY还设定到远程ip，结果是远程服务器启动的xwindow直接跳出到我的windows桌面上&lt;/p&gt;
+&lt;p&gt;localhost则限定本地连接，可能与ssh tunnel相关&lt;/p&gt;
 &lt;h2 id=&#34;4-普通用户设置自己的vnc登录密码&#34;&gt;4. 普通用户设置自己的vnc登录密码
 &lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -165,12 +166,16 @@
 &lt;/h1&gt;&lt;h2 id=&#34;1-通过安全隧道&#34;&gt;1. 通过安全隧道
 &lt;/h2&gt;&lt;h2 id=&#34;2-普通用户自己设置vnc连接&#34;&gt;2. 普通用户自己设置vnc连接
 &lt;/h2&gt;&lt;h1 id=&#34;参考&#34;&gt;参考
-&lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://blog.csdn.net/housonglin1213/article/details/50717576&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;启RHEL7的VNC Server服务及防火墙配置的方法&lt;/a&gt;
-&lt;a class=&#34;link&#34; href=&#34;https://www.cnblogs.com/kstsixeam/p/15474758.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Windows使用TigerVNC连接Linux图形化桌面&lt;/a&gt;
-&lt;a class=&#34;link&#34; href=&#34;https://blog.csdn.net/u010766726/article/details/105185357&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://blog.csdn.net/housonglin1213/article/details/50717576&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;启RHEL7的VNC Server服务及防火墙配置的方法&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.cnblogs.com/kstsixeam/p/15474758.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Windows使用TigerVNC连接Linux图形化桌面&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://blog.csdn.net/u010766726/article/details/105185357&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;CentOS 7 下 VNC 安装并指定端口启动&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://zhuanlan.zhihu.com/p/556664196&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;在Linux下配置RealVNC和TigerVNC&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
 </description>
         </item>
         <item>
