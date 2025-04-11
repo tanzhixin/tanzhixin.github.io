@@ -2,14 +2,14 @@
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <sitemap>
-    <loc>http://localhost:8080/zh-cn/sitemap.xml</loc>
+    <loc>https://tanzhixin.github.io/zh-cn/sitemap.xml</loc>
     
-      <lastmod>2025-04-10T15:00:02+08:00</lastmod>
+      <lastmod>2025-04-11T12:10:56+08:00</lastmod>
     
   </sitemap>
   
   <sitemap>
-    <loc>http://localhost:8080/en/sitemap.xml</loc>
+    <loc>https://tanzhixin.github.io/en/sitemap.xml</loc>
     
   </sitemap>
   

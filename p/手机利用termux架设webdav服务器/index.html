@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
-    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=8080&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+    <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="背景 手里有个旧手机mate30pro，触摸屏断线后下半部分无法使用，换屏勉强成功，后玻璃盖又碎了，摄像头也不准，只能放弃，当是一场经历。\n想想还有点利用价值，就装了个termux，日常跑点服务应该没问题，nginx什么的就没必要了，最后琢磨到webdav上\n开始考虑用nginx，毕竟熟悉一点。检查后发现，虽然termux的nginx也打包了webdav支持，但是不支持ext模块，自己重新编译的代价太大，网上还是基于apache2的资料多一些。\n实践 安装apache2后， 可以先测试apache2的运行\n1 2 apachectl start apachectl stop termux 默认目录为： /data/data/com.termux/files/home apache2配置文件的相对目录为： ../usr/etc/apache2/\n主配置文件 httpd.conf 修改端口、服务器名称，启用4个dav相关模块并启用DAV配置文件\n1 2 3 4 5 6 7 8 Listen 8080 # 端口 ServerName localhost # 服务器名 LoadModule dav_module libexec/apache2/mod_dav.so LoadModule dav_fs_module libexec/apache2/mod_dav_fs.so LoadModule dav_lock_module libexec/apache2/mod_dav_lock.so LoadModule auth_digest_module libexec/apache2/mod_auth_digest.so Include etc/apache2/extra/httpd-dav.conf DAV配置文件 httpd-dav.conf 主要是修改该文件中的options权限 1 2 3 4 &lt;RequireAny&gt; Require method PROPFIND MKCOL GET POST DELETE PUT COPY MOVE LOCK UNLOCK OPTIONS Require user XXXX &lt;/RequireAny&gt; 创建目录，设置用户名密码 1 2 mkdir /data/data/com.termux/files/usr/uploads/ htdigest -c &#34;/data/data/com.termux/files/usr/user.passwd&#34; DAV-upload XXXX 用curl或者raidriver测试。 参考： Termux 使用 apache 搭建 webdav 服务器 termux安装apache2 webdav 揭秘Apache Dav Mod：掌握文件共享与协作的利器 ">
 <title>手机利用termux架设webdav服务器</title>
 
-<link rel='canonical' href='http://localhost:8080/p/%E6%89%8B%E6%9C%BA%E5%88%A9%E7%94%A8termux%E6%9E%B6%E8%AE%BEwebdav%E6%9C%8D%E5%8A%A1%E5%99%A8/'>
+<link rel='canonical' href='https://tanzhixin.github.io/p/%E6%89%8B%E6%9C%BA%E5%88%A9%E7%94%A8termux%E6%9E%B6%E8%AE%BEwebdav%E6%9C%8D%E5%8A%A1%E5%99%A8/'>
 
 <link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="手机利用termux架设webdav服务器">
 <meta property='og:description' content="背景 手里有个旧手机mate30pro，触摸屏断线后下半部分无法使用，换屏勉强成功，后玻璃盖又碎了，摄像头也不准，只能放弃，当是一场经历。\n想想还有点利用价值，就装了个termux，日常跑点服务应该没问题，nginx什么的就没必要了，最后琢磨到webdav上\n开始考虑用nginx，毕竟熟悉一点。检查后发现，虽然termux的nginx也打包了webdav支持，但是不支持ext模块，自己重新编译的代价太大，网上还是基于apache2的资料多一些。\n实践 安装apache2后， 可以先测试apache2的运行\n1 2 apachectl start apachectl stop termux 默认目录为： /data/data/com.termux/files/home apache2配置文件的相对目录为： ../usr/etc/apache2/\n主配置文件 httpd.conf 修改端口、服务器名称，启用4个dav相关模块并启用DAV配置文件\n1 2 3 4 5 6 7 8 Listen 8080 # 端口 ServerName localhost # 服务器名 LoadModule dav_module libexec/apache2/mod_dav.so LoadModule dav_fs_module libexec/apache2/mod_dav_fs.so LoadModule dav_lock_module libexec/apache2/mod_dav_lock.so LoadModule auth_digest_module libexec/apache2/mod_auth_digest.so Include etc/apache2/extra/httpd-dav.conf DAV配置文件 httpd-dav.conf 主要是修改该文件中的options权限 1 2 3 4 &lt;RequireAny&gt; Require method PROPFIND MKCOL GET POST DELETE PUT COPY MOVE LOCK UNLOCK OPTIONS Require user XXXX &lt;/RequireAny&gt; 创建目录，设置用户名密码 1 2 mkdir /data/data/com.termux/files/usr/uploads/ htdigest -c &#34;/data/data/com.termux/files/usr/user.passwd&#34; DAV-upload XXXX 用curl或者raidriver测试。 参考： Termux 使用 apache 搭建 webdav 服务器 termux安装apache2 webdav 揭秘Apache Dav Mod：掌握文件共享与协作的利器 ">
-<meta property='og:url' content='http://localhost:8080/p/%E6%89%8B%E6%9C%BA%E5%88%A9%E7%94%A8termux%E6%9E%B6%E8%AE%BEwebdav%E6%9C%8D%E5%8A%A1%E5%99%A8/'>
+<meta property='og:url' content='https://tanzhixin.github.io/p/%E6%89%8B%E6%9C%BA%E5%88%A9%E7%94%A8termux%E6%9E%B6%E8%AE%BEwebdav%E6%9C%8D%E5%8A%A1%E5%99%A8/'>
 <meta property='og:site_name' content='笔记'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-04-10T15:00:02&#43;08:00'/><meta property='article:modified_time' content='2025-04-10T15:00:02&#43;08:00'/>
 <meta name="twitter:title" content="手机利用termux架设webdav服务器">
@@ -247,9 +247,9 @@
 
                             <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
                                 
-                                    <option value="http://localhost:8080/en/" >English</option>
+                                    <option value="https://tanzhixin.github.io/en/" >English</option>
                                 
-                                    <option value="http://localhost:8080/" selected>中文</option>
+                                    <option value="https://tanzhixin.github.io/" selected>中文</option>
                                 
                             </select>
                         </li>
@@ -566,7 +566,7 @@ apache2配置文件的相对目录为： ../usr/etc/apache2/</p>
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/ts/main.060b660652461f2759bc1b1889415299b52f6ee60f60fcdb890259140462e39d.js" defer></script>
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
 <script>
     (function () {
         const customFont = document.createElement('link');

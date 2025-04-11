@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>My notes</title>
-        <link>http://localhost:8080/en/</link>
+        <link>https://tanzhixin.github.io/en/</link>
         <description>Recent content on My notes</description>
         <generator>Hugo -- gohugo.io</generator>
-        <language>en</language><atom:link href="http://localhost:8080/en/index.xml" rel="self" type="application/rss+xml" />
+        <language>en</language><atom:link href="https://tanzhixin.github.io/en/index.xml" rel="self" type="application/rss+xml" />
     </channel>
 </rss>
